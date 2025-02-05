@@ -32,7 +32,7 @@ This project provides a Python script to analyze Instagram followers and followi
 11. Set the date range to "All time" and format to "JSON".
 12. Click the "Create Files" button.
 13. After a few minutes, navigate to "Download Your Information".
-14. After downloading, extract the files and copy the `following.json` and `followers_1.json` files to the same folder as `insta_analytics.py`. Ensure the JSON files match the format used in the script.
+14. After downloading, extract the files and copy the `following.json` and `followers_1.json` files to the same folder as `instagram_analytics.py`. Ensure the JSON files match the format used in the script.
 
 ## Installation
 
