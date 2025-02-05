@@ -48,11 +48,12 @@ class InstagramAnalytics:
         return list(self.following_set & self.followers_set)
 
     def print_analytics(self):
-        print(f"Following: {self.count_following()}")
-        print(f"Followers: {self.count_followers()}")
-        print(f"Mutual Follow: {self.count_mutual_follow()}")
+        print(f"Following         : {self.count_following()}")
+        print(f"Followers         : {self.count_followers()}")
+        print(f"Mutual Follow     : {self.count_mutual_follow()}")
         print(f"Not Following Back: {self.count_non_follow_back()}")
-        print(f"Not Followed Back: {self.count_not_following_back()}")
+        print(f"Not Followed Back : {self.count_not_following_back()}")
+        print('')
         print(f"List of Not Following Back: {self.list_non_follow_back()}")
         print(f"List of Not Followed Back: {self.list_not_following_back()}")
         print(f"List of Mutual Follow: {self.list_mutual_follow()}")
