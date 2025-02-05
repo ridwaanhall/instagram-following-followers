@@ -41,6 +41,7 @@ This project provides a Python script to analyze Instagram followers and followi
     ```sh
     git clone https://github.com/ridwaanhall/instagram-following-followers.git
     cd instagram-following-followers
+    cd python_scripts
     ```
 
 2. Ensure you have the required JSON files (`following.json` and `followers_1.json`) in the project directory.
