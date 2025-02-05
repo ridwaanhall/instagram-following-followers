@@ -34,11 +34,13 @@ class UploadFileView(FormView):
                 followers_set.add(user['value'])
         
         context = {
-            'following_count': len(following_set),
-            'followers_count': len(followers_set),
-            'mutual_follow': len(following_set & followers_set),
-            'non_follow_back': list(following_set - followers_set),
-            'not_following_back': list(followers_set - following_set),
+            'count_following_count': len(following_set),
+            'count_followers_count': len(followers_set),
+            'count_mutual_follow': len(following_set & followers_set),
+            'count_non_follow_back': len(following_set - followers_set),
+            'count_not_following_back': len(followers_set - following_set),
+            'list_non_follow_back': list(following_set - followers_set),
+            'list_not_following_back': list(followers_set - following_set),
         }
         return render(self.request, 'analytics/results.html', context)
 
@@ -57,10 +59,12 @@ class UploadFileView(FormView):
                 followers_set.add(user['value'])
         
         context = {
-            'following_count': len(following_set),
-            'followers_count': len(followers_set),
-            'mutual_follow': len(following_set & followers_set),
-            'non_follow_back': list(following_set - followers_set),
-            'not_following_back': list(followers_set - following_set),
+            'count_following_count': len(following_set),
+            'count_followers_count': len(followers_set),
+            'count_mutual_follow': len(following_set & followers_set),
+            'count_non_follow_back': len(following_set - followers_set),
+            'count_not_following_back': len(followers_set - following_set),
+            'list_non_follow_back': list(following_set - followers_set),
+            'list_not_following_back': list(followers_set - following_set),
         }
         return render(self.request, 'analytics/results.html', context)

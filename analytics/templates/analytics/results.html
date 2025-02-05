@@ -5,10 +5,23 @@
 </head>
 <body>
     <h1>Analytics Results</h1>
-    <p>Following: {{ following_count }}</p>
-    <p>Followers: {{ followers_count }}</p>
-    <p>Mutual Follow: {{ mutual_follow }}</p>
-    <p>Not Following Back: {{ non_follow_back }}</p>
-    <p>Not Followed Back: {{ not_following_back }}</p>
+    <p>Following: {{ count_following_count }}</p>
+    <p>Followers: {{ count_followers_count }}</p>
+    <p>Mutual Follow: {{ count_mutual_follow }}</p>
+    <p>Not Following Back: {{ count_non_follow_back }}</p>
+    <p>Not Followed Back: {{ count_not_following_back }}</p>
+    <h2>Details</h2>
+    <h3>Not Following Back</h3>
+    <ul>
+        {% for user in list_non_follow_back %}
+            <li>{{ user }}</li>
+        {% endfor %}
+    </ul>
+    <h3>Not Followed Back</h3>
+    <ul>
+        {% for user in list_not_following_back %}
+            <li>{{ user }}</li>
+        {% endfor %}
+    </ul>
 </body>
 </html>
