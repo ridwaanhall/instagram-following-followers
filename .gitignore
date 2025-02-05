@@ -122,4 +122,5 @@ dmypy.json
 cython_debug/
 
 # custom
-*.json
+followers_1.json
+following.json
