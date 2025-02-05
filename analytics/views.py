@@ -1,9 +1,6 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render
 from .forms import UploadFileForm
-from .models import UploadedFile
 import json
-import os
-from django.conf import settings
 
 def upload_file(request):
     if request.method == 'POST':
@@ -12,26 +9,14 @@ def upload_file(request):
             following_file = request.FILES['following_file']
             followers_file = request.FILES['followers_file']
 
-            following_instance = UploadedFile.objects.create(file=following_file)
-            followers_instance = UploadedFile.objects.create(file=followers_file)
-
-            return redirect('show_results', following_id=following_instance.id, followers_id=followers_instance.id)
+            return show_results(request, following_file, followers_file)
     else:
         form = UploadFileForm()
     return render(request, 'analytics/upload.html', {'form': form})
 
-def show_results(request, following_id, followers_id):
-    following_instance = UploadedFile.objects.get(id=following_id)
-    followers_instance = UploadedFile.objects.get(id=followers_id)
-    
-    following_file_path = os.path.join(settings.MEDIA_ROOT, following_instance.file.name)
-    followers_file_path = os.path.join(settings.MEDIA_ROOT, followers_instance.file.name)
-    
-    with open(following_file_path, 'r') as following_file:
-        following_data = json.load(following_file)
-    
-    with open(followers_file_path, 'r') as followers_file:
-        followers_data = json.load(followers_file)
+def show_results(request, following_file, followers_file):
+    following_data = json.load(following_file)
+    followers_data = json.load(followers_file)
     
     following_set = set()
     for item in following_data['relationships_following']:
