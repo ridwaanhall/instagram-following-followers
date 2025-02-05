@@ -1,27 +1,27 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Analytics Results</title>
-</head>
-<body>
-    <h1>Analytics Results</h1>
-    <p>Following: {{ count_following_count }}</p>
-    <p>Followers: {{ count_followers_count }}</p>
-    <p>Mutual Follow: {{ count_mutual_follow }}</p>
-    <p>Not Following Back: {{ count_non_follow_back }}</p>
-    <p>Not Followed Back: {{ count_not_following_back }}</p>
-    <h2>Details</h2>
-    <h3>Not Following Back</h3>
+{% extends 'base.html' %}
+
+{% block title %}Analytics Results{% endblock %}
+
+{% block content %}
+    <h1 class="title">Analytics Results</h1>
+    <div class="box">
+        <p><strong>Following:</strong> {{ count_following_count }}</p>
+        <p><strong>Followers:</strong> {{ count_followers_count }}</p>
+        <p><strong>Mutual Follow:</strong> {{ count_mutual_follow }}</p>
+        <p><strong>Not Following Back:</strong> {{ count_non_follow_back }}</p>
+        <p><strong>Not Followed Back:</strong> {{ count_not_following_back }}</p>
+    </div>
+    <h2 class="subtitle">Details</h2>
+    <h3 class="subtitle is-4">Not Following Back</h3>
     <ul>
         {% for user in list_non_follow_back %}
             <li>{{ user }}</li>
         {% endfor %}
     </ul>
-    <h3>Not Followed Back</h3>
+    <h3 class="subtitle is-4">Not Followed Back</h3>
     <ul>
         {% for user in list_not_following_back %}
             <li>{{ user }}</li>
         {% endfor %}
     </ul>
-</body>
-</html>
+{% endblock %}

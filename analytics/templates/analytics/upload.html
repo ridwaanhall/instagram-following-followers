@@ -1,17 +1,43 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Upload Files or Enter JSON Text</title>
-</head>
-<body>
-    <h1>Upload Following and Followers JSON Files or Enter JSON Text</h1>
+{% extends 'base.html' %}
+
+{% block title %}Upload Files or Enter JSON Text{% endblock %}
+
+{% block content %}
+    <h1 class="title">Upload Following and Followers JSON Files or Enter JSON Text</h1>
     <form method="post" enctype="multipart/form-data" action="{% url 'upload_file' %}">
         {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Upload</button>
+        <div class="field">
+            <label class="label">Following File</label>
+            <div class="control">
+                {{ form.following_file }}
+            </div>
+        </div>
+        <div class="field">
+            <label class="label">Followers File</label>
+            <div class="control">
+                {{ form.followers_file }}
+            </div>
+        </div>
+        <div class="field">
+            <label class="label">Following JSON Text</label>
+            <div class="control">
+                {{ form.following_text }}
+            </div>
+        </div>
+        <div class="field">
+            <label class="label">Followers JSON Text</label>
+            <div class="control">
+                {{ form.followers_text }}
+            </div>
+        </div>
+        <div class="field">
+            <div class="control">
+                <button type="submit" class="button is-primary">Upload</button>
+            </div>
+        </div>
     </form>
     {% if form.errors %}
-        <div style="color: red;">
+        <div class="notification is-danger">
             <ul>
                 {% for field, errors in form.errors.items %}
                     <li>{{ field }}: {{ errors|striptags }}</li>
@@ -19,5 +45,4 @@
             </ul>
         </div>
     {% endif %}
-</body>
-</html>
+{% endblock %}
