@@ -18,71 +18,129 @@
     <form method="post" enctype="multipart/form-data" action="{% url 'upload_file' %}">
         {% csrf_token %}
 
-        <div class="field">
-            <label class="label">Following File</label>
-            <div class="file is-boxed">
-                <label class="file-label">
-                    <input class="file-input" type="file" name="following_file">
-                    <span class="file-cta">
-                        <span class="file-icon">
-                            <i class="fas fa-upload"></i>
-                        </span>
-                        <span class="file-label">
-                            Choose a file…
-                        </span>
-                    </span>
-                </label>
+        <!-- File Upload Section: Left Side -->
+        <div class="columns is-variable is-4">
+            <div class="column is-half">
+                <div class="card">
+                    <div class="card-header">
+                        <p class="card-header-title">Upload Files</p>
+                    </div>
+
+                    <div class="card-content">
+                        <div class="columns is-variable is-4">
+                            <div class="column is-half">
+                                <div class="field">
+                                    <label class="label">Following File</label>
+                                    <div id="file-js-example-following" class="file has-name">
+                                        <label class="file-label">
+                                            <input class="file-input" type="file" name="following_file">
+                                            <span class="file-cta">
+                                                <span class="file-icon">
+                                                    <i class="fas fa-upload"></i>
+                                                </span>
+                                                <span class="file-label">
+                                                    Choose a file…
+                                                </span>
+                                            </span>
+                                            <span class="file-name">No file uploaded</span>
+                                        </label>
+                                    </div>
+                                    {% if form.following_file.errors %}
+                                        <p class="help is-danger">{{ form.following_file.errors|striptags }}</p>
+                                    {% endif %}
+                                </div>
+                            </div>
+
+                            <div class="column is-half">
+                                <div class="field">
+                                    <label class="label">Followers File</label>
+                                    <div id="file-js-example-followers" class="file has-name">
+                                        <label class="file-label">
+                                            <input class="file-input" type="file" name="followers_file">
+                                            <span class="file-cta">
+                                                <span class="file-icon">
+                                                    <i class="fas fa-upload"></i>
+                                                </span>
+                                                <span class="file-label">
+                                                    Choose a file…
+                                                </span>
+                                            </span>
+                                            <span class="file-name">No file uploaded</span>
+                                        </label>
+                                    </div>
+                                    {% if form.followers_file.errors %}
+                                        <p class="help is-danger">{{ form.followers_file.errors|striptags }}</p>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
             </div>
-            {% if form.following_file.errors %}
-                <p class="help is-danger">{{ form.following_file.errors|striptags }}</p>
-            {% endif %}
+
+            <!-- JSON Text Input Section: Right Side -->
+            <div class="column is-half">
+                <div class="card">
+                    <div class="card-header">
+                        <p class="card-header-title">Enter JSON Text</p>
+                    </div>
+                    <div class="card-content">
+                        <div class="columns is-variable is-4">
+                            <div class="column is-half">
+                                <div class="field">
+                                    <label class="label">Following JSON Text</label>
+                                    <div class="control">
+                                        <textarea class="textarea" name="following_text" placeholder="Enter Following JSON Text">{{ form.following_text.value|default:"" }}</textarea>
+                                    </div>
+                                    {% if form.following_text.errors %}
+                                        <p class="help is-danger">{{ form.following_text.errors|striptags }}</p>
+                                    {% endif %}
+                                </div>
+                            </div>
+
+                            <div class="column is-half">
+                                <div class="field">
+                                    <label class="label">Followers JSON Text</label>
+                                    <div class="control">
+                                        <textarea class="textarea" name="followers_text" placeholder="Enter Followers JSON Text">{{ form.followers_text.value|default:"" }}</textarea>
+                                    </div>
+                                    {% if form.followers_text.errors %}
+                                        <p class="help is-danger">{{ form.followers_text.errors|striptags }}</p>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <div class="field">
-            <label class="label">Followers File</label>
-            <div class="file is-boxed">
-                <label class="file-label">
-                    <input class="file-input" type="file" name="followers_file">
-                    <span class="file-cta">
-                        <span class="file-icon">
-                            <i class="fas fa-upload"></i>
-                        </span>
-                        <span class="file-label">
-                            Choose a file…
-                        </span>
-                    </span>
-                </label>
-            </div>
-            {% if form.followers_file.errors %}
-                <p class="help is-danger">{{ form.followers_file.errors|striptags }}</p>
-            {% endif %}
-        </div>
-
-        <div class="field">
-            <label class="label">Following JSON Text</label>
             <div class="control">
-                <textarea class="textarea" name="following_text">{{ form.following_text.value|default:"" }}</textarea>
-            </div>
-            {% if form.following_text.errors %}
-                <p class="help is-danger">{{ form.following_text.errors|striptags }}</p>
-            {% endif %}
-        </div>
-
-        <div class="field">
-            <label class="label">Followers JSON Text</label>
-            <div class="control">
-                <textarea class="textarea" name="followers_text">{{ form.followers_text.value|default:"" }}</textarea>
-            </div>
-            {% if form.followers_text.errors %}
-                <p class="help is-danger">{{ form.followers_text.errors|striptags }}</p>
-            {% endif %}
-        </div>
-
-        <div class="field">
-            <div class="control">
-                <button type="submit" class="button is-primary">Upload</button>
+                <button type="submit" class="button is-primary is-outlined is-fullwidth">Upload</button>
             </div>
         </div>
     </form>
 
+{% endblock %}
+
+{% block extra_foot %}
+<script>
+  const fileInputFollowing = document.querySelector("#file-js-example-following input[type=file]");
+  fileInputFollowing.onchange = () => {
+    if (fileInputFollowing.files.length > 0) {
+      const fileName = document.querySelector("#file-js-example-following .file-name");
+      fileName.textContent = fileInputFollowing.files[0].name;
+    }
+  };
+
+  const fileInputFollowers = document.querySelector("#file-js-example-followers input[type=file]");
+  fileInputFollowers.onchange = () => {
+    if (fileInputFollowers.files.length > 0) {
+      const fileName = document.querySelector("#file-js-example-followers .file-name");
+      fileName.textContent = fileInputFollowers.files[0].name;
+    }
+  };
+</script>
 {% endblock %}

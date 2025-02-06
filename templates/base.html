@@ -9,7 +9,7 @@
         {% block extra_head %}{% endblock %}
     </head>
     <body>
-        <nav class="navbar is-primary" role="navigation" aria-label="main navigation">
+        <nav class="navbar" role="navigation" aria-label="main navigation">
             <div class="navbar-brand">
                 <a class="navbar-item" href="/">
                     <strong style="font-size: larger;">InstaAnalytics</strong>
@@ -34,5 +34,6 @@
                 </p>
             </div>
         </footer>
+        {% block extra_foot %}{% endblock %}
     </body>
 </html>
