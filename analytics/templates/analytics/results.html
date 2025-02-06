@@ -5,23 +5,33 @@
 {% block content %}
     <h1 class="title">Analytics Results</h1>
     <div class="box">
-        <p><strong>Following:</strong> {{ count_following_count }}</p>
-        <p><strong>Followers:</strong> {{ count_followers_count }}</p>
-        <p><strong>Mutual Follow:</strong> {{ count_mutual_follow }}</p>
-        <p><strong>Not Following Back:</strong> {{ count_non_follow_back }}</p>
-        <p><strong>Not Followed Back:</strong> {{ count_not_following_back }}</p>
+        <p><strong>Following:</strong> <span class="tag is-info">{{ count_following_count }}</span></p>
+        <p><strong>Followers:</strong> <span class="tag is-info">{{ count_followers_count }}</span></p>
+        <p><strong>Mutual Follow:</strong> <span class="tag is-info">{{ count_mutual_follow }}</span></p>
+        <p><strong>Not Following Back:</strong> <span class="tag is-info">{{ count_non_follow_back }}</span></p>
+        <p><strong>Not Followed Back:</strong> <span class="tag is-info">{{ count_not_following_back }}</span></p>
     </div>
-    <h2 class="subtitle">Details</h2>
-    <h3 class="subtitle is-4">Not Following Back</h3>
-    <ul>
-        {% for user in list_non_follow_back %}
-            <li>{{ user }}</li>
-        {% endfor %}
-    </ul>
-    <h3 class="subtitle is-4">Not Followed Back</h3>
-    <ul>
-        {% for user in list_not_following_back %}
-            <li>{{ user }}</li>
-        {% endfor %}
-    </ul>
+
+    <div class="columns">
+        <div class="column">
+            <h2 class="subtitle is-4">Not Following Back</h2>
+            <div class="box">
+                <ul>
+                    {% for user in list_non_follow_back %}
+                        <li>{{ user }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+        <div class="column">
+            <h2 class="subtitle is-4">Not Followed Back</h2>
+            <div class="box">
+                <ul>
+                    {% for user in list_not_following_back %}
+                        <li>{{ user }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
 {% endblock %}

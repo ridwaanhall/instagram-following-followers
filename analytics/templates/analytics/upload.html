@@ -4,45 +4,85 @@
 
 {% block content %}
     <h1 class="title">Upload Following and Followers JSON Files or Enter JSON Text</h1>
+
+    {% if form.errors %}
+        <div class="notification is-danger">
+            <ul>
+                {% for field, errors in form.errors.items %}
+                    <li><strong>{{ field|title }}:</strong> {{ errors|striptags }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+    {% endif %}
+
     <form method="post" enctype="multipart/form-data" action="{% url 'upload_file' %}">
         {% csrf_token %}
+
         <div class="field">
             <label class="label">Following File</label>
-            <div class="control">
-                {{ form.following_file }}
+            <div class="file is-boxed">
+                <label class="file-label">
+                    <input class="file-input" type="file" name="following_file">
+                    <span class="file-cta">
+                        <span class="file-icon">
+                            <i class="fas fa-upload"></i>
+                        </span>
+                        <span class="file-label">
+                            Choose a file…
+                        </span>
+                    </span>
+                </label>
             </div>
+            {% if form.following_file.errors %}
+                <p class="help is-danger">{{ form.following_file.errors|striptags }}</p>
+            {% endif %}
         </div>
+
         <div class="field">
             <label class="label">Followers File</label>
-            <div class="control">
-                {{ form.followers_file }}
+            <div class="file is-boxed">
+                <label class="file-label">
+                    <input class="file-input" type="file" name="followers_file">
+                    <span class="file-cta">
+                        <span class="file-icon">
+                            <i class="fas fa-upload"></i>
+                        </span>
+                        <span class="file-label">
+                            Choose a file…
+                        </span>
+                    </span>
+                </label>
             </div>
+            {% if form.followers_file.errors %}
+                <p class="help is-danger">{{ form.followers_file.errors|striptags }}</p>
+            {% endif %}
         </div>
+
         <div class="field">
             <label class="label">Following JSON Text</label>
             <div class="control">
-                {{ form.following_text }}
+                <textarea class="textarea" name="following_text">{{ form.following_text.value|default:"" }}</textarea>
             </div>
+            {% if form.following_text.errors %}
+                <p class="help is-danger">{{ form.following_text.errors|striptags }}</p>
+            {% endif %}
         </div>
+
         <div class="field">
             <label class="label">Followers JSON Text</label>
             <div class="control">
-                {{ form.followers_text }}
+                <textarea class="textarea" name="followers_text">{{ form.followers_text.value|default:"" }}</textarea>
             </div>
+            {% if form.followers_text.errors %}
+                <p class="help is-danger">{{ form.followers_text.errors|striptags }}</p>
+            {% endif %}
         </div>
+
         <div class="field">
             <div class="control">
                 <button type="submit" class="button is-primary">Upload</button>
             </div>
         </div>
     </form>
-    {% if form.errors %}
-        <div class="notification is-danger">
-            <ul>
-                {% for field, errors in form.errors.items %}
-                    <li>{{ field }}: {{ errors|striptags }}</li>
-                {% endfor %}
-            </ul>
-        </div>
-    {% endif %}
+
 {% endblock %}
