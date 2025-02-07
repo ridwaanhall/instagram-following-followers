@@ -1,27 +1,77 @@
 {% extends 'base.html' %}
 
-{% block title %}Analytics Results{% endblock %}
+{% block title %}Analytics Dashboard{% endblock %}
 
 {% block content %}
-    <h1 class="title">Analytics Results</h1>
-    <div class="box">
-        <p><strong>Following:</strong> {{ count_following_count }}</p>
-        <p><strong>Followers:</strong> {{ count_followers_count }}</p>
-        <p><strong>Mutual Follow:</strong> {{ count_mutual_follow }}</p>
-        <p><strong>Not Following Back:</strong> {{ count_non_follow_back }}</p>
-        <p><strong>Not Followed Back:</strong> {{ count_not_following_back }}</p>
-    </div>
-    <h2 class="subtitle">Details</h2>
-    <h3 class="subtitle is-4">Not Following Back</h3>
-    <ul>
-        {% for user in list_non_follow_back %}
-            <li>{{ user }}</li>
-        {% endfor %}
-    </ul>
-    <h3 class="subtitle is-4">Not Followed Back</h3>
-    <ul>
-        {% for user in list_not_following_back %}
-            <li>{{ user }}</li>
-        {% endfor %}
-    </ul>
+    <section class="section">
+        <div class="container">
+            <h1 class="title has-text-centered">Analytics Dashboard</h1>
+            
+            <div class="columns is-multiline is-centered">
+                <div class="column is-3">
+                    <div class="card">
+                        <div class="card-content has-text-centered">
+                            <p class="title">{{ count_following_count }}</p>
+                            <p class="subtitle">Following</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="column is-3">
+                    <div class="card">
+                        <div class="card-content has-text-centered">
+                            <p class="title">{{ count_followers_count }}</p>
+                            <p class="subtitle">Followers</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="column is-3">
+                    <div class="card">
+                        <div class="card-content has-text-centered">
+                            <p class="title">{{ count_mutual_follow }}</p>
+                            <p class="subtitle">Mutual Follow</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="column is-3">
+                    <div class="card">
+                        <div class="card-content has-text-centered">
+                            <p class="title">{{ count_non_follow_back }}</p>
+                            <p class="subtitle">Not Following Back</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="column is-3">
+                    <div class="card">
+                        <div class="card-content has-text-centered">
+                            <p class="title">{{ count_not_following_back }}</p>
+                            <p class="subtitle">Not Followed Back</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="columns">
+                <div class="column">
+                    <div class="box">
+                        <h2 class="subtitle">Not Following Back</h2>
+                        <ul>
+                            {% for user in list_non_follow_back %}
+                                <li>{{ user }}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="box">
+                        <h2 class="subtitle">Not Followed Back</h2>
+                        <ul>
+                            {% for user in list_not_following_back %}
+                                <li>{{ user }}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 {% endblock %}
