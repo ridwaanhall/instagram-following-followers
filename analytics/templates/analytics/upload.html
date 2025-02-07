@@ -3,15 +3,35 @@
 {% block title %}Upload Files or Enter JSON Text{% endblock %}
 
 {% block content %}
-    <h1 class="title">Upload Following and Followers JSON Files or Enter JSON Text</h1>
+    <div class="columns is-centered">
+        <div class="column is-12-desktop is-12-tablet is-12-mobile">
+            <div class="field">
+                <h1 class="title has-text-centered">Upload Following and Followers JSON Files or Enter JSON Text</h1>
+            </div>
+        </div>
+    </div>
+    
+    <div class="columns is-centered">
+        <div class="column is-10-desktop is-12-tablet is-12-mobile">
+            <div class="notification is-info">
+                <button class="delete"></button>
+                For detailed instructions, please refer to the 'Tutorial' section in the navigation bar.
+            </div>
+        </div>
+    </div>
 
     {% if form.errors %}
-        <div class="notification is-danger">
-            <ul>
-                {% for field, errors in form.errors.items %}
-                    <li><strong>{{ field|title }}:</strong> {{ errors|striptags }}</li>
-                {% endfor %}
-            </ul>
+        <div class="columns is-centered">
+            <div class="column is-12-desktop is-12-tablet is-12-mobile">
+                <div class="notification is-danger">
+                    <button class="delete"></button>
+                    <ul>
+                        {% for field, errors in form.errors.items %}
+                            <li><strong>{{ field|title }}:</strong> {{ errors|striptags }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
         </div>
     {% endif %}
 
@@ -19,7 +39,7 @@
         {% csrf_token %}
 
         <div class="columns is-centered">
-            <div class="column is-10">
+            <div class="column is-10-desktop is-12-tablet is-12-mobile">
                 <!-- File Upload Section: Top Card -->
                 <div class="card">
                     <div class="card-header">
@@ -27,8 +47,8 @@
                     </div>
                 
                     <div class="card-content">
-                        <div class="columns">
-                            <div class="column is-half">
+                        <div class="columns is-multiline">
+                            <div class="column is-half-desktop is-full-tablet">
                                 <div class="field">
                                     <label class="label">Following File</label>
                                     <div id="file-js-example-following" class="file has-name is-boxed">
@@ -51,7 +71,7 @@
                                 </div>
                             </div>
                 
-                            <div class="column is-half">
+                            <div class="column is-half-desktop is-full-tablet">
                                 <div class="field">
                                     <label class="label">Followers File</label>
                                     <div id="file-js-example-followers" class="file has-name is-boxed">
@@ -80,7 +100,7 @@
         </div>
 
         <div class="columns is-centered">
-            <div class="column is-10">
+            <div class="column is-10-desktop is-12-tablet is-12-mobile">
                 <!-- JSON Text Input Section: Bottom Card -->
                 <div class="card">
                     <div class="card-header">
@@ -112,7 +132,7 @@
         </div>
 
         <div class="columns is-centered">
-            <div class="column is-10">
+            <div class="column is-10-desktop is-12-tablet is-12-mobile">
                 <div class="field">
                     <div class="control">
                         <button type="submit" class="button is-primary is-outlined is-fullwidth">Upload</button>
@@ -141,5 +161,16 @@
             fileName.textContent = fileInputFollowers.files[0].name;
         }
     };
+</script>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        (document.querySelectorAll('.notification .delete') || []).forEach(($delete) => {
+            const $notification = $delete.parentNode;
+
+            $delete.addEventListener('click', () => {
+                $notification.parentNode.removeChild($notification);
+            });
+        });
+    });
 </script>
 {% endblock %}
