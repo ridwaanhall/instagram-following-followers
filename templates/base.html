@@ -12,31 +12,30 @@
         {% block extra_head %}{% endblock %}
     </head>
     <body>
-        <nav class="navbar container" role="navigation" aria-label="main navigation">
+        <nav class="navbar is-primary" role="navigation" aria-label="main navigation">
             <div class="navbar-brand">
-            <a class="navbar-item" href="{% url 'upload_file' %}">
-                <strong style="font-size: larger;">InstaAnalytics</strong>
-            </a>
+                <a class="navbar-item" href="{% url 'upload_file' %}">
+                    <strong style="font-size: larger;">InstaAnalytics</strong>
+                </a>
 
-            <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
-                <span aria-hidden="true"></span>
-                <span aria-hidden="true"></span>
-                <span aria-hidden="true"></span>
-                <span aria-hidden="true"></span>
-            </a>
+                <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                </a>
             </div>
 
             <div id="navbarBasicExample" class="navbar-menu">
-
-            <div class="navbar-end">
-                <div class="navbar-item">
-                <div class="buttons">
-                    <a class="button is-primary" href="{% url 'tutorial' %}">
-                    <strong>Tutorial</strong>
-                    </a>
+                <div class="navbar-end">
+                    <div class="navbar-item">
+                        <div class="buttons">
+                            <a class="button is-primary" href="{% url 'tutorial' %}">
+                                <strong>Tutorial</strong>
+                            </a>
+                        </div>
+                    </div>
                 </div>
-                </div>
-            </div>
             </div>
         </nav>
 
