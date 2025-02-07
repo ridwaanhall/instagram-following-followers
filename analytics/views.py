@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.views.generic.edit import FormView
 from .forms import UploadFileForm
 import json
+from django.views.generic.base import TemplateView
 
 class UploadFileView(FormView):
     template_name = 'analytics/upload.html'
@@ -68,3 +69,6 @@ class UploadFileView(FormView):
             'list_not_following_back': list(followers_set - following_set),
         }
         return render(self.request, 'analytics/results.html', context)
+    
+class TutorialView(TemplateView):
+    template_name = 'analytics/tutorial.html'
