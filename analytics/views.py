@@ -3,10 +3,13 @@ from django.views.generic.edit import FormView
 from .forms import UploadFileForm
 import json
 from django.views.generic.base import TemplateView
+from django.urls import reverse_lazy
+from django.contrib import messages
 
 class UploadFileView(FormView):
     template_name = 'analytics/upload.html'
     form_class = UploadFileForm
+    success_url = reverse_lazy('upload_file')
 
     def form_valid(self, form):
         following_file = self.request.FILES.get('following_file')
@@ -18,7 +21,9 @@ class UploadFileView(FormView):
             return self.show_results_from_files(following_file, followers_file)
         elif following_text and followers_text:
             return self.show_results_from_text(following_text, followers_text)
-        return super().form_valid(form)
+        else:
+            messages.error(self.request, "You must upload both files or input both texts.")
+            return self.form_invalid(form)
 
     def show_results_from_files(self, following_file, followers_file):
         following_data = json.load(following_file)
