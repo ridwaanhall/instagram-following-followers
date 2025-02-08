@@ -4,7 +4,7 @@
 
 {% block content %}
     <div class="columns is-centered">
-        <div class="column is-12-desktop is-12-tablet is-12-mobile">
+        <div class="column is-10-desktop is-12-tablet is-12-mobile">
             <div class="field">
                 <h1 class="title has-text-centered">Upload Following and Followers JSON Files or Enter JSON Text</h1>
             </div>
@@ -20,9 +20,22 @@
         </div>
     </div>
 
+    {% if messages %}
+        <div class="columns is-centered">
+            <div class="column is-10-desktop is-12-tablet is-12-mobile">
+                {% for message in messages %}
+                    <div class="notification is-danger">
+                        <button class="delete"></button>
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    {% endif %}
+
     {% if form.errors %}
         <div class="columns is-centered">
-            <div class="column is-12-desktop is-12-tablet is-12-mobile">
+            <div class="column is-10-desktop is-12-tablet is-12-mobile">
                 <div class="notification is-danger">
                     <button class="delete"></button>
                     <ul>
@@ -38,7 +51,7 @@
     <form method="post" enctype="multipart/form-data" action="{% url 'upload_file' %}">
         {% csrf_token %}
 
-        <div class="columns is-centered">
+        <div class="columns is-centered" id="file-upload-section">
             <div class="column is-10-desktop is-12-tablet is-12-mobile">
                 <!-- File Upload Section: Top Card -->
                 <div class="card">
@@ -99,7 +112,7 @@
             </div>
         </div>
 
-        <div class="columns is-centered">
+        <div class="columns is-centered" id="json-text-section">
             <div class="column is-10-desktop is-12-tablet is-12-mobile">
                 <!-- JSON Text Input Section: Bottom Card -->
                 <div class="card">
@@ -110,7 +123,7 @@
                         <div class="field">
                             <label class="label">Following JSON Text</label>
                             <div class="control">
-                                <textarea class="textarea" name="following_text" placeholder="Enter Following JSON Text">{{ form.following_text.value|default:"" }}</textarea>
+                                <textarea class="textarea" name="following_text" placeholder="Enter Following JSON Text" id="following-text">{{ form.following_text.value|default:"" }}</textarea>
                             </div>
                             {% if form.following_text.errors %}
                                 <p class="help is-danger">{{ form.following_text.errors|striptags }}</p>
@@ -120,7 +133,7 @@
                         <div class="field">
                             <label class="label">Followers JSON Text</label>
                             <div class="control">
-                                <textarea class="textarea" name="followers_text" placeholder="Enter Followers JSON Text">{{ form.followers_text.value|default:"" }}</textarea>
+                                <textarea class="textarea" name="followers_text" placeholder="Enter Followers JSON Text" id="followers-text">{{ form.followers_text.value|default:"" }}</textarea>
                             </div>
                             {% if form.followers_text.errors %}
                                 <p class="help is-danger">{{ form.followers_text.errors|striptags }}</p>
@@ -147,22 +160,50 @@
 {% block extra_foot %}
 <script>
     const fileInputFollowing = document.querySelector("#file-js-example-following input[type=file]");
+    const fileInputFollowers = document.querySelector("#file-js-example-followers input[type=file]");
+    const followingText = document.querySelector("#following-text");
+    const followersText = document.querySelector("#followers-text");
+    const fileUploadSection = document.querySelector("#file-upload-section");
+    const jsonTextSection = document.querySelector("#json-text-section");
+
     fileInputFollowing.onchange = () => {
+        const fileName = document.querySelector("#file-js-example-following .file-name");
         if (fileInputFollowing.files.length > 0) {
-            const fileName = document.querySelector("#file-js-example-following .file-name");
             fileName.textContent = fileInputFollowing.files[0].name;
+            jsonTextSection.style.display = 'none';
+        } else {
+            fileName.textContent = 'No file uploaded';
+            jsonTextSection.style.display = 'block';
         }
     };
 
-    const fileInputFollowers = document.querySelector("#file-js-example-followers input[type=file]");
     fileInputFollowers.onchange = () => {
+        const fileName = document.querySelector("#file-js-example-followers .file-name");
         if (fileInputFollowers.files.length > 0) {
-            const fileName = document.querySelector("#file-js-example-followers .file-name");
             fileName.textContent = fileInputFollowers.files[0].name;
+            jsonTextSection.style.display = 'none';
+        } else {
+            fileName.textContent = 'No file uploaded';
+            jsonTextSection.style.display = 'block';
         }
     };
-</script>
-<script>
+
+    followingText.oninput = () => {
+        if (followingText.value.trim() !== "" || followersText.value.trim() !== "") {
+            fileUploadSection.classList.add('is-hidden');
+        } else {
+            fileUploadSection.classList.remove('is-hidden');
+        }
+    };
+
+    followersText.oninput = () => {
+        if (followingText.value.trim() !== "" || followersText.value.trim() !== "") {
+            fileUploadSection.classList.add('is-hidden');
+        } else {
+            fileUploadSection.classList.remove('is-hidden');
+        }
+    };
+
     document.addEventListener('DOMContentLoaded', () => {
         (document.querySelectorAll('.notification .delete') || []).forEach(($delete) => {
             const $notification = $delete.parentNode;
