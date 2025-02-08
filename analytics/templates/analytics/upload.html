@@ -4,7 +4,7 @@
 
 {% block content %}
     <div class="columns is-centered">
-        <div class="column is-10-desktop is-12-tablet is-12-mobile">
+        <div class="column is-12-desktop is-12-tablet is-12-mobile">
             <div class="field">
                 <h1 class="title has-text-centered">Upload Following and Followers JSON Files or Enter JSON Text</h1>
             </div>
@@ -12,7 +12,7 @@
     </div>
     
     <div class="columns is-centered">
-        <div class="column is-10-desktop is-12-tablet is-12-mobile">
+        <div class="column is-12-desktop is-12-tablet is-12-mobile">
             <div class="notification is-info">
                 <button class="delete"></button>
                 For detailed instructions, please refer to the 'Tutorial' section in the navigation bar.
@@ -22,7 +22,7 @@
 
     {% if messages %}
         <div class="columns is-centered">
-            <div class="column is-10-desktop is-12-tablet is-12-mobile">
+            <div class="column is-12-desktop is-12-tablet is-12-mobile">
                 {% for message in messages %}
                     <div class="notification is-danger">
                         <button class="delete"></button>
@@ -35,7 +35,7 @@
 
     {% if form.errors %}
         <div class="columns is-centered">
-            <div class="column is-10-desktop is-12-tablet is-12-mobile">
+            <div class="column is-12-desktop is-12-tablet is-12-mobile">
                 <div class="notification is-danger">
                     <button class="delete"></button>
                     <ul>
@@ -52,7 +52,7 @@
         {% csrf_token %}
 
         <div class="columns is-centered" id="file-upload-section">
-            <div class="column is-10-desktop is-12-tablet is-12-mobile">
+            <div class="column is-12-desktop is-12-tablet is-12-mobile">
                 <!-- File Upload Section: Top Card -->
                 <div class="card">
                     <div class="card-header">
@@ -64,12 +64,12 @@
                             <div class="column is-half-desktop is-full-tablet">
                                 <div class="field">
                                     <label class="label">Following File</label>
-                                    <div id="file-js-example-following" class="file has-name is-boxed">
+                                    <div id="file-js-example-following" class="file is-boxed is-success has-name">
                                         <label class="file-label">
                                             <input class="file-input" type="file" name="following_file">
                                             <span class="file-cta">
                                                 <span class="file-icon">
-                                                    <i class="fas fa-upload"></i>
+                                                    <i class="fas fa-cloud-upload-alt"></i>
                                                 </span>
                                                 <span class="file-label">
                                                     Choose a file…
@@ -87,12 +87,12 @@
                             <div class="column is-half-desktop is-full-tablet">
                                 <div class="field">
                                     <label class="label">Followers File</label>
-                                    <div id="file-js-example-followers" class="file has-name is-boxed">
+                                    <div id="file-js-example-followers" class="file is-boxed is-success has-name">
                                         <label class="file-label">
                                             <input class="file-input" type="file" name="followers_file">
                                             <span class="file-cta">
                                                 <span class="file-icon">
-                                                    <i class="fas fa-upload"></i>
+                                                    <i class="fas fa-cloud-upload-alt"></i>
                                                 </span>
                                                 <span class="file-label">
                                                     Choose a file…
@@ -113,7 +113,7 @@
         </div>
 
         <div class="columns is-centered" id="json-text-section">
-            <div class="column is-10-desktop is-12-tablet is-12-mobile">
+            <div class="column is-12-desktop is-12-tablet is-12-mobile">
                 <!-- JSON Text Input Section: Bottom Card -->
                 <div class="card">
                     <div class="card-header">
@@ -145,7 +145,7 @@
         </div>
 
         <div class="columns is-centered">
-            <div class="column is-10-desktop is-12-tablet is-12-mobile">
+            <div class="column is-12-desktop is-12-tablet is-12-mobile">
                 <div class="field">
                     <div class="control">
                         <button type="submit" class="button is-primary is-outlined is-fullwidth">Upload</button>
