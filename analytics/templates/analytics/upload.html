@@ -120,24 +120,31 @@
                         <p class="card-header-title">Enter JSON Text</p>
                     </div>
                     <div class="card-content">
-                        <div class="field">
-                            <label class="label">Following JSON Text</label>
-                            <div class="control">
-                                <textarea class="textarea" name="following_text" placeholder="Enter Following JSON Text" id="following-text">{{ form.following_text.value|default:"" }}</textarea>
+                        <div class="columns is-multiline">
+                            <div class="column is-half-desktop is-full-tablet">
+                                <div class="field">
+                                    <label class="label">Following JSON Text</label>
+                                    <div class="control">
+                                        <textarea class="textarea is-link" name="following_text" placeholder="Enter Following JSON Text" id="following-text">{{ form.following_text.value|default:"" }}</textarea>
+                                    </div>
+                                    {% if form.following_text.errors %}
+                                        <p class="help is-danger">{{ form.following_text.errors|striptags }}</p>
+                                    {% endif %}
+                                </div>
                             </div>
-                            {% if form.following_text.errors %}
-                                <p class="help is-danger">{{ form.following_text.errors|striptags }}</p>
-                            {% endif %}
-                        </div>
+                        
 
-                        <div class="field">
-                            <label class="label">Followers JSON Text</label>
-                            <div class="control">
-                                <textarea class="textarea" name="followers_text" placeholder="Enter Followers JSON Text" id="followers-text">{{ form.followers_text.value|default:"" }}</textarea>
+                            <div class="column is-half-desktop is-full-tablet">
+                                <div class="field">
+                                    <label class="label">Followers JSON Text</label>
+                                    <div class="control">
+                                        <textarea class="textarea is-info" name="followers_text" placeholder="Enter Followers JSON Text" id="followers-text">{{ form.followers_text.value|default:"" }}</textarea>
+                                    </div>
+                                    {% if form.followers_text.errors %}
+                                        <p class="help is-danger">{{ form.followers_text.errors|striptags }}</p>
+                                    {% endif %}
+                                </div>
                             </div>
-                            {% if form.followers_text.errors %}
-                                <p class="help is-danger">{{ form.followers_text.errors|striptags }}</p>
-                            {% endif %}
                         </div>
                     </div>
                 </div>
