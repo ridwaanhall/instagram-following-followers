@@ -45,6 +45,7 @@ class UploadFileView(FormView):
             'count_mutual_follow': len(following_set & followers_set),
             'count_non_follow_back': len(following_set - followers_set),
             'count_not_following_back': len(followers_set - following_set),
+            'list_mutual_follow': list(following_set & followers_set),
             'list_non_follow_back': list(following_set - followers_set),
             'list_not_following_back': list(followers_set - following_set),
         }
@@ -70,6 +71,7 @@ class UploadFileView(FormView):
             'count_mutual_follow': len(following_set & followers_set),
             'count_non_follow_back': len(following_set - followers_set),
             'count_not_following_back': len(followers_set - following_set),
+            'list_mutual_follow': list(following_set & followers_set),
             'list_non_follow_back': list(following_set - followers_set),
             'list_not_following_back': list(followers_set - following_set),
         }
