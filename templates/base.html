@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="en">
     <head>
         <meta charset="utf-8">
@@ -7,8 +8,10 @@
         <meta name="description" content="InstaAnalytics helps you analyze your Instagram followers and following.">
         <meta name="keywords" content="Instagram, Analytics, Followers, Following, InstaAnalytics">
         <meta name="author" content="Ridwan Halim">
+        <meta name="robots" content="index, follow">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+        <link rel="icon" href="{% static 'favicon.ico' %}" type="image/x-icon">
         {% block extra_head %}{% endblock %}
     </head>
     <body>
