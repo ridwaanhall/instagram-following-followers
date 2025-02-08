@@ -3,75 +3,66 @@
 {% block title %}Analytics Dashboard{% endblock %}
 
 {% block content %}
-    <section class="section">
-        <div class="container">
-            <h1 class="title has-text-centered">Analytics Dashboard</h1>
-            
-            <div class="columns is-multiline is-centered">
-                <div class="column is-3">
-                    <div class="card">
-                        <div class="card-content has-text-centered">
-                            <p class="title">{{ count_following_count }}</p>
-                            <p class="subtitle">Following</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="column is-3">
-                    <div class="card">
-                        <div class="card-content has-text-centered">
-                            <p class="title">{{ count_followers_count }}</p>
-                            <p class="subtitle">Followers</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="column is-3">
-                    <div class="card">
-                        <div class="card-content has-text-centered">
-                            <p class="title">{{ count_mutual_follow }}</p>
-                            <p class="subtitle">Mutual Follow</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="column is-3">
-                    <div class="card">
-                        <div class="card-content has-text-centered">
-                            <p class="title">{{ count_non_follow_back }}</p>
-                            <p class="subtitle">Not Following Back</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="column is-3">
-                    <div class="card">
-                        <div class="card-content has-text-centered">
-                            <p class="title">{{ count_not_following_back }}</p>
-                            <p class="subtitle">Not Followed Back</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="columns">
-                <div class="column">
-                    <div class="box">
-                        <h2 class="subtitle">Not Following Back</h2>
-                        <ul>
-                            {% for user in list_non_follow_back %}
-                                <li>{{ user }}</li>
-                            {% endfor %}
-                        </ul>
-                    </div>
-                </div>
-                <div class="column">
-                    <div class="box">
-                        <h2 class="subtitle">Not Followed Back</h2>
-                        <ul>
-                            {% for user in list_not_following_back %}
-                                <li>{{ user }}</li>
-                            {% endfor %}
-                        </ul>
-                    </div>
-                </div>
+    <h1 class="title has-text-centered">Analytics Dashboard</h1>
+    
+    <nav class="section card level hero is-mobile is-link">
+        <div class="level-item has-text-centered">
+            <div>
+                <p class="heading">Following</p>
+                <p class="title">{{ count_following_count }}</p>
             </div>
         </div>
-    </section>
+        <div class="level-item has-text-centered">
+            <div>
+                <p class="heading">Followers</p>
+                <p class="title">{{ count_followers_count }}</p>
+            </div>
+        </div>
+        <div class="level-item has-text-centered">
+            <div>
+                <p class="heading">Mutual Follow</p>
+                <p class="title">{{ count_mutual_follow }}</p>
+            </div>
+        </div>
+        <div class="level-item has-text-centered">
+            <div>
+                <p class="heading">Not Following Back</p>
+                <p class="title">{{ count_non_follow_back }}</p>
+            </div>
+        </div>
+    </nav>
+    
+    <div class="columns">
+        <div class="column">
+            <article class="message is-danger">
+                <div class="message-header">
+                    <p>Not Following Back</p>
+                </div>
+                <div class="message-body">
+                    <ul>
+                        {% for user in list_non_follow_back %}
+                            <li>{{ user }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </article>
+        </div>
+        <div class="column">
+            <article class="message is-info">
+                <div class="message-header">
+                    <p>Mutual Follow</p>
+                </div>
+                <div class="message-body">
+                    <ul>
+                        {% for user in list_mutual_follow %}
+                            <li>{{ user }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </article>
+        </div>
+    </div>
+{% endblock %}
+
+{% block extra_foot %}
 {% endblock %}
