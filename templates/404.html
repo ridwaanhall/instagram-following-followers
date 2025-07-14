@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block title %}Page Not Found - InstaAnalytics{% endblock %}
+
+{% block meta_title %}404 - Page Not Found - InstaAnalytics{% endblock %}
+{% block meta_description %}The page you're looking for doesn't exist. Explore our Instagram analytics tools to analyze your followers and following data.{% endblock %}
+{% block meta_robots %}noindex, follow{% endblock %}
+
+{% block content %}
+<div class="min-h-screen bg-gradient-to-br from-purple-50 via-blue-50 to-pink-50 flex items-center justify-center">
+    <div class="max-w-md w-full mx-auto px-4">
+        <div class="text-center">
+            <!-- 404 Animation -->
+            <div class="mb-8">
+                <div class="inline-flex items-center justify-center w-24 h-24 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full mb-4 shadow-2xl">
+                    <span class="text-2xl font-bold text-white">404</span>
+                </div>
+            </div>
+            
+            <h1 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">Page Not Found</h1>
+            <p class="text-lg text-gray-600 mb-8">
+                The page you're looking for doesn't exist or has been moved.
+            </p>
+            
+            <!-- Action Buttons -->
+            <div class="space-y-4">
+                <a href="{% url 'home' %}" class="block w-full px-6 py-3 bg-gradient-to-r from-purple-600 to-pink-600 text-white font-semibold rounded-xl hover:from-purple-700 hover:to-pink-700 transition-all duration-200 shadow-lg hover:shadow-xl">
+                    Go Home
+                </a>
+                
+                <div class="grid grid-cols-2 gap-4">
+                    <a href="{% url 'upload_file' %}" class="px-4 py-2 bg-white text-purple-600 font-medium rounded-lg border border-purple-200 hover:bg-purple-50 transition-all duration-200">
+                        Upload Files
+                    </a>
+                    <a href="{% url 'tutorial' %}" class="px-4 py-2 bg-white text-purple-600 font-medium rounded-lg border border-purple-200 hover:bg-purple-50 transition-all duration-200">
+                        Tutorial
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

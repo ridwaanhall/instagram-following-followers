@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block title %}Server Error - InstaAnalytics{% endblock %}
+
+{% block meta_title %}500 - Server Error - InstaAnalytics{% endblock %}
+{% block meta_description %}Something went wrong on our end. Please try again later or contact support.{% endblock %}
+{% block meta_robots %}noindex, follow{% endblock %}
+
+{% block content %}
+<div class="min-h-screen bg-gradient-to-br from-red-50 via-orange-50 to-yellow-50 flex items-center justify-center">
+    <div class="max-w-md w-full mx-auto px-4">
+        <div class="text-center">
+            <!-- 500 Animation -->
+            <div class="mb-8">
+                <div class="inline-flex items-center justify-center w-24 h-24 bg-gradient-to-r from-red-600 to-orange-600 rounded-full mb-4 shadow-2xl">
+                    <span class="text-2xl font-bold text-white">500</span>
+                </div>
+            </div>
+            
+            <h1 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">Server Error</h1>
+            <p class="text-lg text-gray-600 mb-8">
+                Something went wrong on our end. Please try again in a few moments.
+            </p>
+            
+            <!-- Action Buttons -->
+            <div class="space-y-4">
+                <a href="{% url 'home' %}" class="block w-full px-6 py-3 bg-gradient-to-r from-red-600 to-orange-600 text-white font-semibold rounded-xl hover:from-red-700 hover:to-orange-700 transition-all duration-200 shadow-lg hover:shadow-xl">
+                    Go Home
+                </a>
+                
+                <button onclick="window.location.reload()" class="block w-full px-4 py-2 bg-white text-red-600 font-medium rounded-lg border border-red-200 hover:bg-red-50 transition-all duration-200">
+                    Try Again
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
