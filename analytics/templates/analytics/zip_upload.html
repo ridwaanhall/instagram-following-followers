@@ -3,41 +3,18 @@
 {% block title %}Upload ZIP File - Instagram Analytics{% endblock %}
 
 {% block content %}
-<div class="min-h-screen bg-gradient-to-br from-indigo-50 via-blue-50 to-cyan-50">
-    <div class="container mx-auto px-4 py-8 sm:py-12">
-        <!-- Breadcrumb Navigation -->
-        <nav class="flex mb-6 sm:mb-8" aria-label="Breadcrumb">
-            <ol class="inline-flex items-center space-x-1 md:space-x-3">
-                <li class="inline-flex items-center">
-                    <a href="{% url 'home' %}" class="inline-flex items-center text-sm font-medium text-gray-700 hover:text-blue-600 transition-colors duration-200">
-                        <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                            <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L9 5.414V17a1 1 0 102 0V5.414l5.293 5.293a1 1 0 001.414-1.414l-7-7z"/>
-                        </svg>
-                        Home
-                    </a>
-                </li>
-                <li>
-                    <div class="flex items-center">
-                        <svg class="w-6 h-6 text-gray-400" fill="currentColor" viewBox="0 0 20 20">
-                            <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"/>
-                        </svg>
-                        <span class="ml-1 text-sm font-medium text-gray-500 md:ml-2">ZIP Upload</span>
-                    </div>
-                </li>
-            </ol>
-        </nav>
+<div class="min-h-screen bg-gradient-to-br from-indigo-50 to-cyan-50">
+    <div class="container mx-auto px-4 py-12">
 
-        <!-- Hero Section -->
-        <div class="text-center mb-8 sm:mb-12">
-            <div class="inline-flex items-center justify-center w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-indigo-600 to-blue-500 rounded-full mb-4 sm:mb-6 shadow-xl animate-pulse">
-                <svg class="w-8 h-8 sm:w-10 sm:h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+        <!-- Header -->
+        <div class="text-center mb-12">
+            <div class="inline-flex items-center justify-center w-16 h-16 bg-indigo-100 text-indigo-600 rounded-full mb-6">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/>
                 </svg>
             </div>
-            <h1 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-3 sm:mb-4 leading-tight px-2">
-                Upload ZIP File
-            </h1>
-            <p class="text-base sm:text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed px-4">
+            <h1 class="text-4xl font-bold text-gray-900 mb-4">Upload ZIP File</h1>
+            <p class="text-lg text-gray-600 max-w-2xl mx-auto">
                 Upload your complete Instagram data export ZIP file. We'll automatically find and extract the followers and following data for analysis.
             </p>
         </div>
