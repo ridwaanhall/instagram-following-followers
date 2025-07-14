@@ -1,189 +1,273 @@
 {% extends 'base.html' %}
 
-{% block title %}Tutorial: Get JSON Data{% endblock %}
+{% block title %}Tutorial: Get Your Instagram Data{% endblock %}
 
 {% block content %}
-    <!-- Hero Section -->
-    <div class="text-center mb-12">
-        <div class="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-blue-600 to-indigo-500 rounded-full mb-6">
-            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
-            </svg>
-        </div>
-        <h1 class="text-4xl font-bold text-gray-900 mb-4">
-            How to Get Your Instagram Data
-        </h1>
-        <p class="text-xl text-gray-600 max-w-2xl mx-auto">
-            Follow these step-by-step instructions to download your Instagram following and followers data
-        </p>
-    </div>
-
-    <!-- Tutorial Steps -->
-    <div class="bg-white rounded-2xl shadow-sm border border-gray-200 overflow-hidden">
-        <div class="bg-gradient-to-r from-blue-600 to-indigo-500 px-6 py-4">
-            <h2 class="text-xl font-semibold text-white flex items-center">
-                <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                </svg>
-                Step-by-Step Instructions
-            </h2>
-        </div>
-        
-        <div class="p-6">
-            <div class="space-y-6">
-                <!-- Step 1 -->
-                <div class="flex items-start">
-                    <div class="flex-shrink-0 w-8 h-8 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center text-sm font-semibold mr-4">
-                        1
-                    </div>
-                    <div class="flex-1">
-                        <p class="text-gray-800 font-medium">Go to your Instagram profile.</p>
-                    </div>
-                </div>
-
-                <!-- Step 2 -->
-                <div class="flex items-start">
-                    <div class="flex-shrink-0 w-8 h-8 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center text-sm font-semibold mr-4">
-                        2
-                    </div>
-                    <div class="flex-1">
-                        <p class="text-gray-800 font-medium">Click the top-right icon with three horizontal lines.</p>
-                    </div>
-                </div>
-
-                <!-- Step 3 -->
-                <div class="flex items-start">
-                    <div class="flex-shrink-0 w-8 h-8 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center text-sm font-semibold mr-4">
-                        3
-                    </div>
-                    <div class="flex-1">
-                        <p class="text-gray-800 font-medium">Click <span class="bg-gray-100 px-2 py-1 rounded text-sm font-mono">"Account Center"</span>.</p>
-                    </div>
-                </div>
-
-                <!-- Step 4 -->
-                <div class="flex items-start">
-                    <div class="flex-shrink-0 w-8 h-8 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center text-sm font-semibold mr-4">
-                        4
-                    </div>
-                    <div class="flex-1">
-                        <p class="text-gray-800 font-medium">In account settings, select <span class="bg-gray-100 px-2 py-1 rounded text-sm font-mono">"Your Information and Permissions"</span>.</p>
-                    </div>
-                </div>
-
-                <!-- Step 5 -->
-                <div class="flex items-start">
-                    <div class="flex-shrink-0 w-8 h-8 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center text-sm font-semibold mr-4">
-                        5
-                    </div>
-                    <div class="flex-1">
-                        <p class="text-gray-800 font-medium">Click <span class="bg-gray-100 px-2 py-1 rounded text-sm font-mono">"Download Your Information"</span>.</p>
-                    </div>
-                </div>
-
-                <!-- Step 6 -->
-                <div class="flex items-start">
-                    <div class="flex-shrink-0 w-8 h-8 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center text-sm font-semibold mr-4">
-                        6
-                    </div>
-                    <div class="flex-1">
-                        <p class="text-gray-800 font-medium">Click <span class="bg-gray-100 px-2 py-1 rounded text-sm font-mono">"Download or Transfer Information"</span>.</p>
-                    </div>
-                </div>
-
-                <!-- Step 7 -->
-                <div class="flex items-start">
-                    <div class="flex-shrink-0 w-8 h-8 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center text-sm font-semibold mr-4">
-                        7
-                    </div>
-                    <div class="flex-1">
-                        <p class="text-gray-800 font-medium">Select your account.</p>
-                    </div>
-                </div>
-
-                <!-- Step 8 -->
-                <div class="flex items-start">
-                    <div class="flex-shrink-0 w-8 h-8 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center text-sm font-semibold mr-4">
-                        8
-                    </div>
-                    <div class="flex-1">
-                        <p class="text-gray-800 font-medium">Select <span class="bg-gray-100 px-2 py-1 rounded text-sm font-mono">"Some of your information"</span>.</p>
-                    </div>
-                </div>
-
-                <!-- Step 9 -->
-                <div class="flex items-start">
-                    <div class="flex-shrink-0 w-8 h-8 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center text-sm font-semibold mr-4">
-                        9
-                    </div>
-                    <div class="flex-1">
-                        <p class="text-gray-800 font-medium">In the <span class="bg-gray-100 px-2 py-1 rounded text-sm font-mono">"Connections"</span> section, select <span class="bg-gray-100 px-2 py-1 rounded text-sm font-mono">"Followers and Following"</span>.</p>
-                    </div>
-                </div>
-
-                <!-- Step 10 -->
-                <div class="flex items-start">
-                    <div class="flex-shrink-0 w-8 h-8 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center text-sm font-semibold mr-4">
-                        10
-                    </div>
-                    <div class="flex-1">
-                        <p class="text-gray-800 font-medium">Download to your device.</p>
-                    </div>
-                </div>
-
-                <!-- Step 11 -->
-                <div class="flex items-start">
-                    <div class="flex-shrink-0 w-8 h-8 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center text-sm font-semibold mr-4">
-                        11
-                    </div>
-                    <div class="flex-1">
-                        <p class="text-gray-800 font-medium">Set the date range to <span class="bg-gray-100 px-2 py-1 rounded text-sm font-mono">"All time"</span> and format to <span class="bg-gray-100 px-2 py-1 rounded text-sm font-mono">"JSON"</span>.</p>
-                    </div>
-                </div>
-
-                <!-- Step 12 -->
-                <div class="flex items-start">
-                    <div class="flex-shrink-0 w-8 h-8 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center text-sm font-semibold mr-4">
-                        12
-                    </div>
-                    <div class="flex-1">
-                        <p class="text-gray-800 font-medium">Click the <span class="bg-blue-100 px-2 py-1 rounded text-sm font-mono text-blue-800">"Create Files"</span> button.</p>
-                    </div>
-                </div>
-
-                <!-- Step 13 -->
-                <div class="flex items-start">
-                    <div class="flex-shrink-0 w-8 h-8 bg-green-100 text-green-600 rounded-full flex items-center justify-center text-sm font-semibold mr-4">
-                        13
-                    </div>
-                    <div class="flex-1">
-                        <p class="text-gray-800 font-medium">After a few minutes, navigate to <span class="bg-gray-100 px-2 py-1 rounded text-sm font-mono">"Download Your Information"</span> to get your files.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Next Steps -->
-    <div class="mt-8 bg-gradient-to-br from-purple-50 to-pink-50 border border-purple-200 rounded-2xl p-6">
-        <div class="flex items-start">
-            <div class="flex-shrink-0">
-                <svg class="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+<div class="min-h-screen bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50">
+    <div class="container mx-auto px-4 py-8 sm:py-12">
+        <!-- Hero Section -->
+        <div class="text-center mb-8 sm:mb-12">
+            <div class="inline-flex items-center justify-center w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-blue-600 to-indigo-500 rounded-full mb-4 sm:mb-6 shadow-xl animate-pulse">
+                <svg class="w-8 h-8 sm:w-10 sm:h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
                 </svg>
             </div>
-            <div class="ml-4">
-                <h3 class="text-lg font-semibold text-purple-900">Ready to analyze your data?</h3>
-                <p class="text-purple-700 mt-1 mb-4">
-                    Once you have your JSON files, head back to the upload page to start analyzing your Instagram followers and following.
-                </p>
-                <a href="{% url 'upload_file' %}" class="inline-flex items-center px-4 py-2 bg-purple-600 text-white font-medium rounded-lg hover:bg-purple-700 transition-colors duration-200">
-                    <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"/>
-                    </svg>
-                    Start Analyzing
-                </a>
+            <h1 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-3 sm:mb-4 leading-tight px-2">
+                How to Get Your Instagram Data
+            </h1>
+            <p class="text-base sm:text-lg lg:text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed px-4">
+                Follow these step-by-step instructions to download your Instagram following and followers data
+            </p>
+        </div>
+
+        <!-- Tutorial Steps -->
+        <div class="max-w-4xl mx-auto">
+            <div class="bg-white/90 backdrop-blur-sm rounded-2xl shadow-xl border border-gray-100 overflow-hidden">
+                <div class="bg-gradient-to-r from-blue-600 to-indigo-500 px-4 sm:px-6 py-4 sm:py-5">
+                    <h2 class="text-lg sm:text-xl font-semibold text-white flex items-center">
+                        <svg class="w-5 h-5 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                        Step-by-Step Instructions
+                    </h2>
+                </div>
+                
+                <div class="p-4 sm:p-6 lg:p-8">
+                    <div class="space-y-4 sm:space-y-6">
+                        <!-- Step 1 -->
+                        <div class="flex items-start space-x-3 sm:space-x-4 p-3 sm:p-4 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl border border-blue-100">
+                            <div class="flex-shrink-0 w-8 h-8 sm:w-10 sm:h-10 bg-blue-600 text-white rounded-full flex items-center justify-center text-sm sm:text-base font-bold shadow-lg">
+                                1
+                            </div>
+                            <div class="flex-1 min-w-0">
+                                <p class="text-gray-800 font-medium text-sm sm:text-base leading-relaxed">
+                                    Go to your Instagram profile and tap the menu icon.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Step 2 -->
+                        <div class="flex items-start space-x-3 sm:space-x-4 p-3 sm:p-4 bg-gradient-to-r from-indigo-50 to-purple-50 rounded-xl border border-indigo-100">
+                            <div class="flex-shrink-0 w-8 h-8 sm:w-10 sm:h-10 bg-indigo-600 text-white rounded-full flex items-center justify-center text-sm sm:text-base font-bold shadow-lg">
+                                2
+                            </div>
+                            <div class="flex-1 min-w-0">
+                                <p class="text-gray-800 font-medium text-sm sm:text-base leading-relaxed">
+                                    Click the top-right icon with three horizontal lines.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Step 3 -->
+                        <div class="flex items-start space-x-3 sm:space-x-4 p-3 sm:p-4 bg-gradient-to-r from-purple-50 to-pink-50 rounded-xl border border-purple-100">
+                            <div class="flex-shrink-0 w-8 h-8 sm:w-10 sm:h-10 bg-purple-600 text-white rounded-full flex items-center justify-center text-sm sm:text-base font-bold shadow-lg">
+                                3
+                            </div>
+                            <div class="flex-1 min-w-0">
+                                <p class="text-gray-800 font-medium text-sm sm:text-base leading-relaxed">
+                                    Click <span class="bg-gray-100 px-2 py-1 rounded text-xs sm:text-sm font-mono">"Account Center"</span>.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Step 4 -->
+                        <div class="flex items-start space-x-3 sm:space-x-4 p-3 sm:p-4 bg-gradient-to-r from-pink-50 to-red-50 rounded-xl border border-pink-100">
+                            <div class="flex-shrink-0 w-8 h-8 sm:w-10 sm:h-10 bg-pink-600 text-white rounded-full flex items-center justify-center text-sm sm:text-base font-bold shadow-lg">
+                                4
+                            </div>
+                            <div class="flex-1 min-w-0">
+                                <p class="text-gray-800 font-medium text-sm sm:text-base leading-relaxed">
+                                    In account settings, select <span class="bg-gray-100 px-2 py-1 rounded text-xs sm:text-sm font-mono">"Your Information and Permissions"</span>.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Step 5 -->
+                        <div class="flex items-start space-x-3 sm:space-x-4 p-3 sm:p-4 bg-gradient-to-r from-orange-50 to-yellow-50 rounded-xl border border-orange-100">
+                            <div class="flex-shrink-0 w-8 h-8 sm:w-10 sm:h-10 bg-orange-600 text-white rounded-full flex items-center justify-center text-sm sm:text-base font-bold shadow-lg">
+                                5
+                            </div>
+                            <div class="flex-1 min-w-0">
+                                <p class="text-gray-800 font-medium text-sm sm:text-base leading-relaxed">
+                                    Click <span class="bg-gray-100 px-2 py-1 rounded text-xs sm:text-sm font-mono">"Download Your Information"</span>.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Step 6 -->
+                        <div class="flex items-start space-x-3 sm:space-x-4 p-3 sm:p-4 bg-gradient-to-r from-yellow-50 to-green-50 rounded-xl border border-yellow-100">
+                            <div class="flex-shrink-0 w-8 h-8 sm:w-10 sm:h-10 bg-yellow-600 text-white rounded-full flex items-center justify-center text-sm sm:text-base font-bold shadow-lg">
+                                6
+                            </div>
+                            <div class="flex-1 min-w-0">
+                                <p class="text-gray-800 font-medium text-sm sm:text-base leading-relaxed">
+                                    Click <span class="bg-gray-100 px-2 py-1 rounded text-xs sm:text-sm font-mono">"Download or Transfer Information"</span>.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Step 7 -->
+                        <div class="flex items-start space-x-3 sm:space-x-4 p-3 sm:p-4 bg-gradient-to-r from-green-50 to-teal-50 rounded-xl border border-green-100">
+                            <div class="flex-shrink-0 w-8 h-8 sm:w-10 sm:h-10 bg-green-600 text-white rounded-full flex items-center justify-center text-sm sm:text-base font-bold shadow-lg">
+                                7
+                            </div>
+                            <div class="flex-1 min-w-0">
+                                <p class="text-gray-800 font-medium text-sm sm:text-base leading-relaxed">
+                                    Select your account.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Step 8 -->
+                        <div class="flex items-start space-x-3 sm:space-x-4 p-3 sm:p-4 bg-gradient-to-r from-teal-50 to-cyan-50 rounded-xl border border-teal-100">
+                            <div class="flex-shrink-0 w-8 h-8 sm:w-10 sm:h-10 bg-teal-600 text-white rounded-full flex items-center justify-center text-sm sm:text-base font-bold shadow-lg">
+                                8
+                            </div>
+                            <div class="flex-1 min-w-0">
+                                <p class="text-gray-800 font-medium text-sm sm:text-base leading-relaxed">
+                                    Select <span class="bg-gray-100 px-2 py-1 rounded text-xs sm:text-sm font-mono">"Some of your information"</span>.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Step 9 -->
+                        <div class="flex items-start space-x-3 sm:space-x-4 p-3 sm:p-4 bg-gradient-to-r from-cyan-50 to-blue-50 rounded-xl border border-cyan-100">
+                            <div class="flex-shrink-0 w-8 h-8 sm:w-10 sm:h-10 bg-cyan-600 text-white rounded-full flex items-center justify-center text-sm sm:text-base font-bold shadow-lg">
+                                9
+                            </div>
+                            <div class="flex-1 min-w-0">
+                                <p class="text-gray-800 font-medium text-sm sm:text-base leading-relaxed">
+                                    In the <span class="bg-gray-100 px-2 py-1 rounded text-xs sm:text-sm font-mono">"Connections"</span> section, select <span class="bg-gray-100 px-2 py-1 rounded text-xs sm:text-sm font-mono">"Followers and Following"</span>.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Step 10 -->
+                        <div class="flex items-start space-x-3 sm:space-x-4 p-3 sm:p-4 bg-gradient-to-r from-emerald-50 to-green-50 rounded-xl border border-emerald-100">
+                            <div class="flex-shrink-0 w-8 h-8 sm:w-10 sm:h-10 bg-emerald-600 text-white rounded-full flex items-center justify-center text-sm sm:text-base font-bold shadow-lg">
+                                10
+                            </div>
+                            <div class="flex-1 min-w-0">
+                                <p class="text-gray-800 font-medium text-sm sm:text-base leading-relaxed">
+                                    Download to your device.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Step 11 -->
+                        <div class="flex items-start space-x-3 sm:space-x-4 p-3 sm:p-4 bg-gradient-to-r from-lime-50 to-yellow-50 rounded-xl border border-lime-100">
+                            <div class="flex-shrink-0 w-8 h-8 sm:w-10 sm:h-10 bg-lime-600 text-white rounded-full flex items-center justify-center text-sm sm:text-base font-bold shadow-lg">
+                                11
+                            </div>
+                            <div class="flex-1 min-w-0">
+                                <p class="text-gray-800 font-medium text-sm sm:text-base leading-relaxed">
+                                    Set the date range to <span class="bg-gray-100 px-2 py-1 rounded text-xs sm:text-sm font-mono">"All time"</span> and format to <span class="bg-gray-100 px-2 py-1 rounded text-xs sm:text-sm font-mono">"JSON"</span>.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Step 12 -->
+                        <div class="flex items-start space-x-3 sm:space-x-4 p-3 sm:p-4 bg-gradient-to-r from-violet-50 to-purple-50 rounded-xl border border-violet-100">
+                            <div class="flex-shrink-0 w-8 h-8 sm:w-10 sm:h-10 bg-violet-600 text-white rounded-full flex items-center justify-center text-sm sm:text-base font-bold shadow-lg">
+                                12
+                            </div>
+                            <div class="flex-1 min-w-0">
+                                <p class="text-gray-800 font-medium text-sm sm:text-base leading-relaxed">
+                                    Click the <span class="bg-blue-100 px-2 py-1 rounded text-xs sm:text-sm font-mono text-blue-800">"Create Files"</span> button.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Step 13 -->
+                        <div class="flex items-start space-x-3 sm:space-x-4 p-3 sm:p-4 bg-gradient-to-r from-green-100 to-emerald-100 rounded-xl border-2 border-green-200 shadow-lg">
+                            <div class="flex-shrink-0 w-8 h-8 sm:w-10 sm:h-10 bg-green-600 text-white rounded-full flex items-center justify-center text-sm sm:text-base font-bold shadow-lg animate-pulse">
+                                ✓
+                            </div>
+                            <div class="flex-1 min-w-0">
+                                <p class="text-gray-800 font-semibold text-sm sm:text-base leading-relaxed">
+                                    After a few minutes, navigate to <span class="bg-gray-100 px-2 py-1 rounded text-xs sm:text-sm font-mono">"Download Your Information"</span> to get your files.
+                                </p>
+                                <p class="text-green-700 text-xs sm:text-sm mt-2 font-medium">
+                                    🎉 You're almost done! Instagram will prepare your data.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Next Steps -->
+            <div class="mt-6 sm:mt-8 bg-gradient-to-br from-purple-100 via-pink-50 to-rose-100 border-2 border-purple-200 rounded-2xl p-4 sm:p-6 shadow-xl">
+                <div class="flex flex-col sm:flex-row items-start space-y-3 sm:space-y-0 sm:space-x-4">
+                    <div class="flex-shrink-0">
+                        <div class="w-12 h-12 bg-gradient-to-br from-purple-600 to-pink-600 rounded-full flex items-center justify-center shadow-lg">
+                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="flex-1 min-w-0">
+                        <h3 class="text-lg sm:text-xl font-bold text-purple-900 mb-2">Ready to analyze your data?</h3>
+                        <p class="text-purple-700 text-sm sm:text-base mb-4 leading-relaxed">
+                            Once you have your JSON files, head back to the upload page to start analyzing your Instagram followers and following.
+                        </p>
+                        <div class="flex flex-col sm:flex-row gap-3">
+                            <a href="{% url 'upload_file' %}" class="inline-flex items-center justify-center px-4 sm:px-6 py-3 bg-gradient-to-r from-purple-600 to-purple-700 text-white font-semibold rounded-xl hover:from-purple-700 hover:to-purple-800 transition-all duration-200 shadow-lg hover:shadow-xl transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2">
+                                <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"/>
+                                </svg>
+                                Upload Files
+                            </a>
+                            <a href="{% url 'text_input' %}" class="inline-flex items-center justify-center px-4 sm:px-6 py-3 bg-gradient-to-r from-pink-600 to-rose-600 text-white font-semibold rounded-xl hover:from-pink-700 hover:to-rose-700 transition-all duration-200 shadow-lg hover:shadow-xl transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:ring-offset-2">
+                                <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/>
+                                </svg>
+                                Paste Data
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quick Tips -->
+            <div class="mt-6 sm:mt-8 grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                <div class="bg-white/80 backdrop-blur-sm rounded-xl p-4 border border-gray-200 shadow-lg">
+                    <div class="flex items-center mb-3">
+                        <div class="w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center mr-3">
+                            <svg class="w-4 h-4 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+                            </svg>
+                        </div>
+                        <h4 class="font-semibold text-gray-900 text-sm">Privacy First</h4>
+                    </div>
+                    <p class="text-xs text-gray-600">Your data is processed locally and never stored on our servers.</p>
+                </div>
+
+                <div class="bg-white/80 backdrop-blur-sm rounded-xl p-4 border border-gray-200 shadow-lg">
+                    <div class="flex items-center mb-3">
+                        <div class="w-8 h-8 bg-green-100 rounded-lg flex items-center justify-center mr-3">
+                            <svg class="w-4 h-4 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                            </svg>
+                        </div>
+                        <h4 class="font-semibold text-gray-900 text-sm">Quick Process</h4>
+                    </div>
+                    <p class="text-xs text-gray-600">Analysis typically takes just a few seconds to complete.</p>
+                </div>
+
+                <div class="bg-white/80 backdrop-blur-sm rounded-xl p-4 border border-gray-200 shadow-lg sm:col-span-2 lg:col-span-1">
+                    <div class="flex items-center mb-3">
+                        <div class="w-8 h-8 bg-purple-100 rounded-lg flex items-center justify-center mr-3">
+                            <svg class="w-4 h-4 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+                            </svg>
+                        </div>
+                        <h4 class="font-semibold text-gray-900 text-sm">Detailed Insights</h4>
+                    </div>
+                    <p class="text-xs text-gray-600">Get comprehensive analysis of your social connections.</p>
+                </div>
             </div>
         </div>
     </div>
+</div>
 {% endblock %}

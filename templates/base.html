@@ -3,59 +3,60 @@
 <html lang="en" class="scroll-smooth">
     <head>
         <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
         <title>{% block title %}InstaAnalytics{% endblock %}</title>
         <meta name="description" content="InstaAnalytics helps you analyze your Instagram followers and following.">
         <meta name="keywords" content="Instagram, Analytics, Followers, Following, InstaAnalytics">
         <meta name="author" content="Ridwan Halim">
         <meta name="robots" content="index, follow">
+        <meta name="theme-color" content="#7c3aed">
         <link rel="stylesheet" href="{% static 'css/global.css' %}">
         <link rel="icon" href="{% static 'favicon.ico' %}" type="image/x-icon">
+        <link rel="apple-touch-icon" href="{% static 'favicon.ico' %}">
         {% block extra_head %}{% endblock %}
     </head>
-    <body class="bg-gray-50 min-h-screen flex flex-col">
+    <body class="bg-gray-50 min-h-screen flex flex-col antialiased">
         <!-- Navigation -->
-        <nav class="bg-white shadow-lg border-b border-gray-200">
+        <nav class="bg-white/95 backdrop-blur-sm shadow-lg border-b border-gray-200 sticky top-0 z-50">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex justify-between items-center h-16">
                     <!-- Logo/Brand -->
                     <div class="flex items-center">
-                        <a href="{% url 'home' %}" class="flex items-center space-x-2">
-                            <!-- Instagram-style icon -->
-                            <div class="bg-gradient-to-br from-purple-600 via-pink-500 to-orange-400 p-2 rounded-xl">
-                                <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                        <a href="{% url 'home' %}" class="flex items-center space-x-3 group">
+                            <!-- Instagram-style icon with hover effect -->
+                            <div class="bg-gradient-to-br from-purple-600 via-pink-500 to-orange-400 p-2.5 rounded-xl transition-transform duration-200 group-hover:scale-105">
+                                <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
                                     <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
                                 </svg>
                             </div>
-                            <span class="text-2xl font-bold bg-gradient-to-r from-purple-600 to-pink-500 bg-clip-text text-transparent">
+                            <span class="text-xl font-bold bg-gradient-to-r from-purple-600 to-pink-500 bg-clip-text text-transparent hidden sm:block">
                                 InstaAnalytics
                             </span>
                         </a>
                     </div>
 
                     <!-- Desktop Menu -->
-                    <div class="hidden md:flex items-center space-x-4">
-                        <a href="{% url 'home' %}" class="inline-flex items-center px-4 py-2 text-sm font-medium text-gray-700 hover:text-purple-600 hover:bg-purple-50 rounded-lg transition-colors duration-200">
-                            <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <div class="hidden md:flex items-center space-x-1">
+                        <a href="{% url 'home' %}" class="inline-flex items-center px-3 py-2 text-sm font-medium text-gray-700 hover:text-purple-600 hover:bg-purple-50 rounded-lg transition-all duration-200 group">
+                            <svg class="w-4 h-4 mr-2 transition-transform duration-200 group-hover:scale-110" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
                             </svg>
                             Home
                         </a>
-                        <a href="{% url 'upload_file' %}" class="inline-flex items-center px-4 py-2 text-sm font-medium text-gray-700 hover:text-purple-600 hover:bg-purple-50 rounded-lg transition-colors duration-200">
-                            <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <a href="{% url 'upload_file' %}" class="inline-flex items-center px-3 py-2 text-sm font-medium text-gray-700 hover:text-purple-600 hover:bg-purple-50 rounded-lg transition-all duration-200 group">
+                            <svg class="w-4 h-4 mr-2 transition-transform duration-200 group-hover:scale-110" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"/>
                             </svg>
                             Upload
                         </a>
-                        <a href="{% url 'text_input' %}" class="inline-flex items-center px-4 py-2 text-sm font-medium text-gray-700 hover:text-purple-600 hover:bg-purple-50 rounded-lg transition-colors duration-200">
-                            <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <a href="{% url 'text_input' %}" class="inline-flex items-center px-3 py-2 text-sm font-medium text-gray-700 hover:text-purple-600 hover:bg-purple-50 rounded-lg transition-all duration-200 group">
+                            <svg class="w-4 h-4 mr-2 transition-transform duration-200 group-hover:scale-110" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/>
                             </svg>
                             Text Input
                         </a>
-                        <a href="{% url 'tutorial' %}" class="inline-flex items-center px-4 py-2 text-sm font-medium text-gray-700 hover:text-purple-600 hover:bg-purple-50 rounded-lg transition-colors duration-200">
-                            <!-- Tutorial icon -->
-                            <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <a href="{% url 'tutorial' %}" class="inline-flex items-center px-3 py-2 text-sm font-medium text-gray-700 hover:text-purple-600 hover:bg-purple-50 rounded-lg transition-all duration-200 group">
+                            <svg class="w-4 h-4 mr-2 transition-transform duration-200 group-hover:scale-110" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
                             </svg>
                             Tutorial
@@ -64,7 +65,7 @@
 
                     <!-- Mobile menu button -->
                     <div class="md:hidden">
-                        <button id="mobile-menu-button" class="p-2 rounded-md text-gray-700 hover:text-purple-600 hover:bg-purple-50 transition-colors duration-200">
+                        <button id="mobile-menu-button" class="p-2 rounded-lg text-gray-700 hover:text-purple-600 hover:bg-purple-50 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2">
                             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
                             </svg>
@@ -73,34 +74,63 @@
                 </div>
 
                 <!-- Mobile Menu -->
-                <div id="mobile-menu" class="md:hidden hidden pb-4">
-                    <a href="{% url 'tutorial' %}" class="flex items-center px-4 py-2 text-sm font-medium text-gray-700 hover:text-purple-600 hover:bg-purple-50 rounded-lg transition-colors duration-200">
-                        <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
-                        </svg>
-                        Tutorial
-                    </a>
+                <div id="mobile-menu" class="md:hidden hidden pb-4 border-t border-gray-100 mt-4 pt-4">
+                    <div class="space-y-2">
+                        <a href="{% url 'home' %}" class="flex items-center px-3 py-2 text-sm font-medium text-gray-700 hover:text-purple-600 hover:bg-purple-50 rounded-lg transition-all duration-200">
+                            <svg class="w-4 h-4 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
+                            </svg>
+                            Home
+                        </a>
+                        <a href="{% url 'upload_file' %}" class="flex items-center px-3 py-2 text-sm font-medium text-gray-700 hover:text-purple-600 hover:bg-purple-50 rounded-lg transition-all duration-200">
+                            <svg class="w-4 h-4 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"/>
+                            </svg>
+                            Upload Files
+                        </a>
+                        <a href="{% url 'text_input' %}" class="flex items-center px-3 py-2 text-sm font-medium text-gray-700 hover:text-purple-600 hover:bg-purple-50 rounded-lg transition-all duration-200">
+                            <svg class="w-4 h-4 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/>
+                            </svg>
+                            Text Input
+                        </a>
+                        <a href="{% url 'tutorial' %}" class="flex items-center px-3 py-2 text-sm font-medium text-gray-700 hover:text-purple-600 hover:bg-purple-50 rounded-lg transition-all duration-200">
+                            <svg class="w-4 h-4 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+                            </svg>
+                            Tutorial
+                        </a>
+                    </div>
                 </div>
             </div>
         </nav>
 
         <!-- Main Content -->
         <main class="flex-1">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-                {% block content %}{% endblock %}
-            </div>
+            {% block content %}{% endblock %}
         </main>
 
         <!-- Footer -->
         <footer class="bg-white border-t border-gray-200 mt-auto">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
                 <div class="text-center">
-                    <p class="text-gray-600">
-                        <span class="font-semibold bg-gradient-to-r from-purple-600 to-pink-500 bg-clip-text text-transparent">InstaAnalytics</span> 
-                        by <a href="https://ngoding-me.vercel.app" class="text-purple-600 hover:text-purple-800 transition-colors duration-200 font-medium">Ridwan Halim</a>. 
-                        Built with <span class="text-red-500">♥</span> using 
-                        <a href="https://tailwindcss.com" class="text-blue-500 hover:text-blue-700 transition-colors duration-200">Tailwind CSS</a>. 
-                        © {% now 'Y' %}.
+                    <div class="flex items-center justify-center mb-4">
+                        <div class="bg-gradient-to-br from-purple-600 via-pink-500 to-orange-400 p-2 rounded-lg mr-3">
+                            <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                            </svg>
+                        </div>
+                        <span class="text-lg font-semibold bg-gradient-to-r from-purple-600 to-pink-500 bg-clip-text text-transparent">
+                            InstaAnalytics
+                        </span>
+                    </div>
+                    <p class="text-gray-600 mb-4">
+                        Created with <span class="text-red-500 animate-pulse">♥</span> by 
+                        <a href="https://ngoding-me.vercel.app" class="text-purple-600 hover:text-purple-800 transition-colors duration-200 font-medium">Ridwan Halim</a>
+                    </p>
+                    <p class="text-sm text-gray-500">
+                        Built with Django & Tailwind CSS • © {% now 'Y' %} • 
+                        <a href="{% url 'tutorial' %}" class="hover:text-purple-600 transition-colors duration-200">Need help?</a>
                     </p>
                 </div>
             </div>
@@ -115,6 +145,10 @@
                 if (mobileMenuButton && mobileMenu) {
                     mobileMenuButton.addEventListener('click', () => {
                         mobileMenu.classList.toggle('hidden');
+                        
+                        // Animate button
+                        const icon = mobileMenuButton.querySelector('svg');
+                        icon.style.transform = mobileMenu.classList.contains('hidden') ? 'rotate(0deg)' : 'rotate(90deg)';
                     });
                 }
 
@@ -124,7 +158,24 @@
                     closeBtn.addEventListener('click', () => {
                         const notification = closeBtn.closest('.notification');
                         if (notification) {
-                            notification.remove();
+                            notification.style.transition = 'all 0.3s ease-out';
+                            notification.style.transform = 'translateX(100%)';
+                            notification.style.opacity = '0';
+                            setTimeout(() => notification.remove(), 300);
+                        }
+                    });
+                });
+
+                // Smooth scroll for anchor links
+                document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                    anchor.addEventListener('click', function (e) {
+                        e.preventDefault();
+                        const target = document.querySelector(this.getAttribute('href'));
+                        if (target) {
+                            target.scrollIntoView({
+                                behavior: 'smooth',
+                                block: 'start'
+                            });
                         }
                     });
                 });
