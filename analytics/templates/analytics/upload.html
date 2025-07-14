@@ -3,162 +3,231 @@
 {% block title %}Upload Files or Enter JSON Text{% endblock %}
 
 {% block content %}
-    <div class="columns is-centered">
-        <div class="column is-12-desktop is-12-tablet is-12-mobile">
-            <div class="field">
-                <h1 class="title has-text-centered">Upload Following and Followers JSON Files or Enter JSON Text</h1>
-            </div>
+    <!-- Hero Section -->
+    <div class="text-center mb-12">
+        <div class="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-purple-600 via-pink-500 to-orange-400 rounded-full mb-6">
+            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"/>
+            </svg>
         </div>
+        <h1 class="text-4xl font-bold text-gray-900 mb-4">
+            Upload Your Instagram Data
+        </h1>
+        <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+            Analyze your Instagram followers and following by uploading JSON files or entering JSON text directly
+        </p>
     </div>
     
-    <div class="columns is-centered">
-        <div class="column is-12-desktop is-12-tablet is-12-mobile">
-            <div class="notification is-info">
-                <button class="delete"></button>
-                For detailed instructions, please refer to the 'Tutorial' section in the navigation bar.
+    <!-- Info Alert -->
+    <div class="bg-blue-50 border border-blue-200 rounded-xl p-4 mb-8">
+        <div class="flex items-start">
+            <div class="flex-shrink-0">
+                <svg class="w-5 h-5 text-blue-500 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"/>
+                </svg>
             </div>
+            <div class="ml-3">
+                <h3 class="text-sm font-medium text-blue-800">Need help getting your data?</h3>
+                <p class="text-sm text-blue-700 mt-1">
+                    For detailed instructions on how to download your Instagram data, please refer to the 
+                    <a href="{% url 'tutorial' %}" class="font-medium underline hover:text-blue-600">Tutorial</a> section.
+                </p>
+            </div>
+            <button class="notification-close ml-auto text-blue-500 hover:text-blue-700">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                </svg>
+            </button>
         </div>
     </div>
 
+    <!-- Error Messages -->
     {% if messages %}
-        <div class="columns is-centered">
-            <div class="column is-12-desktop is-12-tablet is-12-mobile">
-                {% for message in messages %}
-                    <div class="notification is-danger">
-                        <button class="delete"></button>
-                        {{ message }}
+        {% for message in messages %}
+            <div class="bg-red-50 border border-red-200 rounded-xl p-4 mb-6">
+                <div class="flex items-start">
+                    <div class="flex-shrink-0">
+                        <svg class="w-5 h-5 text-red-500 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"/>
+                        </svg>
                     </div>
-                {% endfor %}
+                    <div class="ml-3 flex-1">
+                        <p class="text-sm font-medium text-red-800">{{ message }}</p>
+                    </div>
+                    <button class="notification-close ml-4 text-red-500 hover:text-red-700">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                        </svg>
+                    </button>
+                </div>
             </div>
-        </div>
+        {% endfor %}
     {% endif %}
 
     {% if form.errors %}
-        <div class="columns is-centered">
-            <div class="column is-12-desktop is-12-tablet is-12-mobile">
-                <div class="notification is-danger">
-                    <button class="delete"></button>
-                    <ul>
+        <div class="bg-red-50 border border-red-200 rounded-xl p-4 mb-6">
+            <div class="flex items-start">
+                <div class="flex-shrink-0">
+                    <svg class="w-5 h-5 text-red-500 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"/>
+                    </svg>
+                </div>
+                <div class="ml-3 flex-1">
+                    <h3 class="text-sm font-medium text-red-800">Please fix the following errors:</h3>
+                    <ul class="mt-2 text-sm text-red-700 list-disc list-inside">
                         {% for field, errors in form.errors.items %}
                             <li><strong>{{ field|title }}:</strong> {{ errors|striptags }}</li>
                         {% endfor %}
                     </ul>
                 </div>
+                <button class="notification-close ml-4 text-red-500 hover:text-red-700">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                    </svg>
+                </button>
             </div>
         </div>
     {% endif %}
 
-    <form method="post" enctype="multipart/form-data" action="{% url 'upload_file' %}">
+    <form method="post" enctype="multipart/form-data" action="{% url 'upload_file' %}" class="space-y-8">
         {% csrf_token %}
 
-        <div class="columns is-centered" id="file-upload-section">
-            <div class="column is-12-desktop is-12-tablet is-12-mobile">
-                <!-- File Upload Section: Top Card -->
-                <div class="card">
-                    <div class="card-header">
-                        <p class="card-header-title">Upload Files</p>
-                    </div>
-                
-                    <div class="card-content">
-                        <div class="columns is-multiline">
-                            <div class="column is-half-desktop is-full-tablet">
-                                <div class="field">
-                                    <label class="label">Following File</label>
-                                    <div id="file-js-example-following" class="file is-boxed is-success has-name">
-                                        <label class="file-label">
-                                            <input class="file-input" type="file" name="following_file">
-                                            <span class="file-cta">
-                                                <span class="file-icon">
-                                                    <i class="fas fa-cloud-upload-alt"></i>
-                                                </span>
-                                                <span class="file-label">
-                                                    Choose a file…
-                                                </span>
-                                            </span>
-                                            <span class="file-name">No file uploaded</span>
-                                        </label>
-                                    </div>
-                                    {% if form.following_file.errors %}
-                                        <p class="help is-danger">{{ form.following_file.errors|striptags }}</p>
-                                    {% endif %}
-                                </div>
+        <!-- File Upload Section -->
+        <div id="file-upload-section" class="bg-white rounded-2xl shadow-sm border border-gray-200 overflow-hidden">
+            <div class="bg-gradient-to-r from-purple-600 to-pink-500 px-6 py-4">
+                <h2 class="text-xl font-semibold text-white flex items-center">
+                    <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"/>
+                    </svg>
+                    Upload Files
+                </h2>
+                <p class="text-purple-100 text-sm mt-1">Choose your Instagram JSON files</p>
+            </div>
+            
+            <div class="p-6">
+                <div class="grid md:grid-cols-2 gap-6">
+                    <!-- Following File Upload -->
+                    <div class="space-y-2">
+                        <label class="block text-sm font-medium text-gray-700">Following File</label>
+                        <div id="following-file-upload" class="relative border-2 border-dashed border-gray-300 rounded-xl p-6 text-center hover:border-purple-400 transition-colors duration-200 bg-gray-50 hover:bg-purple-50">
+                            <input type="file" name="following_file" id="following_file" class="absolute inset-0 w-full h-full opacity-0 cursor-pointer">
+                            <div class="upload-content">
+                                <svg class="mx-auto h-8 w-8 text-gray-400 mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"/>
+                                </svg>
+                                <p class="text-sm text-gray-600 font-medium">Click to upload or drag and drop</p>
+                                <p class="text-xs text-gray-500 mt-1">JSON files only</p>
                             </div>
-                
-                            <div class="column is-half-desktop is-full-tablet">
-                                <div class="field">
-                                    <label class="label">Followers File</label>
-                                    <div id="file-js-example-followers" class="file is-boxed is-success has-name">
-                                        <label class="file-label">
-                                            <input class="file-input" type="file" name="followers_file">
-                                            <span class="file-cta">
-                                                <span class="file-icon">
-                                                    <i class="fas fa-cloud-upload-alt"></i>
-                                                </span>
-                                                <span class="file-label">
-                                                    Choose a file…
-                                                </span>
-                                            </span>
-                                            <span class="file-name">No file uploaded</span>
-                                        </label>
-                                    </div>
-                                    {% if form.followers_file.errors %}
-                                        <p class="help is-danger">{{ form.followers_file.errors|striptags }}</p>
-                                    {% endif %}
-                                </div>
+                            <div class="file-info hidden">
+                                <svg class="mx-auto h-8 w-8 text-green-500 mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                </svg>
+                                <p class="text-sm text-green-600 font-medium file-name">File selected</p>
+                                <button type="button" class="text-xs text-red-500 hover:text-red-700 mt-1 remove-file">Remove file</button>
                             </div>
                         </div>
+                        {% if form.following_file.errors %}
+                            <p class="text-sm text-red-600">{{ form.following_file.errors|striptags }}</p>
+                        {% endif %}
+                    </div>
+
+                    <!-- Followers File Upload -->
+                    <div class="space-y-2">
+                        <label class="block text-sm font-medium text-gray-700">Followers File</label>
+                        <div id="followers-file-upload" class="relative border-2 border-dashed border-gray-300 rounded-xl p-6 text-center hover:border-purple-400 transition-colors duration-200 bg-gray-50 hover:bg-purple-50">
+                            <input type="file" name="followers_file" id="followers_file" class="absolute inset-0 w-full h-full opacity-0 cursor-pointer">
+                            <div class="upload-content">
+                                <svg class="mx-auto h-8 w-8 text-gray-400 mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"/>
+                                </svg>
+                                <p class="text-sm text-gray-600 font-medium">Click to upload or drag and drop</p>
+                                <p class="text-xs text-gray-500 mt-1">JSON files only</p>
+                            </div>
+                            <div class="file-info hidden">
+                                <svg class="mx-auto h-8 w-8 text-green-500 mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                </svg>
+                                <p class="text-sm text-green-600 font-medium file-name">File selected</p>
+                                <button type="button" class="text-xs text-red-500 hover:text-red-700 mt-1 remove-file">Remove file</button>
+                            </div>
+                        </div>
+                        {% if form.followers_file.errors %}
+                            <p class="text-sm text-red-600">{{ form.followers_file.errors|striptags }}</p>
+                        {% endif %}
                     </div>
                 </div>
             </div>
         </div>
 
-        <div class="columns is-centered" id="json-text-section">
-            <div class="column is-12-desktop is-12-tablet is-12-mobile">
-                <!-- JSON Text Input Section: Bottom Card -->
-                <div class="card">
-                    <div class="card-header">
-                        <p class="card-header-title">Enter JSON Text</p>
-                    </div>
-                    <div class="card-content">
-                        <div class="columns is-multiline">
-                            <div class="column is-half-desktop is-full-tablet">
-                                <div class="field">
-                                    <label class="label">Following JSON Text</label>
-                                    <div class="control">
-                                        <textarea class="textarea is-link" name="following_text" placeholder="Enter Following JSON Text" id="following-text">{{ form.following_text.value|default:"" }}</textarea>
-                                    </div>
-                                    {% if form.following_text.errors %}
-                                        <p class="help is-danger">{{ form.following_text.errors|striptags }}</p>
-                                    {% endif %}
-                                </div>
-                            </div>
-                        
-
-                            <div class="column is-half-desktop is-full-tablet">
-                                <div class="field">
-                                    <label class="label">Followers JSON Text</label>
-                                    <div class="control">
-                                        <textarea class="textarea is-info" name="followers_text" placeholder="Enter Followers JSON Text" id="followers-text">{{ form.followers_text.value|default:"" }}</textarea>
-                                    </div>
-                                    {% if form.followers_text.errors %}
-                                        <p class="help is-danger">{{ form.followers_text.errors|striptags }}</p>
-                                    {% endif %}
-                                </div>
+        <!-- JSON Text Input Section -->
+        <div id="json-text-section" class="bg-white rounded-2xl shadow-sm border border-gray-200 overflow-hidden">
+            <div class="bg-gradient-to-r from-blue-600 to-indigo-500 px-6 py-4">
+                <h2 class="text-xl font-semibold text-white flex items-center">
+                    <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/>
+                    </svg>
+                    Enter JSON Text
+                </h2>
+                <p class="text-blue-100 text-sm mt-1">Paste your JSON data directly</p>
+            </div>
+            
+            <div class="p-6">
+                <div class="grid md:grid-cols-2 gap-6">
+                    <!-- Following JSON Text -->
+                    <div class="space-y-2">
+                        <label class="block text-sm font-medium text-gray-700">Following JSON Text</label>
+                        <div class="relative">
+                            <textarea 
+                                name="following_text" 
+                                id="following-text" 
+                                rows="8" 
+                                placeholder="Paste your following JSON data here..."
+                                class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors duration-200 bg-gray-50 font-mono text-sm"
+                            >{{ form.following_text.value|default:"" }}</textarea>
+                            <div class="absolute top-3 right-3">
+                                <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/>
+                                </svg>
                             </div>
                         </div>
+                        {% if form.following_text.errors %}
+                            <p class="text-sm text-red-600">{{ form.following_text.errors|striptags }}</p>
+                        {% endif %}
+                    </div>
+
+                    <!-- Followers JSON Text -->
+                    <div class="space-y-2">
+                        <label class="block text-sm font-medium text-gray-700">Followers JSON Text</label>
+                        <div class="relative">
+                            <textarea 
+                                name="followers_text" 
+                                id="followers-text" 
+                                rows="8" 
+                                placeholder="Paste your followers JSON data here..."
+                                class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors duration-200 bg-gray-50 font-mono text-sm"
+                            >{{ form.followers_text.value|default:"" }}</textarea>
+                            <div class="absolute top-3 right-3">
+                                <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/>
+                                </svg>
+                            </div>
+                        </div>
+                        {% if form.followers_text.errors %}
+                            <p class="text-sm text-red-600">{{ form.followers_text.errors|striptags }}</p>
+                        {% endif %}
                     </div>
                 </div>
             </div>
         </div>
 
-        <div class="columns is-centered">
-            <div class="column is-12-desktop is-12-tablet is-12-mobile">
-                <div class="field">
-                    <div class="control">
-                        <button type="submit" class="button is-primary is-outlined is-fullwidth">Check</button>
-                    </div>
-                </div>
-            </div>
+        <!-- Submit Button -->
+        <div class="text-center">
+            <button type="submit" class="inline-flex items-center px-8 py-4 bg-gradient-to-r from-purple-600 to-pink-500 text-white font-semibold rounded-xl hover:from-purple-700 hover:to-pink-600 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
+                <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                </svg>
+                Analyze My Data
+            </button>
         </div>
     </form>
 
@@ -166,59 +235,89 @@
 
 {% block extra_foot %}
 <script>
-    const fileInputFollowing = document.querySelector("#file-js-example-following input[type=file]");
-    const fileInputFollowers = document.querySelector("#file-js-example-followers input[type=file]");
-    const followingText = document.querySelector("#following-text");
-    const followersText = document.querySelector("#followers-text");
-    const fileUploadSection = document.querySelector("#file-upload-section");
-    const jsonTextSection = document.querySelector("#json-text-section");
+    document.addEventListener('DOMContentLoaded', function() {
+        const followingFileInput = document.getElementById('following_file');
+        const followersFileInput = document.getElementById('followers_file');
+        const followingText = document.getElementById('following-text');
+        const followersText = document.getElementById('followers-text');
+        const fileUploadSection = document.getElementById('file-upload-section');
+        const jsonTextSection = document.getElementById('json-text-section');
 
-    fileInputFollowing.onchange = () => {
-        const fileName = document.querySelector("#file-js-example-following .file-name");
-        if (fileInputFollowing.files.length > 0) {
-            fileName.textContent = fileInputFollowing.files[0].name;
-            jsonTextSection.style.display = 'none';
-        } else {
-            fileName.textContent = 'No file uploaded';
-            jsonTextSection.style.display = 'block';
-        }
-    };
+        // File upload handlers
+        function setupFileUpload(input, uploadContainer) {
+            const uploadContent = uploadContainer.querySelector('.upload-content');
+            const fileInfo = uploadContainer.querySelector('.file-info');
+            const fileName = uploadContainer.querySelector('.file-name');
+            const removeBtn = uploadContainer.querySelector('.remove-file');
 
-    fileInputFollowers.onchange = () => {
-        const fileName = document.querySelector("#file-js-example-followers .file-name");
-        if (fileInputFollowers.files.length > 0) {
-            fileName.textContent = fileInputFollowers.files[0].name;
-            jsonTextSection.style.display = 'none';
-        } else {
-            fileName.textContent = 'No file uploaded';
-            jsonTextSection.style.display = 'block';
-        }
-    };
-
-    followingText.oninput = () => {
-        if (followingText.value.trim() !== "" || followersText.value.trim() !== "") {
-            fileUploadSection.classList.add('is-hidden');
-        } else {
-            fileUploadSection.classList.remove('is-hidden');
-        }
-    };
-
-    followersText.oninput = () => {
-        if (followingText.value.trim() !== "" || followersText.value.trim() !== "") {
-            fileUploadSection.classList.add('is-hidden');
-        } else {
-            fileUploadSection.classList.remove('is-hidden');
-        }
-    };
-
-    document.addEventListener('DOMContentLoaded', () => {
-        (document.querySelectorAll('.notification .delete') || []).forEach(($delete) => {
-            const $notification = $delete.parentNode;
-
-            $delete.addEventListener('click', () => {
-                $notification.parentNode.removeChild($notification);
+            input.addEventListener('change', function() {
+                if (this.files && this.files[0]) {
+                    uploadContent.classList.add('hidden');
+                    fileInfo.classList.remove('hidden');
+                    fileName.textContent = this.files[0].name;
+                    uploadContainer.classList.remove('border-gray-300', 'bg-gray-50');
+                    uploadContainer.classList.add('border-green-400', 'bg-green-50');
+                    
+                    // Hide JSON section when file is selected
+                    jsonTextSection.style.display = 'none';
+                }
             });
-        });
+
+            removeBtn.addEventListener('click', function() {
+                input.value = '';
+                uploadContent.classList.remove('hidden');
+                fileInfo.classList.add('hidden');
+                uploadContainer.classList.remove('border-green-400', 'bg-green-50');
+                uploadContainer.classList.add('border-gray-300', 'bg-gray-50');
+                
+                // Show JSON section if no files selected
+                if (!followingFileInput.files[0] && !followersFileInput.files[0]) {
+                    jsonTextSection.style.display = 'block';
+                }
+            });
+
+            // Drag and drop
+            uploadContainer.addEventListener('dragover', function(e) {
+                e.preventDefault();
+                uploadContainer.classList.add('border-purple-400', 'bg-purple-50');
+            });
+
+            uploadContainer.addEventListener('dragleave', function(e) {
+                e.preventDefault();
+                if (!input.files[0]) {
+                    uploadContainer.classList.remove('border-purple-400', 'bg-purple-50');
+                    uploadContainer.classList.add('border-gray-300', 'bg-gray-50');
+                }
+            });
+
+            uploadContainer.addEventListener('drop', function(e) {
+                e.preventDefault();
+                const files = e.dataTransfer.files;
+                if (files.length > 0) {
+                    input.files = files;
+                    input.dispatchEvent(new Event('change'));
+                }
+            });
+        }
+
+        setupFileUpload(followingFileInput, document.getElementById('following-file-upload'));
+        setupFileUpload(followersFileInput, document.getElementById('followers-file-upload'));
+
+        // Text input handlers
+        function checkTextInputs() {
+            const hasText = followingText.value.trim() !== "" || followersText.value.trim() !== "";
+            if (hasText) {
+                fileUploadSection.style.display = 'none';
+            } else {
+                fileUploadSection.style.display = 'block';
+            }
+        }
+
+        followingText.addEventListener('input', checkTextInputs);
+        followersText.addEventListener('input', checkTextInputs);
+
+        // Check initial state
+        checkTextInputs();
     });
 </script>
 {% endblock %}
