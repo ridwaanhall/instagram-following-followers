@@ -1,19 +1,96 @@
 <!DOCTYPE html>
 {% load static %}
-<html lang="en" class="scroll-smooth">
+<html lang="en" class="scroll-smooth" prefix="og: https://ogp.me/ns#">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-        <title>{% block title %}InstaAnalytics{% endblock %}</title>
-        <meta name="description" content="InstaAnalytics helps you analyze your Instagram followers and following.">
-        <meta name="keywords" content="Instagram, Analytics, Followers, Following, InstaAnalytics">
+        
+        <!-- Primary Meta Tags -->
+        <title>{% block title %}InstaAnalytics - Free Instagram Followers & Following Analyzer{% endblock %}</title>
+        <meta name="title" content="{% block meta_title %}InstaAnalytics - Free Instagram Followers & Following Analyzer{% endblock %}">
+        <meta name="description" content="{% block meta_description %}Free Instagram analytics tool to analyze followers and following data. Find who doesn't follow back, mutual connections, and get insights about your Instagram network. No login required.{% endblock %}">
+        <meta name="keywords" content="{% block meta_keywords %}Instagram analytics, followers analyzer, following tracker, Instagram insights, social media analytics, Instagram tools, followers analysis, Instagram data, follower tracker, free Instagram tools{% endblock %}">
         <meta name="author" content="Ridwan Halim">
-        <meta name="robots" content="index, follow">
+        <meta name="robots" content="{% block meta_robots %}index, follow{% endblock %}">
         <meta name="theme-color" content="#7c3aed">
+        <meta name="language" content="English">
+        <meta name="revisit-after" content="7 days">
+        <meta name="rating" content="General">
+        
+        <!-- Canonical URL -->
+        <link rel="canonical" href="{% block canonical_url %}https://igstats.ridwaanhall.com{% endblock %}">
+        
+        <!-- Open Graph / Facebook -->
+        <meta property="og:type" content="{% block og_type %}website{% endblock %}">
+        <meta property="og:url" content="{% block og_url %}https://igstats.ridwaanhall.com{% endblock %}">
+        <meta property="og:title" content="{% block og_title %}InstaAnalytics - Free Instagram Followers & Following Analyzer{% endblock %}">
+        <meta property="og:description" content="{% block og_description %}Free Instagram analytics tool to analyze followers and following data. Find who doesn't follow back, mutual connections, and get insights about your Instagram network.{% endblock %}">
+        <meta property="og:image" content="{% block og_image %}https://igstats.ridwaanhall.com{% static 'images/og-image.png' %}{% endblock %}">
+        <meta property="og:image:width" content="1200">
+        <meta property="og:image:height" content="630">
+        <meta property="og:image:alt" content="InstaAnalytics - Instagram Analytics Tool">
+        <meta property="og:site_name" content="InstaAnalytics">
+        <meta property="og:locale" content="en_US">
+        
+        <!-- Twitter -->
+        <meta property="twitter:card" content="summary_large_image">
+        <meta property="twitter:url" content="{% block twitter_url %}https://igstats.ridwaanhall.com{% endblock %}">
+        <meta property="twitter:title" content="{% block twitter_title %}InstaAnalytics - Free Instagram Followers & Following Analyzer{% endblock %}">
+        <meta property="twitter:description" content="{% block twitter_description %}Free Instagram analytics tool to analyze followers and following data. Find who doesn't follow back, mutual connections, and get insights.{% endblock %}">
+        <meta property="twitter:image" content="{% block twitter_image %}https://igstats.ridwaanhall.com{% static 'images/twitter-card.png' %}{% endblock %}">
+        <meta property="twitter:creator" content="@ridwaanhall">
+        <meta property="twitter:site" content="@ridwaanhall">
+        
+        <!-- Favicon and Icons -->
+        <link rel="icon" href="{% static 'favicon.ico' %}" type="image/x-icon">
+        <link rel="apple-touch-icon" sizes="180x180" href="{% static 'images/apple-touch-icon.png' %}">
+        <link rel="icon" type="image/png" sizes="32x32" href="{% static 'images/favicon-32x32.png' %}">
+        <link rel="icon" type="image/png" sizes="16x16" href="{% static 'images/favicon-16x16.png' %}">
+        <link rel="manifest" href="{% static 'manifest.json' %}">
+        <meta name="msapplication-TileColor" content="#7c3aed">
+        
+        <!-- Preconnect for performance -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        
+        <!-- CSS -->
         <link rel="stylesheet" href="{% static 'css/global.css' %}">
         <link rel="stylesheet" href="https://igstats.ridwaanhall.com/static/font/Plus_Jakarta_Sans/Plus_Jakarta_Sans.css">
-        <link rel="icon" href="{% static 'favicon.ico' %}" type="image/x-icon">
-        <link rel="apple-touch-icon" href="{% static 'favicon.ico' %}">
+        
+        <!-- Structured Data -->
+        <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "WebApplication",
+            "name": "InstaAnalytics",
+            "description": "Free Instagram analytics tool to analyze followers and following data. Find who doesn't follow back, mutual connections, and get insights about your Instagram network.",
+            "url": "https://igstats.ridwaanhall.com",
+            "applicationCategory": "SocialNetworkingApplication",
+            "operatingSystem": "Any",
+            "offers": {
+                "@type": "Offer",
+                "price": "0",
+                "priceCurrency": "USD"
+            },
+            "creator": {
+                "@type": "Person",
+                "name": "Ridwan Halim",
+                "url": "https://bio.ridwaanhall.com"
+            },
+            "featureList": [
+                "Analyze Instagram followers and following",
+                "Find who doesn't follow back",
+                "Discover mutual connections",
+                "Export analysis results",
+                "No login required",
+                "Privacy-focused data processing"
+            ],
+            "softwareRequirements": "Web browser",
+            "permissions": "No special permissions required"
+        }
+        </script>
+        
+        {% block structured_data %}{% endblock %}
         {% block extra_head %}{% endblock %}
     </head>
     <body class="bg-gray-50 min-h-screen flex flex-col antialiased">
@@ -139,7 +216,7 @@
                     </div>
                     <p class="text-gray-600 mb-4">
                         Created with <span class="text-red-500 animate-pulse">♥</span> by 
-                        <a href="https://ngoding-me.vercel.app" class="text-purple-600 hover:text-purple-800 transition-colors duration-200 font-medium">Ridwan Halim</a>
+                        <a href="https://bio.ridwaanhall.com" class="text-purple-600 hover:text-purple-800 transition-colors duration-200 font-medium">Ridwan Halim</a>
                     </p>
                     <p class="text-sm text-gray-500">
                         Built with Django & Tailwind CSS • © {% now 'Y' %} • 
@@ -194,6 +271,27 @@
                 });
             });
         </script>
+        
+        <!-- Organization Schema -->
+        <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            "name": "InstaAnalytics",
+            "url": "https://igstats.ridwaanhall.com",
+            "logo": "https://igstats.ridwaanhall.com/static/images/logo.png",
+            "description": "Free Instagram analytics tool for analyzing followers and following data",
+            "founder": {
+                "@type": "Person",
+                "name": "Ridwan Halim",
+                "url": "https://bio.ridwaanhall.com"
+            },
+            "sameAs": [
+                "https://github.com/ridwaanhall/instagram-following-followers"
+            ]
+        }
+        </script>
+        
         {% block extra_foot %}{% endblock %}
     </body>
 </html>

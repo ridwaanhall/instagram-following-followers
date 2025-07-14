@@ -1,6 +1,48 @@
 {% extends 'base.html' %}
 
-{% block title %}Instagram Analytics - Choose Your Method{% endblock %}
+{% block title %}Instagram Analytics - Free Followers & Following Analyzer Tool{% endblock %}
+
+{% block meta_title %}Instagram Analytics - Free Followers & Following Analyzer Tool{% endblock %}
+{% block meta_description %}Free Instagram analytics tool to analyze your followers and following data. Discover who doesn't follow back, find mutual connections, and get detailed insights about your Instagram network. No login required, 100% privacy-focused.{% endblock %}
+{% block meta_keywords %}Instagram analytics, followers analyzer, following tracker, Instagram insights, social media analytics, Instagram tools, followers analysis, Instagram data, follower tracker, free Instagram tools, Instagram mutual followers, who unfollowed me{% endblock %}
+
+{% block canonical_url %}https://igstats.ridwaanhall.com/{% endblock %}
+{% block og_url %}https://igstats.ridwaanhall.com/{% endblock %}
+{% block twitter_url %}https://igstats.ridwaanhall.com/{% endblock %}
+
+{% block structured_data %}
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Instagram Analytics - Free Followers & Following Analyzer",
+    "description": "Free Instagram analytics tool to analyze your followers and following data. Discover who doesn't follow back, find mutual connections, and get detailed insights about your Instagram network.",
+    "url": "https://igstats.ridwaanhall.com/",
+    "mainEntity": {
+        "@type": "SoftwareApplication",
+        "name": "InstaAnalytics",
+        "applicationCategory": "SocialNetworkingApplication",
+        "operatingSystem": "Any",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        }
+    },
+    "breadcrumb": {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://igstats.ridwaanhall.com/"
+            }
+        ]
+    }
+}
+</script>
+{% endblock %}
 
 {% block content %}
 <div class="min-h-screen bg-gradient-to-br from-purple-50 via-blue-50 to-pink-50">
@@ -13,10 +55,13 @@
                 </svg>
             </div>
             <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 sm:mb-6 leading-tight px-4">
-                Instagram Analytics
+                Free Instagram Analytics Tool
             </h1>
+            <h2 class="text-xl sm:text-2xl lg:text-3xl font-semibold text-purple-600 mb-6 px-4">
+                Analyze Followers & Following Data Instantly
+            </h2>
             <p class="text-base sm:text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto mb-8 sm:mb-12 leading-relaxed px-4">
-                Analyze your Instagram following and followers data to discover who doesn't follow you back, mutual connections, and get valuable insights about your social network.
+                Discover who doesn't follow you back on Instagram, find mutual connections, and get detailed insights about your social network. 100% free, secure, and privacy-focused - no login required.
             </p>
         </div>
 
@@ -266,6 +311,93 @@
                     </div>
                     <h3 class="font-semibold text-gray-900 mb-2">Privacy First</h3>
                     <p class="text-sm text-gray-600">Your data never leaves your device</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- FAQ Section -->
+        <div class="mt-16 sm:mt-20">
+            <div class="text-center mb-12">
+                <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">Frequently Asked Questions</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto text-sm sm:text-base">
+                    Everything you need to know about Instagram follower analysis
+                </p>
+            </div>
+            
+            <div class="max-w-4xl mx-auto space-y-6">
+                <div class="bg-white/90 backdrop-blur-sm rounded-xl shadow-lg border border-gray-100 p-6">
+                    <h3 class="text-lg font-semibold text-gray-900 mb-3">How do I get my Instagram followers and following data?</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        You can download your Instagram data by going to Settings → Your Information and Permissions → Download Your Information. Select "Followers and Following" from the connections section and choose JSON format. Check our <a href="{% url 'tutorial' %}" class="text-purple-600 hover:text-purple-800 font-medium">detailed tutorial</a> for step-by-step instructions.
+                    </p>
+                </div>
+                
+                <div class="bg-white/90 backdrop-blur-sm rounded-xl shadow-lg border border-gray-100 p-6">
+                    <h3 class="text-lg font-semibold text-gray-900 mb-3">Is my Instagram data safe and private?</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Absolutely! Your Instagram data is processed entirely in your browser and never uploaded to our servers. We prioritize your privacy and security - no data is stored, collected, or shared with third parties.
+                    </p>
+                </div>
+                
+                <div class="bg-white/90 backdrop-blur-sm rounded-xl shadow-lg border border-gray-100 p-6">
+                    <h3 class="text-lg font-semibold text-gray-900 mb-3">What insights will I get from the analysis?</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        You'll discover who doesn't follow you back, mutual connections, follower statistics, and detailed lists of your Instagram relationships. Perfect for cleaning up your following list and understanding your social network.
+                    </p>
+                </div>
+                
+                <div class="bg-white/90 backdrop-blur-sm rounded-xl shadow-lg border border-gray-100 p-6">
+                    <h3 class="text-lg font-semibold text-gray-900 mb-3">Do I need to log in or provide my Instagram credentials?</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        No login required! Simply upload or paste your Instagram data export files. We never ask for your Instagram username, password, or any login credentials.
+                    </p>
+                </div>
+                
+                <div class="bg-white/90 backdrop-blur-sm rounded-xl shadow-lg border border-gray-100 p-6">
+                    <h3 class="text-lg font-semibold text-gray-900 mb-3">What file formats are supported?</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        We support JSON files (followers_1.json and following.json), ZIP files containing your complete Instagram data export, and direct JSON text input for quick analysis.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- SEO Content Section -->
+        <div class="mt-16 sm:mt-20">
+            <div class="bg-white/90 backdrop-blur-sm rounded-2xl shadow-lg border border-gray-100 p-8 sm:p-12">
+                <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 mb-6 text-center">Why Use InstaAnalytics for Instagram Analysis?</h2>
+                
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-4">🔒 Privacy-First Approach</h3>
+                        <p class="text-gray-600 leading-relaxed mb-6">
+                            Unlike other Instagram analytics tools that require login or store your data, InstaAnalytics processes everything locally in your browser. Your follower data never leaves your device, ensuring complete privacy and security.
+                        </p>
+                        
+                        <h3 class="text-xl font-semibold text-gray-900 mb-4">⚡ Instant Results</h3>
+                        <p class="text-gray-600 leading-relaxed">
+                            Get immediate insights into your Instagram network. See who unfollowed you, discover mutual connections, and analyze your follower patterns in seconds - no waiting for API calls or slow processing.
+                        </p>
+                    </div>
+                    
+                    <div>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-4">📊 Comprehensive Analytics</h3>
+                        <p class="text-gray-600 leading-relaxed mb-6">
+                            Beyond basic follower counts, get detailed lists of non-mutual followers, engagement insights, and export capabilities. Perfect for influencers, businesses, and anyone serious about their Instagram presence.
+                        </p>
+                        
+                        <h3 class="text-xl font-semibold text-gray-900 mb-4">🆓 Completely Free</h3>
+                        <p class="text-gray-600 leading-relaxed">
+                            No subscriptions, no hidden fees, no premium features. InstaAnalytics is 100% free to use with full functionality available to everyone. Analyze unlimited Instagram accounts without restrictions.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="mt-8 p-6 bg-gradient-to-r from-purple-50 to-pink-50 rounded-xl border border-purple-100">
+                    <h3 class="text-xl font-semibold text-gray-900 mb-3">🎯 Perfect for Instagram Growth Strategy</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Whether you're an influencer, business owner, or social media manager, understanding your Instagram follower dynamics is crucial for growth. Use InstaAnalytics to identify engagement opportunities, clean up your following list, and optimize your Instagram strategy based on real data insights.
+                    </p>
                 </div>
             </div>
         </div>
