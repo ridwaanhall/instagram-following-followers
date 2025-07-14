@@ -3,66 +3,172 @@
 {% block title %}Analytics Dashboard{% endblock %}
 
 {% block content %}
-    <h1 class="title has-text-centered">Analytics Dashboard</h1>
-    
-    <nav class="section card level hero is-mobile is-link">
-        <div class="level-item has-text-centered">
-            <div>
-                <p class="heading">Following</p>
-                <p class="title">{{ count_following_count }}</p>
-            </div>
+    <!-- Hero Section -->
+    <div class="text-center mb-12">
+        <div class="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-green-600 to-emerald-500 rounded-full mb-6">
+            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+            </svg>
         </div>
-        <div class="level-item has-text-centered">
-            <div>
-                <p class="heading">Followers</p>
-                <p class="title">{{ count_followers_count }}</p>
+        <h1 class="text-4xl font-bold text-gray-900 mb-4">
+            Analytics Dashboard
+        </h1>
+        <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+            Here's your complete Instagram follower and following analysis
+        </p>
+    </div>
+
+    <!-- Statistics Cards -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+        <!-- Following Count -->
+        <div class="bg-white rounded-2xl shadow-sm border border-gray-200 p-6 text-center">
+            <div class="inline-flex items-center justify-center w-12 h-12 bg-blue-100 rounded-xl mb-4">
+                <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197m13.5-9a2.5 2.5 0 11-5 0 2.5 2.5 0 015 0z"/>
+                </svg>
             </div>
+            <p class="text-3xl font-bold text-gray-900 mb-2">{{ count_following_count }}</p>
+            <p class="text-sm font-medium text-gray-600">Following</p>
         </div>
-        <div class="level-item has-text-centered">
-            <div>
-                <p class="heading">Mutual Follow</p>
-                <p class="title">{{ count_mutual_follow }}</p>
+
+        <!-- Followers Count -->
+        <div class="bg-white rounded-2xl shadow-sm border border-gray-200 p-6 text-center">
+            <div class="inline-flex items-center justify-center w-12 h-12 bg-green-100 rounded-xl mb-4">
+                <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
+                </svg>
             </div>
+            <p class="text-3xl font-bold text-gray-900 mb-2">{{ count_followers_count }}</p>
+            <p class="text-sm font-medium text-gray-600">Followers</p>
         </div>
-        <div class="level-item has-text-centered">
-            <div>
-                <p class="heading">Not Following Back</p>
-                <p class="title">{{ count_non_follow_back }}</p>
+
+        <!-- Mutual Follow -->
+        <div class="bg-white rounded-2xl shadow-sm border border-gray-200 p-6 text-center">
+            <div class="inline-flex items-center justify-center w-12 h-12 bg-purple-100 rounded-xl mb-4">
+                <svg class="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+                </svg>
             </div>
+            <p class="text-3xl font-bold text-gray-900 mb-2">{{ count_mutual_follow }}</p>
+            <p class="text-sm font-medium text-gray-600">Mutual Follow</p>
         </div>
-    </nav>
-    
-    <div class="columns">
-        <div class="column">
-            <article class="message is-danger">
-                <div class="message-header">
-                    <p>Not Following Back</p>
-                </div>
-                <div class="message-body">
-                    <ul>
+
+        <!-- Not Following Back -->
+        <div class="bg-white rounded-2xl shadow-sm border border-gray-200 p-6 text-center">
+            <div class="inline-flex items-center justify-center w-12 h-12 bg-red-100 rounded-xl mb-4">
+                <svg class="w-6 h-6 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7a4 4 0 11-8 0 4 4 0 018 0zM9 14a6 6 0 00-6 6v1h12v-1a6 6 0 00-6-6zM21 12h-6"/>
+                </svg>
+            </div>
+            <p class="text-3xl font-bold text-gray-900 mb-2">{{ count_non_follow_back }}</p>
+            <p class="text-sm font-medium text-gray-600">Not Following Back</p>
+        </div>
+    </div>
+
+    <!-- Detailed Lists -->
+    <div class="grid lg:grid-cols-2 gap-8">
+        <!-- Not Following Back List -->
+        <div class="bg-white rounded-2xl shadow-sm border border-gray-200 overflow-hidden">
+            <div class="bg-gradient-to-r from-red-600 to-red-500 px-6 py-4">
+                <h2 class="text-xl font-semibold text-white flex items-center">
+                    <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7a4 4 0 11-8 0 4 4 0 018 0zM9 14a6 6 0 00-6 6v1h12v-1a6 6 0 00-6-6zM21 12h-6"/>
+                    </svg>
+                    Not Following Back
+                </h2>
+                <p class="text-red-100 text-sm mt-1">People you follow who don't follow you back</p>
+            </div>
+            <div class="p-6">
+                {% if list_non_follow_back %}
+                    <div class="max-h-96 overflow-y-auto space-y-3">
                         {% for user in list_non_follow_back %}
-                            <li>{{ user }}</li>
+                            <div class="flex items-center justify-between p-3 bg-red-50 rounded-xl border border-red-100">
+                                <div class="flex items-center">
+                                    <div class="w-8 h-8 bg-red-200 rounded-full flex items-center justify-center mr-3">
+                                        <svg class="w-4 h-4 text-red-600" fill="currentColor" viewBox="0 0 20 20">
+                                            <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"/>
+                                        </svg>
+                                    </div>
+                                    <span class="text-gray-900 font-medium">{{ user }}</span>
+                                </div>
+                                <span class="text-xs text-red-600 bg-red-100 px-2 py-1 rounded-full">Not mutual</span>
+                            </div>
                         {% endfor %}
-                    </ul>
-                </div>
-            </article>
+                    </div>
+                {% else %}
+                    <div class="text-center py-12">
+                        <svg class="mx-auto h-12 w-12 text-gray-400 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                        <p class="text-gray-600 font-medium">Great! Everyone you follow follows you back.</p>
+                    </div>
+                {% endif %}
+            </div>
         </div>
-        <div class="column">
-            <article class="message is-info">
-                <div class="message-header">
-                    <p>Mutual Follow</p>
-                </div>
-                <div class="message-body">
-                    <ul>
+
+        <!-- Mutual Follow List -->
+        <div class="bg-white rounded-2xl shadow-sm border border-gray-200 overflow-hidden">
+            <div class="bg-gradient-to-r from-purple-600 to-purple-500 px-6 py-4">
+                <h2 class="text-xl font-semibold text-white flex items-center">
+                    <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+                    </svg>
+                    Mutual Follow
+                </h2>
+                <p class="text-purple-100 text-sm mt-1">People who follow you and you follow back</p>
+            </div>
+            <div class="p-6">
+                {% if list_mutual_follow %}
+                    <div class="max-h-96 overflow-y-auto space-y-3">
                         {% for user in list_mutual_follow %}
-                            <li>{{ user }}</li>
+                            <div class="flex items-center justify-between p-3 bg-purple-50 rounded-xl border border-purple-100">
+                                <div class="flex items-center">
+                                    <div class="w-8 h-8 bg-purple-200 rounded-full flex items-center justify-center mr-3">
+                                        <svg class="w-4 h-4 text-purple-600" fill="currentColor" viewBox="0 0 20 20">
+                                            <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"/>
+                                        </svg>
+                                    </div>
+                                    <span class="text-gray-900 font-medium">{{ user }}</span>
+                                </div>
+                                <span class="text-xs text-purple-600 bg-purple-100 px-2 py-1 rounded-full">Mutual</span>
+                            </div>
                         {% endfor %}
-                    </ul>
-                </div>
-            </article>
+                    </div>
+                {% else %}
+                    <div class="text-center py-12">
+                        <svg class="mx-auto h-12 w-12 text-gray-400 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                        <p class="text-gray-600 font-medium">No mutual connections found.</p>
+                    </div>
+                {% endif %}
+            </div>
         </div>
+    </div>
+
+    <!-- Action Buttons -->
+    <div class="mt-12 text-center space-y-4 sm:space-y-0 sm:space-x-4 sm:flex sm:justify-center">
+        <a href="{% url 'upload_file' %}" class="inline-flex items-center px-6 py-3 bg-gradient-to-r from-purple-600 to-pink-500 text-white font-medium rounded-xl hover:from-purple-700 hover:to-pink-600 transition-all duration-200 shadow-lg hover:shadow-xl">
+            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/>
+            </svg>
+            Analyze New Data
+        </a>
+        <button onclick="window.print()" class="inline-flex items-center px-6 py-3 bg-white text-gray-700 font-medium rounded-xl border border-gray-300 hover:bg-gray-50 transition-colors duration-200">
+            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"/>
+            </svg>
+            Print Report
+        </button>
     </div>
 {% endblock %}
 
 {% block extra_foot %}
+<style>
+    @media print {
+        .no-print { display: none !important; }
+        body { background: white !important; }
+        .bg-gradient-to-r { background: #6366f1 !important; }
+    }
+</style>
 {% endblock %}
