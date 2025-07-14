@@ -121,17 +121,17 @@
                             </svg>
                             Home
                         </a>
-                        <a href="{% url 'upload_file' %}" class="inline-flex items-center px-3 py-2 text-sm font-medium {% if request.resolver_match.url_name == 'upload_file' %}text-purple-600 bg-purple-100 border border-purple-200{% else %}text-gray-700 hover:text-purple-600 hover:bg-purple-50{% endif %} rounded-lg transition-all duration-200 group">
-                            <svg class="w-4 h-4 mr-2 transition-transform duration-200 group-hover:scale-110" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"/>
-                            </svg>
-                            Upload Files
-                        </a>
                         <a href="{% url 'zip_upload' %}" class="inline-flex items-center px-3 py-2 text-sm font-medium {% if request.resolver_match.url_name == 'zip_upload' %}text-purple-600 bg-purple-100 border border-purple-200{% else %}text-gray-700 hover:text-purple-600 hover:bg-purple-50{% endif %} rounded-lg transition-all duration-200 group">
                             <svg class="w-4 h-4 mr-2 transition-transform duration-200 group-hover:scale-110" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/>
                             </svg>
                             ZIP Upload
+                        </a>
+                        <a href="{% url 'upload_file' %}" class="inline-flex items-center px-3 py-2 text-sm font-medium {% if request.resolver_match.url_name == 'upload_file' %}text-purple-600 bg-purple-100 border border-purple-200{% else %}text-gray-700 hover:text-purple-600 hover:bg-purple-50{% endif %} rounded-lg transition-all duration-200 group">
+                            <svg class="w-4 h-4 mr-2 transition-transform duration-200 group-hover:scale-110" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"/>
+                            </svg>
+                            Upload Files
                         </a>
                         <a href="{% url 'text_input' %}" class="inline-flex items-center px-3 py-2 text-sm font-medium {% if request.resolver_match.url_name == 'text_input' %}text-purple-600 bg-purple-100 border border-purple-200{% else %}text-gray-700 hover:text-purple-600 hover:bg-purple-50{% endif %} rounded-lg transition-all duration-200 group">
                             <svg class="w-4 h-4 mr-2 transition-transform duration-200 group-hover:scale-110" fill="none" stroke="currentColor" viewBox="0 0 24 24">
