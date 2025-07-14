@@ -1,0 +1,20 @@
+User-agent: *
+Allow: /
+
+# Disallow admin pages
+Disallow: /admin/
+Disallow: /media/uploads/
+
+# Allow important pages
+Allow: /
+Allow: /upload/
+Allow: /zip-upload/
+Allow: /text-input/
+Allow: /tutorial/
+Allow: /static/
+
+# Sitemap location
+Sitemap: https://igstats.ridwaanhall.com/sitemap.xml
+
+# Crawl delay (be nice to servers)
+Crawl-delay: 1
