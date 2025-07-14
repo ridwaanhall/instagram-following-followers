@@ -10,6 +10,7 @@ from django.core.exceptions import ValidationError
 import zipfile
 import tempfile
 import os
+from datetime import datetime
 
 logger = logging.getLogger(__name__)
 
@@ -21,27 +22,121 @@ class BaseAnalyticsView(FormView):
 
     def process_data(self, following_data, followers_data):
         try:
-            following_set = {
-                user['value']
-                for item in following_data.get('relationships_following', [])
-                for user in item.get('string_list_data', [])
-            }
+            # Extract following data with timestamps
+            following_users = {}
+            for item in following_data.get('relationships_following', []):
+                for user in item.get('string_list_data', []):
+                    username = user['value']
+                    timestamp = user.get('timestamp')
+                    following_users[username] = {
+                        'timestamp': timestamp,
+                        'formatted_date': datetime.fromtimestamp(timestamp).strftime('%B %d, %Y at %I:%M %p') if timestamp else 'Unknown',
+                        'href': user.get('href', f'https://www.instagram.com/{username}')
+                    }
 
-            followers_set = {
-                user['value']
-                for item in followers_data
-                for user in item.get('string_list_data', [])
-            }
+            # Extract followers data with timestamps
+            followers_users = {}
+            for item in followers_data:
+                for user in item.get('string_list_data', []):
+                    username = user['value']
+                    timestamp = user.get('timestamp')
+                    followers_users[username] = {
+                        'timestamp': timestamp,
+                        'formatted_date': datetime.fromtimestamp(timestamp).strftime('%B %d, %Y at %I:%M %p') if timestamp else 'Unknown',
+                        'href': user.get('href', f'https://www.instagram.com/{username}')
+                    }
+
+            following_set = set(following_users.keys())
+            followers_set = set(followers_users.keys())
+
+            # Create detailed lists with timestamp information
+            mutual_follow_list = []
+            for username in following_set & followers_set:
+                following_info = following_users.get(username, {})
+                follower_info = followers_users.get(username, {})
+                mutual_follow_list.append({
+                    'username': username,
+                    'href': following_info.get('href', f'https://www.instagram.com/{username}'),
+                    'followed_date': following_info.get('formatted_date', 'Unknown'),
+                    'follower_date': follower_info.get('formatted_date', 'Unknown'),
+                    'followed_timestamp': following_info.get('timestamp'),
+                    'follower_timestamp': follower_info.get('timestamp')
+                })
+
+            non_follow_back_list = []
+            for username in following_set - followers_set:
+                following_info = following_users.get(username, {})
+                non_follow_back_list.append({
+                    'username': username,
+                    'href': following_info.get('href', f'https://www.instagram.com/{username}'),
+                    'followed_date': following_info.get('formatted_date', 'Unknown'),
+                    'followed_timestamp': following_info.get('timestamp')
+                })
+
+            not_following_back_list = []
+            for username in followers_set - following_set:
+                follower_info = followers_users.get(username, {})
+                not_following_back_list.append({
+                    'username': username,
+                    'href': follower_info.get('href', f'https://www.instagram.com/{username}'),
+                    'follower_date': follower_info.get('formatted_date', 'Unknown'),
+                    'follower_timestamp': follower_info.get('timestamp')
+                })
+
+            # Sort lists by timestamp (most recent first)
+            mutual_follow_list.sort(key=lambda x: x.get('followed_timestamp', 0), reverse=True)
+            non_follow_back_list.sort(key=lambda x: x.get('followed_timestamp', 0), reverse=True)
+            not_following_back_list.sort(key=lambda x: x.get('follower_timestamp', 0), reverse=True)
+
+            # Calculate time-based insights
+            recent_follows = []
+            recent_followers = []
+            current_time = datetime.now().timestamp()
+            one_month_ago = current_time - (30 * 24 * 60 * 60)  # 30 days in seconds
+
+            for username, data in following_users.items():
+                if data.get('timestamp') and data['timestamp'] > one_month_ago:
+                    recent_follows.append(username)
+
+            for username, data in followers_users.items():
+                if data.get('timestamp') and data['timestamp'] > one_month_ago:
+                    recent_followers.append(username)
+
+            # Calculate meaningful percentages
+            following_count = len(following_set)
+            followers_count = len(followers_set)
+            mutual_count = len(following_set & followers_set)
+            
+            # Mutual rate: what percentage of people you follow also follow you back
+            mutual_rate = round((mutual_count / following_count * 100), 1) if following_count > 0 else 0
+            
+            # Follow back rate: what percentage of your followers do you follow back
+            follow_back_rate = round((mutual_count / followers_count * 100), 1) if followers_count > 0 else 0
+            
+            # Follow ratio: followers to following ratio
+            follow_ratio = round((followers_count / following_count), 2) if following_count > 0 else 0
 
             context = {
-                'count_following_count': len(following_set),
-                'count_followers_count': len(followers_set),
-                'count_mutual_follow': len(following_set & followers_set),
+                'count_following_count': following_count,
+                'count_followers_count': followers_count,
+                'count_mutual_follow': mutual_count,
                 'count_non_follow_back': len(following_set - followers_set),
                 'count_not_following_back': len(followers_set - following_set),
-                'list_mutual_follow': list(following_set & followers_set),
-                'list_non_follow_back': list(following_set - followers_set),
-                'list_not_following_back': list(followers_set - following_set),
+                'list_mutual_follow': mutual_follow_list,
+                'list_non_follow_back': non_follow_back_list,
+                'list_not_following_back': not_following_back_list,
+                # Time-based insights
+                'recent_follows_count': len(recent_follows),
+                'recent_followers_count': len(recent_followers),
+                # Calculated percentages and ratios
+                'mutual_rate': mutual_rate,
+                'follow_back_rate': follow_back_rate,
+                'follow_ratio': follow_ratio,
+                'total_analyzed': following_count + len(followers_set - following_set),
+                # Keep backward compatibility with simple lists
+                'list_mutual_follow_simple': list(following_set & followers_set),
+                'list_non_follow_back_simple': list(following_set - followers_set),
+                'list_not_following_back_simple': list(followers_set - following_set),
             }
             return render(self.request, 'analytics/results.html', context)
 
