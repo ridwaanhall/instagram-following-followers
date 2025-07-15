@@ -353,5 +353,64 @@ RESULTS_DATA = {
             'follow_back_rate_description': 'Dos seus seguidores',
             'follow_ratio_label': 'Proporção de Seguimento',
             'follow_ratio_description': 'Seguidores por seguindo',
+        },
+        
+        'fr': {
+            # Page metadata
+            'page_title': 'Tableau de Bord Analytics - Résultats d\'Analyse Instagram',
+            'page_description': 'Analyse détaillée de vos relations d\'abonnés et d\'abonnements Instagram avec des insights complets et des statistiques.',
+            
+            # Header section
+            'header_title': 'Tableau de Bord Analytics',
+            'header_subtitle': 'Résultats de votre analyse d\'abonnés et d\'abonnements Instagram',
+            
+            # Statistics cards
+            'stats_following_label': 'Abonnements',
+            'stats_followers_label': 'Abonnés',
+            'stats_mutual_label': 'Mutuels',
+            'stats_not_mutual_label': 'Non Mutuels',
+            'stats_not_following_label': 'Non Abonnés',
+            
+            # Detailed lists sections
+            'not_following_back_title': 'Ne Vous Suivent Pas en Retour',
+            'not_following_back_subtitle': 'Personnes que vous suivez mais qui ne vous suivent pas en retour',
+            'not_following_back_badge': 'Non Mutuel',
+            'not_following_back_followed_label': 'Suivi le',
+            'not_following_back_empty_title': 'Génial ! Tous ceux que vous suivez vous suivent en retour.',
+            'not_following_back_empty_subtitle': 'Vous avez d\'excellentes connexions mutuelles ! 🎉',
+            
+            'mutual_follow_title': 'Suivi Mutuel',
+            'mutual_follow_subtitle': 'Personnes qui vous suivent et que vous suivez aussi en retour',
+            'mutual_follow_badge': 'Mutuel',
+            'mutual_follow_followed_label': 'Suivi depuis :',
+            'mutual_follow_follower_label': 'Abonné depuis :',
+            'mutual_follow_empty_title': 'Aucune connexion de suivi mutuel trouvée.',
+            'mutual_follow_empty_subtitle': 'Considérez vous connecter avec plus de personnes !',
+            
+            'not_following_back_users_title': 'Vous Ne Suivez Pas en Retour',
+            'not_following_back_users_subtitle': 'Vos abonnés que vous ne suivez pas en retour',
+            'not_following_back_users_badge': 'Non Suivi',
+            'not_following_back_users_follower_label': 'Abonné depuis',
+            'not_following_back_users_empty_title': 'Génial ! Vous suivez en retour tous vos abonnés.',
+            'not_following_back_users_empty_subtitle': 'Vous maintenez d\'excellentes relations réciproques ! 🤝',
+            
+            # Action buttons
+            'analyze_new_data_button': 'Analyser Nouvelles Données',
+            'print_report_button': 'Imprimer Rapport',
+            
+            # Recent activity section
+            'recent_activity_title': 'Activité Récente (30 Derniers Jours)',
+            'recent_activity_subtitle': 'Suivez vos récents patterns d\'engagement Instagram',
+            'recent_activity_new_follows': 'Nouveaux Abonnements',
+            'recent_activity_new_followers': 'Nouveaux Abonnés',
+            
+            # Analysis summary section
+            'analysis_summary_title': 'Résumé d\'Analyse',
+            'mutual_rate_label': 'Taux de Suivi Mutuel',
+            'mutual_rate_description': 'Des personnes que vous suivez',
+            'follow_back_rate_label': 'Taux de Suivi en Retour',
+            'follow_back_rate_description': 'De vos abonnés',
+            'follow_ratio_label': 'Ratio de Suivi',
+            'follow_ratio_description': 'Abonnés par abonnement',
         }
     }

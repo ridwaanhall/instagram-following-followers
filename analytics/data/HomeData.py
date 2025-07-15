@@ -649,5 +649,113 @@ HOME_DATA = {
         'cta_button_start': 'Começar Análise',
         'cta_button_tutorial': 'Ver Tutorial',
         'cta_security_text': 'Seguro • Privado • Gratuito'
+    },
+    
+    'fr': {
+        # Meta data
+        'title': 'Instagram Analytics - Analyseur Simple d\'Abonnés et Abonnements',
+        'meta_description': 'Outil d\'analyse Instagram simple pour analyser vos abonnés et abonnements. Découvrez qui ne vous suit pas en retour, les connexions mutuelles et les insights d\'engagement. 100% gratuit, sécurisé et sans connexion requise.',
+        'meta_keywords': 'analyse Instagram, analyseur abonnés, insights Instagram, analyse réseaux sociaux, outils Instagram, outils Instagram gratuits, abonnés mutuels, qui m\'a désabonné',
+        
+        # Hero section
+        'hero_title': 'Outil d\'Analyse Instagram',
+        'hero_description': 'Analysez vos relations d\'abonnés et d\'abonnements Instagram. Découvrez les non-abonnés, les connexions mutuelles et les insights d\'engagement - complètement privé et gratuit.',
+        
+        # Feature tags
+        'feature_private': '100% Privé',
+        'feature_no_login': 'Aucune Connexion Requise',
+        'feature_free': 'Entièrement Gratuit',
+        
+        # Method cards
+        'zip_upload': {
+            'title': 'Upload Fichier ZIP',
+            'description': 'Téléchargez votre exportation complète de données Instagram avec extraction automatique.',
+            'button': 'Upload ZIP',
+            'badge': 'MEILLEUR'
+        },
+        'file_upload': {
+            'title': 'Upload Fichiers JSON',
+            'description': 'Téléchargez vos fichiers JSON d\'abonnés et d\'abonnements depuis l\'exportation de données Instagram.',
+            'button': 'Upload Fichiers'
+        },
+        'text_input': {
+            'title': 'Coller Données JSON',
+            'description': 'Copiez et collez vos données JSON Instagram directement pour une analyse rapide.',
+            'button': 'Coller Données'
+        },
+        
+        # Features overview
+        'features_title': 'Ce que Vous Découvrirez',
+        'features': {
+            'mutual_followers': {
+                'title': 'Abonnés Mutuels',
+                'description': 'Personnes qui vous suivent en retour'
+            },
+            'non_followers': {
+                'title': 'Non-Abonnés',
+                'description': 'Qui ne vous suit pas en retour'
+            },
+            'timeline_data': {
+                'title': 'Données Chronologiques',
+                'description': 'Quand les relations ont commencé'
+            },
+            'analytics': {
+                'title': 'Analyses',
+                'description': 'Insights d\'engagement'
+            }
+        },
+        
+        # How it works
+        'how_it_works_title': 'Comment Ça Marche',
+        'how_it_works_steps': [
+            {
+                'title': 'Exporter les Données',
+                'description': 'Téléchargez vos données Instagram depuis Paramètres → Confidentialité → Télécharger Vos Informations'
+            },
+            {
+                'title': 'Upload et Analyser',
+                'description': 'Choisissez votre méthode et laissez notre outil analyser vos données localement dans votre navigateur'
+            },
+            {
+                'title': 'Obtenir des Insights',
+                'description': 'Consultez des rapports complets avec des insights exploitables sur votre réseau Instagram'
+            },
+            {
+                'title': 'Passer à l\'Action',
+                'description': 'Utilisez vos insights pour gérer vos relations Instagram et améliorer l\'engagement.'
+            }
+        ],
+        
+        # Quick FAQ
+        'faq_title': 'Questions Rapides',
+        'faq': [
+            {
+                'question': 'Mes données sont-elles sécurisées ?',
+                'answer': 'Oui ! Tout est traité localement dans votre navigateur. Aucune donnée n\'est envoyée à nos serveurs.',
+                'icon': 'M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z'
+            },
+            {
+                'question': 'Est-ce gratuit ?',
+                'answer': 'Entièrement gratuit sans coûts cachés, abonnements ou fonctionnalités premium.',
+                'icon': 'M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1'
+            },
+            {
+                'question': 'Quels fichiers ai-je besoin ?',
+                'answer': 'Vos fichiers JSON ou ZIP d\'abonnés et d\'abonnements depuis la fonction d\'exportation de données Instagram.',
+                'icon': 'M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z'
+            },
+            {
+                'question': 'Besoin de se connecter ?',
+                'answer': 'Aucune connexion requise ! Téléchargez simplement vos fichiers de données et commencez l\'analyse immédiatement.',
+                'icon': 'M13 10V3L4 14h7v7l9-11h-7z'
+            }
+        ],
+        
+        # CTA section
+        'cta_title': 'Prêt à Analyser Votre Instagram ?',
+        'cta_description': 'Obtenez des insights sur vos relations d\'abonnés et d\'abonnements en quelques minutes.',
+        'cta_button_start': 'Commencer l\'Analyse',
+        'cta_button_tutorial': 'Voir le Tutoriel',
+        'cta_security_text': 'Sécurisé • Privé • Gratuit'
     }
 }

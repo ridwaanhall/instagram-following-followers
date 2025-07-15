@@ -925,5 +925,159 @@ TUTORIAL_DATA = {
                 'description': 'Obtenha análise abrangente das suas conexões sociais.'
             }
         ]
+    },
+    
+    'fr': {
+        # Meta data
+        'title': 'Comment Télécharger les Données Instagram - Guide Tutoriel Complet',
+        'meta_description': 'Tutoriel étape par étape sur comment télécharger vos données d\'abonnés et d\'abonnements Instagram. Apprenez à exporter les fichiers JSON Instagram pour l\'analyse et les insights. Guide détaillé gratuit avec captures d\'écran.',
+        'meta_keywords': 'télécharger données Instagram, exporter abonnés Instagram, données abonnements Instagram, comment obtenir données Instagram, exporter JSON Instagram, tutoriel données Instagram, télécharger informations Instagram',
+        
+        # SEO specific data
+        'og_title': 'Comment Télécharger les Données Instagram - Guide Tutoriel Complet',
+        'og_description': 'Tutoriel étape par étape sur comment télécharger vos données d\'abonnés et d\'abonnements Instagram pour l\'analyse.',
+        'twitter_title': 'Comment Télécharger les Données Instagram - Guide Tutoriel Complet',
+        'twitter_description': 'Tutoriel étape par étape sur comment télécharger vos données d\'abonnés et d\'abonnements Instagram pour l\'analyse.',
+        
+        # Structured data
+        'schema_how_to_name': 'Comment Télécharger les Données d\'Abonnés et d\'Abonnements Instagram',
+        'schema_how_to_description': 'Tutoriel étape par étape sur comment télécharger vos données d\'abonnés et d\'abonnements Instagram pour l\'analyse',
+        'schema_webpage_name': 'Comment Télécharger les Données Instagram - Tutoriel Complet',
+        'schema_webpage_description': 'Guide complet étape par étape sur le téléchargement des données d\'abonnés et d\'abonnements Instagram pour l\'analyse',
+        'schema_supply_instagram': 'Compte Instagram',
+        'schema_supply_device': 'Appareil mobile ou ordinateur',
+        'schema_tool_name': 'Application ou site web Instagram',
+        'schema_breadcrumb_home': 'Accueil',
+        'schema_breadcrumb_tutorial': 'Tutoriel',
+        
+        # Schema step data
+        'schema_steps': [
+            {
+                'name': 'Ouvrir les Paramètres Instagram',
+                'text': 'Allez sur votre profil Instagram et appuyez sur l\'icône menu'
+            },
+            {
+                'name': 'Naviguer vers le Centre des Comptes',
+                'text': 'Cliquez sur Centre des Comptes dans le menu des paramètres'
+            },
+            {
+                'name': 'Accéder au Téléchargement de Données',
+                'text': 'Sélectionnez Vos Informations et Autorisations, puis Télécharger Vos Informations'
+            },
+            {
+                'name': 'Sélectionner le Type de Données',
+                'text': 'Choisissez Certaines de vos informations et sélectionnez Abonnés et Abonnements'
+            },
+            {
+                'name': 'Configurer les Paramètres d\'Exportation',
+                'text': 'Définir la période sur Toute la durée et le format sur JSON'
+            }
+        ],
+        
+        # Header
+        'header_title': 'Comment Obtenir Vos Données Instagram',
+        'header_description': 'Suivez ces instructions étape par étape pour télécharger vos données d\'abonnements et d\'abonnés Instagram',
+        
+        # Steps section
+        'steps_title': 'Instructions Étape par Étape',
+        'steps': [
+            'Allez sur votre profil Instagram et appuyez sur l\'icône menu.',
+            'Cliquez sur l\'icône en haut à droite avec trois lignes horizontales.',
+            'Cliquez sur "Centre des Comptes".',
+            'Dans les paramètres du compte, sélectionnez "Vos Informations et Autorisations".',
+            'Cliquez sur "Télécharger Vos Informations".',
+            'Cliquez sur "Télécharger ou Transférer des Informations".',
+            'Sélectionnez votre compte.',
+            'Sélectionnez "Certaines de vos informations".',
+            'Dans la section "Connexions", sélectionnez "Abonnés et Abonnements".',
+            'Télécharger sur votre appareil.',
+            'Définissez la période sur "Toute la durée" et le format sur "JSON".',
+            'Cliquez sur le bouton "Créer des Fichiers".',
+            'Après quelques minutes, naviguez vers "Télécharger Vos Informations" pour obtenir vos fichiers.'
+        ],
+        
+        'completion_note': 'Vous avez presque fini ! Instagram va préparer vos données.',
+        
+        # Important notes
+        'important_notes_title': 'Notes Importantes',
+        'important_notes': [
+            'Instagram peut prendre de quelques minutes à plusieurs heures pour préparer vos données, selon la taille.',
+            'Vous recevrez une notification par email quand vos données sont prêtes au téléchargement.',
+            'Le lien de téléchargement expirera après une certaine période, alors téléchargez rapidement.',
+            'Assurez-vous de sélectionner le format JSON pour la compatibilité avec notre outil d\'analyse.'
+        ],
+        
+        # What files section
+        'files_section_title': 'Quels Fichiers Vous Obtiendrez',
+        'files_description': 'Après téléchargement, vous recevrez un fichier ZIP contenant :',
+        'files_list': [
+            'following.json - Contient la liste des comptes que vous suivez',
+            'followers_1.json - Contient la liste des comptes qui vous suivent',
+            'Fichiers de métadonnées supplémentaires avec horodatages et détails de connexion'
+        ],
+        
+        # Next steps
+        'next_steps_title': 'Étapes Suivantes',
+        'next_steps_description': 'Une fois que vous avez vos fichiers, vous pouvez :',
+        'next_steps_options': [
+            {
+                'title': 'Upload Fichier ZIP',
+                'description': 'Téléchargez l\'ensemble du fichier ZIP pour une analyse automatique',
+                'button': 'Upload ZIP'
+            },
+            {
+                'title': 'Upload Fichiers Individuels',
+                'description': 'Extrayez et téléchargez seulement les fichiers JSON dont vous avez besoin',
+                'button': 'Upload Fichiers'
+            },
+            {
+                'title': 'Copier et Coller les Données',
+                'description': 'Ouvrez les fichiers JSON et collez le contenu directement',
+                'button': 'Coller Données'
+            }
+        ],
+        
+        # Tips section
+        'tips_title': 'Conseils Pro',
+        'tips': [
+            'Gardez vos fichiers de données sécurisés et ne les partagez pas avec des parties non autorisées.',
+            'Notre outil traite tout localement dans votre navigateur pour une confidentialité maximale.',
+            'Vous pouvez répéter ce processus à tout moment pour obtenir des données mises à jour.',
+            'Les grands comptes peuvent avoir des fichiers plus volumineux et des temps de traitement plus longs.'
+        ],
+        
+        # Ready section
+        'ready_title': 'Prêt à analyser vos données ?',
+        'ready_description': 'Une fois que vous avez vos fichiers JSON, retournez à la page d\'upload pour commencer à analyser vos abonnés et abonnements Instagram.',
+        'ready_buttons': [
+            {
+                'text': 'Upload ZIP',
+                'url': 'zip_upload'
+            },
+            {
+                'text': 'Upload Fichiers',
+                'url': 'upload_file'
+            },
+            {
+                'text': 'Coller Données',
+                'url': 'text_input'
+            }
+        ],
+        
+        # Quick tips
+        'quick_tips': [
+            {
+                'title': 'Confidentialité d\'Abord',
+                'description': 'Vos données sont traitées localement et jamais stockées sur nos serveurs.'
+            },
+            {
+                'title': 'Processus Rapide',
+                'description': 'L\'analyse prend généralement seulement quelques secondes à compléter.'
+            },
+            {
+                'title': 'Insights Détaillés',
+                'description': 'Obtenez une analyse complète de vos connexions sociales.'
+            }
+        ]
     }
 }

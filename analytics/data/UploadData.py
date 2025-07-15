@@ -169,5 +169,33 @@ UPLOAD_DATA = {
         'help_title': 'Precisa dos arquivos JSON?',
         'help_description': 'Não sabe como obter seus dados do Instagram? Nosso tutorial irá guiá-lo através do processo passo a passo.',
         'help_button': 'Ver Tutorial'
+    },
+    
+    'fr': {
+        # Meta data
+        'title': 'Upload Fichiers JSON Instagram - Analyse Instantanée d\'Abonnés',
+        'meta_description': 'Téléchargez vos fichiers JSON d\'abonnés et d\'abonnements Instagram pour une analyse instantanée. Traitement sécurisé axé sur la confidentialité pour découvrir qui ne vous suit pas en retour, les connexions mutuelles et des insights détaillés.',
+        'meta_keywords': 'upload JSON Instagram, upload analyse abonnés, upload données Instagram, upload tracker abonnés, upload fichier analyse Instagram',
+        
+        # Header
+        'header_title': 'Upload Fichiers JSON',
+        'header_description': 'Téléchargez vos fichiers JSON d\'abonnements et d\'abonnés Instagram pour analyser vos connexions sociales',
+        
+        # Form labels and descriptions
+        'following_file_label': 'Fichier JSON d\'Abonnements',
+        'following_file_description': 'Téléchargez le fichier "following.json" de votre exportation de données Instagram',
+        'following_file_placeholder': 'Cliquez pour télécharger ou glissez-déposez',
+        
+        'followers_file_label': 'Fichier JSON d\'Abonnés',
+        'followers_file_description': 'Téléchargez le fichier "followers_1.json" de votre exportation de données Instagram',
+        'followers_file_placeholder': 'Cliquez pour télécharger ou glissez-déposez',
+        
+        # Submit button
+        'submit_button': 'Analyser Fichiers',
+        
+        # Help section
+        'help_title': 'Besoin des fichiers JSON ?',
+        'help_description': 'Vous ne savez pas comment obtenir vos données Instagram ? Notre tutoriel vous guidera à travers le processus étape par étape.',
+        'help_button': 'Voir Tutoriel'
     }
 }

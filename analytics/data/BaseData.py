@@ -38,6 +38,7 @@ BASE_DATA = {
         'lang_spanish': 'Español',
         'lang_japanese': '日本語',
         'lang_portuguese': 'Português',
+        'lang_french': 'Français',
         
         # Footer
         'footer_brand': 'InstaAnalytics',
@@ -215,6 +216,7 @@ BASE_DATA = {
         'lang_spanish': 'Español',
         'lang_japanese': '日本語',
         'lang_portuguese': 'Português',
+        'lang_french': 'Français',
         
         # Footer
         'footer_brand': 'InstaAnalytics',
@@ -273,6 +275,7 @@ BASE_DATA = {
         'lang_spanish': 'Español',
         'lang_japanese': '日本語',
         'lang_portuguese': 'Português',
+        'lang_french': 'Français',
         
         # Footer
         'footer_brand': 'InstaAnalytics',
@@ -331,6 +334,7 @@ BASE_DATA = {
         'lang_spanish': 'Español',
         'lang_japanese': '日本語',
         'lang_portuguese': 'Português',
+        'lang_french': 'Français',
         
         # Footer
         'footer_brand': 'InstaAnalytics',
@@ -353,5 +357,65 @@ BASE_DATA = {
         'breadcrumb_analytics': 'Análise',
         'breadcrumb_upload': 'Upload',
         'breadcrumb_tutorial': 'Tutorial'
+    },
+    
+    'fr': {
+        # Meta tags and SEO
+        'site_title': 'InstaAnalytics - Outil Gratuit d\'Analyse des Abonnés Instagram',
+        'meta_description': 'Outil d\'analyse Instagram gratuit pour analyser les données d\'abonnés et d\'abonnements. Découvrez qui ne vous suit pas en retour, les connexions mutuelles, et obtenez des insights sur votre réseau Instagram. Aucune connexion requise.',
+        'meta_keywords': 'analyse Instagram, analyseur abonnés, tracker abonnements, insights Instagram, analyse réseaux sociaux, outil Instagram, analyse followers, données Instagram, tracker abonnés, outil Instagram gratuit',
+        'site_name': 'InstaAnalytics',
+        'og_image_alt': 'InstaAnalytics - Outil d\'Analyse Instagram',
+        
+        # Additional SEO fields
+        'meta_author': 'Ridwan Halim',
+        'meta_robots': 'index, follow',
+        'meta_theme_color': '#7c3aed',
+        'meta_language': 'French',
+        'og_type': 'website',
+        'og_locale': 'fr_FR',
+        'twitter_creator': '@ridwaanhall',
+        'twitter_site': '@ridwaanhall',
+        
+        # Navigation
+        'nav_brand': 'InstaAnalytics',
+        'nav_home': 'Accueil',
+        'nav_zip_upload': 'Upload ZIP',
+        'nav_upload_files': 'Upload Fichiers',
+        'nav_text_input': 'Saisie Texte',
+        'nav_tutorial': 'Tutoriel',
+        
+        # Language switcher
+        'language_label': 'Langue / Language',
+        'lang_english': 'English',
+        'lang_indonesian': 'Indonesia',
+        'lang_chinese': '中文',
+        'lang_spanish': 'Español',
+        'lang_japanese': '日本語',
+        'lang_portuguese': 'Português',
+        'lang_french': 'Français',
+        
+        # Footer
+        'footer_brand': 'InstaAnalytics',
+        'footer_created_by': 'Créé avec',
+        'footer_by': 'par',
+        'footer_creator_name': 'Ridwan Halim',
+        'footer_built_with': 'Construit avec Django & Tailwind CSS',
+        'footer_copyright': '© {% now \'Y\' %}',
+        'footer_need_help': 'Besoin d\'aide ?',
+        
+        # Schema.org structured data
+        'schema_site_name': 'InstaAnalytics',
+        'schema_description': 'Outil d\'analyse Instagram gratuit pour analyser vos abonnés et abonnements avec des insights détaillés',
+        'schema_publisher': 'InstaAnalytics',
+        'schema_author': 'Ridwan Halim',
+        'schema_logo_alt': 'Logo InstaAnalytics',
+        'schema_image_caption': 'Interface de l\'outil d\'analyse Instagram InstaAnalytics',
+        
+        # Breadcrumb data for structured markup
+        'breadcrumb_home': 'Accueil',
+        'breadcrumb_analytics': 'Analyse',
+        'breadcrumb_upload': 'Upload',
+        'breadcrumb_tutorial': 'Tutoriel'
     }
 }

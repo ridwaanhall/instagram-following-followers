@@ -229,5 +229,43 @@ ZIP_UPLOAD_DATA = {
                 'button': 'Colar Dados'
             }
         }
+    },
+    
+    'fr': {
+        # Meta data
+        'title': 'Upload Fichier ZIP - Analytics Instagram',
+        
+        # Header
+        'header_title': 'Upload Fichier ZIP',
+        'header_description': 'Téléchargez votre fichier ZIP complet d\'exportation de données Instagram. Nous trouverons et extrairons automatiquement les données d\'abonnés et d\'abonnements pour l\'analyse.',
+        
+        # Form
+        'zip_file_label': 'Fichier ZIP de Données Instagram',
+        'zip_file_description': 'Téléchargez le fichier ZIP complet de votre exportation de données Instagram (contenant following.json et followers_1.json)',
+        'zip_file_placeholder': 'Cliquez pour télécharger ou glissez-déposez',
+        'submit_button': 'Analyser Données ZIP',
+        
+        # Help section
+        'help_title': 'Ce que nous cherchons dans votre fichier ZIP :',
+        'help_items': [
+            'following.json - Contient votre liste d\'abonnements',
+            'followers_1.json - Contient votre liste d\'abonnés',
+            'Les fichiers peuvent être dans n\'importe quel dossier (généralement followers_and_following/)'
+        ],
+        'help_tutorial_text': 'Besoin d\'aide pour obtenir vos données ? Voir le tutoriel',
+        
+        # Alternative methods
+        'alternative_methods': {
+            'upload_files': {
+                'title': 'Upload Fichiers Individuels',
+                'description': 'Téléchargez les fichiers JSON séparément si vous préférez plus de contrôle.',
+                'button': 'Upload Fichiers'
+            },
+            'paste_data': {
+                'title': 'Coller Données JSON',
+                'description': 'Copiez et collez vos données JSON directement pour une analyse rapide.',
+                'button': 'Coller Données'
+            }
+        }
     }
 }

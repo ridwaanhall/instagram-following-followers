@@ -131,6 +131,7 @@ LANGUAGES = [
     ('es', 'Spanish'),
     ('ja', 'Japanese'),
     ('pt-br', 'Portuguese'),
+    ('fr', 'French'),
 ]
 
 # Language preference settings
