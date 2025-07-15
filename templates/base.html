@@ -234,16 +234,16 @@
                             </svg>
                         </div>
                         <span class="text-lg font-semibold bg-gradient-to-r from-purple-600 to-pink-500 bg-clip-text text-transparent">
-                            InstaAnalytics
+                            {{ footer_brand }}
                         </span>
                     </div>
                     <p class="text-gray-600 mb-4">
-                        Created with <span class="text-red-500 animate-pulse">♥</span> by 
-                        <a href="https://bio.ridwaanhall.com" class="text-purple-600 hover:text-purple-800 transition-colors duration-200 font-medium">Ridwan Halim</a>
+                        {{ footer_created_by }} <span class="text-red-500 animate-pulse">♥</span> {{ footer_by }} 
+                        <a href="https://bio.ridwaanhall.com" class="text-purple-600 hover:text-purple-800 transition-colors duration-200 font-medium">{{ footer_creator_name }}</a>
                     </p>
                     <p class="text-sm text-gray-500">
-                        Built with Django & Tailwind CSS • © {% now 'Y' %} • 
-                        <a href="{% url 'tutorial' %}" class="hover:text-purple-600 transition-colors duration-200">Need help?</a>
+                        {{ footer_built_with }} • {% now 'Y' %} • 
+                        <a href="{% url 'tutorial' %}" class="hover:text-purple-600 transition-colors duration-200">{{ footer_need_help }}</a>
                     </p>
                 </div>
             </div>

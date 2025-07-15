@@ -25,6 +25,15 @@ BASE_DATA = {
         'lang_english': 'English',
         'lang_indonesian': 'Indonesia',
         
+        # Footer
+        'footer_brand': 'InstaAnalytics',
+        'footer_created_by': 'Created with',
+        'footer_by': 'by',
+        'footer_creator_name': 'Ridwan Halim',
+        'footer_built_with': 'Built with Django & Tailwind CSS',
+        'footer_copyright': '© {% now \'Y\' %}',
+        'footer_need_help': 'Need help?',
+        
         # JSON-LD structured data
         'structured_data': {
             'name': 'InstaAnalytics',
@@ -52,6 +61,15 @@ BASE_DATA = {
         'language_label': 'Language / Bahasa',
         'lang_english': 'English',
         'lang_indonesian': 'Indonesia',
+        
+        # Footer
+        'footer_brand': 'InstaAnalytics',
+        'footer_created_by': 'Dibuat dengan',
+        'footer_by': 'oleh',
+        'footer_creator_name': 'Ridwan Halim',
+        'footer_built_with': 'Dibuat dengan Django & Tailwind CSS',
+        'footer_copyright': '© {% now \'Y\' %}',
+        'footer_need_help': 'Butuh bantuan?',
         
         # JSON-LD structured data
         'structured_data': {
