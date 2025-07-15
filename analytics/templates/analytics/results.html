@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 
-{% block title %}Analytics Dashboard{% endblock %}
+{% block title %}{{ page_title }}{% endblock %}
+{% block description %}{{ page_description }}{% endblock %}
 
 {% block content %}
 <div class="min-h-screen bg-gradient-to-br from-emerald-50 via-teal-50 to-blue-50">
@@ -13,10 +14,10 @@
                 </svg>
             </div>
             <h1 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-3 sm:mb-4 leading-tight px-2">
-                Analytics Dashboard
+                {{ header_title }}
             </h1>
             <p class="text-base sm:text-lg lg:text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed px-4">
-                Here's your complete Instagram follower and following analysis
+                {{ header_subtitle }}
             </p>
         </div>
 
@@ -30,7 +31,7 @@
                     </svg>
                 </div>
                 <p class="text-lg sm:text-xl font-bold text-gray-900 mb-1">{{ count_following_count }}</p>
-                <p class="text-xs font-semibold text-blue-600">Following</p>
+                <p class="text-xs font-semibold text-blue-600">{{ stats_following_label }}</p>
             </div>
 
             <!-- Followers Count -->
@@ -41,7 +42,7 @@
                     </svg>
                 </div>
                 <p class="text-lg sm:text-xl font-bold text-gray-900 mb-1">{{ count_followers_count }}</p>
-                <p class="text-xs font-semibold text-green-600">Followers</p>
+                <p class="text-xs font-semibold text-green-600">{{ stats_followers_label }}</p>
             </div>
 
             <!-- Mutual Follow -->
@@ -52,7 +53,7 @@
                     </svg>
                 </div>
                 <p class="text-lg sm:text-xl font-bold text-gray-900 mb-1">{{ count_mutual_follow }}</p>
-                <p class="text-xs font-semibold text-purple-600">Mutual</p>
+                <p class="text-xs font-semibold text-purple-600">{{ stats_mutual_label }}</p>
             </div>
 
             <!-- Not Following Back -->
@@ -63,7 +64,7 @@
                     </svg>
                 </div>
                 <p class="text-lg sm:text-xl font-bold text-gray-900 mb-1">{{ count_non_follow_back }}</p>
-                <p class="text-xs font-semibold text-red-600">Not Mutual</p>
+                <p class="text-xs font-semibold text-red-600">{{ stats_not_mutual_label }}</p>
             </div>
 
             <!-- You Don't Follow Back -->
@@ -74,7 +75,7 @@
                     </svg>
                 </div>
                 <p class="text-lg sm:text-xl font-bold text-gray-900 mb-1">{{ count_not_following_back }}</p>
-                <p class="text-xs font-semibold text-orange-600">Not Following</p>
+                <p class="text-xs font-semibold text-orange-600">{{ stats_not_following_label }}</p>
             </div>
         </div>
 
@@ -87,9 +88,9 @@
                         <svg class="w-5 h-5 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M13 7a4 4 0 11-8 0 4 4 0 018 0zM9 14a6 6 0 00-6 6v1h12v-1a6 6 0 00-6-6zM21 12h-6"/>
                         </svg>
-                        <span class="truncate">Not Following Back</span>
+                        <span class="truncate">{{ not_following_back_title }}</span>
                     </h2>
-                    <p class="text-red-100 text-xs sm:text-sm mt-1">People you follow who don't follow you back</p>
+                    <p class="text-red-100 text-xs sm:text-sm mt-1">{{ not_following_back_subtitle }}</p>
                 </div>
                 <div class="p-4 sm:p-6">
                     {% if list_non_follow_back %}
@@ -104,10 +105,10 @@
                                         </div>
                                         <div class="min-w-0 flex-1">
                                             <a href="{{ user.href }}" target="_blank" class="text-gray-900 font-medium text-sm sm:text-base truncate hover:text-red-600 transition-colors">{{ user.username }}</a>
-                                            <p class="text-xs text-gray-500 mt-1">Followed on {{ user.followed_date }}</p>
+                                            <p class="text-xs text-gray-500 mt-1">{{ not_following_back_followed_label }} {{ user.followed_date }}</p>
                                         </div>
                                     </div>
-                                    <span class="text-xs text-red-600 bg-red-100 px-2 py-1 rounded-full font-medium flex-shrink-0 ml-2">Not mutual</span>
+                                    <span class="text-xs text-red-600 bg-red-100 px-2 py-1 rounded-full font-medium flex-shrink-0 ml-2">{{ not_following_back_badge }}</span>
                                 </div>
                             {% endfor %}
                         </div>
@@ -116,8 +117,8 @@
                             <svg class="mx-auto h-12 w-12 sm:h-16 sm:w-16 text-gray-400 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
                             </svg>
-                            <p class="text-gray-600 font-medium text-sm sm:text-base">Great! Everyone you follow follows you back.</p>
-                            <p class="text-gray-500 text-xs sm:text-sm mt-2">You have excellent mutual connections! 🎉</p>
+                            <p class="text-gray-600 font-medium text-sm sm:text-base">{{ not_following_back_empty_title }}</p>
+                            <p class="text-gray-500 text-xs sm:text-sm mt-2">{{ not_following_back_empty_subtitle }}</p>
                         </div>
                     {% endif %}
                 </div>
@@ -130,9 +131,9 @@
                         <svg class="w-5 h-5 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
                         </svg>
-                        <span class="truncate">Mutual Follow</span>
+                        <span class="truncate">{{ mutual_follow_title }}</span>
                     </h2>
-                    <p class="text-purple-100 text-xs sm:text-sm mt-1">People who follow you and you follow back</p>
+                    <p class="text-purple-100 text-xs sm:text-sm mt-1">{{ mutual_follow_subtitle }}</p>
                 </div>
                 <div class="p-4 sm:p-6">
                     {% if list_mutual_follow %}
@@ -148,13 +149,13 @@
                                         <div class="min-w-0 flex-1">
                                             <a href="{{ user.href }}" target="_blank" class="text-gray-900 font-medium text-sm sm:text-base truncate hover:text-purple-600 transition-colors">{{ user.username }}</a>
                                             <p class="text-xs text-gray-500 mt-1">
-                                                {% if user.followed_date != "Unknown" %}Followed: {{ user.followed_date }}{% endif %}
+                                                {% if user.followed_date != "Unknown" %}{{ mutual_follow_followed_label }} {{ user.followed_date }}{% endif %}
                                                 {% if user.followed_date != "Unknown" and user.follower_date != "Unknown" %} • {% endif %}
-                                                {% if user.follower_date != "Unknown" %}Follower since: {{ user.follower_date }}{% endif %}
+                                                {% if user.follower_date != "Unknown" %}{{ mutual_follow_follower_label }} {{ user.follower_date }}{% endif %}
                                             </p>
                                         </div>
                                     </div>
-                                    <span class="text-xs text-purple-600 bg-purple-100 px-2 py-1 rounded-full font-medium flex-shrink-0 ml-2">Mutual</span>
+                                    <span class="text-xs text-purple-600 bg-purple-100 px-2 py-1 rounded-full font-medium flex-shrink-0 ml-2">{{ mutual_follow_badge }}</span>
                                 </div>
                             {% endfor %}
                         </div>
@@ -163,8 +164,8 @@
                             <svg class="mx-auto h-12 w-12 sm:h-16 sm:w-16 text-gray-400 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"/>
                             </svg>
-                            <p class="text-gray-600 font-medium text-sm sm:text-base">No mutual connections found.</p>
-                            <p class="text-gray-500 text-xs sm:text-sm mt-2">Consider connecting with more people!</p>
+                            <p class="text-gray-600 font-medium text-sm sm:text-base">{{ mutual_follow_empty_title }}</p>
+                            <p class="text-gray-500 text-xs sm:text-sm mt-2">{{ mutual_follow_empty_subtitle }}</p>
                         </div>
                     {% endif %}
                 </div>
@@ -177,9 +178,9 @@
                         <svg class="w-5 h-5 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z"/>
                         </svg>
-                        <span class="truncate">You Don't Follow Back</span>
+                        <span class="truncate">{{ not_following_back_users_title }}</span>
                     </h2>
-                    <p class="text-orange-100 text-xs sm:text-sm mt-1">Your followers who you don't follow back</p>
+                    <p class="text-orange-100 text-xs sm:text-sm mt-1">{{ not_following_back_users_subtitle }}</p>
                 </div>
                 <div class="p-4 sm:p-6">
                     {% if list_not_following_back %}
@@ -194,10 +195,10 @@
                                         </div>
                                         <div class="min-w-0 flex-1">
                                             <a href="{{ user.href }}" target="_blank" class="text-gray-900 font-medium text-sm sm:text-base truncate hover:text-orange-600 transition-colors">{{ user.username }}</a>
-                                            <p class="text-xs text-gray-500 mt-1">Follower since {{ user.follower_date }}</p>
+                                            <p class="text-xs text-gray-500 mt-1">{{ not_following_back_users_follower_label }} {{ user.follower_date }}</p>
                                         </div>
                                     </div>
-                                    <span class="text-xs text-orange-600 bg-orange-100 px-2 py-1 rounded-full font-medium flex-shrink-0 ml-2">Not followed</span>
+                                    <span class="text-xs text-orange-600 bg-orange-100 px-2 py-1 rounded-full font-medium flex-shrink-0 ml-2">{{ not_following_back_users_badge }}</span>
                                 </div>
                             {% endfor %}
                         </div>
@@ -206,8 +207,8 @@
                             <svg class="mx-auto h-12 w-12 sm:h-16 sm:w-16 text-gray-400 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
                             </svg>
-                            <p class="text-gray-600 font-medium text-sm sm:text-base">Great! You follow back all your followers.</p>
-                            <p class="text-gray-500 text-xs sm:text-sm mt-2">You're maintaining excellent reciprocal relationships! 🤝</p>
+                            <p class="text-gray-600 font-medium text-sm sm:text-base">{{ not_following_back_users_empty_title }}</p>
+                            <p class="text-gray-500 text-xs sm:text-sm mt-2">{{ not_following_back_users_empty_subtitle }}</p>
                         </div>
                     {% endif %}
                 </div>
@@ -220,13 +221,13 @@
                 <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/>
                 </svg>
-                Analyze New Data
+                {{ analyze_new_data_button }}
             </a>
             <button onclick="window.print()" class="flex-1 inline-flex items-center justify-center px-6 py-4 bg-white text-gray-700 font-semibold rounded-xl border-2 border-gray-300 hover:bg-gray-50 hover:border-gray-400 transition-all duration-200 shadow-lg hover:shadow-xl transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 no-print">
                 <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"/>
                 </svg>
-                Print Report
+                {{ print_report_button }}
             </button>
         </div>
 
@@ -238,8 +239,8 @@
                         <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
                     </svg>
                 </div>
-                <h3 class="text-lg sm:text-xl font-bold text-gray-900 mb-2">Recent Activity (Last 30 Days)</h3>
-                <p class="text-gray-600 text-sm">Track your recent Instagram engagement patterns</p>
+                <h3 class="text-lg sm:text-xl font-bold text-gray-900 mb-2">{{ recent_activity_title }}</h3>
+                <p class="text-gray-600 text-sm">{{ recent_activity_subtitle }}</p>
             </div>
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div class="bg-white/60 backdrop-blur-sm rounded-xl p-4 border border-white/40">
@@ -249,7 +250,7 @@
                         </svg>
                         <div>
                             <p class="text-2xl font-bold text-blue-600">{{ recent_follows_count }}</p>
-                            <p class="text-sm text-gray-600 font-medium">New Follows</p>
+                            <p class="text-sm text-gray-600 font-medium">{{ recent_activity_new_follows }}</p>
                         </div>
                     </div>
                 </div>
@@ -260,7 +261,7 @@
                         </svg>
                         <div>
                             <p class="text-2xl font-bold text-green-600">{{ recent_followers_count }}</p>
-                            <p class="text-sm text-gray-600 font-medium">New Followers</p>
+                            <p class="text-sm text-gray-600 font-medium">{{ recent_activity_new_followers }}</p>
                         </div>
                     </div>
                 </div>
@@ -275,22 +276,22 @@
                         <path stroke-linecap="round" stroke-linejoin="round" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
                     </svg>
                 </div>
-                <h3 class="text-lg sm:text-xl font-bold text-gray-900 mb-2">Analysis Summary</h3>
+                <h3 class="text-lg sm:text-xl font-bold text-gray-900 mb-2">{{ analysis_summary_title }}</h3>
                 <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 text-center">
                     <div class="bg-white/60 backdrop-blur-sm rounded-xl p-4 border border-white/40">
                         <p class="text-2xl font-bold text-indigo-600">{{ mutual_rate }}%</p>
-                        <p class="text-sm text-gray-600 font-medium">Mutual Rate</p>
-                        <p class="text-xs text-gray-500 mt-1">Of people you follow</p>
+                        <p class="text-sm text-gray-600 font-medium">{{ mutual_rate_label }}</p>
+                        <p class="text-xs text-gray-500 mt-1">{{ mutual_rate_description }}</p>
                     </div>
                     <div class="bg-white/60 backdrop-blur-sm rounded-xl p-4 border border-white/40">
                         <p class="text-2xl font-bold text-purple-600">{{ follow_back_rate }}%</p>
-                        <p class="text-sm text-gray-600 font-medium">Follow Back Rate</p>
-                        <p class="text-xs text-gray-500 mt-1">Of your followers</p>
+                        <p class="text-sm text-gray-600 font-medium">{{ follow_back_rate_label }}</p>
+                        <p class="text-xs text-gray-500 mt-1">{{ follow_back_rate_description }}</p>
                     </div>
                     <div class="bg-white/60 backdrop-blur-sm rounded-xl p-4 border border-white/40">
                         <p class="text-2xl font-bold text-pink-600">{{ follow_ratio }}</p>
-                        <p class="text-sm text-gray-600 font-medium">Follow Ratio</p>
-                        <p class="text-xs text-gray-500 mt-1">Followers per following</p>
+                        <p class="text-sm text-gray-600 font-medium">{{ follow_ratio_label }}</p>
+                        <p class="text-xs text-gray-500 mt-1">{{ follow_ratio_description }}</p>
                     </div>
                 </div>
             </div>

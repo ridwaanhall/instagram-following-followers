@@ -17,6 +17,6 @@ __all__ = [
     'ZIP_UPLOAD_DATA',
     'TEXT_INPUT_DATA',
     'TUTORIAL_DATA',
-    'RESULTS_DATA',
+    'get_results_data',
     'BASE_DATA'
 ]
