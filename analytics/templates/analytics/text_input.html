@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 
-{% block title %}Paste JSON Data - Instagram Analytics{% endblock %}
+{% block title %}{{ title }}{% endblock %}
 
 {% block content %}
 <div class="min-h-screen bg-gradient-to-br from-purple-50 to-pink-50">
@@ -12,9 +12,9 @@
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/>
                 </svg>
             </div>
-            <h1 class="text-4xl font-bold text-gray-900 mb-4">Paste JSON Data</h1>
+            <h1 class="text-4xl font-bold text-gray-900 mb-4">{{ header_title }}</h1>
             <p class="text-lg text-gray-600 max-w-2xl mx-auto">
-                Copy and paste your Instagram JSON data directly for quick analysis
+                {{ header_description }}
             </p>
         </div>
 
@@ -52,13 +52,13 @@
                                         <svg class="w-4 h-4 mr-2 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197m13.5-9a2.5 2.5 0 11-5 0 2.5 2.5 0 015 0z"/>
                                         </svg>
-                                        Following JSON Data
+                                        {{ following_label }}
                                     </div>
                                 </label>
                                 <div class="relative">
                                     <textarea name="following_text" 
                                               rows="12" 
-                                              placeholder='Paste your following.json content here...&#10;&#10;Example:&#10;{&#10;  "relationships_following": [&#10;    {&#10;      "string_list_data": [&#10;        {&#10;          "href": "...",&#10;          "value": "username1",&#10;          "timestamp": 1234567890&#10;        }&#10;      ]&#10;    }&#10;  ]&#10;}'
+                                              placeholder="{{ following_placeholder }}"
                                               required
                                               class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition-colors duration-200 font-mono text-sm resize-none placeholder-gray-400"></textarea>
                                     <div class="absolute top-3 right-3">
@@ -68,7 +68,7 @@
                                     </div>
                                 </div>
                                 <p class="mt-2 text-sm text-gray-500">
-                                    Paste the complete content from your "following.json" file
+                                    {{ following_description }}
                                 </p>
                             </div>
 
@@ -76,7 +76,7 @@
                             <div class="bg-gray-50 border border-gray-200 rounded-lg p-4">
                                 <div class="flex items-center">
                                     <div class="w-3 h-3 bg-gray-400 rounded-full mr-2"></div>
-                                    <span class="text-sm text-gray-600">JSON validation: Waiting for input</span>
+                                    <span class="text-sm text-gray-600">{{ validation_waiting }}</span>
                                 </div>
                             </div>
                         </div>
@@ -89,13 +89,13 @@
                                         <svg class="w-4 h-4 mr-2 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
                                         </svg>
-                                        Followers JSON Data
+                                        {{ followers_label }}
                                     </div>
                                 </label>
                                 <div class="relative">
                                     <textarea name="followers_text" 
                                               rows="12" 
-                                              placeholder='Paste your followers_1.json content here...&#10;&#10;Example:&#10;[&#10;  {&#10;    "string_list_data": [&#10;      {&#10;        "href": "...",&#10;        "value": "follower1",&#10;        "timestamp": 1234567890&#10;      }&#10;    ]&#10;  }&#10;]'
+                                              placeholder="{{ followers_placeholder }}"
                                               required
                                               class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition-colors duration-200 font-mono text-sm resize-none placeholder-gray-400"></textarea>
                                     <div class="absolute top-3 right-3">
@@ -105,7 +105,7 @@
                                     </div>
                                 </div>
                                 <p class="mt-2 text-sm text-gray-500">
-                                    Paste the complete content from your "followers_1.json" file
+                                    {{ followers_description }}
                                 </p>
                             </div>
 
@@ -113,7 +113,7 @@
                             <div class="bg-gray-50 border border-gray-200 rounded-lg p-4">
                                 <div class="flex items-center">
                                     <div class="w-3 h-3 bg-gray-400 rounded-full mr-2"></div>
-                                    <span class="text-sm text-gray-600">JSON validation: Waiting for input</span>
+                                    <span class="text-sm text-gray-600">{{ validation_waiting }}</span>
                                 </div>
                             </div>
                         </div>
@@ -126,7 +126,7 @@
                             <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
                             </svg>
-                            Analyze JSON Data
+                            {{ submit_button }}
                         </button>
                     </div>
                 </form>
@@ -143,13 +143,12 @@
                             </svg>
                         </div>
                         <div class="ml-3">
-                            <h3 class="text-sm font-semibold text-purple-900 mb-1">JSON Format Help</h3>
+                            <h3 class="text-sm font-semibold text-purple-900 mb-1">{{ json_help.title }}</h3>
                             <p class="text-sm text-purple-700 mb-3">
-                                Make sure your JSON data follows the correct Instagram export format. The system will validate your input automatically.
+                                {{ json_help.description }}
                             </p>
                             <div class="text-xs text-purple-600 font-mono bg-white rounded p-2">
-                                following.json: {"relationships_following": [...]}<br>
-                                followers_1.json: [{"string_list_data": [...]}]
+                                {{ json_help.format_example }}
                             </div>
                         </div>
                     </div>
@@ -164,13 +163,13 @@
                             </svg>
                         </div>
                         <div class="ml-3">
-                            <h3 class="text-sm font-semibold text-amber-900 mb-1">Need Help Getting Your Data?</h3>
+                            <h3 class="text-sm font-semibold text-amber-900 mb-1">{{ tutorial_help.title }}</h3>
                             <p class="text-sm text-amber-700 mb-3">
-                                Our step-by-step tutorial will guide you through downloading your Instagram data export.
+                                {{ tutorial_help.description }}
                             </p>
                             <a href="{% url 'tutorial' %}" 
                                class="inline-flex items-center text-sm font-medium text-amber-600 hover:text-amber-700">
-                                View Tutorial
+                                {{ tutorial_help.button }}
                                 <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
                                 </svg>
@@ -193,17 +192,17 @@ function validateJSON(textarea, statusElement) {
     
     if (!value) {
         statusDot.className = 'w-3 h-3 bg-gray-400 rounded-full mr-2';
-        statusText.textContent = 'JSON validation: Waiting for input';
+        statusText.textContent = '{{ validation_waiting }}';
         return;
     }
     
     try {
         JSON.parse(value);
         statusDot.className = 'w-3 h-3 bg-green-500 rounded-full mr-2';
-        statusText.textContent = 'JSON validation: Valid JSON format ✓';
+        statusText.textContent = '{{ validation_valid }}';
     } catch (e) {
         statusDot.className = 'w-3 h-3 bg-red-500 rounded-full mr-2';
-        statusText.textContent = 'JSON validation: Invalid JSON format ✗';
+        statusText.textContent = '{{ validation_invalid }}';
     }
 }
 
