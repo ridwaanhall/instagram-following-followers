@@ -6,9 +6,7 @@ import json
 import logging
 from django.urls import reverse_lazy
 from django.contrib import messages
-from django.core.exceptions import ValidationError
 import zipfile
-import tempfile
 import os
 from datetime import datetime
 
