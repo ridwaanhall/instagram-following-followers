@@ -34,6 +34,7 @@ BASE_DATA = {
         'language_label': 'Language / Bahasa',
         'lang_english': 'English',
         'lang_indonesian': 'Indonesia',
+        'lang_chinese': '中文',
         
         # Footer
         'footer_brand': 'InstaAnalytics',
@@ -92,6 +93,7 @@ BASE_DATA = {
         'language_label': 'Language / Bahasa',
         'lang_english': 'English',
         'lang_indonesian': 'Indonesia',
+        'lang_chinese': '中文',
         
         # Footer
         'footer_brand': 'InstaAnalytics',
@@ -114,5 +116,59 @@ BASE_DATA = {
         'breadcrumb_analytics': 'Analitik',
         'breadcrumb_upload': 'Unggah',
         'breadcrumb_tutorial': 'Tutorial'
+    },
+    'zh': {
+        # Meta tags and SEO
+        'site_title': 'InstaAnalytics - 免费Instagram粉丝和关注分析工具',
+        'meta_description': '免费的Instagram分析工具，用于分析粉丝和关注数据。查找谁没有回关，互相关注的连接，获取Instagram网络洞察。无需登录。',
+        'meta_keywords': 'Instagram分析, 粉丝分析器, 关注追踪器, Instagram洞察, 社交媒体分析, Instagram工具, 粉丝分析, Instagram数据, 粉丝追踪器, 免费Instagram工具',
+        'site_name': 'InstaAnalytics',
+        'og_image_alt': 'InstaAnalytics - Instagram分析工具',
+        
+        # Additional SEO fields
+        'meta_author': 'Ridwan Halim',
+        'meta_robots': 'index, follow',
+        'meta_theme_color': '#7c3aed',
+        'meta_language': 'Chinese',
+        'og_type': 'website',
+        'og_locale': 'zh_CN',
+        'twitter_creator': '@ridwaanhall',
+        'twitter_site': '@ridwaanhall',
+        
+        # Navigation
+        'nav_brand': 'InstaAnalytics',
+        'nav_home': '首页',
+        'nav_zip_upload': 'ZIP上传',
+        'nav_upload_files': '上传文件',
+        'nav_text_input': '文本输入',
+        'nav_tutorial': '教程',
+        
+        # Language switcher
+        'language_label': 'Language / 语言',
+        'lang_english': 'English',
+        'lang_indonesian': 'Indonesia',
+        'lang_chinese': '中文',
+        
+        # Footer
+        'footer_brand': 'InstaAnalytics',
+        'footer_created_by': '用爱制作',
+        'footer_by': '由',
+        'footer_creator_name': 'Ridwan Halim',
+        'footer_built_with': '使用Django和Tailwind CSS构建',
+        'footer_copyright': '© {% now \'Y\' %}',
+        'footer_need_help': '需要帮助？',
+        
+        # JSON-LD structured data
+        'structured_data': {
+            'name': 'InstaAnalytics',
+            'description': '免费的Instagram分析工具，用于分析粉丝和关注数据。查找谁没有回关，互相关注的连接，获取Instagram网络洞察。',
+            'keywords': 'Instagram分析, 粉丝分析器, 关注追踪器'
+        },
+        
+        # Breadcrumb data for structured markup
+        'breadcrumb_home': '首页',
+        'breadcrumb_analytics': '分析',
+        'breadcrumb_upload': '上传',
+        'breadcrumb_tutorial': '教程'
     }
 }

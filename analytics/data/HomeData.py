@@ -217,5 +217,113 @@ HOME_DATA = {
         'cta_button_start': 'Mulai Analisis',
         'cta_button_tutorial': 'Lihat Tutorial',
         'cta_security_text': 'Aman • Pribadi • Gratis'
+    },
+    
+    'zh': {
+        # Meta data
+        'title': 'Instagram分析工具 - 简单的粉丝和关注分析器',
+        'meta_description': '简单的Instagram分析工具，用于分析您的粉丝和关注。发现谁没有关注回来、共同连接和参与度洞察。100%免费、安全，无需登录。',
+        'meta_keywords': 'Instagram分析, 粉丝分析器, Instagram洞察, 社交媒体分析, Instagram工具, 免费Instagram工具, 互相关注, 谁取消关注我',
+        
+        # Hero section
+        'hero_title': 'Instagram分析工具',
+        'hero_description': '分析您的Instagram粉丝和关注关系。发现非粉丝、共同连接和参与度洞察 - 完全私密且免费。',
+        
+        # Feature tags
+        'feature_private': '100% 私密',
+        'feature_no_login': '无需登录',
+        'feature_free': '完全免费',
+        
+        # Method cards
+        'zip_upload': {
+            'title': '上传ZIP文件',
+            'description': '上传您完整的Instagram数据导出文件，自动解压缩。',
+            'button': '上传ZIP',
+            'badge': '最佳'
+        },
+        'file_upload': {
+            'title': '上传JSON文件',
+            'description': '从Instagram数据导出中上传您的粉丝和关注JSON文件。',
+            'button': '上传文件'
+        },
+        'text_input': {
+            'title': '粘贴JSON数据',
+            'description': '直接复制粘贴您的Instagram JSON数据进行快速分析。',
+            'button': '粘贴数据'
+        },
+        
+        # Features overview
+        'features_title': '您将发现什么',
+        'features': {
+            'mutual_followers': {
+                'title': '互相关注',
+                'description': '关注您回来的人'
+            },
+            'non_followers': {
+                'title': '未回关',
+                'description': '谁没有关注回来'
+            },
+            'timeline_data': {
+                'title': '时间线数据',
+                'description': '关系开始的时间'
+            },
+            'analytics': {
+                'title': '分析',
+                'description': '参与度洞察'
+            }
+        },
+        
+        # How it works
+        'how_it_works_title': '工作原理',
+        'how_it_works_steps': [
+            {
+                'title': '导出数据',
+                'description': '从设置 → 隐私 → 下载您的信息中下载您的Instagram数据'
+            },
+            {
+                'title': '上传和分析',
+                'description': '选择您的方法，让我们的工具在您的浏览器中本地分析您的数据'
+            },
+            {
+                'title': '获得洞察',
+                'description': '查看关于您Instagram网络的可操作洞察的综合报告'
+            },
+            {
+                'title': '采取行动',
+                'description': '使用您的洞察来管理Instagram关系并提高参与度。'
+            }
+        ],
+        
+        # Quick FAQ
+        'faq_title': '常见问题',
+        'faq': [
+            {
+                'question': '我的数据安全吗？',
+                'answer': '是的！一切都在您的浏览器中本地处理。没有数据发送到我们的服务器。',
+                'icon': 'M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z'
+            },
+            {
+                'question': '是免费的吗？',
+                'answer': '完全免费，没有隐藏费用、订阅或高级功能。',
+                'icon': 'M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1'
+            },
+            {
+                'question': '我需要什么文件？',
+                'answer': '您需要从Instagram数据导出功能获得的粉丝和关注JSON或ZIP文件。',
+                'icon': 'M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z'
+            },
+            {
+                'question': '需要登录吗？',
+                'answer': '无需登录！只需上传您的数据文件即可立即开始分析。',
+                'icon': 'M13 10V3L4 14h7v7l9-11h-7z'
+            }
+        ],
+        
+        # CTA section
+        'cta_title': '准备分析您的Instagram吗？',
+        'cta_description': '在几分钟内获得关于您的粉丝和关注关系的洞察。',
+        'cta_button_start': '开始分析',
+        'cta_button_tutorial': '查看教程',
+        'cta_security_text': '安全 • 私密 • 免费'
     }
 }

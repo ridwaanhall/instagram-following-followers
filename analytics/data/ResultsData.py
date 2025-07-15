@@ -118,5 +118,63 @@ RESULTS_DATA = {
             'follow_back_rate_description': 'Dari pengikut Anda',
             'follow_ratio_label': 'Rasio Mengikuti',
             'follow_ratio_description': 'Pengikut per mengikuti',
+        },
+        'zh': {
+            # Page metadata
+            'page_title': '分析仪表板 - Instagram分析结果',
+            'page_description': '详细分析您的Instagram粉丝和关注关系，提供全面的洞察和统计数据。',
+            
+            # Header section
+            'header_title': '分析仪表板',
+            'header_subtitle': '您的Instagram粉丝和关注分析结果',
+            
+            # Statistics cards
+            'stats_following_label': '关注',
+            'stats_followers_label': '粉丝',
+            'stats_mutual_label': '互相关注',
+            'stats_not_mutual_label': '非互相',
+            'stats_not_following_label': '未关注',
+            
+            # Detailed lists sections
+            'not_following_back_title': '未回关',
+            'not_following_back_subtitle': '您关注但没有关注您回来的人',
+            'not_following_back_badge': '非互相',
+            'not_following_back_followed_label': '关注于',
+            'not_following_back_empty_title': '太好了！您关注的每个人都关注您回来了。',
+            'not_following_back_empty_subtitle': '您有很好的互相关注连接！🎉',
+            
+            'mutual_follow_title': '互相关注',
+            'mutual_follow_subtitle': '关注您且您也关注回来的人',
+            'mutual_follow_badge': '互相',
+            'mutual_follow_followed_label': '关注时间：',
+            'mutual_follow_follower_label': '粉丝时间：',
+            'mutual_follow_empty_title': '未找到互相关注的连接。',
+            'mutual_follow_empty_subtitle': '考虑与更多人建立连接！',
+            
+            'not_following_back_users_title': '您未回关',
+            'not_following_back_users_subtitle': '您未关注回来的粉丝',
+            'not_following_back_users_badge': '未关注',
+            'not_following_back_users_follower_label': '粉丝时间',
+            'not_following_back_users_empty_title': '太好了！您关注回了所有粉丝。',
+            'not_following_back_users_empty_subtitle': '您保持着优秀的相互关系！🤝',
+            
+            # Action buttons
+            'analyze_new_data_button': '分析新数据',
+            'print_report_button': '打印报告',
+            
+            # Recent activity section
+            'recent_activity_title': '最近活动（最近30天）',
+            'recent_activity_subtitle': '跟踪您最近的Instagram参与模式',
+            'recent_activity_new_follows': '新关注',
+            'recent_activity_new_followers': '新粉丝',
+            
+            # Analysis summary section
+            'analysis_summary_title': '分析摘要',
+            'mutual_rate_label': '互相关注率',
+            'mutual_rate_description': '您关注的人中',
+            'follow_back_rate_label': '回关率',
+            'follow_back_rate_description': '您的粉丝中',
+            'follow_ratio_label': '关注比例',
+            'follow_ratio_description': '粉丝对关注比',
         }
     }

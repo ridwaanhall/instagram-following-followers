@@ -127,12 +127,18 @@ LANGUAGE_CODE = 'en'
 LANGUAGES = [
     ('en', 'English'),
     ('id', 'Indonesian'),
+    ('zh-hans', 'Chinese'),
 ]
 
 # Language preference settings
 LANGUAGE_SESSION_KEY = 'django_language'
 LANGUAGE_COOKIE_NAME = 'django_language'
 LANGUAGE_COOKIE_AGE = 60 * 60 * 24 * 30  # 30 days
+
+# Locale path for translations
+LOCALE_PATHS = [
+    BASE_DIR / 'locale',
+]
 
 TIME_ZONE = 'UTC'
 

@@ -57,5 +57,33 @@ UPLOAD_DATA = {
         'help_title': 'Butuh file JSON?',
         'help_description': 'Tidak tahu cara mendapatkan data Instagram Anda? Tutorial kami akan memandu Anda melalui proses langkah demi langkah.',
         'help_button': 'Lihat Tutorial'
+    },
+    
+    'zh': {
+        # Meta data
+        'title': '上传Instagram JSON文件 - 即时粉丝分析',
+        'meta_description': '上传您的Instagram粉丝和关注JSON文件进行即时分析。安全、注重隐私的处理，发现谁没有回关、共同连接和详细洞察。',
+        'meta_keywords': 'Instagram JSON上传, 粉丝分析上传, Instagram数据上传, 粉丝追踪器上传, Instagram分析文件上传',
+        
+        # Header
+        'header_title': '上传JSON文件',
+        'header_description': '上传您的Instagram关注和粉丝JSON文件来分析您的社交连接',
+        
+        # Form labels and descriptions
+        'following_file_label': '关注JSON文件',
+        'following_file_description': '从您的Instagram数据导出中上传"following.json"文件',
+        'following_file_placeholder': '点击上传或拖放',
+        
+        'followers_file_label': '粉丝JSON文件',
+        'followers_file_description': '从您的Instagram数据导出中上传"followers_1.json"文件',
+        'followers_file_placeholder': '点击上传或拖放',
+        
+        # Submit button
+        'submit_button': '分析文件',
+        
+        # Help section
+        'help_title': '需要JSON文件？',
+        'help_description': '不知道如何获取您的Instagram数据？我们的教程将逐步指导您完成整个过程。',
+        'help_button': '查看教程'
     }
 }

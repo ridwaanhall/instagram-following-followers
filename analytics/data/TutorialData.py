@@ -309,5 +309,159 @@ TUTORIAL_DATA = {
                 'description': 'Dapatkan analisis komprehensif dari koneksi sosial Anda.'
             }
         ]
+    },
+    
+    'zh': {
+        # Meta data
+        'title': '如何下载Instagram数据 - 完整教程指南',
+        'meta_description': '分步教程：如何下载您的Instagram粉丝和关注数据。学习导出Instagram JSON文件进行粉丝分析和洞察。免费详细指南附截图。',
+        'meta_keywords': 'Instagram数据下载, Instagram粉丝导出, Instagram关注数据, 如何获取Instagram数据, Instagram JSON导出, Instagram数据教程, 下载Instagram信息',
+        
+        # SEO specific data
+        'og_title': '如何下载Instagram数据 - 完整教程指南',
+        'og_description': '分步教程：如何下载您的Instagram粉丝和关注数据进行分析。',
+        'twitter_title': '如何下载Instagram数据 - 完整教程指南',
+        'twitter_description': '分步教程：如何下载您的Instagram粉丝和关注数据进行分析。',
+        
+        # Structured data
+        'schema_how_to_name': '如何下载Instagram粉丝和关注数据',
+        'schema_how_to_description': '分步教程：如何下载您的Instagram粉丝和关注数据进行分析',
+        'schema_webpage_name': '如何下载Instagram数据 - 完整教程',
+        'schema_webpage_description': '下载Instagram粉丝和关注数据进行分析的完整分步指南',
+        'schema_supply_instagram': 'Instagram账户',
+        'schema_supply_device': '移动设备或电脑',
+        'schema_tool_name': 'Instagram应用或网站',
+        'schema_breadcrumb_home': '首页',
+        'schema_breadcrumb_tutorial': '教程',
+        
+        # Schema step data
+        'schema_steps': [
+            {
+                'name': '打开Instagram设置',
+                'text': '前往您的Instagram个人资料并点击菜单图标'
+            },
+            {
+                'name': '导航到账户中心',
+                'text': '在设置菜单中点击账户中心'
+            },
+            {
+                'name': '访问数据下载',
+                'text': '选择您的信息和权限，然后下载您的信息'
+            },
+            {
+                'name': '选择数据类型',
+                'text': '选择您的部分信息并选择粉丝和关注'
+            },
+            {
+                'name': '配置导出设置',
+                'text': '将日期范围设置为所有时间，格式设置为JSON'
+            }
+        ],
+        
+        # Header
+        'header_title': '如何获取您的Instagram数据',
+        'header_description': '按照这些分步说明下载您的Instagram关注和粉丝数据',
+        
+        # Steps section
+        'steps_title': '分步说明',
+        'steps': [
+            '前往您的Instagram个人资料并点击菜单图标。',
+            '点击右上角有三条水平线的图标。',
+            '点击"账户中心"。',
+            '在账户设置中，选择"您的信息和权限"。',
+            '点击"下载您的信息"。',
+            '点击"下载或传输信息"。',
+            '选择您的账户。',
+            '选择"您的部分信息"。',
+            '在"连接"部分，选择"粉丝和关注"。',
+            '下载到您的设备。',
+            '将日期范围设置为"所有时间"，格式设置为"JSON"。',
+            '点击"创建文件"按钮。',
+            '几分钟后，导航到"下载您的信息"获取您的文件。'
+        ],
+        
+        'completion_note': '您快完成了！Instagram将为您准备数据。',
+        
+        # Important notes
+        'important_notes_title': '重要提示',
+        'important_notes': [
+            'Instagram可能需要几分钟到几小时来准备您的数据，具体取决于数据大小。',
+            '数据准备好下载时，您将收到电子邮件通知。',
+            '下载链接将在一定时间后过期，请及时下载。',
+            '确保选择JSON格式以与我们的分析工具兼容。'
+        ],
+        
+        # What files section
+        'files_section_title': '您将获得什么文件',
+        'files_description': '下载后，您将收到一个包含以下内容的ZIP文件：',
+        'files_list': [
+            'following.json - 包含您关注的账户列表',
+            'followers_1.json - 包含关注您的账户列表',
+            '包含时间戳和连接详细信息的附加元数据文件'
+        ],
+        
+        # Next steps
+        'next_steps_title': '下一步',
+        'next_steps_description': '一旦您有了文件，您可以：',
+        'next_steps_options': [
+            {
+                'title': '上传ZIP文件',
+                'description': '上传整个ZIP文件进行自动分析',
+                'button': '上传ZIP'
+            },
+            {
+                'title': '上传单个文件',
+                'description': '提取并上传您需要的JSON文件',
+                'button': '上传文件'
+            },
+            {
+                'title': '复制粘贴数据',
+                'description': '打开JSON文件并直接粘贴内容',
+                'button': '粘贴数据'
+            }
+        ],
+        
+        # Tips section
+        'tips_title': '专业技巧',
+        'tips': [
+            '保护您的数据文件安全，不要与未经授权的人员分享。',
+            '我们的工具在您的浏览器中本地处理所有内容，以确保最大隐私。',
+            '您可以随时重复此过程以获取更新的数据。',
+            '大型账户可能有更大的文件大小和更长的处理时间。'
+        ],
+        
+        # Ready section
+        'ready_title': '准备分析您的数据了吗？',
+        'ready_description': '一旦您有了JSON文件，请返回上传页面开始分析您的Instagram粉丝和关注。',
+        'ready_buttons': [
+            {
+                'text': 'ZIP上传',
+                'url': 'zip_upload'
+            },
+            {
+                'text': '上传文件',
+                'url': 'upload_file'
+            },
+            {
+                'text': '粘贴数据',
+                'url': 'text_input'
+            }
+        ],
+        
+        # Quick tips
+        'quick_tips': [
+            {
+                'title': '隐私优先',
+                'description': '您的数据在本地处理，从未存储在我们的服务器上。'
+            },
+            {
+                'title': '快速处理',
+                'description': '分析通常只需几秒钟即可完成。'
+            },
+            {
+                'title': '详细洞察',
+                'description': '获得您社交连接的全面分析。'
+            }
+        ]
     }
 }

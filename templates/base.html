@@ -218,6 +218,7 @@
                                 <select name="language" onchange="this.form.submit()" class="appearance-none bg-white border border-gray-300 rounded-lg px-3 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition-all duration-200">
                                     <option value="en" {% if current_language == 'en' %}selected{% endif %}>🇺🇸 EN</option>
                                     <option value="id" {% if current_language == 'id' %}selected{% endif %}>🇮🇩 ID</option>
+                                    <option value="zh-hans" {% if current_language == 'zh' %}selected{% endif %}>🇨🇳 中文</option>
                                 </select>
                             </form>
                         </div>
@@ -276,6 +277,7 @@
                                 <select name="language" onchange="this.form.submit()" class="w-full appearance-none bg-white border border-gray-300 rounded-lg px-3 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition-all duration-200">
                                     <option value="en" {% if current_language == 'en' %}selected{% endif %}>🇺🇸 {{ lang_english }}</option>
                                     <option value="id" {% if current_language == 'id' %}selected{% endif %}>🇮🇩 {{ lang_indonesian }}</option>
+                                    <option value="zh-hans" {% if current_language == 'zh' %}selected{% endif %}>🇨🇳 {{ lang_chinese }}</option>
                                 </select>
                             </form>
                         </div>

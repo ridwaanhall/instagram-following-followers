@@ -17,6 +17,8 @@ def get_current_language():
     # Map Django language codes to our data keys
     if language and language.startswith('id'):
         return 'id'
+    elif language and language.startswith('zh'):
+        return 'zh'
     return 'en'
 
 def get_content_data(data_dict, language=None):
@@ -69,5 +71,6 @@ def inject_i18n_context(request):
         'current_language': current_lang,
         'is_indonesian': current_lang == 'id',
         'is_english': current_lang == 'en',
+        'is_chinese': current_lang == 'zh',
         **base_data  # Spread base template data into context
     }

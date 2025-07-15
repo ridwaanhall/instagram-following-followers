@@ -77,5 +77,43 @@ ZIP_UPLOAD_DATA = {
                 'button': 'Tempel Data'
             }
         }
+    },
+    
+    'zh': {
+        # Meta data
+        'title': '上传ZIP文件 - Instagram分析',
+        
+        # Header
+        'header_title': '上传ZIP文件',
+        'header_description': '上传您完整的Instagram数据导出ZIP文件。我们将自动查找并提取粉丝和关注数据进行分析。',
+        
+        # Form
+        'zip_file_label': 'Instagram数据ZIP文件',
+        'zip_file_description': '上传您Instagram数据导出的完整ZIP文件（包含following.json和followers_1.json）',
+        'zip_file_placeholder': '点击上传或拖放',
+        'submit_button': '分析ZIP数据',
+        
+        # Help section
+        'help_title': '我们在您的ZIP文件中查找的内容：',
+        'help_items': [
+            'following.json - 包含您的关注列表',
+            'followers_1.json - 包含您的粉丝列表',
+            '文件可以在任何文件夹中（通常在followers_and_following/）'
+        ],
+        'help_tutorial_text': '需要帮助获取您的数据？查看教程',
+        
+        # Alternative methods
+        'alternative_methods': {
+            'upload_files': {
+                'title': '上传单个文件',
+                'description': '如果您更喜欢更多控制权，可以单独上传JSON文件。',
+                'button': '上传文件'
+            },
+            'paste_data': {
+                'title': '粘贴JSON数据',
+                'description': '直接复制粘贴您的JSON数据进行快速分析。',
+                'button': '粘贴数据'
+            }
+        }
     }
 }
