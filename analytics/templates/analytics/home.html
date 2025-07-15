@@ -1,10 +1,10 @@
 {% extends 'base.html' %}
 
-{% block title %}Instagram Analytics - Simple Followers & Following Analyzer{% endblock %}
+{% block title %}{{ title }}{% endblock %}
 
-{% block meta_title %}Instagram Analytics - Simple Followers & Following Analyzer{% endblock %}
-{% block meta_description %}Simple Instagram analytics tool to analyze your followers and following. Discover who doesn't follow you back, mutual connections, and engagement insights. 100% free, secure, and no login required.{% endblock %}
-{% block meta_keywords %}Instagram analytics, followers analyzer, Instagram insights, social media analytics, Instagram tools, free Instagram tools, mutual followers, who unfollowed me{% endblock %}
+{% block meta_title %}{{ title }}{% endblock %}
+{% block meta_description %}{{ meta_description }}{% endblock %}
+{% block meta_keywords %}{{ meta_keywords }}{% endblock %}
 
 {% block canonical_url %}https://igstats.ridwaanhall.com/{% endblock %}
 {% block og_url %}https://igstats.ridwaanhall.com/{% endblock %}
@@ -21,10 +21,10 @@
                 </svg>
             </div>
             <h1 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-4 leading-tight">
-                Instagram Analytics Tool
+                {{ hero_title }}
             </h1>
             <p class="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto mb-8 leading-relaxed">
-                Analyze your Instagram followers and following relationships. Discover non-followers, mutual connections, and engagement insights - completely private and free.
+                {{ hero_description }}
             </p>
             
             <!-- Key Features Tags -->
@@ -33,19 +33,19 @@
                     <svg class="w-3 h-3 mr-1 text-green-500" fill="currentColor" viewBox="0 0 20 20">
                         <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
                     </svg>
-                    100% Private
+                    {{ feature_private }}
                 </span>
                 <span class="inline-flex items-center px-3 py-1 bg-white/80 rounded-full text-sm font-medium text-gray-700 border border-gray-200 shadow-sm">
                     <svg class="w-3 h-3 mr-1 text-blue-500" fill="currentColor" viewBox="0 0 20 20">
                         <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
                     </svg>
-                    No Login Required
+                    {{ feature_no_login }}
                 </span>
                 <span class="inline-flex items-center px-3 py-1 bg-white/80 rounded-full text-sm font-medium text-gray-700 border border-gray-200 shadow-sm">
                     <svg class="w-3 h-3 mr-1 text-purple-500" fill="currentColor" viewBox="0 0 20 20">
                         <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
                     </svg>
-                    Completely Free
+                    {{ feature_free }}
                 </span>
             </div>
         </div>
@@ -60,7 +60,7 @@
                     <svg class="w-3 h-3 mr-1" fill="none" stroke="currentColor" viewBox="0 0 20 20" stroke-width="2">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/>
                     </svg>
-                    BEST
+                    {{ zip_upload.badge }}
                 </span>
                 <div class="text-center">
                     <div class="inline-flex items-center justify-center w-12 h-12 bg-gradient-to-br from-indigo-500 to-cyan-600 text-white rounded-xl mb-4 group-hover:scale-110 transition-transform duration-300">
@@ -68,15 +68,15 @@
                             <path stroke-linecap="round" stroke-linejoin="round" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/>
                         </svg>
                     </div>
-                    <h3 class="text-lg font-semibold text-gray-900 mb-3">Upload ZIP File</h3>
+                    <h3 class="text-lg font-semibold text-gray-900 mb-3">{{ zip_upload.title }}</h3>
                     <p class="text-gray-600 mb-6 text-sm leading-relaxed">
-                        Upload your complete Instagram data export with automatic extraction.
+                        {{ zip_upload.description }}
                     </p>
                     <a href="{% url 'zip_upload' %}" class="inline-flex items-center justify-center w-full px-4 py-2 bg-gradient-to-r from-indigo-600 to-cyan-600 text-white font-medium rounded-lg hover:from-indigo-700 hover:to-cyan-700 transition-all duration-200 text-sm">
                         <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/>
                         </svg>
-                        Upload ZIP
+                        {{ zip_upload.button }}
                     </a>
                 </div>
             </div>
@@ -89,15 +89,15 @@
                             <path stroke-linecap="round" stroke-linejoin="round" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"/>
                         </svg>
                     </div>
-                    <h3 class="text-lg font-semibold text-gray-900 mb-3">Upload JSON Files</h3>
+                    <h3 class="text-lg font-semibold text-gray-900 mb-3">{{ file_upload.title }}</h3>
                     <p class="text-gray-600 mb-6 text-sm leading-relaxed">
-                        Upload your followers and following JSON files from Instagram data export.
+                        {{ file_upload.description }}
                     </p>
                     <a href="{% url 'upload_file' %}" class="inline-flex items-center justify-center w-full px-4 py-2 bg-gradient-to-r from-blue-600 to-blue-700 text-white font-medium rounded-lg hover:from-blue-700 hover:to-blue-800 transition-all duration-200 text-sm">
                         <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"/>
                         </svg>
-                        Upload Files
+                        {{ file_upload.button }}
                     </a>
                 </div>
             </div>
@@ -110,15 +110,15 @@
                             <path stroke-linecap="round" stroke-linejoin="round" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/>
                         </svg>
                     </div>
-                    <h3 class="text-lg font-semibold text-gray-900 mb-3">Paste JSON Data</h3>
+                    <h3 class="text-lg font-semibold text-gray-900 mb-3">{{ text_input.title }}</h3>
                     <p class="text-gray-600 mb-6 text-sm leading-relaxed">
-                        Copy and paste your Instagram JSON data directly for quick analysis.
+                        {{ text_input.description }}
                     </p>
                     <a href="{% url 'text_input' %}" class="inline-flex items-center justify-center w-full px-4 py-2 bg-gradient-to-r from-purple-600 to-purple-700 text-white font-medium rounded-lg hover:from-purple-700 hover:to-purple-800 transition-all duration-200 text-sm">
                         <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/>
                         </svg>
-                        Paste Data
+                        {{ text_input.button }}
                     </a>
                 </div>
             </div>
@@ -126,7 +126,7 @@
 
         <!-- Features Overview -->
         <div class="text-center mb-12 max-w-7xl mx-auto">
-            <h2 class="text-xl sm:text-2xl font-bold text-gray-900 mb-6">What You'll Discover</h2>
+            <h2 class="text-xl sm:text-2xl font-bold text-gray-900 mb-6">{{ features_title }}</h2>
             <div class="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 max-w-7xl mx-auto mb-12 sm:mb-16">
                 <div class="bg-white/80 rounded-lg p-4 border border-gray-100">
                     <div class="w-8 h-8 bg-gradient-to-br from-green-100 to-green-200 rounded-lg flex items-center justify-center mx-auto mb-3">
@@ -134,8 +134,8 @@
                             <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197m13.5-9a2.5 2.5 0 11-5 0 2.5 2.5 0 015 0z"/>
                         </svg>
                     </div>
-                    <h3 class="font-medium text-gray-900 text-sm mb-1">Mutual Followers</h3>
-                    <p class="text-xs text-gray-600">People who follow you back</p>
+                    <h3 class="font-medium text-gray-900 text-sm mb-1">{{ features.mutual_followers.title }}</h3>
+                    <p class="text-xs text-gray-600">{{ features.mutual_followers.description }}</p>
                 </div>
                 
                 <div class="bg-white/80 rounded-lg p-4 border border-gray-100">
@@ -144,8 +144,8 @@
                             <path stroke-linecap="round" stroke-linejoin="round" d="M13 7a4 4 0 11-8 0 4 4 0 018 0zM9 14a6 6 0 00-6 6v1h12v-1a6 6 0 00-6-6zM21 12h-6"/>
                         </svg>
                     </div>
-                    <h3 class="font-medium text-gray-900 text-sm mb-1">Non-Followers</h3>
-                    <p class="text-xs text-gray-600">Who doesn't follow back</p>
+                    <h3 class="font-medium text-gray-900 text-sm mb-1">{{ features.non_followers.title }}</h3>
+                    <p class="text-xs text-gray-600">{{ features.non_followers.description }}</p>
                 </div>
                 
                 <div class="bg-white/80 rounded-lg p-4 border border-gray-100">
@@ -154,8 +154,8 @@
                             <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
                         </svg>
                     </div>
-                    <h3 class="font-medium text-gray-900 text-sm mb-1">Timeline Data</h3>
-                    <p class="text-xs text-gray-600">When relationships started</p>
+                    <h3 class="font-medium text-gray-900 text-sm mb-1">{{ features.timeline_data.title }}</h3>
+                    <p class="text-xs text-gray-600">{{ features.timeline_data.description }}</p>
                 </div>
                 
                 <div class="bg-white/80 rounded-lg p-4 border border-gray-100">
@@ -164,94 +164,62 @@
                             <path stroke-linecap="round" stroke-linejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
                         </svg>
                     </div>
-                    <h3 class="font-medium text-gray-900 text-sm mb-1">Analytics</h3>
-                    <p class="text-xs text-gray-600">Engagement insights</p>
+                    <h3 class="font-medium text-gray-900 text-sm mb-1">{{ features.analytics.title }}</h3>
+                    <p class="text-xs text-gray-600">{{ features.analytics.description }}</p>
                 </div>
             </div>
         </div>
 
         <!-- How It Works -->
         <div class="bg-white/90 backdrop-blur-sm rounded-xl shadow-lg border border-gray-100 p-6 sm:p-8 mb-12 max-w-7xl mx-auto">
-            <h2 class="text-xl sm:text-2xl font-bold text-gray-900 mb-6 text-center">How It Works</h2>
+            <h2 class="text-xl sm:text-2xl font-bold text-gray-900 mb-6 text-center">{{ how_it_works_title }}</h2>
             <div class="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 max-w-7xl mx-auto">
+                {% for step in how_it_works_steps %}
                 <div class="text-center">
-                    <div class="w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-4 text-white font-bold">1</div>
-                    <h3 class="font-semibold text-gray-900 mb-2">Export Data</h3>
-                    <p class="text-sm text-gray-600">Download your Instagram data from Settings → Privacy → Download Your Information</p>
+                    <div class="w-12 h-12 bg-gradient-to-br from-{% cycle 'blue' 'purple' 'green' 'pink' %}-500 to-{% cycle 'blue' 'purple' 'green' 'red' %}-{% cycle '600' '600' '600' '500' %} rounded-full flex items-center justify-center mx-auto mb-4 text-white font-bold">{{ forloop.counter }}</div>
+                    <h3 class="font-semibold text-gray-900 mb-2">{{ step.title }}</h3>
+                    <p class="text-sm text-gray-600">{{ step.description }}</p>
                 </div>
-                <div class="text-center">
-                    <div class="w-12 h-12 bg-gradient-to-br from-purple-500 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-4 text-white font-bold">2</div>
-                    <h3 class="font-semibold text-gray-900 mb-2">Upload & Analyze</h3>
-                    <p class="text-sm text-gray-600">Choose your method and let our tool analyze your data locally in your browser</p>
-                </div>
-                <div class="text-center">
-                    <div class="w-12 h-12 bg-gradient-to-br from-green-500 to-green-600 rounded-full flex items-center justify-center mx-auto mb-4 text-white font-bold">3</div>
-                    <h3 class="font-semibold text-gray-900 mb-2">Get Insights</h3>
-                    <p class="text-sm text-gray-600">View comprehensive reports with actionable insights about your Instagram network</p>
-                </div>
-                <div class="text-center">
-                    <div class="w-12 h-12 bg-gradient-to-br from-pink-500 to-red-500 rounded-full flex items-center justify-center mx-auto mb-4 text-white font-bold">4</div>
-                    <h3 class="font-semibold text-gray-900 mb-2">Take Action</h3>
-                    <p class="text-sm text-gray-600">Use your insights to manage your Instagram relationships and improve engagement.</p>
-                </div>
+                {% endfor %}
             </div>
         </div>
 
         <!-- Quick FAQ -->
         <div class="bg-gradient-to-r from-gray-50 to-gray-100 rounded-xl p-6 sm:p-8 mb-12 max-w-7xl mx-auto">
-            <h2 class="text-xl sm:text-2xl font-bold text-gray-900 mb-6 text-center">Quick Questions</h2>
+            <h2 class="text-xl sm:text-2xl font-bold text-gray-900 mb-6 text-center">{{ faq_title }}</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                {% for faq_item in faq %}
                 <div>
                     <h3 class="font-semibold text-gray-900 mb-2 flex items-center">
-                        <svg class="w-4 h-4 mr-2 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+                        <svg class="w-4 h-4 mr-2 text-{% cycle 'green' 'blue' 'purple' 'orange' %}-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="{{ faq_item.icon }}"/>
                         </svg>
-                        Is my data safe?
+                        {{ faq_item.question }}
                     </h3>
-                    <p class="text-sm text-gray-600">Yes! Everything is processed locally in your browser. No data is sent to our servers.</p>
+                    <p class="text-sm text-gray-600">{{ faq_item.answer }}</p>
                 </div>
-                <div>
-                    <h3 class="font-semibold text-gray-900 mb-2 flex items-center">
-                        <svg class="w-4 h-4 mr-2 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1"/>
-                        </svg>
-                        Is it free?
-                    </h3>
-                    <p class="text-sm text-gray-600">Completely free with no hidden costs, subscriptions, or premium features.</p>
-                </div>
-                <div>
-                    <h3 class="font-semibold text-gray-900 mb-2 flex items-center">
-                        <svg class="w-4 h-4 mr-2 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
-                        </svg>
-                        What files do I need?
-                    </h3>
-                    <p class="text-sm text-gray-600">Your followers and following JSON or ZIP file from Instagram's data export feature.</p>
-                </div>
-                <div>
-                    <h3 class="font-semibold text-gray-900 mb-2 flex items-center">
-                        <svg class="w-4 h-4 mr-2 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/>
-                        </svg>
-                        Need to login?
-                    </h3>
-                    <p class="text-sm text-gray-600">No login required! Just upload your data files and start analyzing immediately.</p>
-                </div>
+                {% endfor %}
             </div>
         </div>
 
         <!-- CTA Section -->
         <div class="text-center">
             <div class="bg-gradient-to-r from-purple-600 via-pink-600 to-red-500 rounded-xl shadow-xl p-6 sm:p-8 max-w-7xl mx-auto">
-                <h2 class="text-lg sm:text-xl font-bold text-white mb-4">Ready to Analyze Your Instagram?</h2>
-                <p class="text-purple-100 mb-6 text-sm sm:text-base">Get insights about your followers and following relationships in minutes.</p>
+                <h2 class="text-lg sm:text-xl font-bold text-white mb-4">{{ cta_title }}</h2>
+                <p class="text-purple-100 mb-6 text-sm sm:text-base">{{ cta_description }}</p>
                 
                 <div class="flex flex-col sm:flex-row gap-3 justify-center">
                     <a href="{% url 'upload_file' %}" class="inline-flex items-center justify-center px-6 py-3 bg-white text-purple-600 font-semibold rounded-lg hover:bg-gray-50 transition-all duration-200 text-sm">
-                        Start Analysis
+                        <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"/>
+                        </svg>
+                        {{ cta_button_start }}
                     </a>
                     <a href="{% url 'tutorial' %}" class="inline-flex items-center justify-center px-6 py-3 bg-purple-500 text-white font-semibold rounded-lg hover:bg-purple-400 transition-all duration-200 text-sm">
-                        View Tutorial
+                        <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C20.168 18.477 18.582 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+                        </svg>
+                        {{ cta_button_tutorial }}
                     </a>
                 </div>
                 
@@ -259,7 +227,7 @@
                     <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
                     </svg>
-                    <span class="text-xs">Secure • Private • Free</span>
+                    <span class="text-xs">{{ cta_security_text }}</span>
                 </div>
             </div>
         </div>

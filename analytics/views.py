@@ -2,6 +2,10 @@ from django.shortcuts import render
 from django.views.generic import TemplateView
 from django.views.generic.edit import FormView
 from .forms import UploadFileForm, ZipUploadForm
+from .utils import (
+    get_home_data, get_upload_data, get_zip_upload_data,
+    get_text_input_data, get_tutorial_data, get_results_data
+)
 import json
 import logging
 from django.urls import reverse_lazy
@@ -14,6 +18,11 @@ logger = logging.getLogger(__name__)
 
 class HomeView(TemplateView):
     template_name = 'analytics/home.html'
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context.update(get_home_data())
+        return context
 
 class BaseAnalyticsView(FormView):
     success_url = reverse_lazy('home')
@@ -136,6 +145,8 @@ class BaseAnalyticsView(FormView):
                 'list_non_follow_back_simple': list(following_set - followers_set),
                 'list_not_following_back_simple': list(followers_set - following_set),
             }
+            # Add internationalization data
+            context.update(get_results_data())
             return render(self.request, 'analytics/results.html', context)
 
         except Exception as e:
@@ -146,6 +157,11 @@ class BaseAnalyticsView(FormView):
 class UploadFileView(BaseAnalyticsView):
     template_name = 'analytics/upload.html'
     form_class = UploadFileForm
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context.update(get_upload_data())
+        return context
 
     def form_valid(self, form):
         try:
@@ -177,6 +193,11 @@ class UploadFileView(BaseAnalyticsView):
 class TextInputView(BaseAnalyticsView):
     template_name = 'analytics/text_input.html'
     form_class = UploadFileForm
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context.update(get_text_input_data())
+        return context
 
     def form_valid(self, form):
         try:
@@ -202,10 +223,20 @@ class TextInputView(BaseAnalyticsView):
     
 class TutorialView(TemplateView):
     template_name = 'analytics/tutorial.html'
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context.update(get_tutorial_data())
+        return context
 
 class ZipUploadView(BaseAnalyticsView):
     template_name = 'analytics/zip_upload.html'
     form_class = ZipUploadForm
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context.update(get_zip_upload_data())
+        return context
 
     def find_json_files_in_zip(self, zip_file):
         """

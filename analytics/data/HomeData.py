@@ -1,0 +1,221 @@
+"""
+Home page content data for Indonesian and English localization
+"""
+
+HOME_DATA = {
+    'en': {
+        # Meta data
+        'title': 'Instagram Analytics - Simple Followers & Following Analyzer',
+        'meta_description': 'Simple Instagram analytics tool to analyze your followers and following. Discover who doesn\'t follow you back, mutual connections, and engagement insights. 100% free, secure, and no login required.',
+        'meta_keywords': 'Instagram analytics, followers analyzer, Instagram insights, social media analytics, Instagram tools, free Instagram tools, mutual followers, who unfollowed me',
+        
+        # Hero section
+        'hero_title': 'Instagram Analytics Tool',
+        'hero_description': 'Analyze your Instagram followers and following relationships. Discover non-followers, mutual connections, and engagement insights - completely private and free.',
+        
+        # Feature tags
+        'feature_private': '100% Private',
+        'feature_no_login': 'No Login Required',
+        'feature_free': 'Completely Free',
+        
+        # Method cards
+        'zip_upload': {
+            'title': 'Upload ZIP File',
+            'description': 'Upload your complete Instagram data export with automatic extraction.',
+            'button': 'Upload ZIP',
+            'badge': 'BEST'
+        },
+        'file_upload': {
+            'title': 'Upload JSON Files',
+            'description': 'Upload your followers and following JSON files from Instagram data export.',
+            'button': 'Upload Files'
+        },
+        'text_input': {
+            'title': 'Paste JSON Data',
+            'description': 'Copy and paste your Instagram JSON data directly for quick analysis.',
+            'button': 'Paste Data'
+        },
+        
+        # Features overview
+        'features_title': 'What You\'ll Discover',
+        'features': {
+            'mutual_followers': {
+                'title': 'Mutual Followers',
+                'description': 'People who follow you back'
+            },
+            'non_followers': {
+                'title': 'Non-Followers',
+                'description': 'Who doesn\'t follow back'
+            },
+            'timeline_data': {
+                'title': 'Timeline Data',
+                'description': 'When relationships started'
+            },
+            'analytics': {
+                'title': 'Analytics',
+                'description': 'Engagement insights'
+            }
+        },
+        
+        # How it works
+        'how_it_works_title': 'How It Works',
+        'how_it_works_steps': [
+            {
+                'title': 'Export Data',
+                'description': 'Download your Instagram data from Settings → Privacy → Download Your Information'
+            },
+            {
+                'title': 'Upload & Analyze',
+                'description': 'Choose your method and let our tool analyze your data locally in your browser'
+            },
+            {
+                'title': 'Get Insights',
+                'description': 'View comprehensive reports with actionable insights about your Instagram network'
+            },
+            {
+                'title': 'Take Action',
+                'description': 'Use your insights to manage your Instagram relationships and improve engagement.'
+            }
+        ],
+        
+        # Quick FAQ
+        'faq_title': 'Quick Questions',
+        'faq': [
+            {
+                'question': 'Is my data safe?',
+                'answer': 'Yes! Everything is processed locally in your browser. No data is sent to our servers.',
+                'icon': 'M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z'
+            },
+            {
+                'question': 'Is it free?',
+                'answer': 'Completely free with no hidden costs, subscriptions, or premium features.',
+                'icon': 'M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1'
+            },
+            {
+                'question': 'What files do I need?',
+                'answer': 'Your followers and following JSON or ZIP file from Instagram\'s data export feature.',
+                'icon': 'M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z'
+            },
+            {
+                'question': 'Need to login?',
+                'answer': 'No login required! Just upload your data files and start analyzing immediately.',
+                'icon': 'M13 10V3L4 14h7v7l9-11h-7z'
+            }
+        ],
+        
+        # CTA section
+        'cta_title': 'Ready to Analyze Your Instagram?',
+        'cta_description': 'Get insights about your followers and following relationships in minutes.',
+        'cta_button_start': 'Start Analysis',
+        'cta_button_tutorial': 'View Tutorial',
+        'cta_security_text': 'Secure • Private • Free'
+    },
+    
+    'id': {
+        # Meta data
+        'title': 'Instagram Analytics - Analisis Sederhana Pengikut & Mengikuti',
+        'meta_description': 'Alat analisis Instagram sederhana untuk menganalisis pengikut dan mengikuti Anda. Temukan siapa yang tidak mengikuti balik, koneksi mutual, dan wawasan engagement. 100% gratis, aman, dan tidak perlu login.',
+        'meta_keywords': 'analisis Instagram, analisis pengikut, wawasan Instagram, analisis media sosial, alat Instagram, alat Instagram gratis, pengikut mutual, siapa yang unfollow saya',
+        
+        # Hero section
+        'hero_title': 'Alat Analisis Instagram',
+        'hero_description': 'Analisis hubungan pengikut dan mengikuti Instagram Anda. Temukan non-followers, koneksi mutual, dan wawasan engagement - sepenuhnya pribadi dan gratis.',
+        
+        # Feature tags
+        'feature_private': '100% Pribadi',
+        'feature_no_login': 'Tanpa Login',
+        'feature_free': 'Sepenuhnya Gratis',
+        
+        # Method cards
+        'zip_upload': {
+            'title': 'Unggah File ZIP',
+            'description': 'Unggah ekspor data Instagram lengkap Anda dengan ekstraksi otomatis.',
+            'button': 'Unggah ZIP',
+            'badge': 'TERBAIK'
+        },
+        'file_upload': {
+            'title': 'Unggah File JSON',
+            'description': 'Unggah file JSON pengikut dan mengikuti dari ekspor data Instagram.',
+            'button': 'Unggah File'
+        },
+        'text_input': {
+            'title': 'Tempel Data JSON',
+            'description': 'Salin dan tempel data JSON Instagram Anda langsung untuk analisis cepat.',
+            'button': 'Tempel Data'
+        },
+        
+        # Features overview
+        'features_title': 'Apa yang Akan Anda Temukan',
+        'features': {
+            'mutual_followers': {
+                'title': 'Pengikut Mutual',
+                'description': 'Orang yang mengikuti Anda balik'
+            },
+            'non_followers': {
+                'title': 'Non-Pengikut',
+                'description': 'Siapa yang tidak mengikuti balik'
+            },
+            'timeline_data': {
+                'title': 'Data Timeline',
+                'description': 'Kapan hubungan dimulai'
+            },
+            'analytics': {
+                'title': 'Analitik',
+                'description': 'Wawasan engagement'
+            }
+        },
+        
+        # How it works
+        'how_it_works_title': 'Cara Kerja',
+        'how_it_works_steps': [
+            {
+                'title': 'Ekspor Data',
+                'description': 'Unduh data Instagram Anda dari Pengaturan → Privasi → Unduh Informasi Anda'
+            },
+            {
+                'title': 'Unggah & Analisis',
+                'description': 'Pilih metode Anda dan biarkan alat kami menganalisis data Anda secara lokal di browser'
+            },
+            {
+                'title': 'Dapatkan Wawasan',
+                'description': 'Lihat laporan komprehensif dengan wawasan yang dapat ditindaklanjuti tentang jaringan Instagram Anda'
+            },
+            {
+                'title': 'Ambil Tindakan',
+                'description': 'Gunakan wawasan Anda untuk mengelola hubungan Instagram dan meningkatkan engagement.'
+            }
+        ],
+        
+        # Quick FAQ
+        'faq_title': 'Pertanyaan Cepat',
+        'faq': [
+            {
+                'question': 'Apakah data saya aman?',
+                'answer': 'Ya! Semuanya diproses secara lokal di browser Anda. Tidak ada data yang dikirim ke server kami.',
+                'icon': 'M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z'
+            },
+            {
+                'question': 'Apakah gratis?',
+                'answer': 'Sepenuhnya gratis tanpa biaya tersembunyi, langganan, atau fitur premium.',
+                'icon': 'M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1'
+            },
+            {
+                'question': 'File apa yang saya butuhkan?',
+                'answer': 'File JSON atau ZIP pengikut dan mengikuti dari fitur ekspor data Instagram.',
+                'icon': 'M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z'
+            },
+            {
+                'question': 'Perlu login?',
+                'answer': 'Tidak perlu login! Cukup unggah file data Anda dan mulai analisis segera.',
+                'icon': 'M13 10V3L4 14h7v7l9-11h-7z'
+            }
+        ],
+        
+        # CTA section
+        'cta_title': 'Siap Menganalisis Instagram Anda?',
+        'cta_description': 'Dapatkan wawasan tentang hubungan pengikut dan mengikuti dalam hitungan menit.',
+        'cta_button_start': 'Mulai Analisis',
+        'cta_button_tutorial': 'Lihat Tutorial',
+        'cta_security_text': 'Aman • Pribadi • Gratis'
+    }
+}
