@@ -197,5 +197,27 @@ UPLOAD_DATA = {
         'help_title': 'Besoin des fichiers JSON ?',
         'help_description': 'Vous ne savez pas comment obtenir vos données Instagram ? Notre tutoriel vous guidera à travers le processus étape par étape.',
         'help_button': 'Voir Tutoriel'
-    }
+    },
+    # 'de': {
+    #     # Meta data
+    #     'title': 'Instagram JSON-Dateien hochladen - Sofortige Follower-Analyse',
+    #     'meta_description': 'Laden Sie Ihre Instagram-Follower- und Following-JSON-Dateien für eine sofortige Analyse hoch. Sicheres, datenschutzorientiertes Verarbeiten, um herauszufinden, wer Ihnen nicht zurückfolgt, gegenseitige Verbindungen und detaillierte Einblicke zu entdecken.',
+    #     'meta_keywords': 'Instagram JSON hochladen, Follower-Analyse hochladen, Instagram Daten hochladen, Follower-Tracker hochladen, Instagram Analyse Datei hochladen',
+    #     # Header
+    #     'header_title': 'JSON-Daten hochladen',
+    #     'header_description': 'Laden Sie Ihre Instagram-Following- und Followers-JSON-Dateien hoch, um Ihre sozialen Verbindungen zu analysieren',
+    #     # Form labels and descriptions
+    #     'following_file_label': 'Following JSON Datei',
+    #     'following_file_description': 'Laden Sie die "following.json"-Datei aus Ihrem Instagram-Datenexport hoch',
+    #     'following_file_placeholder': 'Klicken Sie zum Hochladen oder ziehen Sie die Datei hierher',
+    #     'followers_file_label': 'Followers JSON Datei',
+    #     'followers_file_description': 'Laden Sie die "followers_1.json"-Datei aus Ihrem Instagram-Datenexport hoch',
+    #     'followers_file_placeholder': 'Klicken Sie zum Hochladen oder ziehen Sie die Datei hierher',
+    #     # Submit button
+    #     'submit_button': 'Dateien analysieren',
+    #     # Help section
+    #     'help_title': 'Benötigen Sie die JSON-Dateien?',
+    #     'help_description': 'Wissen Sie nicht, wie Sie Ihre Instagram-Daten erhalten? Unser Tutorial führt Sie Schritt für Schritt durch den Prozess.',
+    #     'help_button': 'Tutorial ansehen'
+    # }
 }
