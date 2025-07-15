@@ -1,10 +1,10 @@
 {% extends 'base.html' %}
 
-{% block title %}Upload Instagram JSON Files - Instant Follower Analysis{% endblock %}
+{% block title %}{{ title }}{% endblock %}
 
-{% block meta_title %}Upload Instagram JSON Files - Instant Follower Analysis{% endblock %}
-{% block meta_description %}Upload your Instagram followers and following JSON files for instant analysis. Secure, privacy-focused processing to discover who doesn't follow back, mutual connections, and detailed insights.{% endblock %}
-{% block meta_keywords %}Instagram JSON upload, followers analysis upload, Instagram data upload, follower tracker upload, Instagram analytics file upload{% endblock %}
+{% block meta_title %}{{ title }}{% endblock %}
+{% block meta_description %}{{ meta_description }}{% endblock %}
+{% block meta_keywords %}{{ meta_keywords }}{% endblock %}
 
 {% block canonical_url %}https://igstats.ridwaanhall.com/upload/{% endblock %}
 {% block og_url %}https://igstats.ridwaanhall.com/upload/{% endblock %}
@@ -49,9 +49,9 @@
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"/>
                 </svg>
             </div>
-            <h1 class="text-4xl font-bold text-gray-900 mb-4">Upload JSON Files</h1>
+            <h1 class="text-4xl font-bold text-gray-900 mb-4">{{ header_title }}</h1>
             <p class="text-lg text-gray-600 max-w-2xl mx-auto">
-                Upload your Instagram following and followers JSON files to analyze your social connections
+                {{ header_description }}
             </p>
         </div>
 
@@ -83,7 +83,7 @@
                     <!-- Following File Upload -->
                     <div>
                         <label class="block text-sm font-semibold text-gray-900 mb-3">
-                            Following JSON File
+                            {{ following_file_label }}
                         </label>
                         <div class="relative">
                             <input type="file" 
@@ -96,19 +96,19 @@
                                     <svg class="mx-auto h-12 w-12 mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"/>
                                     </svg>
-                                    <span class="text-sm">Click to upload or drag & drop</span>
+                                    <span class="text-sm">{{ following_file_placeholder }}</span>
                                 </div>
                             </div>
                         </div>
                         <p class="mt-2 text-sm text-gray-500">
-                            Upload the "following.json" file from your Instagram data export
+                            {{ following_file_description }}
                         </p>
                     </div>
 
                     <!-- Followers File Upload -->
                     <div>
                         <label class="block text-sm font-semibold text-gray-900 mb-3">
-                            Followers JSON File
+                            {{ followers_file_label }}
                         </label>
                         <div class="relative">
                             <input type="file" 
@@ -121,12 +121,12 @@
                                     <svg class="mx-auto h-12 w-12 mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"/>
                                     </svg>
-                                    <span class="text-sm">Click to upload or drag & drop</span>
+                                    <span class="text-sm">{{ followers_file_placeholder }}</span>
                                 </div>
                             </div>
                         </div>
                         <p class="mt-2 text-sm text-gray-500">
-                            Upload the "followers_1.json" file from your Instagram data export
+                            {{ followers_file_description }}
                         </p>
                     </div>
 
@@ -137,7 +137,7 @@
                             <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
                             </svg>
-                            Analyze Files
+                            {{ submit_button }}
                         </button>
                     </div>
                 </form>
@@ -152,13 +152,13 @@
                         </svg>
                     </div>
                     <div class="ml-3">
-                        <h3 class="text-sm font-semibold text-blue-900 mb-1">Need the JSON files?</h3>
+                        <h3 class="text-sm font-semibold text-blue-900 mb-1">{{ help_title }}</h3>
                         <p class="text-sm text-blue-700 mb-3">
-                            Don't know how to get your Instagram data? Our tutorial will guide you through the process step by step.
+                            {{ help_description }}
                         </p>
                         <a href="{% url 'tutorial' %}" 
                            class="inline-flex items-center text-sm font-medium text-blue-600 hover:text-blue-700">
-                            View Tutorial
+                            {{ help_button }}
                             <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
                             </svg>
