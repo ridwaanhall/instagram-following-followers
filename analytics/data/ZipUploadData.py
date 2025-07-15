@@ -115,5 +115,43 @@ ZIP_UPLOAD_DATA = {
                 'button': '粘贴数据'
             }
         }
+    },
+    
+    'es': {
+        # Meta data
+        'title': 'Subir Archivo ZIP - Analytics de Instagram',
+        
+        # Header
+        'header_title': 'Subir Archivo ZIP',
+        'header_description': 'Sube tu archivo ZIP completo de exportación de datos de Instagram. Encontraremos y extraeremos automáticamente los datos de seguidores y seguidos para análisis.',
+        
+        # Form
+        'zip_file_label': 'Archivo ZIP de Datos de Instagram',
+        'zip_file_description': 'Sube el archivo ZIP completo de tu exportación de datos de Instagram (que contiene following.json y followers_1.json)',
+        'zip_file_placeholder': 'Haz clic para subir o arrastra y suelta',
+        'submit_button': 'Analizar Datos ZIP',
+        
+        # Help section
+        'help_title': 'Lo que buscamos en tu archivo ZIP:',
+        'help_items': [
+            'following.json - Contiene tu lista de seguidos',
+            'followers_1.json - Contiene tu lista de seguidores',
+            'Los archivos pueden estar en cualquier carpeta (comúnmente followers_and_following/)'
+        ],
+        'help_tutorial_text': '¿Necesitas ayuda para obtener tus datos? Ver tutorial',
+        
+        # Alternative methods
+        'alternative_methods': {
+            'upload_files': {
+                'title': 'Subir Archivos Individuales',
+                'description': 'Sube archivos JSON por separado si prefieres más control.',
+                'button': 'Subir Archivos'
+            },
+            'paste_data': {
+                'title': 'Pegar Datos JSON',
+                'description': 'Copia y pega tus datos JSON directamente para análisis rápido.',
+                'button': 'Pegar Datos'
+            }
+        }
     }
 }

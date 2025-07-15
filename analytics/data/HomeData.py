@@ -325,5 +325,113 @@ HOME_DATA = {
         'cta_button_start': '开始分析',
         'cta_button_tutorial': '查看教程',
         'cta_security_text': '安全 • 私密 • 免费'
+    },
+    
+    'es': {
+        # Meta data
+        'title': 'Instagram Analytics - Analizador Simple de Seguidores y Seguidos',
+        'meta_description': 'Herramienta simple de análisis de Instagram para analizar tus seguidores y seguidos. Descubre quién no te sigue de vuelta, conexiones mutuas e insights de engagement. 100% gratis, seguro y sin necesidad de iniciar sesión.',
+        'meta_keywords': 'análisis Instagram, analizador seguidores, insights Instagram, análisis redes sociales, herramientas Instagram, herramientas Instagram gratis, seguidores mutuos, quién me dejó de seguir',
+        
+        # Hero section
+        'hero_title': 'Herramienta de Análisis de Instagram',
+        'hero_description': 'Analiza las relaciones de seguidores y seguidos de Instagram. Descubre no-seguidores, conexiones mutuas e insights de engagement - completamente privado y gratuito.',
+        
+        # Feature tags
+        'feature_private': '100% Privado',
+        'feature_no_login': 'Sin Inicio de Sesión',
+        'feature_free': 'Completamente Gratis',
+        
+        # Method cards
+        'zip_upload': {
+            'title': 'Subir Archivo ZIP',
+            'description': 'Sube tu exportación completa de datos de Instagram con extracción automática.',
+            'button': 'Subir ZIP',
+            'badge': 'MEJOR'
+        },
+        'file_upload': {
+            'title': 'Subir Archivos JSON',
+            'description': 'Sube tus archivos JSON de seguidores y seguidos desde la exportación de datos de Instagram.',
+            'button': 'Subir Archivos'
+        },
+        'text_input': {
+            'title': 'Pegar Datos JSON',
+            'description': 'Copia y pega tus datos JSON de Instagram directamente para análisis rápido.',
+            'button': 'Pegar Datos'
+        },
+        
+        # Features overview
+        'features_title': 'Lo que Descubrirás',
+        'features': {
+            'mutual_followers': {
+                'title': 'Seguidores Mutuos',
+                'description': 'Personas que te siguen de vuelta'
+            },
+            'non_followers': {
+                'title': 'No-Seguidores',
+                'description': 'Quién no te sigue de vuelta'
+            },
+            'timeline_data': {
+                'title': 'Datos de Cronología',
+                'description': 'Cuándo comenzaron las relaciones'
+            },
+            'analytics': {
+                'title': 'Análisis',
+                'description': 'Insights de engagement'
+            }
+        },
+        
+        # How it works
+        'how_it_works_title': 'Cómo Funciona',
+        'how_it_works_steps': [
+            {
+                'title': 'Exportar Datos',
+                'description': 'Descarga tus datos de Instagram desde Configuración → Privacidad → Descargar Tu Información'
+            },
+            {
+                'title': 'Subir y Analizar',
+                'description': 'Elige tu método y deja que nuestra herramienta analice tus datos localmente en tu navegador'
+            },
+            {
+                'title': 'Obtener Insights',
+                'description': 'Ve reportes completos con insights accionables sobre tu red de Instagram'
+            },
+            {
+                'title': 'Tomar Acción',
+                'description': 'Usa tus insights para gestionar tus relaciones de Instagram y mejorar el engagement.'
+            }
+        ],
+        
+        # Quick FAQ
+        'faq_title': 'Preguntas Rápidas',
+        'faq': [
+            {
+                'question': '¿Están seguros mis datos?',
+                'answer': '¡Sí! Todo se procesa localmente en tu navegador. No se envían datos a nuestros servidores.',
+                'icon': 'M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z'
+            },
+            {
+                'question': '¿Es gratis?',
+                'answer': 'Completamente gratis sin costos ocultos, suscripciones o funciones premium.',
+                'icon': 'M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1'
+            },
+            {
+                'question': '¿Qué archivos necesito?',
+                'answer': 'Tus archivos JSON o ZIP de seguidores y seguidos de la función de exportación de datos de Instagram.',
+                'icon': 'M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z'
+            },
+            {
+                'question': '¿Necesito iniciar sesión?',
+                'answer': '¡No necesitas iniciar sesión! Solo sube tus archivos de datos y comienza a analizar inmediatamente.',
+                'icon': 'M13 10V3L4 14h7v7l9-11h-7z'
+            }
+        ],
+        
+        # CTA section
+        'cta_title': '¿Listo para Analizar tu Instagram?',
+        'cta_description': 'Obtén insights sobre las relaciones de tus seguidores y seguidos en minutos.',
+        'cta_button_start': 'Comenzar Análisis',
+        'cta_button_tutorial': 'Ver Tutorial',
+        'cta_security_text': 'Seguro • Privado • Gratis'
     }
 }

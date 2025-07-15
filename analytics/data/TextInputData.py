@@ -217,5 +217,77 @@ followers_1.json: [{"string_list_data": [...]}]'''
             'description': '我们的分步教程将指导您下载Instagram数据导出。',
             'button': '查看教程'
         }
+    },
+    
+    'es': {
+        # Meta data
+        'title': 'Pegar Datos JSON - Analytics de Instagram',
+        
+        # Header
+        'header_title': 'Pegar Datos JSON',
+        'header_description': 'Copia y pega tus datos JSON de Instagram directamente para análisis rápido',
+        
+        # Form labels
+        'following_label': 'Datos JSON de Seguidos',
+        'followers_label': 'Datos JSON de Seguidores',
+        
+        # Placeholders
+        'following_placeholder': '''Pega el contenido de tu following.json aquí...
+
+Ejemplo:
+{
+  "relationships_following": [
+    {
+      "string_list_data": [
+        {
+          "href": "...",
+          "value": "usuario1",
+          "timestamp": 1234567890
+        }
+      ]
+    }
+  ]
+}''',
+        
+        'followers_placeholder': '''Pega el contenido de tu followers_1.json aquí...
+
+Ejemplo:
+[
+  {
+    "string_list_data": [
+      {
+        "href": "...",
+        "value": "seguidor1",
+        "timestamp": 1234567890
+      }
+    ]
+  }
+]''',
+        
+        # Descriptions
+        'following_description': 'Pega el contenido completo de tu archivo "following.json"',
+        'followers_description': 'Pega el contenido completo de tu archivo "followers_1.json"',
+        
+        # Validation
+        'validation_waiting': 'Validación JSON: Esperando entrada',
+        'validation_valid': 'Validación JSON: Formato JSON válido ✓',
+        'validation_invalid': 'Validación JSON: Formato JSON inválido ✗',
+        
+        # Submit button
+        'submit_button': 'Analizar Datos JSON',
+        
+        # Help sections
+        'json_help': {
+            'title': 'Ayuda con Formato JSON',
+            'description': 'Asegúrate de que tus datos JSON sigan el formato correcto de exportación de Instagram. El sistema validará tu entrada automáticamente.',
+            'format_example': '''following.json: {"relationships_following": [...]}
+followers_1.json: [{"string_list_data": [...]}]'''
+        },
+        
+        'tutorial_help': {
+            'title': '¿Necesitas Ayuda para Obtener Tus Datos?',
+            'description': 'Nuestro tutorial paso a paso te guiará a través de la descarga de tu exportación de datos de Instagram.',
+            'button': 'Ver Tutorial'
+        }
     }
 }

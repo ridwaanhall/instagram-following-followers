@@ -128,6 +128,7 @@ LANGUAGES = [
     ('en', 'English'),
     ('id', 'Indonesian'),
     ('zh-hans', 'Chinese'),
+    ('es', 'Spanish'),
 ]
 
 # Language preference settings

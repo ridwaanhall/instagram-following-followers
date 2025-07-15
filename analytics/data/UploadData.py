@@ -85,5 +85,33 @@ UPLOAD_DATA = {
         'help_title': '需要JSON文件？',
         'help_description': '不知道如何获取您的Instagram数据？我们的教程将逐步指导您完成整个过程。',
         'help_button': '查看教程'
+    },
+    
+    'es': {
+        # Meta data
+        'title': 'Subir Archivos JSON de Instagram - Análisis Instantáneo de Seguidores',
+        'meta_description': 'Sube tus archivos JSON de seguidores y seguidos de Instagram para análisis instantáneo. Procesamiento seguro y enfocado en privacidad para descubrir quién no te sigue de vuelta, conexiones mutuas e insights detallados.',
+        'meta_keywords': 'subir JSON Instagram, subir análisis seguidores, subir datos Instagram, subir rastreador seguidores, subir archivo análisis Instagram',
+        
+        # Header
+        'header_title': 'Subir Archivos JSON',
+        'header_description': 'Sube tus archivos JSON de seguidos y seguidores de Instagram para analizar tus conexiones sociales',
+        
+        # Form labels and descriptions
+        'following_file_label': 'Archivo JSON de Seguidos',
+        'following_file_description': 'Sube el archivo "following.json" de tu exportación de datos de Instagram',
+        'following_file_placeholder': 'Haz clic para subir o arrastra y suelta',
+        
+        'followers_file_label': 'Archivo JSON de Seguidores',
+        'followers_file_description': 'Sube el archivo "followers_1.json" de tu exportación de datos de Instagram',
+        'followers_file_placeholder': 'Haz clic para subir o arrastra y suelta',
+        
+        # Submit button
+        'submit_button': 'Analizar Archivos',
+        
+        # Help section
+        'help_title': '¿Necesitas los archivos JSON?',
+        'help_description': '¿No sabes cómo obtener tus datos de Instagram? Nuestro tutorial te guiará paso a paso por el proceso.',
+        'help_button': 'Ver Tutorial'
     }
 }

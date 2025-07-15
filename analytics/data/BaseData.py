@@ -35,6 +35,7 @@ BASE_DATA = {
         'lang_english': 'English',
         'lang_indonesian': 'Indonesia',
         'lang_chinese': '中文',
+        'lang_spanish': 'Español',
         
         # Footer
         'footer_brand': 'InstaAnalytics',
@@ -94,6 +95,7 @@ BASE_DATA = {
         'lang_english': 'English',
         'lang_indonesian': 'Indonesia',
         'lang_chinese': '中文',
+        'lang_spanish': 'Español',
         
         # Footer
         'footer_brand': 'InstaAnalytics',
@@ -148,6 +150,7 @@ BASE_DATA = {
         'lang_english': 'English',
         'lang_indonesian': 'Indonesia',
         'lang_chinese': '中文',
+        'lang_spanish': 'Español',
         
         # Footer
         'footer_brand': 'InstaAnalytics',
@@ -170,5 +173,61 @@ BASE_DATA = {
         'breadcrumb_analytics': '分析',
         'breadcrumb_upload': '上传',
         'breadcrumb_tutorial': '教程'
+    },
+    
+    'es': {
+        # Meta tags and SEO
+        'site_title': 'InstaAnalytics - Analizador Gratuito de Seguidores e Instagram',
+        'meta_description': 'Herramienta gratuita de análisis de Instagram para analizar datos de seguidores y seguidos. Descubre quién no te sigue de vuelta, conexiones mutuas y obtén información sobre tu red de Instagram. No requiere inicio de sesión.',
+        'meta_keywords': 'análisis Instagram, analizador seguidores, rastreador seguidos, insights Instagram, análisis redes sociales, herramientas Instagram, análisis seguidores, datos Instagram, rastreador seguidores, herramientas Instagram gratis',
+        'site_name': 'InstaAnalytics',
+        'og_image_alt': 'InstaAnalytics - Herramienta de Análisis de Instagram',
+        
+        # Additional SEO fields
+        'meta_author': 'Ridwan Halim',
+        'meta_robots': 'index, follow',
+        'meta_theme_color': '#7c3aed',
+        'meta_language': 'Spanish',
+        'og_type': 'website',
+        'og_locale': 'es_ES',
+        'twitter_creator': '@ridwaanhall',
+        'twitter_site': '@ridwaanhall',
+        
+        # Navigation
+        'nav_brand': 'InstaAnalytics',
+        'nav_home': 'Inicio',
+        'nav_zip_upload': 'Subir ZIP',
+        'nav_upload_files': 'Subir Archivos',
+        'nav_text_input': 'Entrada de Texto',
+        'nav_tutorial': 'Tutorial',
+        
+        # Language switcher
+        'language_label': 'Idioma / Language',
+        'lang_english': 'English',
+        'lang_indonesian': 'Indonesia',
+        'lang_chinese': '中文',
+        'lang_spanish': 'Español',
+        
+        # Footer
+        'footer_brand': 'InstaAnalytics',
+        'footer_created_by': 'Creado con',
+        'footer_by': 'por',
+        'footer_creator_name': 'Ridwan Halim',
+        'footer_built_with': 'Construido con Django y Tailwind CSS',
+        'footer_copyright': '© {% now \'Y\' %}',
+        'footer_need_help': '¿Necesitas ayuda?',
+        
+        # JSON-LD structured data
+        'structured_data': {
+            'name': 'InstaAnalytics',
+            'description': 'Herramienta gratuita de análisis de Instagram para analizar datos de seguidores y seguidos. Descubre quién no te sigue de vuelta, conexiones mutuas y obtén información sobre tu red de Instagram.',
+            'keywords': 'análisis Instagram, analizador seguidores, rastreador seguidos'
+        },
+        
+        # Breadcrumb data for structured markup
+        'breadcrumb_home': 'Inicio',
+        'breadcrumb_analytics': 'Análisis',
+        'breadcrumb_upload': 'Subir',
+        'breadcrumb_tutorial': 'Tutorial'
     }
 }

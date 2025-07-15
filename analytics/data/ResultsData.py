@@ -176,5 +176,64 @@ RESULTS_DATA = {
             'follow_back_rate_description': '您的粉丝中',
             'follow_ratio_label': '关注比例',
             'follow_ratio_description': '粉丝对关注比',
+        },
+        
+        'es': {
+            # Page metadata
+            'page_title': 'Panel de Análisis - Resultados de Analytics de Instagram',
+            'page_description': 'Análisis detallado de tus relaciones de seguidores y seguidos de Instagram con insights completos y estadísticas.',
+            
+            # Header section
+            'header_title': 'Panel de Análisis',
+            'header_subtitle': 'Resultados de tu análisis de seguidores y seguidos de Instagram',
+            
+            # Statistics cards
+            'stats_following_label': 'Siguiendo',
+            'stats_followers_label': 'Seguidores',
+            'stats_mutual_label': 'Mutuos',
+            'stats_not_mutual_label': 'No Mutuos',
+            'stats_not_following_label': 'No Siguiendo',
+            
+            # Detailed lists sections
+            'not_following_back_title': 'No Te Siguen de Vuelta',
+            'not_following_back_subtitle': 'Personas que sigues pero que no te siguen de vuelta',
+            'not_following_back_badge': 'No Mutuo',
+            'not_following_back_followed_label': 'Seguido el',
+            'not_following_back_empty_title': '¡Genial! Todos los que sigues te siguen de vuelta.',
+            'not_following_back_empty_subtitle': '¡Tienes excelentes conexiones de seguimiento mutuo! 🎉',
+            
+            'mutual_follow_title': 'Seguimiento Mutuo',
+            'mutual_follow_subtitle': 'Personas que te siguen y que tú también sigues de vuelta',
+            'mutual_follow_badge': 'Mutuo',
+            'mutual_follow_followed_label': 'Siguiendo desde:',
+            'mutual_follow_follower_label': 'Seguidor desde:',
+            'mutual_follow_empty_title': 'No se encontraron conexiones de seguimiento mutuo.',
+            'mutual_follow_empty_subtitle': '¡Considera conectar con más personas!',
+            
+            'not_following_back_users_title': 'No Sigues de Vuelta',
+            'not_following_back_users_subtitle': 'Seguidores que no sigues de vuelta',
+            'not_following_back_users_badge': 'No Siguiendo',
+            'not_following_back_users_follower_label': 'Seguidor desde',
+            'not_following_back_users_empty_title': '¡Genial! Sigues de vuelta a todos tus seguidores.',
+            'not_following_back_users_empty_subtitle': '¡Mantienes excelentes relaciones recíprocas! 🤝',
+            
+            # Action buttons
+            'analyze_new_data_button': 'Analizar Nuevos Datos',
+            'print_report_button': 'Imprimir Reporte',
+            
+            # Recent activity section
+            'recent_activity_title': 'Actividad Reciente (Últimos 30 Días)',
+            'recent_activity_subtitle': 'Rastrea tus patrones recientes de engagement en Instagram',
+            'recent_activity_new_follows': 'Nuevos Seguidos',
+            'recent_activity_new_followers': 'Nuevos Seguidores',
+            
+            # Analysis summary section
+            'analysis_summary_title': 'Resumen de Análisis',
+            'mutual_rate_label': 'Tasa de Seguimiento Mutuo',
+            'mutual_rate_description': 'De personas que sigues',
+            'follow_back_rate_label': 'Tasa de Seguimiento de Vuelta',
+            'follow_back_rate_description': 'De tus seguidores',
+            'follow_ratio_label': 'Proporción de Seguimiento',
+            'follow_ratio_description': 'Seguidores por seguido',
         }
     }
