@@ -433,5 +433,113 @@ HOME_DATA = {
         'cta_button_start': 'Comenzar Análisis',
         'cta_button_tutorial': 'Ver Tutorial',
         'cta_security_text': 'Seguro • Privado • Gratis'
+    },
+    
+    'ja': {
+        # Meta data
+        'title': 'Instagram Analytics - シンプルなフォロワー・フォロー分析ツール',
+        'meta_description': 'Instagramのフォロワーとフォロー関係を分析するシンプルなツール。フォローバックしていない人、相互フォロー、エンゲージメントインサイトを発見。100%無料、安全、ログイン不要。',
+        'meta_keywords': 'Instagram分析, フォロワー分析, Instagramインサイト, ソーシャルメディア分析, Instagramツール, 無料Instagramツール, 相互フォロー, アンフォローした人',
+        
+        # Hero section
+        'hero_title': 'Instagram分析ツール',
+        'hero_description': 'Instagramのフォロワーとフォロー関係を分析。ノンフォロワー、相互接続、エンゲージメントインサイトを発見 - 完全にプライベートで無料。',
+        
+        # Feature tags
+        'feature_private': '100%プライベート',
+        'feature_no_login': 'ログイン不要',
+        'feature_free': '完全無料',
+        
+        # Method cards
+        'zip_upload': {
+            'title': 'ZIPファイルをアップロード',
+            'description': '完全なInstagramデータエクスポートを自動抽出でアップロード。',
+            'button': 'ZIPアップロード',
+            'badge': 'ベスト'
+        },
+        'file_upload': {
+            'title': 'JSONファイルをアップロード',
+            'description': 'InstagramデータエクスポートからフォロワーとフォローJSONファイルをアップロード。',
+            'button': 'ファイルアップロード'
+        },
+        'text_input': {
+            'title': 'JSONデータを貼り付け',
+            'description': 'InstagramのJSONデータを直接コピー＆ペーストして迅速に分析。',
+            'button': 'データを貼り付け'
+        },
+        
+        # Features overview
+        'features_title': '発見できること',
+        'features': {
+            'mutual_followers': {
+                'title': '相互フォロー',
+                'description': 'あなたをフォローバックしている人'
+            },
+            'non_followers': {
+                'title': 'ノンフォロワー',
+                'description': 'フォローバックしていない人'
+            },
+            'timeline_data': {
+                'title': 'タイムラインデータ',
+                'description': '関係が始まった時期'
+            },
+            'analytics': {
+                'title': '分析',
+                'description': 'エンゲージメントインサイト'
+            }
+        },
+        
+        # How it works
+        'how_it_works_title': '使い方',
+        'how_it_works_steps': [
+            {
+                'title': 'データをエクスポート',
+                'description': '設定 → プライバシー → あなたの情報をダウンロードからInstagramデータをダウンロード'
+            },
+            {
+                'title': 'アップロード＆分析',
+                'description': '方法を選択し、ツールがブラウザ内でローカルにデータを分析'
+            },
+            {
+                'title': 'インサイトを取得',
+                'description': 'Instagramネットワークに関する実用的なインサイトを含む包括的なレポートを表示'
+            },
+            {
+                'title': 'アクションを実行',
+                'description': 'インサイトを使ってInstagram関係を管理し、エンゲージメントを向上。'
+            }
+        ],
+        
+        # Quick FAQ
+        'faq_title': 'よくある質問',
+        'faq': [
+            {
+                'question': 'データは安全ですか？',
+                'answer': 'はい！すべてブラウザ内でローカル処理されます。データはサーバーに送信されません。',
+                'icon': 'M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z'
+            },
+            {
+                'question': '無料ですか？',
+                'answer': '完全無料で隠れた費用、サブスクリプション、プレミアム機能はありません。',
+                'icon': 'M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1'
+            },
+            {
+                'question': 'どのファイルが必要ですか？',
+                'answer': 'Instagramのデータエクスポート機能からフォロワーとフォローのJSONまたはZIPファイル。',
+                'icon': 'M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z'
+            },
+            {
+                'question': 'ログインが必要ですか？',
+                'answer': 'ログイン不要！データファイルをアップロードしてすぐに分析を開始。',
+                'icon': 'M13 10V3L4 14h7v7l9-11h-7z'
+            }
+        ],
+        
+        # CTA section
+        'cta_title': 'Instagramを分析する準備はできましたか？',
+        'cta_description': 'フォロワーとフォロー関係のインサイトを数分で取得。',
+        'cta_button_start': '分析を開始',
+        'cta_button_tutorial': 'チュートリアルを見る',
+        'cta_security_text': '安全 • プライベート • 無料'
     }
 }

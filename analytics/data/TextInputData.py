@@ -289,5 +289,77 @@ followers_1.json: [{"string_list_data": [...]}]'''
             'description': 'Nuestro tutorial paso a paso te guiará a través de la descarga de tu exportación de datos de Instagram.',
             'button': 'Ver Tutorial'
         }
+    },
+    
+    'ja': {
+        # Meta data
+        'title': 'JSONデータを貼り付け - Instagram分析',
+        
+        # Header
+        'header_title': 'JSONデータを貼り付け',
+        'header_description': 'InstagramのJSONデータを直接コピー&ペーストして迅速分析',
+        
+        # Form labels
+        'following_label': 'フォローJSONデータ',
+        'followers_label': 'フォロワーJSONデータ',
+        
+        # Placeholders
+        'following_placeholder': '''following.jsonの内容をここに貼り付け...
+
+例:
+{
+  "relationships_following": [
+    {
+      "string_list_data": [
+        {
+          "href": "...",
+          "value": "ユーザー名1",
+          "timestamp": 1234567890
+        }
+      ]
+    }
+  ]
+}''',
+        
+        'followers_placeholder': '''followers_1.jsonの内容をここに貼り付け...
+
+例:
+[
+  {
+    "string_list_data": [
+      {
+        "href": "...",
+        "value": "フォロワー1",
+        "timestamp": 1234567890
+      }
+    ]
+  }
+]''',
+        
+        # Descriptions
+        'following_description': '「following.json」ファイルの完全な内容を貼り付け',
+        'followers_description': '「followers_1.json」ファイルの完全な内容を貼り付け',
+        
+        # Validation
+        'validation_waiting': 'JSON検証: 入力待機中',
+        'validation_valid': 'JSON検証: 有効なJSON形式 ✓',
+        'validation_invalid': 'JSON検証: 無効なJSON形式 ✗',
+        
+        # Submit button
+        'submit_button': 'JSONデータを分析',
+        
+        # Help sections
+        'json_help': {
+            'title': 'JSON形式ヘルプ',
+            'description': 'JSONデータが正しいInstagramエクスポート形式に従っていることを確認してください。システムが入力を自動的に検証します。',
+            'format_example': '''following.json: {"relationships_following": [...]}
+followers_1.json: [{"string_list_data": [...]}]'''
+        },
+        
+        'tutorial_help': {
+            'title': 'データ取得でお困りですか？',
+            'description': 'ステップバイステップのチュートリアルでInstagramデータエクスポートのダウンロードをガイドします。',
+            'button': 'チュートリアルを見る'
+        }
     }
 }

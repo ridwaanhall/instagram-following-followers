@@ -235,5 +235,64 @@ RESULTS_DATA = {
             'follow_back_rate_description': 'De tus seguidores',
             'follow_ratio_label': 'Proporción de Seguimiento',
             'follow_ratio_description': 'Seguidores por seguido',
+        },
+        
+        'ja': {
+            # Page metadata
+            'page_title': '分析ダッシュボード - Instagram分析結果',
+            'page_description': 'Instagramのフォロワーとフォロー関係の詳細分析と包括的なインサイトと統計。',
+            
+            # Header section
+            'header_title': '分析ダッシュボード',
+            'header_subtitle': 'InstagramフォロワーとフォローPの分析結果',
+            
+            # Statistics cards
+            'stats_following_label': 'フォロー中',
+            'stats_followers_label': 'フォロワー',
+            'stats_mutual_label': '相互',
+            'stats_not_mutual_label': '非相互',
+            'stats_not_following_label': '非フォロー',
+            
+            # Detailed lists sections
+            'not_following_back_title': 'フォローバックなし',
+            'not_following_back_subtitle': 'あなたがフォローしているがフォローバックしていない人',
+            'not_following_back_badge': '非相互',
+            'not_following_back_followed_label': 'フォロー開始',
+            'not_following_back_empty_title': '素晴らしい！フォローしている全員があなたをフォローバックしています。',
+            'not_following_back_empty_subtitle': '優れた相互フォロー接続があります！🎉',
+            
+            'mutual_follow_title': '相互フォロー',
+            'mutual_follow_subtitle': 'あなたをフォローし、あなたもフォローバックしている人',
+            'mutual_follow_badge': '相互',
+            'mutual_follow_followed_label': 'フォロー開始:',
+            'mutual_follow_follower_label': 'フォロワー開始:',
+            'mutual_follow_empty_title': '相互フォロー接続が見つかりませんでした。',
+            'mutual_follow_empty_subtitle': 'より多くの人との接続を検討してください！',
+            
+            'not_following_back_users_title': 'フォローバックなし',
+            'not_following_back_users_subtitle': 'フォローバックしていないフォロワー',
+            'not_following_back_users_badge': '非フォロー',
+            'not_following_back_users_follower_label': 'フォロワー開始',
+            'not_following_back_users_empty_title': '素晴らしい！すべてのフォロワーをフォローバックしています。',
+            'not_following_back_users_empty_subtitle': '優れた相互関係を維持しています！🤝',
+            
+            # Action buttons
+            'analyze_new_data_button': '新しいデータを分析',
+            'print_report_button': 'レポートを印刷',
+            
+            # Recent activity section
+            'recent_activity_title': '最近のアクティビティ（過去30日間）',
+            'recent_activity_subtitle': '最近のInstagramエンゲージメントパターンを追跡',
+            'recent_activity_new_follows': '新しいフォロー',
+            'recent_activity_new_followers': '新しいフォロワー',
+            
+            # Analysis summary section
+            'analysis_summary_title': '分析サマリー',
+            'mutual_rate_label': '相互フォロー率',
+            'mutual_rate_description': 'フォローしている人の中で',
+            'follow_back_rate_label': 'フォローバック率',
+            'follow_back_rate_description': 'フォロワーの中で',
+            'follow_ratio_label': 'フォロー比率',
+            'follow_ratio_description': 'フォロー当たりのフォロワー',
         }
     }

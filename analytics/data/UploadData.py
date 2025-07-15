@@ -113,5 +113,33 @@ UPLOAD_DATA = {
         'help_title': '¿Necesitas los archivos JSON?',
         'help_description': '¿No sabes cómo obtener tus datos de Instagram? Nuestro tutorial te guiará paso a paso por el proceso.',
         'help_button': 'Ver Tutorial'
+    },
+    
+    'ja': {
+        # Meta data
+        'title': 'Instagram JSONファイルアップロード - 瞬時フォロワー分析',
+        'meta_description': 'InstagramのフォロワーとフォローJSONファイルをアップロードして瞬時に分析。フォローバックしていない人、相互接続、詳細インサイトを発見するための安全でプライバシー重視の処理。',
+        'meta_keywords': 'Instagram JSONアップロード, フォロワー分析アップロード, Instagramデータアップロード, フォロワートラッカーアップロード, Instagram分析ファイルアップロード',
+        
+        # Header
+        'header_title': 'JSONファイルアップロード',
+        'header_description': 'InstagramのフォローとフォロワーJSONファイルをアップロードしてソーシャル接続を分析',
+        
+        # Form labels and descriptions
+        'following_file_label': 'フォローJSONファイル',
+        'following_file_description': 'Instagramデータエクスポートから「following.json」ファイルをアップロード',
+        'following_file_placeholder': 'クリックしてアップロードまたはドラッグ&ドロップ',
+        
+        'followers_file_label': 'フォロワーJSONファイル',
+        'followers_file_description': 'Instagramデータエクスポートから「followers_1.json」ファイルをアップロード',
+        'followers_file_placeholder': 'クリックしてアップロードまたはドラッグ&ドロップ',
+        
+        # Submit button
+        'submit_button': 'ファイルを分析',
+        
+        # Help section
+        'help_title': 'JSONファイルが必要ですか？',
+        'help_description': 'Instagramデータの取得方法がわからない？チュートリアルでプロセスを段階的にガイドします。',
+        'help_button': 'チュートリアルを見る'
     }
 }

@@ -617,5 +617,159 @@ TUTORIAL_DATA = {
                 'description': 'Obtén análisis completo de tus conexiones sociales.'
             }
         ]
+    },
+    
+    'ja': {
+        # Meta data
+        'title': 'Instagramデータのダウンロード方法 - 完全チュートリアルガイド',
+        'meta_description': 'Instagramのフォロワーとフォローデータをダウンロードする手順チュートリアル。フォロワー分析とインサイトのためのInstagram JSONファイルエクスポートを学習。スクリーンショット付き無料詳細ガイド。',
+        'meta_keywords': 'Instagramデータダウンロード, Instagramフォロワーエクスポート, Instagramフォローデータ, Instagramデータ取得方法, Instagram JSONエクスポート, Instagramデータチュートリアル, Instagram情報ダウンロード',
+        
+        # SEO specific data
+        'og_title': 'Instagramデータのダウンロード方法 - 完全チュートリアルガイド',
+        'og_description': 'Instagramのフォロワーとフォローデータを分析用にダウンロードする手順チュートリアル。',
+        'twitter_title': 'Instagramデータのダウンロード方法 - 完全チュートリアルガイド',
+        'twitter_description': 'Instagramのフォロワーとフォローデータを分析用にダウンロードする手順チュートリアル。',
+        
+        # Structured data
+        'schema_how_to_name': 'Instagramフォロワーとフォローデータのダウンロード方法',
+        'schema_how_to_description': 'Instagramのフォロワーとフォローデータを分析用にダウンロードする手順チュートリアル',
+        'schema_webpage_name': 'Instagramデータのダウンロード方法 - 完全チュートリアル',
+        'schema_webpage_description': '分析用Instagramフォロワーとフォローデータダウンロードの完全手順ガイド',
+        'schema_supply_instagram': 'Instagramアカウント',
+        'schema_supply_device': 'モバイルデバイスまたはコンピュータ',
+        'schema_tool_name': 'InstagramアプリまたはWebサイト',
+        'schema_breadcrumb_home': 'ホーム',
+        'schema_breadcrumb_tutorial': 'チュートリアル',
+        
+        # Schema step data
+        'schema_steps': [
+            {
+                'name': 'Instagram設定を開く',
+                'text': 'Instagramプロフィールに移動し、メニューアイコンをタップ'
+            },
+            {
+                'name': 'アカウントセンターに移動',
+                'text': '設定メニューでアカウントセンターをクリック'
+            },
+            {
+                'name': 'データダウンロードにアクセス',
+                'text': 'あなたの情報と権限を選択し、次にあなたの情報をダウンロード'
+            },
+            {
+                'name': 'データタイプを選択',
+                'text': 'あなたの情報の一部を選択し、フォロワーとフォローを選択'
+            },
+            {
+                'name': 'エクスポート設定を構成',
+                'text': '日付範囲を全期間に設定し、形式をJSONに設定'
+            }
+        ],
+        
+        # Header
+        'header_title': 'Instagramデータの取得方法',
+        'header_description': 'Instagramのフォローとフォロワーデータをダウンロードするためのステップバイステップの手順に従ってください',
+        
+        # Steps section
+        'steps_title': 'ステップバイステップの手順',
+        'steps': [
+            'Instagramプロフィールに移動し、メニューアイコンをタップします。',
+            '右上の3本の水平線があるアイコンをクリックします。',
+            '「アカウントセンター」をクリックします。',
+            'アカウント設定で「あなたの情報と権限」を選択します。',
+            '「あなたの情報をダウンロード」をクリックします。',
+            '「情報をダウンロードまたは転送」をクリックします。',
+            'アカウントを選択します。',
+            '「あなたの情報の一部」を選択します。',
+            '「つながり」セクションで「フォロワーとフォロー中」を選択します。',
+            'デバイスにダウンロードします。',
+            '日付範囲を「全期間」に設定し、形式を「JSON」に設定します。',
+            '「ファイルを作成」ボタンをクリックします。',
+            '数分後、「あなたの情報をダウンロード」に移動してファイルを取得します。'
+        ],
+        
+        'completion_note': 'もうすぐ完了です！Instagramがデータを準備します。',
+        
+        # Important notes
+        'important_notes_title': '重要な注意事項',
+        'important_notes': [
+            'Instagramはサイズに応じて、数分から数時間かけてデータを準備する場合があります。',
+            'データのダウンロード準備が完了すると、メール通知を受け取ります。',
+            'ダウンロードリンクは一定期間後に期限切れになるため、すぐにダウンロードしてください。',
+            '分析ツールとの互換性のため、JSON形式を選択してください。'
+        ],
+        
+        # What files section
+        'files_section_title': '取得するファイル',
+        'files_description': 'ダウンロード後、以下を含むZIPファイルを受け取ります：',
+        'files_list': [
+            'following.json - フォローしているアカウントのリストを含む',
+            'followers_1.json - あなたをフォローしているアカウントのリストを含む',
+            'タイムスタンプと接続詳細を含む追加のメタデータファイル'
+        ],
+        
+        # Next steps
+        'next_steps_title': '次のステップ',
+        'next_steps_description': 'ファイルを取得したら、次のことができます：',
+        'next_steps_options': [
+            {
+                'title': 'ZIPファイルをアップロード',
+                'description': '自動分析のためにZIPファイル全体をアップロード',
+                'button': 'ZIPアップロード'
+            },
+            {
+                'title': '個別ファイルをアップロード',
+                'description': '必要なJSONファイルのみを抽出してアップロード',
+                'button': 'ファイルアップロード'
+            },
+            {
+                'title': 'データをコピー&ペースト',
+                'description': 'JSONファイルを開いて内容を直接ペースト',
+                'button': 'データを貼り付け'
+            }
+        ],
+        
+        # Tips section
+        'tips_title': 'プロのヒント',
+        'tips': [
+            'データファイルを安全に保ち、権限のない第三者と共有しないでください。',
+            'ツールは最大限のプライバシーのため、ブラウザ内ですべてをローカル処理します。',
+            '更新されたデータを取得するため、いつでもこのプロセスを繰り返せます。',
+            '大きなアカウントは、ファイルサイズが大きく、処理時間が長くなる場合があります。'
+        ],
+        
+        # Ready section
+        'ready_title': 'データを分析する準備はできましたか？',
+        'ready_description': 'JSONファイルを取得したら、アップロードページに戻ってInstagramのフォロワーとフォローの分析を開始してください。',
+        'ready_buttons': [
+            {
+                'text': 'ZIPアップロード',
+                'url': 'zip_upload'
+            },
+            {
+                'text': 'ファイルアップロード',
+                'url': 'upload_file'
+            },
+            {
+                'text': 'データを貼り付け',
+                'url': 'text_input'
+            }
+        ],
+        
+        # Quick tips
+        'quick_tips': [
+            {
+                'title': 'プライバシー第一',
+                'description': 'データはローカルで処理され、サーバーに保存されることはありません。'
+            },
+            {
+                'title': '迅速な処理',
+                'description': '分析は通常、完了まで数秒しかかかりません。'
+            },
+            {
+                'title': '詳細なインサイト',
+                'description': 'ソーシャル接続の包括的な分析を取得。'
+            }
+        ]
     }
 }

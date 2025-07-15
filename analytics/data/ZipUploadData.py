@@ -153,5 +153,43 @@ ZIP_UPLOAD_DATA = {
                 'button': 'Pegar Datos'
             }
         }
+    },
+    
+    'ja': {
+        # Meta data
+        'title': 'ZIPファイルアップロード - Instagram分析',
+        
+        # Header
+        'header_title': 'ZIPファイルアップロード',
+        'header_description': '完全なInstagramデータエクスポートZIPファイルをアップロードしてください。フォロワーとフォローデータを自動的に検索・抽出して分析します。',
+        
+        # Form
+        'zip_file_label': 'InstagramデータZIPファイル',
+        'zip_file_description': 'Instagramデータエクスポートの完全なZIPファイルをアップロード（following.jsonとfollowers_1.jsonを含む）',
+        'zip_file_placeholder': 'クリックしてアップロードまたはドラッグ&ドロップ',
+        'submit_button': 'ZIPデータを分析',
+        
+        # Help section
+        'help_title': 'ZIPファイル内で探すもの：',
+        'help_items': [
+            'following.json - フォローリストを含む',
+            'followers_1.json - フォロワーリストを含む',
+            'ファイルは任意のフォルダにあります（通常followers_and_following/）'
+        ],
+        'help_tutorial_text': 'データ取得でお困りですか？チュートリアルを見る',
+        
+        # Alternative methods
+        'alternative_methods': {
+            'upload_files': {
+                'title': '個別ファイルをアップロード',
+                'description': 'より詳細な制御を希望する場合は、JSONファイルを個別にアップロード。',
+                'button': 'ファイルアップロード'
+            },
+            'paste_data': {
+                'title': 'JSONデータを貼り付け',
+                'description': '迅速な分析のためJSONデータを直接コピー&ペースト。',
+                'button': 'データを貼り付け'
+            }
+        }
     }
 }

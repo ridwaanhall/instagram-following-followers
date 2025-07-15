@@ -36,6 +36,7 @@ BASE_DATA = {
         'lang_indonesian': 'Indonesia',
         'lang_chinese': '中文',
         'lang_spanish': 'Español',
+        'lang_japanese': '日本語',
         
         # Footer
         'footer_brand': 'InstaAnalytics',
@@ -96,6 +97,7 @@ BASE_DATA = {
         'lang_indonesian': 'Indonesia',
         'lang_chinese': '中文',
         'lang_spanish': 'Español',
+        'lang_japanese': '日本語',
         
         # Footer
         'footer_brand': 'InstaAnalytics',
@@ -151,6 +153,7 @@ BASE_DATA = {
         'lang_indonesian': 'Indonesia',
         'lang_chinese': '中文',
         'lang_spanish': 'Español',
+        'lang_japanese': '日本語',
         
         # Footer
         'footer_brand': 'InstaAnalytics',
@@ -207,6 +210,7 @@ BASE_DATA = {
         'lang_indonesian': 'Indonesia',
         'lang_chinese': '中文',
         'lang_spanish': 'Español',
+        'lang_japanese': '日本語',
         
         # Footer
         'footer_brand': 'InstaAnalytics',
@@ -229,5 +233,62 @@ BASE_DATA = {
         'breadcrumb_analytics': 'Análisis',
         'breadcrumb_upload': 'Subir',
         'breadcrumb_tutorial': 'Tutorial'
+    },
+    
+    'ja': {
+        # Meta tags and SEO
+        'site_title': 'InstaAnalytics - 無料のInstagramフォロワー・フォロー分析ツール',
+        'meta_description': '無料のInstagram分析ツールでフォロワーとフォローデータを分析。フォローバックしていない人、相互フォロー、Instagramネットワークの洞察を発見。ログイン不要。',
+        'meta_keywords': 'Instagram分析, フォロワー分析, フォロー追跡, Instagramインサイト, ソーシャルメディア分析, Instagramツール, フォロワー解析, Instagramデータ, フォロワー追跡, 無料Instagramツール',
+        'site_name': 'InstaAnalytics',
+        'og_image_alt': 'InstaAnalytics - Instagram分析ツール',
+        
+        # Additional SEO fields
+        'meta_author': 'Ridwan Halim',
+        'meta_robots': 'index, follow',
+        'meta_theme_color': '#7c3aed',
+        'meta_language': 'Japanese',
+        'og_type': 'website',
+        'og_locale': 'ja_JP',
+        'twitter_creator': '@ridwaanhall',
+        'twitter_site': '@ridwaanhall',
+        
+        # Navigation
+        'nav_brand': 'InstaAnalytics',
+        'nav_home': 'ホーム',
+        'nav_zip_upload': 'ZIPアップロード',
+        'nav_upload_files': 'ファイルアップロード',
+        'nav_text_input': 'テキスト入力',
+        'nav_tutorial': 'チュートリアル',
+        
+        # Language switcher
+        'language_label': '言語 / Language',
+        'lang_english': 'English',
+        'lang_indonesian': 'Indonesia',
+        'lang_chinese': '中文',
+        'lang_spanish': 'Español',
+        'lang_japanese': '日本語',
+        
+        # Footer
+        'footer_brand': 'InstaAnalytics',
+        'footer_created_by': '愛をこめて作成',
+        'footer_by': 'by',
+        'footer_creator_name': 'Ridwan Halim',
+        'footer_built_with': 'Django & Tailwind CSSで構築',
+        'footer_copyright': '© {% now \'Y\' %}',
+        'footer_need_help': 'ヘルプが必要ですか？',
+        
+        # JSON-LD structured data
+        'structured_data': {
+            'name': 'InstaAnalytics',
+            'description': '無料のInstagram分析ツールでフォロワーとフォローデータを分析。フォローバックしていない人、相互フォロー、Instagramネットワークの洞察を発見。',
+            'keywords': 'Instagram分析, フォロワー分析, フォロー追跡'
+        },
+        
+        # Breadcrumb data for structured markup
+        'breadcrumb_home': 'ホーム',
+        'breadcrumb_analytics': '分析',
+        'breadcrumb_upload': 'アップロード',
+        'breadcrumb_tutorial': 'チュートリアル'
     }
 }

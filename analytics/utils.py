@@ -21,6 +21,8 @@ def get_current_language():
         return 'zh'
     elif language and language.startswith('es'):
         return 'es'
+    elif language and language.startswith('ja'):
+        return 'ja'
     return 'en'
 
 def get_content_data(data_dict, language=None):
@@ -75,5 +77,6 @@ def inject_i18n_context(request):
         'is_english': current_lang == 'en',
         'is_chinese': current_lang == 'zh',
         'is_spanish': current_lang == 'es',
+        'is_japanese': current_lang == 'ja',
         **base_data  # Spread base template data into context
     }
