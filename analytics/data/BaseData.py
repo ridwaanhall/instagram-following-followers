@@ -37,6 +37,7 @@ BASE_DATA = {
         'lang_chinese': '中文',
         'lang_spanish': 'Español',
         'lang_japanese': '日本語',
+        'lang_portuguese': 'Português',
         
         # Footer
         'footer_brand': 'InstaAnalytics',
@@ -98,6 +99,7 @@ BASE_DATA = {
         'lang_chinese': '中文',
         'lang_spanish': 'Español',
         'lang_japanese': '日本語',
+        'lang_portuguese': 'Português',
         
         # Footer
         'footer_brand': 'InstaAnalytics',
@@ -154,6 +156,7 @@ BASE_DATA = {
         'lang_chinese': '中文',
         'lang_spanish': 'Español',
         'lang_japanese': '日本語',
+        'lang_portuguese': 'Português',
         
         # Footer
         'footer_brand': 'InstaAnalytics',
@@ -211,6 +214,7 @@ BASE_DATA = {
         'lang_chinese': '中文',
         'lang_spanish': 'Español',
         'lang_japanese': '日本語',
+        'lang_portuguese': 'Português',
         
         # Footer
         'footer_brand': 'InstaAnalytics',
@@ -268,6 +272,7 @@ BASE_DATA = {
         'lang_chinese': '中文',
         'lang_spanish': 'Español',
         'lang_japanese': '日本語',
+        'lang_portuguese': 'Português',
         
         # Footer
         'footer_brand': 'InstaAnalytics',
@@ -290,5 +295,63 @@ BASE_DATA = {
         'breadcrumb_analytics': '分析',
         'breadcrumb_upload': 'アップロード',
         'breadcrumb_tutorial': 'チュートリアル'
+    },
+    
+    'pt': {
+        # Meta tags and SEO
+        'site_title': 'InstaAnalytics - Analisador Gratuito de Seguidores do Instagram',
+        'meta_description': 'Ferramenta gratuita de análise do Instagram para analisar dados de seguidores e seguindo. Descubra quem não te segue de volta, conexões mútuas e insights sobre sua rede do Instagram. Não requer login.',
+        'meta_keywords': 'análise Instagram, analisador seguidores, tracker seguindo, insights Instagram, análise redes sociais, ferramentas Instagram, análise seguidores, dados Instagram, tracker seguidores, ferramentas Instagram grátis',
+        'site_name': 'InstaAnalytics',
+        'og_image_alt': 'InstaAnalytics - Ferramenta de Análise do Instagram',
+        
+        # Additional SEO fields
+        'meta_author': 'Ridwan Halim',
+        'meta_robots': 'index, follow',
+        'meta_theme_color': '#7c3aed',
+        'meta_language': 'Portuguese',
+        'og_type': 'website',
+        'og_locale': 'pt_BR',
+        'twitter_creator': '@ridwaanhall',
+        'twitter_site': '@ridwaanhall',
+        
+        # Navigation
+        'nav_brand': 'InstaAnalytics',
+        'nav_home': 'Início',
+        'nav_zip_upload': 'Upload ZIP',
+        'nav_upload_files': 'Upload Arquivos',
+        'nav_text_input': 'Entrada de Texto',
+        'nav_tutorial': 'Tutorial',
+        
+        # Language switcher
+        'language_label': 'Idioma / Language',
+        'lang_english': 'English',
+        'lang_indonesian': 'Indonesia',
+        'lang_chinese': '中文',
+        'lang_spanish': 'Español',
+        'lang_japanese': '日本語',
+        'lang_portuguese': 'Português',
+        
+        # Footer
+        'footer_brand': 'InstaAnalytics',
+        'footer_created_by': 'Criado com',
+        'footer_by': 'por',
+        'footer_creator_name': 'Ridwan Halim',
+        'footer_built_with': 'Construído com Django & Tailwind CSS',
+        'footer_copyright': '© {% now \'Y\' %}',
+        'footer_need_help': 'Precisa de ajuda?',
+        
+        # JSON-LD structured data
+        'structured_data': {
+            'name': 'InstaAnalytics',
+            'description': 'Ferramenta gratuita de análise do Instagram para analisar dados de seguidores e seguindo. Descubra quem não te segue de volta, conexões mútuas e insights sobre sua rede do Instagram.',
+            'keywords': 'análise Instagram, analisador seguidores, tracker seguindo'
+        },
+        
+        # Breadcrumb data for structured markup
+        'breadcrumb_home': 'Início',
+        'breadcrumb_analytics': 'Análise',
+        'breadcrumb_upload': 'Upload',
+        'breadcrumb_tutorial': 'Tutorial'
     }
 }

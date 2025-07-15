@@ -141,5 +141,33 @@ UPLOAD_DATA = {
         'help_title': 'JSONファイルが必要ですか？',
         'help_description': 'Instagramデータの取得方法がわからない？チュートリアルでプロセスを段階的にガイドします。',
         'help_button': 'チュートリアルを見る'
+    },
+    
+    'pt': {
+        # Meta data
+        'title': 'Upload Arquivos JSON Instagram - Análise Instantânea de Seguidores',
+        'meta_description': 'Faça upload dos seus arquivos JSON de seguidores e seguindo do Instagram para análise instantânea. Processamento seguro e focado em privacidade para descobrir quem não te segue de volta, conexões mútuas e insights detalhados.',
+        'meta_keywords': 'upload JSON Instagram, upload análise seguidores, upload dados Instagram, upload rastreador seguidores, upload arquivo análise Instagram',
+        
+        # Header
+        'header_title': 'Upload Arquivos JSON',
+        'header_description': 'Faça upload dos seus arquivos JSON de seguindo e seguidores do Instagram para analisar suas conexões sociais',
+        
+        # Form labels and descriptions
+        'following_file_label': 'Arquivo JSON de Seguindo',
+        'following_file_description': 'Faça upload do arquivo "following.json" da sua exportação de dados do Instagram',
+        'following_file_placeholder': 'Clique para fazer upload ou arraste e solte',
+        
+        'followers_file_label': 'Arquivo JSON de Seguidores',
+        'followers_file_description': 'Faça upload do arquivo "followers_1.json" da sua exportação de dados do Instagram',
+        'followers_file_placeholder': 'Clique para fazer upload ou arraste e solte',
+        
+        # Submit button
+        'submit_button': 'Analisar Arquivos',
+        
+        # Help section
+        'help_title': 'Precisa dos arquivos JSON?',
+        'help_description': 'Não sabe como obter seus dados do Instagram? Nosso tutorial irá guiá-lo através do processo passo a passo.',
+        'help_button': 'Ver Tutorial'
     }
 }

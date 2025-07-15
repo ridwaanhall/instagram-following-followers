@@ -771,5 +771,159 @@ TUTORIAL_DATA = {
                 'description': 'ソーシャル接続の包括的な分析を取得。'
             }
         ]
+    },
+    
+    'pt': {
+        # Meta data
+        'title': 'Como Baixar Dados do Instagram - Guia Tutorial Completo',
+        'meta_description': 'Tutorial passo a passo sobre como baixar seus dados de seguidores e seguindo do Instagram. Aprenda a exportar arquivos JSON do Instagram para análise de seguidores e insights. Guia detalhado gratuito com capturas de tela.',
+        'meta_keywords': 'baixar dados Instagram, exportar seguidores Instagram, dados seguindo Instagram, como obter dados Instagram, exportar JSON Instagram, tutorial dados Instagram, baixar informações Instagram',
+        
+        # SEO specific data
+        'og_title': 'Como Baixar Dados do Instagram - Guia Tutorial Completo',
+        'og_description': 'Tutorial passo a passo sobre como baixar seus dados de seguidores e seguindo do Instagram para análise.',
+        'twitter_title': 'Como Baixar Dados do Instagram - Guia Tutorial Completo',
+        'twitter_description': 'Tutorial passo a passo sobre como baixar seus dados de seguidores e seguindo do Instagram para análise.',
+        
+        # Structured data
+        'schema_how_to_name': 'Como Baixar Dados de Seguidores e Seguindo do Instagram',
+        'schema_how_to_description': 'Tutorial passo a passo sobre como baixar seus dados de seguidores e seguindo do Instagram para análise',
+        'schema_webpage_name': 'Como Baixar Dados do Instagram - Tutorial Completo',
+        'schema_webpage_description': 'Guia completo passo a passo sobre baixar dados de seguidores e seguindo do Instagram para análise',
+        'schema_supply_instagram': 'Conta do Instagram',
+        'schema_supply_device': 'Dispositivo móvel ou computador',
+        'schema_tool_name': 'App ou site do Instagram',
+        'schema_breadcrumb_home': 'Início',
+        'schema_breadcrumb_tutorial': 'Tutorial',
+        
+        # Schema step data
+        'schema_steps': [
+            {
+                'name': 'Abrir Configurações do Instagram',
+                'text': 'Vá para seu perfil do Instagram e toque no ícone do menu'
+            },
+            {
+                'name': 'Navegar para Centro de Contas',
+                'text': 'Clique em Centro de Contas no menu de configurações'
+            },
+            {
+                'name': 'Acessar Download de Dados',
+                'text': 'Selecione Suas Informações e Permissões, depois Baixar Suas Informações'
+            },
+            {
+                'name': 'Selecionar Tipo de Dados',
+                'text': 'Escolha Algumas das suas informações e selecione Seguidores e Seguindo'
+            },
+            {
+                'name': 'Configurar Ajustes de Exportação',
+                'text': 'Defina o período para Todo o tempo e formato para JSON'
+            }
+        ],
+        
+        # Header
+        'header_title': 'Como Obter Seus Dados do Instagram',
+        'header_description': 'Siga estas instruções passo a passo para baixar seus dados de seguindo e seguidores do Instagram',
+        
+        # Steps section
+        'steps_title': 'Instruções Passo a Passo',
+        'steps': [
+            'Vá para seu perfil do Instagram e toque no ícone do menu.',
+            'Clique no ícone do canto superior direito com três linhas horizontais.',
+            'Clique em "Centro de Contas".',
+            'Nas configurações da conta, selecione "Suas Informações e Permissões".',
+            'Clique em "Baixar Suas Informações".',
+            'Clique em "Baixar ou Transferir Informações".',
+            'Selecione sua conta.',
+            'Selecione "Algumas das suas informações".',
+            'Na seção "Conexões", selecione "Seguidores e Seguindo".',
+            'Baixar para seu dispositivo.',
+            'Defina o período para "Todo o tempo" e formato para "JSON".',
+            'Clique no botão "Criar Arquivos".',
+            'Após alguns minutos, navegue para "Baixar Suas Informações" para obter seus arquivos.'
+        ],
+        
+        'completion_note': 'Você está quase terminando! O Instagram preparará seus dados.',
+        
+        # Important notes
+        'important_notes_title': 'Notas Importantes',
+        'important_notes': [
+            'O Instagram pode levar de alguns minutos a várias horas para preparar seus dados, dependendo do tamanho.',
+            'Você receberá uma notificação por email quando seus dados estiverem prontos para download.',
+            'O link de download expirará após um certo período, então baixe prontamente.',
+            'Certifique-se de selecionar o formato JSON para compatibilidade com nossa ferramenta de análise.'
+        ],
+        
+        # What files section
+        'files_section_title': 'Que Arquivos Você Receberá',
+        'files_description': 'Após o download, você receberá um arquivo ZIP contendo:',
+        'files_list': [
+            'following.json - Contém a lista de contas que você segue',
+            'followers_1.json - Contém a lista de contas que te seguem',
+            'Arquivos de metadados adicionais com timestamps e detalhes de conexão'
+        ],
+        
+        # Next steps
+        'next_steps_title': 'Próximos Passos',
+        'next_steps_description': 'Uma vez que você tenha seus arquivos, você pode:',
+        'next_steps_options': [
+            {
+                'title': 'Upload Arquivo ZIP',
+                'description': 'Faça upload do arquivo ZIP inteiro para análise automática',
+                'button': 'Upload ZIP'
+            },
+            {
+                'title': 'Upload Arquivos Individuais',
+                'description': 'Extraia e faça upload apenas dos arquivos JSON que você precisa',
+                'button': 'Upload Arquivos'
+            },
+            {
+                'title': 'Copiar e Colar Dados',
+                'description': 'Abra os arquivos JSON e cole o conteúdo diretamente',
+                'button': 'Colar Dados'
+            }
+        ],
+        
+        # Tips section
+        'tips_title': 'Dicas Profissionais',
+        'tips': [
+            'Mantenha seus arquivos de dados seguros e não os compartilhe com partes não autorizadas.',
+            'Nossa ferramenta processa tudo localmente no seu navegador para máxima privacidade.',
+            'Você pode repetir este processo a qualquer momento para obter dados atualizados.',
+            'Contas grandes podem ter arquivos maiores e tempos de processamento mais longos.'
+        ],
+        
+        # Ready section
+        'ready_title': 'Pronto para analisar seus dados?',
+        'ready_description': 'Uma vez que você tenha seus arquivos JSON, volte para a página de upload para começar a analisar seus seguidores e seguindo do Instagram.',
+        'ready_buttons': [
+            {
+                'text': 'Upload ZIP',
+                'url': 'zip_upload'
+            },
+            {
+                'text': 'Upload Arquivos',
+                'url': 'upload_file'
+            },
+            {
+                'text': 'Colar Dados',
+                'url': 'text_input'
+            }
+        ],
+        
+        # Quick tips
+        'quick_tips': [
+            {
+                'title': 'Privacidade em Primeiro Lugar',
+                'description': 'Seus dados são processados localmente e nunca armazenados em nossos servidores.'
+            },
+            {
+                'title': 'Processo Rápido',
+                'description': 'A análise tipicamente leva apenas alguns segundos para ser concluída.'
+            },
+            {
+                'title': 'Insights Detalhados',
+                'description': 'Obtenha análise abrangente das suas conexões sociais.'
+            }
+        ]
     }
 }

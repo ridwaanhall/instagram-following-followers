@@ -130,6 +130,7 @@ LANGUAGES = [
     ('zh-hans', 'Chinese'),
     ('es', 'Spanish'),
     ('ja', 'Japanese'),
+    ('pt-br', 'Portuguese'),
 ]
 
 # Language preference settings

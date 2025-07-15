@@ -191,5 +191,43 @@ ZIP_UPLOAD_DATA = {
                 'button': 'データを貼り付け'
             }
         }
+    },
+    
+    'pt': {
+        # Meta data
+        'title': 'Carregar Arquivo ZIP - Análise do Instagram',
+        
+        # Header
+        'header_title': 'Carregar Arquivo ZIP',
+        'header_description': 'Carregue seu arquivo ZIP completo de exportação de dados do Instagram. Encontraremos e extrairemos automaticamente os dados de seguidores e seguidos para análise.',
+        
+        # Form
+        'zip_file_label': 'Arquivo ZIP de Dados do Instagram',
+        'zip_file_description': 'Carregue o arquivo ZIP completo da sua exportação de dados do Instagram (contendo following.json e followers_1.json)',
+        'zip_file_placeholder': 'Clique para carregar ou arraste e solte',
+        'submit_button': 'Analisar Dados ZIP',
+        
+        # Help section
+        'help_title': 'O que procuramos no seu arquivo ZIP:',
+        'help_items': [
+            'following.json - Contém sua lista de seguidos',
+            'followers_1.json - Contém sua lista de seguidores',
+            'Os arquivos podem estar em qualquer pasta (comumente followers_and_following/)'
+        ],
+        'help_tutorial_text': 'Precisa de ajuda para obter seus dados? Ver tutorial',
+        
+        # Alternative methods
+        'alternative_methods': {
+            'upload_files': {
+                'title': 'Carregar Arquivos Individuais',
+                'description': 'Carregue arquivos JSON separadamente se preferir mais controle.',
+                'button': 'Carregar Arquivos'
+            },
+            'paste_data': {
+                'title': 'Colar Dados JSON',
+                'description': 'Copie e cole seus dados JSON diretamente para análise rápida.',
+                'button': 'Colar Dados'
+            }
+        }
     }
 }
