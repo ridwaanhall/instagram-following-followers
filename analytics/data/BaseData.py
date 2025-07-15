@@ -12,6 +12,16 @@ BASE_DATA = {
         'site_name': 'InstaAnalytics',
         'og_image_alt': 'InstaAnalytics - Instagram Analytics Tool',
         
+        # Additional SEO fields
+        'meta_author': 'Ridwan Halim',
+        'meta_robots': 'index, follow',
+        'meta_theme_color': '#7c3aed',
+        'meta_language': 'English',
+        'og_type': 'website',
+        'og_locale': 'en_US',
+        'twitter_creator': '@ridwaanhall',
+        'twitter_site': '@ridwaanhall',
+        
         # Navigation
         'nav_brand': 'InstaAnalytics',
         'nav_home': 'Home',
@@ -39,7 +49,13 @@ BASE_DATA = {
             'name': 'InstaAnalytics',
             'description': 'Free Instagram analytics tool to analyze followers and following data. Find who doesn\'t follow back, mutual connections, and get insights about your Instagram network.',
             'keywords': 'Instagram analytics, followers analyzer, following tracker'
-        }
+        },
+        
+        # Breadcrumb data for structured markup
+        'breadcrumb_home': 'Home',
+        'breadcrumb_analytics': 'Analytics',
+        'breadcrumb_upload': 'Upload',
+        'breadcrumb_tutorial': 'Tutorial'
     },
     'id': {
         # Meta tags and SEO
@@ -47,7 +63,22 @@ BASE_DATA = {
         'meta_description': 'Alat analisis Instagram gratis untuk menganalisis data pengikut dan mengikuti. Temukan siapa yang tidak mengikuti balik, koneksi bersama, dan dapatkan wawasan tentang jaringan Instagram Anda. Tidak perlu login.',
         'meta_keywords': 'analisis Instagram, penganalisis pengikut, pelacak mengikuti, wawasan Instagram, analisis media sosial, alat Instagram, analisis pengikut, data Instagram, pelacak pengikut, alat Instagram gratis',
         'site_name': 'InstaAnalytics',
+        # Meta tags and SEO
+        'site_title': 'InstaAnalytics - Analisis Pengikut & Mengikuti Instagram Gratis',
+        'meta_description': 'Alat analisis Instagram gratis untuk menganalisis data pengikut dan mengikuti. Temukan siapa yang tidak mengikuti balik, koneksi bersama, dan dapatkan wawasan tentang jaringan Instagram Anda. Tidak perlu login.',
+        'meta_keywords': 'analisis Instagram, penganalisis pengikut, pelacak mengikuti, wawasan Instagram, analisis media sosial, alat Instagram, analisis pengikut, data Instagram, pelacak pengikut, alat Instagram gratis',
+        'site_name': 'InstaAnalytics',
         'og_image_alt': 'InstaAnalytics - Alat Analisis Instagram',
+        
+        # Additional SEO fields
+        'meta_author': 'Ridwan Halim',
+        'meta_robots': 'index, follow',
+        'meta_theme_color': '#7c3aed',
+        'meta_language': 'Indonesian',
+        'og_type': 'website',
+        'og_locale': 'id_ID',
+        'twitter_creator': '@ridwaanhall',
+        'twitter_site': '@ridwaanhall',
         
         # Navigation
         'nav_brand': 'InstaAnalytics',
@@ -76,6 +107,12 @@ BASE_DATA = {
             'name': 'InstaAnalytics',
             'description': 'Alat analisis Instagram gratis untuk menganalisis data pengikut dan mengikuti. Temukan siapa yang tidak mengikuti balik, koneksi bersama, dan dapatkan wawasan tentang jaringan Instagram Anda.',
             'keywords': 'analisis Instagram, penganalisis pengikut, pelacak mengikuti'
-        }
+        },
+        
+        # Breadcrumb data for structured markup
+        'breadcrumb_home': 'Beranda',
+        'breadcrumb_analytics': 'Analitik',
+        'breadcrumb_upload': 'Unggah',
+        'breadcrumb_tutorial': 'Tutorial'
     }
 }

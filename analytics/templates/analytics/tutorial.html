@@ -10,18 +10,25 @@
 {% block og_url %}https://igstats.ridwaanhall.com/tutorial/{% endblock %}
 {% block twitter_url %}https://igstats.ridwaanhall.com/tutorial/{% endblock %}
 
-{% block og_title %}How to Download Instagram Data - Complete Tutorial Guide{% endblock %}
-{% block og_description %}Step-by-step tutorial on how to download your Instagram followers and following data for analysis.{% endblock %}
-{% block twitter_title %}How to Download Instagram Data - Complete Tutorial Guide{% endblock %}
-{% block twitter_description %}Step-by-step tutorial on how to download your Instagram followers and following data for analysis.{% endblock %}
+<!-- International SEO -->
+{% block extra_head %}
+<link rel="alternate" hreflang="en" href="https://igstats.ridwaanhall.com/tutorial/" />
+<link rel="alternate" hreflang="id" href="https://igstats.ridwaanhall.com/tutorial/" />
+<link rel="alternate" hreflang="x-default" href="https://igstats.ridwaanhall.com/tutorial/" />
+{% endblock %}
+
+{% block og_title %}{{ og_title }}{% endblock %}
+{% block og_description %}{{ og_description }}{% endblock %}
+{% block twitter_title %}{{ twitter_title }}{% endblock %}
+{% block twitter_description %}{{ twitter_description }}{% endblock %}
 
 {% block structured_data %}
 <script type="application/ld+json">
 {
     "@context": "https://schema.org",
     "@type": "HowTo",
-    "name": "How to Download Instagram Followers and Following Data",
-    "description": "Step-by-step tutorial on how to download your Instagram followers and following data for analysis",
+    "name": "{{ schema_how_to_name }}",
+    "description": "{{ schema_how_to_description }}",
     "image": "https://igstats.ridwaanhall.com/static/images/tutorial-guide.png",
     "totalTime": "PT10M",
     "estimatedCost": {
@@ -32,50 +39,28 @@
     "supply": [
         {
             "@type": "HowToSupply",
-            "name": "Instagram account"
+            "name": "{{ schema_supply_instagram }}"
         },
         {
             "@type": "HowToSupply", 
-            "name": "Mobile device or computer"
+            "name": "{{ schema_supply_device }}"
         }
     ],
     "tool": [
         {
             "@type": "HowToTool",
-            "name": "Instagram app or website"
+            "name": "{{ schema_tool_name }}"
         }
     ],
     "step": [
+        {% for step in schema_steps %}
         {
             "@type": "HowToStep",
-            "name": "Open Instagram Settings",
-            "text": "Go to your Instagram profile and tap the menu icon",
-            "url": "https://igstats.ridwaanhall.com/tutorial/#step1"
-        },
-        {
-            "@type": "HowToStep",
-            "name": "Navigate to Account Center",
-            "text": "Click Account Center in the settings menu",
-            "url": "https://igstats.ridwaanhall.com/tutorial/#step2"
-        },
-        {
-            "@type": "HowToStep",
-            "name": "Access Data Download",
-            "text": "Select Your Information and Permissions, then Download Your Information",
-            "url": "https://igstats.ridwaanhall.com/tutorial/#step3"
-        },
-        {
-            "@type": "HowToStep",
-            "name": "Select Data Type",
-            "text": "Choose Some of your information and select Followers and Following",
-            "url": "https://igstats.ridwaanhall.com/tutorial/#step4"
-        },
-        {
-            "@type": "HowToStep",
-            "name": "Configure Export Settings",
-            "text": "Set date range to All time and format to JSON",
-            "url": "https://igstats.ridwaanhall.com/tutorial/#step5"
-        }
+            "name": "{{ step.name }}",
+            "text": "{{ step.text }}",
+            "url": "https://igstats.ridwaanhall.com/tutorial/#step{{ forloop.counter }}"
+        }{% if not forloop.last %},{% endif %}
+        {% endfor %}
     ]
 }
 </script>
@@ -84,8 +69,8 @@
 {
     "@context": "https://schema.org",
     "@type": "WebPage",
-    "name": "How to Download Instagram Data - Complete Tutorial",
-    "description": "Complete step-by-step guide on downloading Instagram followers and following data for analysis",
+    "name": "{{ schema_webpage_name }}",
+    "description": "{{ schema_webpage_description }}",
     "url": "https://igstats.ridwaanhall.com/tutorial/",
     "breadcrumb": {
         "@type": "BreadcrumbList",
@@ -93,17 +78,46 @@
             {
                 "@type": "ListItem",
                 "position": 1,
-                "name": "Home",
+                "name": "{{ schema_breadcrumb_home }}",
                 "item": "https://igstats.ridwaanhall.com/"
             },
             {
                 "@type": "ListItem",
                 "position": 2,
-                "name": "Tutorial",
+                "name": "{{ schema_breadcrumb_tutorial }}",
                 "item": "https://igstats.ridwaanhall.com/tutorial/"
             }
         ]
     }
+}
+</script>
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "{{ title }}",
+    "description": "{{ meta_description }}",
+    "author": {
+        "@type": "Organization",
+        "name": "IGStats"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "IGStats",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://igstats.ridwaanhall.com/static/images/logo.png"
+        }
+    },
+    "datePublished": "2024-01-01",
+    "dateModified": "2024-12-01",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://igstats.ridwaanhall.com/tutorial/"
+    },
+    "image": "https://igstats.ridwaanhall.com/static/images/tutorial-guide.png",
+    "keywords": "{{ meta_keywords }}"
 }
 </script>
 {% endblock %}
@@ -158,6 +172,120 @@
                             </div>
                         </div>
                         {% endfor %}
+                    </div>
+                </div>
+            </div>
+
+            <!-- Important Notes -->
+            <div class="mt-6 sm:mt-8 bg-gradient-to-br from-yellow-50 via-orange-50 to-red-50 border-2 border-yellow-200 rounded-2xl p-4 sm:p-6 shadow-xl">
+                <div class="flex items-start space-x-4">
+                    <div class="flex-shrink-0">
+                        <div class="w-12 h-12 bg-gradient-to-br from-yellow-500 to-orange-500 rounded-full flex items-center justify-center shadow-lg">
+                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.732 16.5c-.77.833.192 2.5 1.732 2.5z"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="flex-1 min-w-0">
+                        <h3 class="text-lg sm:text-xl font-bold text-orange-900 mb-3">{{ important_notes_title }}</h3>
+                        <ul class="space-y-2 text-orange-800 text-sm sm:text-base">
+                            {% for note in important_notes %}
+                            <li class="flex items-start">
+                                <svg class="w-5 h-5 text-orange-600 mr-2 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                </svg>
+                                {{ note }}
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- What Files You'll Get -->
+            <div class="mt-6 sm:mt-8 bg-gradient-to-br from-blue-50 via-cyan-50 to-teal-50 border-2 border-blue-200 rounded-2xl p-4 sm:p-6 shadow-xl">
+                <div class="flex items-start space-x-4">
+                    <div class="flex-shrink-0">
+                        <div class="w-12 h-12 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-full flex items-center justify-center shadow-lg">
+                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="flex-1 min-w-0">
+                        <h3 class="text-lg sm:text-xl font-bold text-blue-900 mb-3">{{ files_section_title }}</h3>
+                        <p class="text-blue-800 text-sm sm:text-base mb-4">{{ files_description }}</p>
+                        <ul class="space-y-2 text-blue-800 text-sm sm:text-base">
+                            {% for file in files_list %}
+                            <li class="flex items-start">
+                                <svg class="w-5 h-5 text-blue-600 mr-2 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                                </svg>
+                                {{ file }}
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Next Steps Options -->
+            <div class="mt-6 sm:mt-8 bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50 border-2 border-indigo-200 rounded-2xl p-4 sm:p-6 shadow-xl">
+                <div class="text-center mb-6">
+                    <div class="inline-flex items-center justify-center w-12 h-12 bg-gradient-to-br from-indigo-500 to-purple-500 rounded-full mb-4 shadow-lg">
+                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-lg sm:text-xl font-bold text-indigo-900 mb-2">{{ next_steps_title }}</h3>
+                    <p class="text-indigo-800 text-sm sm:text-base">{{ next_steps_description }}</p>
+                </div>
+                <div class="grid sm:grid-cols-3 gap-4">
+                    {% for option in next_steps_options %}
+                    <div class="bg-white/80 backdrop-blur-sm rounded-xl p-4 border border-gray-200 shadow-lg text-center">
+                        <div class="w-10 h-10 {% cycle 'bg-indigo-100' 'bg-purple-100' 'bg-pink-100' %} rounded-lg flex items-center justify-center mx-auto mb-3">
+                            <svg class="w-5 h-5 {% cycle 'text-indigo-600' 'text-purple-600' 'text-pink-600' %}" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                                {% if forloop.first %}
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"/>
+                                {% elif forloop.counter == 2 %}
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                                {% else %}
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/>
+                                {% endif %}
+                            </svg>
+                        </div>
+                        <h4 class="font-semibold text-gray-900 text-sm mb-2">{{ option.title }}</h4>
+                        <p class="text-xs text-gray-600 mb-3">{{ option.description }}</p>
+                        <button class="w-full px-3 py-2 bg-gradient-to-r {% cycle 'from-indigo-600 to-indigo-700' 'from-purple-600 to-purple-700' 'from-pink-600 to-pink-700' %} text-white text-xs font-medium rounded-lg {% cycle 'hover:from-indigo-700 hover:to-indigo-800' 'hover:from-purple-700 hover:to-purple-800' 'hover:from-pink-700 hover:to-pink-800' %} transition-all duration-200 shadow-md hover:shadow-lg transform hover:scale-105">
+                            {{ option.button }}
+                        </button>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <!-- Pro Tips -->
+            <div class="mt-6 sm:mt-8 bg-gradient-to-br from-green-50 via-emerald-50 to-teal-50 border-2 border-green-200 rounded-2xl p-4 sm:p-6 shadow-xl">
+                <div class="flex items-start space-x-4">
+                    <div class="flex-shrink-0">
+                        <div class="w-12 h-12 bg-gradient-to-br from-green-500 to-emerald-500 rounded-full flex items-center justify-center shadow-lg">
+                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="flex-1 min-w-0">
+                        <h3 class="text-lg sm:text-xl font-bold text-green-900 mb-3">{{ tips_title }}</h3>
+                        <ul class="space-y-2 text-green-800 text-sm sm:text-base">
+                            {% for tip in tips %}
+                            <li class="flex items-start">
+                                <svg class="w-5 h-5 text-green-600 mr-2 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                                </svg>
+                                {{ tip }}
+                            </li>
+                            {% endfor %}
+                        </ul>
                     </div>
                 </div>
             </div>

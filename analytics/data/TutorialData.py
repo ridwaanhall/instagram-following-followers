@@ -9,6 +9,47 @@ TUTORIAL_DATA = {
         'meta_description': 'Step-by-step tutorial on how to download your Instagram followers and following data. Learn to export Instagram JSON files for follower analysis and insights. Free detailed guide with screenshots.',
         'meta_keywords': 'Instagram data download, Instagram followers export, Instagram following data, how to get Instagram data, Instagram JSON export, Instagram data tutorial, download Instagram information',
         
+        # SEO specific data
+        'og_title': 'How to Download Instagram Data - Complete Tutorial Guide',
+        'og_description': 'Step-by-step tutorial on how to download your Instagram followers and following data for analysis.',
+        'twitter_title': 'How to Download Instagram Data - Complete Tutorial Guide', 
+        'twitter_description': 'Step-by-step tutorial on how to download your Instagram followers and following data for analysis.',
+        
+        # Structured data
+        'schema_how_to_name': 'How to Download Instagram Followers and Following Data',
+        'schema_how_to_description': 'Step-by-step tutorial on how to download your Instagram followers and following data for analysis',
+        'schema_webpage_name': 'How to Download Instagram Data - Complete Tutorial',
+        'schema_webpage_description': 'Complete step-by-step guide on downloading Instagram followers and following data for analysis',
+        'schema_supply_instagram': 'Instagram account',
+        'schema_supply_device': 'Mobile device or computer',
+        'schema_tool_name': 'Instagram app or website',
+        'schema_breadcrumb_home': 'Home',
+        'schema_breadcrumb_tutorial': 'Tutorial',
+        
+        # Schema step data
+        'schema_steps': [
+            {
+                'name': 'Open Instagram Settings',
+                'text': 'Go to your Instagram profile and tap the menu icon'
+            },
+            {
+                'name': 'Navigate to Account Center', 
+                'text': 'Click Account Center in the settings menu'
+            },
+            {
+                'name': 'Access Data Download',
+                'text': 'Select Your Information and Permissions, then Download Your Information'
+            },
+            {
+                'name': 'Select Data Type',
+                'text': 'Choose Some of your information and select Followers and Following'
+            },
+            {
+                'name': 'Configure Export Settings',
+                'text': 'Set date range to All time and format to JSON'
+            }
+        ],
+        
         # Header
         'header_title': 'How to Get Your Instagram Data',
         'header_description': 'Follow these step-by-step instructions to download your Instagram following and followers data',
@@ -86,6 +127,10 @@ TUTORIAL_DATA = {
         'ready_description': 'Once you have your JSON files, head back to the upload page to start analyzing your Instagram followers and following.',
         'ready_buttons': [
             {
+                'text': 'ZIP Upload',
+                'url': 'zip_upload'
+            },
+            {
                 'text': 'Upload Files',
                 'url': 'upload_file'
             },
@@ -117,6 +162,47 @@ TUTORIAL_DATA = {
         'title': 'Cara Mengunduh Data Instagram - Panduan Tutorial Lengkap',
         'meta_description': 'Tutorial langkah demi langkah tentang cara mengunduh data pengikut dan mengikuti Instagram Anda. Pelajari cara mengekspor file JSON Instagram untuk analisis dan wawasan pengikut. Panduan detail gratis dengan screenshot.',
         'meta_keywords': 'unduh data Instagram, ekspor pengikut Instagram, data mengikuti Instagram, cara mendapatkan data Instagram, ekspor JSON Instagram, tutorial data Instagram, unduh informasi Instagram',
+        
+        # SEO specific data
+        'og_title': 'Cara Mengunduh Data Instagram - Panduan Tutorial Lengkap',
+        'og_description': 'Tutorial langkah demi langkah tentang cara mengunduh data pengikut dan mengikuti Instagram Anda untuk analisis.',
+        'twitter_title': 'Cara Mengunduh Data Instagram - Panduan Tutorial Lengkap',
+        'twitter_description': 'Tutorial langkah demi langkah tentang cara mengunduh data pengikut dan mengikuti Instagram Anda untuk analisis.',
+        
+        # Structured data
+        'schema_how_to_name': 'Cara Mengunduh Data Pengikut dan Mengikuti Instagram',
+        'schema_how_to_description': 'Tutorial langkah demi langkah tentang cara mengunduh data pengikut dan mengikuti Instagram Anda untuk analisis',
+        'schema_webpage_name': 'Cara Mengunduh Data Instagram - Tutorial Lengkap',
+        'schema_webpage_description': 'Panduan langkah demi langkah lengkap tentang mengunduh data pengikut dan mengikuti Instagram untuk analisis',
+        'schema_supply_instagram': 'Akun Instagram',
+        'schema_supply_device': 'Perangkat mobile atau komputer',
+        'schema_tool_name': 'Aplikasi atau website Instagram',
+        'schema_breadcrumb_home': 'Beranda',
+        'schema_breadcrumb_tutorial': 'Tutorial',
+        
+        # Schema step data
+        'schema_steps': [
+            {
+                'name': 'Buka Pengaturan Instagram',
+                'text': 'Buka profil Instagram Anda dan ketuk ikon menu'
+            },
+            {
+                'name': 'Navigasi ke Pusat Akun',
+                'text': 'Klik Pusat Akun di menu pengaturan'
+            },
+            {
+                'name': 'Akses Unduh Data',
+                'text': 'Pilih Informasi dan Izin Anda, lalu Unduh Informasi Anda'
+            },
+            {
+                'name': 'Pilih Jenis Data',
+                'text': 'Pilih Sebagian informasi Anda dan pilih Pengikut dan Mengikuti'
+            },
+            {
+                'name': 'Konfigurasi Pengaturan Ekspor',
+                'text': 'Atur rentang tanggal ke Sepanjang waktu dan format ke JSON'
+            }
+        ],
         
         # Header
         'header_title': 'Cara Mendapatkan Data Instagram Anda',
@@ -194,6 +280,10 @@ TUTORIAL_DATA = {
         'ready_title': 'Siap menganalisis data Anda?',
         'ready_description': 'Setelah Anda memiliki file JSON, kembali ke halaman unggah untuk mulai menganalisis pengikut dan mengikuti Instagram Anda.',
         'ready_buttons': [
+            {
+                'text': 'Unggah ZIP',
+                'url': 'zip_upload'
+            },
             {
                 'text': 'Unggah File',
                 'url': 'upload_file'

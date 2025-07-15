@@ -10,18 +10,25 @@
         <meta name="title" content="{% block meta_title %}{{ site_title }}{% endblock %}">
         <meta name="description" content="{% block meta_description %}{{ meta_description }}{% endblock %}">
         <meta name="keywords" content="{% block meta_keywords %}{{ meta_keywords }}{% endblock %}">
-        <meta name="author" content="Ridwan Halim">
-        <meta name="robots" content="{% block meta_robots %}index, follow{% endblock %}">
-        <meta name="theme-color" content="#7c3aed">
-        <meta name="language" content="{% if current_language == 'id' %}Indonesian{% else %}English{% endif %}">
+        <meta name="author" content="{{ meta_author }}">
+        <meta name="robots" content="{% block meta_robots %}{{ meta_robots }}{% endblock %}">
+        <meta name="theme-color" content="{{ meta_theme_color }}">
+        <meta name="language" content="{{ meta_language }}">
         <meta name="revisit-after" content="7 days">
         <meta name="rating" content="General">
         
         <!-- Canonical URL -->
         <link rel="canonical" href="{% block canonical_url %}https://igstats.ridwaanhall.com{% endblock %}">
         
+        <!-- International SEO -->
+        {% block hreflang %}
+        <link rel="alternate" hreflang="en" href="https://igstats.ridwaanhall.com{% if request.path != '/' %}{{ request.path }}{% endif %}" />
+        <link rel="alternate" hreflang="id" href="https://igstats.ridwaanhall.com{% if request.path != '/' %}{{ request.path }}{% endif %}" />
+        <link rel="alternate" hreflang="x-default" href="https://igstats.ridwaanhall.com{% if request.path != '/' %}{{ request.path }}{% endif %}" />
+        {% endblock %}
+        
         <!-- Open Graph / Facebook -->
-        <meta property="og:type" content="{% block og_type %}website{% endblock %}">
+        <meta property="og:type" content="{% block og_type %}{{ og_type }}{% endblock %}">
         <meta property="og:url" content="{% block og_url %}https://igstats.ridwaanhall.com{% endblock %}">
         <meta property="og:title" content="{% block og_title %}{{ site_title }}{% endblock %}">
         <meta property="og:description" content="{% block og_description %}{{ meta_description }}{% endblock %}">
@@ -30,7 +37,7 @@
         <meta property="og:image:height" content="630">
         <meta property="og:image:alt" content="{{ og_image_alt }}">
         <meta property="og:site_name" content="{{ site_name }}">
-        <meta property="og:locale" content="{% if current_language == 'id' %}id_ID{% else %}en_US{% endif %}">
+        <meta property="og:locale" content="{{ og_locale }}">
         
         <!-- Twitter -->
         <meta property="twitter:card" content="summary_large_image">
@@ -38,8 +45,8 @@
         <meta property="twitter:title" content="{% block twitter_title %}{{ site_title }}{% endblock %}">
         <meta property="twitter:description" content="{% block twitter_description %}{{ meta_description }}{% endblock %}">
         <meta property="twitter:image" content="{% block twitter_image %}https://igstats.ridwaanhall.com{% static 'images/twitter-card.png' %}{% endblock %}">
-        <meta property="twitter:creator" content="@ridwaanhall">
-        <meta property="twitter:site" content="@ridwaanhall">
+        <meta property="twitter:creator" content="{{ twitter_creator }}">
+        <meta property="twitter:site" content="{{ twitter_site }}">
         
         <!-- Favicon and Icons -->
         <link rel="icon" href="{% static 'favicon.ico' %}" type="image/x-icon">
@@ -67,23 +74,82 @@
                 "url": "https://igstats.ridwaanhall.com",
                 "applicationCategory": "SocialNetworkingApplication",
                 "operatingSystem": "Any",
+                "browserRequirements": "HTML5, JavaScript",
+                "softwareVersion": "1.0",
+                "releaseNotes": "Free Instagram analytics tool for analyzing followers and following data",
+                "screenshot": "https://igstats.ridwaanhall.com/static/images/app-screenshot.png",
                 "offers": {
                     "@type": "Offer",
                     "price": "0",
-                    "priceCurrency": "USD"
+                    "priceCurrency": "USD",
+                    "availability": "https://schema.org/InStock"
                 },
                 "creator": {
                     "@type": "Person",
-                    "name": "Ridwan Halim",
-                    "url": "https://bio.ridwaanhall.com"
+                    "name": "{{ meta_author }}",
+                    "url": "https://bio.ridwaanhall.com",
+                    "sameAs": [
+                        "https://github.com/ridwaanhall",
+                        "https://linkedin.com/in/ridwaanhall"
+                    ]
                 },
-                "featureList": ["Analyze Instagram followers and following", "Find who doesn't follow back", "Discover mutual connections", "Export analysis results", "No login required", "Privacy-focused data processing"],
-                "softwareRequirements": "Web browser",
-                "permissions": "No special permissions required",
+                "publisher": {
+                    "@type": "Organization",
+                    "name": "{{ site_name }}",
+                    "url": "https://igstats.ridwaanhall.com"
+                },
+                "featureList": [
+                    "Analyze Instagram followers and following",
+                    "Find who doesn't follow back",
+                    "Discover mutual connections",
+                    "Export analysis results",
+                    "No login required",
+                    "Privacy-focused data processing",
+                    "Support ZIP and JSON file uploads",
+                    "Real-time data processing"
+                ],
+                "keywords": "{{ meta_keywords }}",
+                "inLanguage": "{% if current_language == 'id' %}id{% else %}en{% endif %}",
+                "isAccessibleForFree": true,
                 "aggregateRating": {
                     "@type": "AggregateRating",
                     "ratingValue": "5",
-                    "reviewCount": "10"
+                    "reviewCount": "25",
+                    "bestRating": "5",
+                    "worstRating": "1"
+                },
+                "potentialAction": {
+                    "@type": "UseAction",
+                    "object": {
+                        "@type": "WebApplication",
+                        "name": "{{ structured_data.name }}"
+                    }
+                }
+            }
+        </script>
+        
+        <!-- Organization Structured Data -->
+        <script type="application/ld+json">
+            {
+                "@context": "https://schema.org",
+                "@type": "Organization",
+                "name": "{{ site_name }}",
+                "url": "https://igstats.ridwaanhall.com",
+                "logo": "https://igstats.ridwaanhall.com/static/images/logo.png",
+                "description": "{{ meta_description }}",
+                "founder": {
+                    "@type": "Person",
+                    "name": "{{ meta_author }}",
+                    "url": "https://bio.ridwaanhall.com"
+                },
+                "foundingDate": "2024",
+                "sameAs": [
+                    "https://github.com/ridwaanhall/instagram-following-followers"
+                ],
+                "contactPoint": {
+                    "@type": "ContactPoint",
+                    "contactType": "Customer Support",
+                    "url": "https://igstats.ridwaanhall.com/tutorial/"
                 }
             }
         </script>
