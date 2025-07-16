@@ -7,4 +7,6 @@ urlpatterns = [
     path('zip/', views.ZipUploadView.as_view(), name='zip_upload'),
     path('text/', views.TextInputView.as_view(), name='text_input'),
     path('tutorial/', views.TutorialView.as_view(template_name='analytics/tutorial.html'), name='tutorial'),
+    path('set-language/', views.LanguageSwitchView.as_view(), name='set_language'),
+    path('language-info/', views.LanguageInfoView.as_view(), name='language_info'),
 ]
