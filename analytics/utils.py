@@ -136,7 +136,6 @@ def get_language_name(language_code):
 def get_current_language():
     """Get the current active language code"""
     language = translation.get_language()
-    print(f"DEBUG get_current_language: Django language = {language}")
     
     # Map Django language codes to our data keys
     if language and language.startswith('id'):
@@ -156,7 +155,6 @@ def get_current_language():
     else:
         result = 'en'
     
-    print(f"DEBUG get_current_language: Mapped to = {result}")
     return result
 
 def get_content_data(data_dict, language=None):
@@ -205,10 +203,7 @@ def inject_i18n_context(request):
     current_lang = get_current_language()
     base_data = get_base_data(current_lang)
     
-    print(f"DEBUG inject_i18n_context: current_lang = {current_lang}")
-    print(f"DEBUG inject_i18n_context: base_data keys = {list(base_data.keys()) if base_data else 'None'}")
-    
-    context = {
+    return {
         'current_language': current_lang,
         'is_indonesian': current_lang == 'id',
         'is_english': current_lang == 'en',
@@ -220,6 +215,3 @@ def inject_i18n_context(request):
         'is_german': current_lang == 'de',
         **base_data  # Spread base template data into context
     }
-    
-    print(f"DEBUG inject_i18n_context: Context includes current_language = {context.get('current_language')}")
-    return context

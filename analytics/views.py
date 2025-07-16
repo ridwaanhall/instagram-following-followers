@@ -34,20 +34,13 @@ class LanguageSwitchView(TemplateView):
         language_code = request.POST.get('language')
         next_url = request.POST.get('next', request.META.get('HTTP_REFERER', '/'))
         
-        # Debug logging
-        print(f"DEBUG: Language switch requested: {language_code}")
-        print(f"DEBUG: Current session language: {request.session.get(settings.LANGUAGE_SESSION_KEY)}")
-        print(f"DEBUG: Supported languages: {[code for code, name in settings.LANGUAGES]}")
-        
         if language_code and is_supported_language(language_code):
             # Set language in session
             request.session[settings.LANGUAGE_SESSION_KEY] = language_code
-            print(f"DEBUG: Language set in session: {language_code}")
             
             # Activate language for current request
             translation.activate(language_code)
             request.LANGUAGE_CODE = language_code
-            print(f"DEBUG: Language activated: {language_code}")
             
             # Return JSON response for AJAX requests
             if request.headers.get('Content-Type') == 'application/json':
@@ -57,7 +50,6 @@ class LanguageSwitchView(TemplateView):
                     'language_name': dict(settings.LANGUAGES).get(language_code, language_code)
                 })
         else:
-            print(f"DEBUG: Unsupported language: {language_code}")
             if request.headers.get('Content-Type') == 'application/json':
                 return JsonResponse({
                     'status': 'error',
@@ -105,10 +97,7 @@ class HomeView(TemplateView):
     
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        home_data = get_home_data()
-        print(f"DEBUG HomeView: home_data keys = {list(home_data.keys()) if home_data else 'None'}")
-        print(f"DEBUG HomeView: current language from get_current_language = {get_current_language()}")
-        context.update(home_data)
+        context.update(get_home_data())
         return context
 
 class BaseAnalyticsView(FormView):

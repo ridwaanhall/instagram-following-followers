@@ -84,7 +84,6 @@ class AutoLanguageDetectionMiddleware(MiddlewareMixin):
         # This should take priority over browser detection
         session_language = request.session.get(settings.LANGUAGE_SESSION_KEY)
         if session_language and self._is_supported_language(session_language):
-            print(f"DEBUG Middleware: Using session language: {session_language}")
             translation.activate(session_language)
             request.LANGUAGE_CODE = session_language
             return None
@@ -92,7 +91,6 @@ class AutoLanguageDetectionMiddleware(MiddlewareMixin):
         # Check for URL parameter (highest priority for this request)
         lang_param = request.GET.get('lang') or request.POST.get('lang')
         if lang_param and self._is_supported_language(lang_param):
-            print(f"DEBUG Middleware: Using URL parameter language: {lang_param}")
             translation.activate(lang_param)
             request.LANGUAGE_CODE = lang_param
             request.session[settings.LANGUAGE_SESSION_KEY] = lang_param
@@ -101,7 +99,6 @@ class AutoLanguageDetectionMiddleware(MiddlewareMixin):
         # Fallback to browser language detection only if no session preference exists
         detected_language = self._detect_language_from_browser(request)
         if detected_language:
-            print(f"DEBUG Middleware: Using browser-detected language: {detected_language}")
             translation.activate(detected_language)
             request.LANGUAGE_CODE = detected_language
             # Only set in session if no explicit preference exists
