@@ -56,7 +56,8 @@ MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     "whitenoise.middleware.WhiteNoiseMiddleware",
     'django.contrib.sessions.middleware.SessionMiddleware',
-    'django.middleware.locale.LocaleMiddleware',
+    'analytics.middleware.AutoLanguageDetectionMiddleware',  # Custom auto language detection
+    'analytics.middleware.GeolocationLanguageMiddleware',  # Optional geolocation-based detection
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -132,12 +133,20 @@ LANGUAGES = [
     ('ja', 'Japanese'),
     ('pt-br', 'Portuguese'),
     ('fr', 'French'),
+    ('de', 'German'),
 ]
 
 # Language preference settings
 LANGUAGE_SESSION_KEY = 'django_language'
 LANGUAGE_COOKIE_NAME = 'django_language'
 LANGUAGE_COOKIE_AGE = 60 * 60 * 24 * 30  # 30 days
+
+# Session configuration (no database required)
+SESSION_ENGINE = 'django.contrib.sessions.backends.signed_cookies'
+SESSION_COOKIE_AGE = 60 * 60 * 24 * 30  # 30 days
+SESSION_COOKIE_SECURE = False  # Set to True in production with HTTPS
+SESSION_COOKIE_HTTPONLY = True
+SESSION_COOKIE_SAMESITE = 'Lax'
 
 # Locale path for translations
 LOCALE_PATHS = [

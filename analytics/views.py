@@ -1,10 +1,18 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views.generic import TemplateView
 from django.views.generic.edit import FormView
+from django.http import JsonResponse
+from django.conf import settings
+from django.utils import translation
+from django.views.decorators.http import require_POST
+from django.views.decorators.csrf import csrf_exempt
+from django.utils.decorators import method_decorator
 from .forms import UploadFileForm, ZipUploadForm
 from .utils import (
     get_home_data, get_upload_data, get_zip_upload_data,
-    get_text_input_data, get_tutorial_data, get_results_data
+    get_text_input_data, get_tutorial_data, get_results_data,
+    detect_language_from_request, is_supported_language, get_language_info,
+    get_current_language
 )
 import json
 import logging
@@ -16,12 +24,91 @@ from datetime import datetime
 
 logger = logging.getLogger(__name__)
 
+class LanguageSwitchView(TemplateView):
+    """
+    View to handle manual language switching
+    """
+    
+    def post(self, request, *args, **kwargs):
+        """Handle language switching via POST request"""
+        language_code = request.POST.get('language')
+        next_url = request.POST.get('next', request.META.get('HTTP_REFERER', '/'))
+        
+        # Debug logging
+        print(f"DEBUG: Language switch requested: {language_code}")
+        print(f"DEBUG: Current session language: {request.session.get(settings.LANGUAGE_SESSION_KEY)}")
+        print(f"DEBUG: Supported languages: {[code for code, name in settings.LANGUAGES]}")
+        
+        if language_code and is_supported_language(language_code):
+            # Set language in session
+            request.session[settings.LANGUAGE_SESSION_KEY] = language_code
+            print(f"DEBUG: Language set in session: {language_code}")
+            
+            # Activate language for current request
+            translation.activate(language_code)
+            request.LANGUAGE_CODE = language_code
+            print(f"DEBUG: Language activated: {language_code}")
+            
+            # Return JSON response for AJAX requests
+            if request.headers.get('Content-Type') == 'application/json':
+                return JsonResponse({
+                    'status': 'success',
+                    'language': language_code,
+                    'language_name': dict(settings.LANGUAGES).get(language_code, language_code)
+                })
+        else:
+            print(f"DEBUG: Unsupported language: {language_code}")
+            if request.headers.get('Content-Type') == 'application/json':
+                return JsonResponse({
+                    'status': 'error',
+                    'message': 'Unsupported language code'
+                }, status=400)
+        
+        return redirect(next_url)
+    
+    def get(self, request, *args, **kwargs):
+        """Handle language switching via GET request (for URL parameters)"""
+        language_code = request.GET.get('lang')
+        next_url = request.GET.get('next', request.META.get('HTTP_REFERER', '/'))
+        
+        if language_code and is_supported_language(language_code):
+            request.session[settings.LANGUAGE_SESSION_KEY] = language_code
+            translation.activate(language_code)
+        
+        return redirect(next_url)
+
+
+class LanguageInfoView(TemplateView):
+    """
+    API view to get current language information
+    """
+    
+    def get(self, request, *args, **kwargs):
+        """Return current language information as JSON"""
+        lang_info = get_language_info()
+        
+        # Add detected language information
+        detected_lang = detect_language_from_request(request)
+        browser_languages = request.META.get('HTTP_ACCEPT_LANGUAGE', '')
+        
+        return JsonResponse({
+            'current_language': lang_info['current'],
+            'current_language_name': lang_info['current_name'],
+            'available_languages': lang_info['available'],
+            'detected_language': detected_lang,
+            'browser_languages': browser_languages,
+            'supported_codes': lang_info['supported_codes'],
+        })
+
 class HomeView(TemplateView):
     template_name = 'analytics/home.html'
     
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context.update(get_home_data())
+        home_data = get_home_data()
+        print(f"DEBUG HomeView: home_data keys = {list(home_data.keys()) if home_data else 'None'}")
+        print(f"DEBUG HomeView: current language from get_current_language = {get_current_language()}")
+        context.update(home_data)
         return context
 
 class BaseAnalyticsView(FormView):
