@@ -2,11 +2,8 @@
 Custom middleware for automatic language detection based on browser language and region
 """
 
-import re
 from django.utils import translation
 from django.conf import settings
-from django.http import HttpResponseRedirect
-from django.urls import reverse
 from django.utils.deprecation import MiddlewareMixin
 
 

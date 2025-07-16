@@ -4,15 +4,11 @@ from django.views.generic.edit import FormView
 from django.http import JsonResponse
 from django.conf import settings
 from django.utils import translation
-from django.views.decorators.http import require_POST
-from django.views.decorators.csrf import csrf_exempt
-from django.utils.decorators import method_decorator
 from .forms import UploadFileForm, ZipUploadForm
 from .utils import (
     get_home_data, get_upload_data, get_zip_upload_data,
     get_text_input_data, get_tutorial_data, get_results_data,
-    detect_language_from_request, is_supported_language, get_language_info,
-    get_current_language
+    detect_language_from_request, is_supported_language, get_language_info
 )
 import json
 import logging
