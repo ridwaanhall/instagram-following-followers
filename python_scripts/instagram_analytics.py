@@ -49,7 +49,7 @@ class InstagramAnalytics:
             href = user['href']
             # Handle both old format (instagram.com/username) and new format (instagram.com/_u/username)
             if '_u/' in href:
-                # New format: https://www.instagram.com/_u/username
+                # New format: https://www.instagram.com/_u/username - extract just the username
                 return href.split('_u/')[-1]
             elif 'instagram.com/' in href:
                 # Old format: https://www.instagram.com/username
