@@ -99,31 +99,63 @@ class HomeView(TemplateView):
 class BaseAnalyticsView(FormView):
     success_url = reverse_lazy('home')
 
+    def get_username_from_user_data(self, user, item):
+        """
+        Extract username from user data, handling both old and new JSON formats.
+        
+        Old format: user has 'value' field with username
+        New format: user doesn't have 'value', username is in item's 'title' field
+        """
+        # Old format: username in 'value' field
+        if 'value' in user:
+            return user['value']
+        
+        # New format: username in item's 'title' field
+        if 'title' in item and item['title']:
+            return item['title']
+        
+        # Fallback: try to extract username from href URL
+        if 'href' in user:
+            href = user['href']
+            # Handle both old format (instagram.com/username) and new format (instagram.com/_u/username)
+            if '_u/' in href:
+                # New format: https://www.instagram.com/_u/username
+                return href.split('_u/')[-1]
+            elif 'instagram.com/' in href:
+                # Old format: https://www.instagram.com/username
+                return href.split('instagram.com/')[-1]
+        
+        return None
+
     def process_data(self, following_data, followers_data):
         try:
             # Extract following data with timestamps
             following_users = {}
             for item in following_data.get('relationships_following', []):
                 for user in item.get('string_list_data', []):
-                    username = user['value']
-                    timestamp = user.get('timestamp')
-                    following_users[username] = {
-                        'timestamp': timestamp,
-                        'formatted_date': datetime.fromtimestamp(timestamp).strftime('%B %d, %Y at %I:%M %p') if timestamp else 'Unknown',
-                        'href': user.get('href', f'https://www.instagram.com/{username}')
-                    }
+                    # Handle both old and new JSON formats
+                    username = self.get_username_from_user_data(user, item)
+                    if username:
+                        timestamp = user.get('timestamp')
+                        following_users[username] = {
+                            'timestamp': timestamp,
+                            'formatted_date': datetime.fromtimestamp(timestamp).strftime('%B %d, %Y at %I:%M %p') if timestamp else 'Unknown',
+                            'href': user.get('href', f'https://www.instagram.com/{username}')
+                        }
 
             # Extract followers data with timestamps
             followers_users = {}
             for item in followers_data:
                 for user in item.get('string_list_data', []):
-                    username = user['value']
-                    timestamp = user.get('timestamp')
-                    followers_users[username] = {
-                        'timestamp': timestamp,
-                        'formatted_date': datetime.fromtimestamp(timestamp).strftime('%B %d, %Y at %I:%M %p') if timestamp else 'Unknown',
-                        'href': user.get('href', f'https://www.instagram.com/{username}')
-                    }
+                    # Handle both old and new JSON formats
+                    username = self.get_username_from_user_data(user, item)
+                    if username:
+                        timestamp = user.get('timestamp')
+                        followers_users[username] = {
+                            'timestamp': timestamp,
+                            'formatted_date': datetime.fromtimestamp(timestamp).strftime('%B %d, %Y at %I:%M %p') if timestamp else 'Unknown',
+                            'href': user.get('href', f'https://www.instagram.com/{username}')
+                        }
 
             following_set = set(following_users.keys())
             followers_set = set(followers_users.keys())
