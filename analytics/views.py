@@ -140,7 +140,7 @@ class BaseAnalyticsView(FormView):
                         following_users[username] = {
                             'timestamp': timestamp,
                             'formatted_date': datetime.fromtimestamp(timestamp).strftime('%B %d, %Y at %I:%M %p') if timestamp else 'Unknown',
-                            'href': user.get('href', f'https://www.instagram.com/{username}')
+                            'href': f'https://www.instagram.com/{username}'
                         }
 
             # Extract followers data with timestamps
@@ -154,7 +154,7 @@ class BaseAnalyticsView(FormView):
                         followers_users[username] = {
                             'timestamp': timestamp,
                             'formatted_date': datetime.fromtimestamp(timestamp).strftime('%B %d, %Y at %I:%M %p') if timestamp else 'Unknown',
-                            'href': user.get('href', f'https://www.instagram.com/{username}')
+                            'href': f'https://www.instagram.com/{username}'
                         }
 
             following_set = set(following_users.keys())
