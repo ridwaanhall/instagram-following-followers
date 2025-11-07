@@ -16,12 +16,46 @@ class InstagramAnalytics:
         if key == "relationships_following":
             for item in data[key]:
                 for user in item["string_list_data"]:
-                    usernames.add(user["value"])
+                    # Handle both old and new JSON formats
+                    username = self.get_username_from_user_data(user, item)
+                    if username:
+                        usernames.add(username)
         else:
             for item in data:
                 for user in item["string_list_data"]:
-                    usernames.add(user["value"])
+                    # Handle both old and new JSON formats
+                    username = self.get_username_from_user_data(user, item)
+                    if username:
+                        usernames.add(username)
         return usernames
+    
+    def get_username_from_user_data(self, user, item):
+        """
+        Extract username from user data, handling both old and new JSON formats.
+        
+        Old format: user has 'value' field with username
+        New format: user doesn't have 'value', username is in item's 'title' field
+        """
+        # Old format: username in 'value' field
+        if 'value' in user:
+            return user['value']
+        
+        # New format: username in item's 'title' field
+        if 'title' in item and item['title']:
+            return item['title']
+        
+        # Fallback: try to extract username from href URL
+        if 'href' in user:
+            href = user['href']
+            # Handle both old format (instagram.com/username) and new format (instagram.com/_u/username)
+            if '_u/' in href:
+                # New format: https://www.instagram.com/_u/username
+                return href.split('_u/')[-1]
+            elif 'instagram.com/' in href:
+                # Old format: https://www.instagram.com/username
+                return href.split('instagram.com/')[-1]
+        
+        return None
 
     def count_following(self):
         return len(self.following_set)
