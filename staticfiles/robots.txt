@@ -14,7 +14,7 @@ Allow: /tutorial/
 Allow: /static/
 
 # Sitemap location
-Sitemap: https://igstats.ridwaanhall.com/sitemap.xml
+Sitemap: https://igstats.rone.dev/sitemap.xml
 
 # Crawl delay (be nice to servers)
 Crawl-delay: 1

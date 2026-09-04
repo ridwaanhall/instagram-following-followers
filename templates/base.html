@@ -18,21 +18,21 @@
         <meta name="rating" content="General">
         
         <!-- Canonical URL -->
-        <link rel="canonical" href="{% block canonical_url %}https://igstats.ridwaanhall.com{% endblock %}">
+        <link rel="canonical" href="{% block canonical_url %}https://igstats.rone.dev{% endblock %}">
         
         <!-- International SEO -->
         {% block hreflang %}
-        <link rel="alternate" hreflang="en" href="https://igstats.ridwaanhall.com{% if request.path != '/' %}{{ request.path }}{% endif %}" />
-        <link rel="alternate" hreflang="id" href="https://igstats.ridwaanhall.com{% if request.path != '/' %}{{ request.path }}{% endif %}" />
-        <link rel="alternate" hreflang="x-default" href="https://igstats.ridwaanhall.com{% if request.path != '/' %}{{ request.path }}{% endif %}" />
+        <link rel="alternate" hreflang="en" href="https://igstats.rone.dev{% if request.path != '/' %}{{ request.path }}{% endif %}" />
+        <link rel="alternate" hreflang="id" href="https://igstats.rone.dev{% if request.path != '/' %}{{ request.path }}{% endif %}" />
+        <link rel="alternate" hreflang="x-default" href="https://igstats.rone.dev{% if request.path != '/' %}{{ request.path }}{% endif %}" />
         {% endblock %}
         
         <!-- Open Graph / Facebook -->
         <meta property="og:type" content="{% block og_type %}{{ og_type }}{% endblock %}">
-        <meta property="og:url" content="{% block og_url %}https://igstats.ridwaanhall.com{% endblock %}">
+        <meta property="og:url" content="{% block og_url %}https://igstats.rone.dev{% endblock %}">
         <meta property="og:title" content="{% block og_title %}{{ site_title }}{% endblock %}">
         <meta property="og:description" content="{% block og_description %}{{ meta_description }}{% endblock %}">
-        <meta property="og:image" content="{% block og_image %}https://igstats.ridwaanhall.com{% static 'images/og-image.png' %}{% endblock %}">
+        <meta property="og:image" content="{% block og_image %}https://igstats.rone.dev{% static 'images/og-image.png' %}{% endblock %}">
         <meta property="og:image:width" content="1200">
         <meta property="og:image:height" content="630">
         <meta property="og:image:alt" content="{{ og_image_alt }}">
@@ -41,10 +41,10 @@
         
         <!-- Twitter -->
         <meta property="twitter:card" content="summary_large_image">
-        <meta property="twitter:url" content="{% block twitter_url %}https://igstats.ridwaanhall.com{% endblock %}">
+        <meta property="twitter:url" content="{% block twitter_url %}https://igstats.rone.dev{% endblock %}">
         <meta property="twitter:title" content="{% block twitter_title %}{{ site_title }}{% endblock %}">
         <meta property="twitter:description" content="{% block twitter_description %}{{ meta_description }}{% endblock %}">
-        <meta property="twitter:image" content="{% block twitter_image %}https://igstats.ridwaanhall.com{% static 'images/twitter-card.png' %}{% endblock %}">
+        <meta property="twitter:image" content="{% block twitter_image %}https://igstats.rone.dev{% static 'images/twitter-card.png' %}{% endblock %}">
         <meta property="twitter:creator" content="{{ twitter_creator }}">
         <meta property="twitter:site" content="{{ twitter_site }}">
         
@@ -57,12 +57,10 @@
         <meta name="msapplication-TileColor" content="#7c3aed">
         
         <!-- Preconnect for performance -->
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         
         <!-- CSS -->
         <link rel="stylesheet" href="{% static 'css/global.css' %}">
-        <link rel="stylesheet" href="https://igstats.ridwaanhall.com/static/font/Plus_Jakarta_Sans/Plus_Jakarta_Sans.css">
+        <link rel="stylesheet" href="https://igstats.rone.dev/static/font/Plus_Jakarta_Sans/Plus_Jakarta_Sans.css">
         
         <!-- Structured Data -->
         <script type="application/ld+json">
@@ -71,13 +69,13 @@
                 "@type": "WebApplication",
                 "name": "{{ structured_data.name }}",
                 "description": "{{ structured_data.description }}",
-                "url": "https://igstats.ridwaanhall.com",
+                "url": "https://igstats.rone.dev",
                 "applicationCategory": "SocialNetworkingApplication",
                 "operatingSystem": "Any",
                 "browserRequirements": "HTML5, JavaScript",
                 "softwareVersion": "1.0",
                 "releaseNotes": "Free Instagram analytics tool for analyzing followers and following data",
-                "screenshot": "https://igstats.ridwaanhall.com/static/images/app-screenshot.png",
+                "screenshot": "https://igstats.rone.dev/static/images/app-screenshot.png",
                 "offers": {
                     "@type": "Offer",
                     "price": "0",
@@ -96,7 +94,7 @@
                 "publisher": {
                     "@type": "Organization",
                     "name": "{{ site_name }}",
-                    "url": "https://igstats.ridwaanhall.com"
+                    "url": "https://igstats.rone.dev"
                 },
                 "featureList": [
                     "Analyze Instagram followers and following",
@@ -134,8 +132,8 @@
                 "@context": "https://schema.org",
                 "@type": "Organization",
                 "name": "{{ site_name }}",
-                "url": "https://igstats.ridwaanhall.com",
-                "logo": "https://igstats.ridwaanhall.com/static/images/logo.png",
+                "url": "https://igstats.rone.dev",
+                "logo": "https://igstats.rone.dev/static/images/logo.png",
                 "description": "{{ meta_description }}",
                 "founder": {
                     "@type": "Person",
@@ -143,13 +141,19 @@
                     "url": "https://bio.ridwaanhall.com"
                 },
                 "foundingDate": "2024",
+                "parentOrganization": {
+                    "@type": "Organization",
+                    "name": "RoneAI",
+                    "legalName": "PT RoneAI Teknologi Internasional",
+                    "url": "https://rone.dev"
+                },
                 "sameAs": [
                     "https://github.com/ridwaanhall/instagram-following-followers"
                 ],
                 "contactPoint": {
                     "@type": "ContactPoint",
                     "contactType": "Customer Support",
-                    "url": "https://igstats.ridwaanhall.com/tutorial/"
+                    "url": "https://igstats.rone.dev/tutorial/"
                 }
             }
         </script>
@@ -320,6 +324,8 @@
                     <p class="text-sm text-gray-500">
                         {{ footer_built_with }} • {% now 'Y' %} • 
                         <a href="{% url 'tutorial' %}" class="hover:text-purple-600 transition-colors duration-200">{{ footer_need_help }}</a>
+                        •
+                        <a href="{% url 'privacy' %}" class="hover:text-purple-600 transition-colors duration-200">{{ footer_privacy|default:"Privacy" }}</a>
                     </p>
                 </div>
             </div>
@@ -377,13 +383,19 @@
             "@context": "https://schema.org",
             "@type": "Organization",
             "name": "InstaAnalytics",
-            "url": "https://igstats.ridwaanhall.com",
-            "logo": "https://igstats.ridwaanhall.com/static/images/logo.png",
+            "url": "https://igstats.rone.dev",
+            "logo": "https://igstats.rone.dev/static/images/logo.png",
             "description": "Free Instagram analytics tool for analyzing followers and following data",
             "founder": {
                 "@type": "Person",
                 "name": "Ridwan Halim",
                 "url": "https://bio.ridwaanhall.com"
+            },
+            "parentOrganization": {
+                "@type": "Organization",
+                "name": "RoneAI",
+                "legalName": "PT RoneAI Teknologi Internasional",
+                "url": "https://rone.dev"
             },
             "sameAs": [
                 "https://github.com/ridwaanhall/instagram-following-followers"

@@ -6,15 +6,15 @@
 {% block meta_description %}{{ meta_description }}{% endblock %}
 {% block meta_keywords %}{{ meta_keywords }}{% endblock %}
 
-{% block canonical_url %}https://igstats.ridwaanhall.com/tutorial/{% endblock %}
-{% block og_url %}https://igstats.ridwaanhall.com/tutorial/{% endblock %}
-{% block twitter_url %}https://igstats.ridwaanhall.com/tutorial/{% endblock %}
+{% block canonical_url %}https://igstats.rone.dev/tutorial/{% endblock %}
+{% block og_url %}https://igstats.rone.dev/tutorial/{% endblock %}
+{% block twitter_url %}https://igstats.rone.dev/tutorial/{% endblock %}
 
 <!-- International SEO -->
 {% block extra_head %}
-<link rel="alternate" hreflang="en" href="https://igstats.ridwaanhall.com/tutorial/" />
-<link rel="alternate" hreflang="id" href="https://igstats.ridwaanhall.com/tutorial/" />
-<link rel="alternate" hreflang="x-default" href="https://igstats.ridwaanhall.com/tutorial/" />
+<link rel="alternate" hreflang="en" href="https://igstats.rone.dev/tutorial/" />
+<link rel="alternate" hreflang="id" href="https://igstats.rone.dev/tutorial/" />
+<link rel="alternate" hreflang="x-default" href="https://igstats.rone.dev/tutorial/" />
 {% endblock %}
 
 {% block og_title %}{{ og_title }}{% endblock %}
@@ -29,7 +29,7 @@
     "@type": "HowTo",
     "name": "{{ schema_how_to_name }}",
     "description": "{{ schema_how_to_description }}",
-    "image": "https://igstats.ridwaanhall.com/static/images/tutorial-guide.png",
+    "image": "https://igstats.rone.dev/static/images/tutorial-guide.png",
     "totalTime": "PT10M",
     "estimatedCost": {
         "@type": "MonetaryAmount",
@@ -58,7 +58,7 @@
             "@type": "HowToStep",
             "name": "{{ step.name }}",
             "text": "{{ step.text }}",
-            "url": "https://igstats.ridwaanhall.com/tutorial/#step{{ forloop.counter }}"
+            "url": "https://igstats.rone.dev/tutorial/#step{{ forloop.counter }}"
         }{% if not forloop.last %},{% endif %}
         {% endfor %}
     ]
@@ -71,7 +71,7 @@
     "@type": "WebPage",
     "name": "{{ schema_webpage_name }}",
     "description": "{{ schema_webpage_description }}",
-    "url": "https://igstats.ridwaanhall.com/tutorial/",
+    "url": "https://igstats.rone.dev/tutorial/",
     "breadcrumb": {
         "@type": "BreadcrumbList",
         "itemListElement": [
@@ -79,13 +79,13 @@
                 "@type": "ListItem",
                 "position": 1,
                 "name": "{{ schema_breadcrumb_home }}",
-                "item": "https://igstats.ridwaanhall.com/"
+                "item": "https://igstats.rone.dev/"
             },
             {
                 "@type": "ListItem",
                 "position": 2,
                 "name": "{{ schema_breadcrumb_tutorial }}",
-                "item": "https://igstats.ridwaanhall.com/tutorial/"
+                "item": "https://igstats.rone.dev/tutorial/"
             }
         ]
     }
@@ -107,16 +107,16 @@
         "name": "IGStats",
         "logo": {
             "@type": "ImageObject",
-            "url": "https://igstats.ridwaanhall.com/static/images/logo.png"
+            "url": "https://igstats.rone.dev/static/images/logo.png"
         }
     },
     "datePublished": "2024-01-01",
     "dateModified": "2024-12-01",
     "mainEntityOfPage": {
         "@type": "WebPage",
-        "@id": "https://igstats.ridwaanhall.com/tutorial/"
+        "@id": "https://igstats.rone.dev/tutorial/"
     },
-    "image": "https://igstats.ridwaanhall.com/static/images/tutorial-guide.png",
+    "image": "https://igstats.rone.dev/static/images/tutorial-guide.png",
     "keywords": "{{ meta_keywords }}"
 }
 </script>

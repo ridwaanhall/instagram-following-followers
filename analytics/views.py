@@ -8,7 +8,8 @@ from .forms import UploadFileForm, ZipUploadForm
 from .utils import (
     get_home_data, get_upload_data, get_zip_upload_data,
     get_text_input_data, get_tutorial_data, get_results_data,
-    detect_language_from_request, is_supported_language, get_language_info
+    detect_language_from_request, is_supported_language, get_language_info,
+    get_privacy_data
 )
 import json
 import logging
@@ -332,6 +333,16 @@ class TutorialView(TemplateView):
         context = super().get_context_data(**kwargs)
         context.update(get_tutorial_data())
         return context
+
+class PrivacyView(TemplateView):
+    """Privacy notice. English only - see analytics/data/PrivacyData.py."""
+    template_name = 'analytics/privacy.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context.update(get_privacy_data())
+        return context
+
 
 class ZipUploadView(BaseAnalyticsView):
     template_name = 'analytics/zip_upload.html'

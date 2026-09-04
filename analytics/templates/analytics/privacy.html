@@ -1,0 +1,122 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}{{ meta_title }}{% endblock %}
+{% block meta_title %}{{ meta_title }}{% endblock %}
+{% block meta_description %}{{ meta_description }}{% endblock %}
+{% block canonical_url %}https://igstats.rone.dev/privacy/{% endblock %}
+{% block og_url %}https://igstats.rone.dev/privacy/{% endblock %}
+{% block twitter_url %}https://igstats.rone.dev/privacy/{% endblock %}
+{% block og_title %}{{ meta_title }}{% endblock %}
+{% block og_description %}{{ meta_description }}{% endblock %}
+{% block twitter_title %}{{ meta_title }}{% endblock %}
+{% block twitter_description %}{{ meta_description }}{% endblock %}
+
+{% block extra_head %}
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "{{ meta_title }}",
+    "description": "{{ meta_description }}",
+    "url": "https://igstats.rone.dev/privacy/",
+    "dateModified": "{{ updated_iso }}",
+    "inLanguage": "en",
+    "publisher": {
+        "@type": "Organization",
+        "name": "RoneAI",
+        "legalName": "PT RoneAI Teknologi Internasional",
+        "url": "https://rone.dev"
+    }
+}
+</script>
+{% endblock %}
+
+{% block content %}
+<div class="min-h-screen bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50">
+    <div class="container mx-auto px-4 py-8 sm:py-12">
+
+        <!-- Header -->
+        <div class="text-center mb-8 sm:mb-12">
+            <div class="inline-flex items-center justify-center w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-blue-600 to-indigo-500 rounded-full mb-4 sm:mb-6 shadow-xl">
+                <svg class="w-8 h-8 sm:w-10 sm:h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 01-1.043 3.296 3.745 3.745 0 01-3.296 1.043A3.745 3.745 0 0112 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 01-3.296-1.043 3.745 3.745 0 01-1.043-3.296A3.745 3.745 0 013 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 011.043-3.296 3.746 3.746 0 013.296-1.043A3.746 3.746 0 0112 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 013.296 1.043 3.746 3.746 0 011.043 3.296A3.745 3.745 0 0121 12z"/>
+                </svg>
+            </div>
+            <h1 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-3 sm:mb-4 leading-tight px-2">
+                {{ header_title }}
+            </h1>
+            <p class="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed px-4">
+                {{ header_description }}
+            </p>
+            <p class="mt-4 text-xs sm:text-sm text-gray-500">
+                Last updated <time datetime="{{ updated_iso }}">{{ updated }}</time>
+            </p>
+        </div>
+
+        <div class="max-w-3xl mx-auto space-y-5 sm:space-y-6">
+            {% for section in sections %}
+            <section id="{{ section.id }}"
+                     class="bg-white/90 backdrop-blur-sm rounded-2xl shadow-xl overflow-hidden {% if section.highlight %}border-2 border-indigo-200{% else %}border border-gray-100{% endif %}">
+                <div class="{% if section.highlight %}bg-gradient-to-r from-blue-600 to-indigo-500{% else %}bg-gray-50 border-b border-gray-100{% endif %} px-4 sm:px-6 py-3 sm:py-4">
+                    <h2 class="text-base sm:text-lg font-semibold {% if section.highlight %}text-white{% else %}text-gray-900{% endif %}">
+                        {{ section.title }}
+                    </h2>
+                </div>
+
+                <div class="p-4 sm:p-6 space-y-3 sm:space-y-4">
+                    {% for paragraph in section.paragraphs %}
+                    <p class="text-sm sm:text-base text-gray-700 leading-relaxed">{{ paragraph }}</p>
+                    {% endfor %}
+
+                    {% if section.table %}
+                    <div class="overflow-x-auto min-w-0 -mx-1 sm:mx-0">
+                        <table class="w-full min-w-[34rem] text-left border border-gray-200 rounded-lg overflow-hidden">
+                            <thead class="bg-gray-50">
+                                <tr>
+                                    {% for cell in section.table.head %}
+                                    <th scope="col" class="px-3 sm:px-4 py-2.5 text-xs font-semibold uppercase tracking-wide text-gray-500 border-b border-gray-200">
+                                        {{ cell }}
+                                    </th>
+                                    {% endfor %}
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for row in section.table.rows %}
+                                <tr class="border-b border-gray-100 last:border-b-0 align-top">
+                                    {% for cell in row %}
+                                    <td class="px-3 sm:px-4 py-3 text-xs sm:text-sm {% if forloop.first %}text-gray-900 font-medium{% else %}text-gray-600{% endif %}">
+                                        {{ cell }}
+                                    </td>
+                                    {% endfor %}
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                    {% endif %}
+
+                    {% for paragraph in section.after %}
+                    <p class="text-sm sm:text-base text-gray-700 leading-relaxed">{{ paragraph }}</p>
+                    {% endfor %}
+                </div>
+            </section>
+            {% endfor %}
+
+            <!-- Contact -->
+            <section class="bg-white/90 backdrop-blur-sm rounded-2xl shadow-xl border border-gray-100 overflow-hidden">
+                <div class="bg-gray-50 border-b border-gray-100 px-4 sm:px-6 py-3 sm:py-4">
+                    <h2 class="text-base sm:text-lg font-semibold text-gray-900">{{ contact_title }}</h2>
+                </div>
+                <div class="p-4 sm:p-6">
+                    <ul class="space-y-1.5">
+                        {% for line in contact_lines %}
+                        <li class="text-sm sm:text-base text-gray-700 break-words">{{ line }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>
+{% endblock %}

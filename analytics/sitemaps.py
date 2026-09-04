@@ -12,7 +12,8 @@ class StaticViewSitemap(Sitemap):
             'upload_file', 
             'zip_upload',
             'text_input',
-            'tutorial'
+            'tutorial',
+            'privacy'
         ]
 
     def location(self, item):
@@ -23,7 +24,9 @@ class StaticViewSitemap(Sitemap):
         return datetime(2025, 7, 14, 22, 55)
 
     def priority(self, item):
-        return 1.0 if item == 'home' else 0.8
+        if item == 'home':
+            return 1.0
+        return 0.4 if item == 'privacy' else 0.8
 
 sitemaps = {
     'static': StaticViewSitemap,

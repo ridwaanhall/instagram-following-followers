@@ -11,6 +11,7 @@ from .data.TextInputData import TEXT_INPUT_DATA
 from .data.TutorialData import TUTORIAL_DATA
 from .data.ResultsData import RESULTS_DATA
 from .data.BaseData import BASE_DATA
+from .data.PrivacyData import PRIVACY_DATA
 
 def is_supported_language(language_code):
     """
@@ -194,6 +195,16 @@ def get_results_data(language=None):
 def get_base_data(language=None):
     """Get base template content for specified language"""
     return get_content_data(BASE_DATA, language)
+
+def get_privacy_data(language=None):
+    """Privacy notice content.
+
+    Deliberately not language-switched: the notice states one authoritative
+    English version rather than seven machine-translated approximations of a
+    legal document. The `language` argument exists only so callers can treat
+    this like every other content getter.
+    """
+    return PRIVACY_DATA
 
 def inject_i18n_context(request):
     """

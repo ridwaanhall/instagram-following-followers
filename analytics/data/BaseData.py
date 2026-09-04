@@ -48,6 +48,7 @@ BASE_DATA = {
         'footer_built_with': 'Built with Django & Tailwind CSS',
         'footer_copyright': '© {% now \'Y\' %}',
         'footer_need_help': 'Need help?',
+        'footer_privacy': 'Privacy',
         
         # JSON-LD structured data
         'structured_data': {
@@ -110,6 +111,7 @@ BASE_DATA = {
         'footer_built_with': 'Dibuat dengan Django & Tailwind CSS',
         'footer_copyright': '© {% now \'Y\' %}',
         'footer_need_help': 'Butuh bantuan?',
+        'footer_privacy': 'Privasi',
         
         # JSON-LD structured data
         'structured_data': {
@@ -167,6 +169,7 @@ BASE_DATA = {
         'footer_built_with': '使用Django和Tailwind CSS构建',
         'footer_copyright': '© {% now \'Y\' %}',
         'footer_need_help': '需要帮助？',
+        'footer_privacy': '隐私',
         
         # JSON-LD structured data
         'structured_data': {
@@ -226,6 +229,7 @@ BASE_DATA = {
         'footer_built_with': 'Construido con Django y Tailwind CSS',
         'footer_copyright': '© {% now \'Y\' %}',
         'footer_need_help': '¿Necesitas ayuda?',
+        'footer_privacy': 'Privacidad',
         
         # JSON-LD structured data
         'structured_data': {
@@ -285,6 +289,7 @@ BASE_DATA = {
         'footer_built_with': 'Django & Tailwind CSSで構築',
         'footer_copyright': '© {% now \'Y\' %}',
         'footer_need_help': 'ヘルプが必要ですか？',
+        'footer_privacy': 'プライバシー',
         
         # JSON-LD structured data
         'structured_data': {
@@ -344,6 +349,7 @@ BASE_DATA = {
         'footer_built_with': 'Construído com Django & Tailwind CSS',
         'footer_copyright': '© {% now \'Y\' %}',
         'footer_need_help': 'Precisa de ajuda?',
+        'footer_privacy': 'Privacidade',
         
         # JSON-LD structured data
         'structured_data': {
@@ -403,6 +409,7 @@ BASE_DATA = {
         'footer_built_with': 'Construit avec Django & Tailwind CSS',
         'footer_copyright': '© {% now \'Y\' %}',
         'footer_need_help': 'Besoin d\'aide ?',
+        'footer_privacy': 'Confidentialité',
         
         # Schema.org structured data
         'schema_site_name': 'InstaAnalytics',
