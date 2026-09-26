@@ -70,6 +70,9 @@
   --field: #f2f1ec;
   --accent: #d23f1f;
   --on-ink: #fafaf7;
+  /* Chart series, validated with the dataviz palette checks (light surface). */
+  --chart-a: #d23f1f;
+  --chart-b: #2f63a8;
   color-scheme: light;
 }
 :root[data-theme="dark"] {
@@ -82,6 +85,9 @@
   --field: #1a1a18;
   --accent: #f2643f;
   --on-ink: #111110;
+  /* Chart series, validated separately against the dark surface. */
+  --chart-a: #e0562f;
+  --chart-b: #5b92e5;
   color-scheme: dark;
 }
 
@@ -95,6 +101,8 @@
   --color-field: var(--field);
   --color-accent: var(--accent);
   --color-on-ink: var(--on-ink);
+  --color-chart-a: var(--chart-a);
+  --color-chart-b: var(--chart-b);
 }
 
 @theme {
@@ -265,6 +273,19 @@
   .drop.is-invalid [data-drop-name] { @apply text-accent; }
   .area[aria-invalid="true"] { @apply border-accent; }
 
+  /* Charts */
+  .bar { @apply w-full max-w-3.5 rounded-t-[4px]; min-height: 2px; transform-origin: bottom; }
+  .bar[data-zero] { min-height: 0; }
+  .js [data-reveal] .bar { transform: scaleY(0); transition: transform 700ms var(--ease); transition-delay: calc(var(--i, 0) * 35ms + 150ms); }
+  .js [data-reveal].is-in .bar { transform: none; }
+  .chart-col { @apply relative flex h-full flex-1 items-end justify-center gap-[2px] rounded-sm outline-none; }
+  .chart-col:hover, .chart-col:focus-visible { background: color-mix(in oklab, var(--ink) 5%, transparent); }
+  .chart-tip {
+    @apply pointer-events-none absolute z-20 min-w-40 -translate-x-1/2 rounded-lg border border-rule bg-bg px-3 py-2 text-[12.5px];
+    box-shadow: 0 12px 32px -12px rgb(0 0 0 / 0.18);
+  }
+  .swatch { @apply inline-block size-2.5 shrink-0 rounded-[3px]; }
+
   /* Alert */
   .note { @apply flex items-start gap-3 border-l-2 border-accent py-1 pl-4 text-[14px] text-ink; }
 
@@ -327,7 +348,7 @@
 
 @media (prefers-reduced-motion: reduce) {
   .rise, [role="tabpanel"], .menu-panel, #mobile-menu, .select-list, .meter-fill, .form-error, .is-nudging { animation: none !important; }
-  .js [data-reveal], .js [data-reveal] [data-reveal-item] { opacity: 1 !important; transform: none !important; }
+  .js [data-reveal], .js [data-reveal] [data-reveal-item], .js [data-reveal] .bar { opacity: 1 !important; transform: none !important; }
   ::view-transition-old(root), ::view-transition-new(root) { animation: none !important; }
 }
 

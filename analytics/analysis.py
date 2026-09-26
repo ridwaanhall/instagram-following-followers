@@ -3,7 +3,8 @@ Pure functions that turn an Instagram data export into the numbers the results
 page shows. No Django imports, so they are trivial to test.
 """
 
-from datetime import datetime
+from datetime import date, datetime, timezone
+from statistics import median
 from urllib.parse import urlparse
 
 INSTAGRAM_HOSTS = {"instagram.com", "www.instagram.com", "m.instagram.com"}
@@ -86,6 +87,78 @@ def _row(username, followed=None, follower=None):
     }
 
 
+def _month(ts):
+    d = datetime.fromtimestamp(ts, tz=timezone.utc)
+    return (d.year, d.month)
+
+
+def insights(following, followers, now):
+    """Timeline and mutual-origin figures for the results dashboard.
+
+    `following` and `followers` map username -> timestamp (or None).
+    """
+    now_dt = datetime.fromtimestamp(now, tz=timezone.utc)
+    months = []
+    y, m = now_dt.year, now_dt.month
+    for _ in range(12):
+        months.append((y, m))
+        y, m = (y, m - 1) if m > 1 else (y - 1, 12)
+    months.reverse()
+
+    def per_month(users):
+        counts = {}
+        for ts in users.values():
+            if ts:
+                counts[_month(ts)] = counts.get(_month(ts), 0) + 1
+        return counts
+
+    f_counts, r_counts = per_month(following), per_month(followers)
+    peak = max([f_counts.get(k, 0) for k in months] + [r_counts.get(k, 0) for k in months] + [0])
+    timeline = [
+        {
+            "month": date(yy, mm, 1),
+            "following": f_counts.get((yy, mm), 0),
+            "followers": r_counts.get((yy, mm), 0),
+            "h_following": round(f_counts.get((yy, mm), 0) / peak * 100, 1) if peak else 0,
+            "h_followers": round(r_counts.get((yy, mm), 0) / peak * 100, 1) if peak else 0,
+        }
+        for yy, mm in months
+    ]
+
+    you_first = they_first = 0
+    back_days = []
+    for name in following.keys() & followers.keys():
+        a, b = following[name], followers[name]
+        if not (a and b):
+            continue
+        if a <= b:
+            you_first += 1
+            back_days.append((b - a) / 86400)
+        else:
+            they_first += 1
+    dated = you_first + they_first
+
+    all_ts = [t for t in [*following.values(), *followers.values()] if t]
+    totals = {k: f_counts.get(k, 0) + r_counts.get(k, 0) for k in f_counts.keys() | r_counts.keys()}
+    busiest = max(totals, key=totals.get) if totals else None
+
+    return {
+        "timeline": timeline,
+        "timeline_peak": peak,
+        "timeline_total_following": sum(t["following"] for t in timeline),
+        "timeline_total_followers": sum(t["followers"] for t in timeline),
+        "has_dates": bool(all_ts),
+        "you_first": you_first,
+        "they_first": they_first,
+        "you_first_pct": round(you_first / dated * 100) if dated else 0,
+        "they_first_pct": round(they_first / dated * 100) if dated else 0,
+        "median_followback_days": round(median(back_days)) if back_days else None,
+        "first_connection": datetime.fromtimestamp(min(all_ts), tz=timezone.utc).date() if all_ts else None,
+        "busiest_month": date(busiest[0], busiest[1], 1) if busiest else None,
+        "busiest_month_count": totals[busiest] if busiest else 0,
+    }
+
+
 def analyze(following_data, followers_data, now=None):
     """Compute counts, lists and ratios for the results page."""
     following = extract_users(following_items(following_data))
@@ -101,7 +174,8 @@ def analyze(following_data, followers_data, now=None):
     non_follow_back.sort(key=lambda r: r["followed_timestamp"] or 0, reverse=True)
     not_following_back.sort(key=lambda r: r["follower_timestamp"] or 0, reverse=True)
 
-    cutoff = (now or datetime.now().timestamp()) - THIRTY_DAYS
+    now = now or datetime.now().timestamp()
+    cutoff = now - THIRTY_DAYS
     following_count, followers_count, mutual_count = len(following_set), len(followers_set), len(mutual_set)
 
     return {
@@ -118,4 +192,5 @@ def analyze(following_data, followers_data, now=None):
         "mutual_rate": round(mutual_count / following_count * 100, 1) if following_count else 0,
         "follow_back_rate": round(mutual_count / followers_count * 100, 1) if followers_count else 0,
         "follow_ratio": round(followers_count / following_count, 2) if following_count else 0,
+        **insights(following, followers, now),
     }

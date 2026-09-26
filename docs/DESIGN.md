@@ -62,6 +62,12 @@ menu, and tables. These are controls, not decoration.
 Results use ink for mutuals and followers; the accent is reserved for the
 "not following back" figure and its tab marker.
 
+Charts use two series tokens, checked with the dataviz palette validator
+(lightness band, chroma floor, colour-blind separation, contrast) against each
+surface: `chart-a` = "you followed" (`#D23F1F` light / `#E0562F` dark) and
+`chart-b` = "followed you" (`#2F63A8` / `#5B92E5`). Every chart ships a legend,
+hover and focus tooltips, and a "show as table" view.
+
 ## Type
 
 | Role | Font | Size / leading |

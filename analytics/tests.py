@@ -51,6 +51,15 @@ class AnalyzeTests(TestCase):
         self.assertEqual(result["follow_back_rate"], 50.0)
         self.assertEqual(result["recent_follows_count"], 3)
 
+    def test_insights(self):
+        result = analyze(FOLLOWING, FOLLOWERS, now=1700000500)
+        self.assertEqual(len(result["timeline"]), 12)
+        self.assertEqual(result["timeline"][-1]["following"], 3)
+        self.assertEqual(result["timeline"][-1]["h_following"], 100.0)
+        self.assertEqual((result["you_first"], result["they_first"]), (1, 0))
+        self.assertEqual(result["median_followback_days"], 0)
+        self.assertTrue(result["has_dates"])
+
     def test_empty_input(self):
         result = analyze({}, [])
         self.assertEqual(result["count_following_count"], 0)

@@ -1,0 +1,96 @@
+{% load l10n %}
+{# Insights: 12-month timeline (two validated series), who followed first, key dates. #}
+<section class="pt-16" data-reveal aria-labelledby="insights-title">
+    <p class="kicker" id="insights-title">{{ ui_insights }}</p>
+    {% if has_dates %}
+    <div class="mt-8 grid gap-12 lg:grid-cols-12 lg:gap-8 [&>*]:min-w-0">
+        <figure class="lg:col-span-8">
+            <figcaption class="flex flex-col gap-3 sm:flex-row sm:items-baseline sm:justify-between">
+                <h2 class="h3">{{ ui_chart_title }}</h2>
+                <ul class="flex flex-wrap gap-x-5 gap-y-1 text-[13px] text-ink-2">
+                    <li class="inline-flex items-center gap-2"><span class="swatch bg-chart-a"></span>{{ ui_series_you }} <span class="font-mono text-ink">{{ timeline_total_following }}</span></li>
+                    <li class="inline-flex items-center gap-2"><span class="swatch bg-chart-b"></span>{{ ui_series_them }} <span class="font-mono text-ink">{{ timeline_total_followers }}</span></li>
+                </ul>
+            </figcaption>
+
+            <div class="relative mt-6" data-chart>
+                <div class="border-b border-dashed border-rule pb-1 font-mono text-[11px] text-ink-3" aria-hidden="true">{{ timeline_peak }}</div>
+                <div class="flex h-44 items-end gap-1 border-b border-rule sm:gap-2" role="list">
+                    {% for m in timeline %}
+                    <div class="chart-col" role="listitem" tabindex="0"
+                         aria-label="{{ m.month|date:'F Y' }}: {{ ui_series_you }} {{ m.following }}, {{ ui_series_them }} {{ m.followers }}"
+                         data-tip-title="{{ m.month|date:'F Y' }}" data-tip-a="{{ m.following }}" data-tip-b="{{ m.followers }}">
+                        <span class="bar bg-chart-a" style="height: {{ m.h_following|unlocalize }}%; --i: {{ forloop.counter0 }}" {% if not m.following %}data-zero{% endif %}></span>
+                        <span class="bar bg-chart-b" style="height: {{ m.h_followers|unlocalize }}%; --i: {{ forloop.counter0 }}" {% if not m.followers %}data-zero{% endif %}></span>
+                    </div>
+                    {% endfor %}
+                </div>
+                <div class="mt-2 flex gap-1 font-mono text-[11px] text-ink-3 sm:gap-2" aria-hidden="true">
+                    {% for m in timeline %}<span class="flex-1 text-center {% cycle '' 'invisible sm:visible' %}">{{ m.month|date:'M' }}</span>{% endfor %}
+                </div>
+
+                <div class="chart-tip" data-chart-tip hidden>
+                    <p class="font-medium text-ink" data-tip-title></p>
+                    <p class="mt-1 flex items-center justify-between gap-4 text-ink-2"><span class="inline-flex items-center gap-2"><span class="swatch bg-chart-a"></span>{{ ui_series_you }}</span><span class="font-mono text-ink" data-tip-a></span></p>
+                    <p class="flex items-center justify-between gap-4 text-ink-2"><span class="inline-flex items-center gap-2"><span class="swatch bg-chart-b"></span>{{ ui_series_them }}</span><span class="font-mono text-ink" data-tip-b></span></p>
+                </div>
+            </div>
+
+            <details class="mt-4">
+                <summary class="caption inline-flex items-center gap-1.5 hover:text-ink">{{ ui_show_table }}{% include "partials/icon.html" with name="chevron-down" cls="size-3.5" %}</summary>
+                <table class="mt-3 w-full text-left text-[13px]">
+                    <thead>
+                        <tr class="border-b border-ink">
+                            <th scope="col" class="kicker py-2 font-semibold">{{ ui_month }}</th>
+                            <th scope="col" class="kicker py-2 text-right font-semibold">{{ ui_series_you }}</th>
+                            <th scope="col" class="kicker py-2 text-right font-semibold">{{ ui_series_them }}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for m in timeline %}
+                        <tr class="border-b border-rule"><td class="py-2">{{ m.month|date:'F Y' }}</td><td class="py-2 text-right font-mono">{{ m.following }}</td><td class="py-2 text-right font-mono">{{ m.followers }}</td></tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </details>
+        </figure>
+
+        <div class="lg:col-span-4 lg:col-start-9">
+            <h2 class="h3">{{ ui_origin_title }}</h2>
+            {% if you_first or they_first %}
+            <div class="mt-5 flex h-2 gap-[2px]" role="img" aria-label="{{ ui_you_first }} {{ you_first_pct }}%, {{ ui_they_first }} {{ they_first_pct }}%">
+                {% if you_first %}<span class="meter-fill h-full rounded-[4px] bg-chart-a" style="width: {{ you_first_pct }}%"></span>{% endif %}
+                {% if they_first %}<span class="h-full flex-1 rounded-[4px] bg-chart-b"></span>{% endif %}
+            </div>
+            <dl class="mt-4 grid grid-cols-2 gap-4">
+                <div>
+                    <dt class="caption inline-flex items-center gap-2"><span class="swatch bg-chart-a"></span>{{ ui_you_first }}</dt>
+                    <dd class="figure mt-2 font-serif text-[32px]">{{ you_first }}</dd>
+                    <dd class="caption font-mono">{{ you_first_pct }}%</dd>
+                </div>
+                <div>
+                    <dt class="caption inline-flex items-center gap-2"><span class="swatch bg-chart-b"></span>{{ ui_they_first }}</dt>
+                    <dd class="figure mt-2 font-serif text-[32px]">{{ they_first }}</dd>
+                    <dd class="caption font-mono">{{ they_first_pct }}%</dd>
+                </div>
+            </dl>
+            <p class="caption mt-3">{{ ui_origin_note }}</p>
+            {% endif %}
+
+            <dl class="rows mt-8 text-[14px]">
+                {% if median_followback_days is not None %}
+                <div class="flex items-baseline justify-between gap-4 py-3"><dt class="text-ink-2">{{ ui_median_back }}</dt><dd class="shrink-0 font-mono">{{ median_followback_days }} {{ ui_days }}</dd></div>
+                {% endif %}
+                {% if first_connection %}
+                <div class="flex items-baseline justify-between gap-4 py-3"><dt class="text-ink-2">{{ ui_first_connection }}</dt><dd class="shrink-0 font-mono">{{ first_connection|date:'M Y' }}</dd></div>
+                {% endif %}
+                {% if busiest_month %}
+                <div class="flex items-baseline justify-between gap-4 py-3"><dt class="text-ink-2">{{ ui_busiest }}</dt><dd class="shrink-0 font-mono">{{ busiest_month|date:'M Y' }} <span class="text-ink-3">&middot; {{ busiest_month_count }}</span></dd></div>
+                {% endif %}
+            </dl>
+        </div>
+    </div>
+    {% else %}
+    <p class="mt-6 max-w-[60ch] text-[15px] text-ink-2">{{ ui_no_dates }}</p>
+    {% endif %}
+</section>

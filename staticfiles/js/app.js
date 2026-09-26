@@ -327,6 +327,31 @@
     });
   }
 
+  // Chart tooltips: hover or keyboard focus on a month column.
+  $$("[data-chart]").forEach((chart) => {
+    const tip = $("[data-chart-tip]", chart);
+    const show = (col) => {
+      $("[data-tip-title]", tip).textContent = col.dataset.tipTitle;
+      $("[data-tip-a]", tip).textContent = col.dataset.tipA;
+      $("[data-tip-b]", tip).textContent = col.dataset.tipB;
+      tip.hidden = false;
+      const box = chart.getBoundingClientRect();
+      const c = col.getBoundingClientRect();
+      const half = tip.offsetWidth / 2;
+      const x = Math.min(Math.max(c.left - box.left + c.width / 2, half), box.width - half);
+      tip.style.left = `${x}px`;
+      tip.style.top = `${Math.max(0, c.top - box.top - tip.offsetHeight + 8)}px`;
+    };
+    const hide = () => { tip.hidden = true; };
+    $$(".chart-col", chart).forEach((col) => {
+      col.addEventListener("pointerenter", () => show(col));
+      col.addEventListener("focus", () => show(col));
+      col.addEventListener("pointerleave", hide);
+      col.addEventListener("blur", hide);
+    });
+    window.addEventListener("resize", hide);
+  });
+
   // Reload button on the 500 page (no inline handlers: the CSP forbids them).
   $$("[data-reload]").forEach((btn) => btn.addEventListener("click", () => location.reload()));
 
