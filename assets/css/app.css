@@ -340,14 +340,19 @@
 .drop.has-file [data-drop-name] { color: var(--ink); }
 
 /* Accordion height animation where supported (Chrome 131+); instant elsewhere. */
+/* Disclosures (FAQ, "show as table"): the chevron turns, the content fades
+   up everywhere, and the height slides where interpolate-size is supported. */
+.disclosure > summary .chev { transition: transform 200ms var(--ease); }
+.disclosure[open] > summary .chev { transform: rotate(180deg); }
+.disclosure[open] > :not(summary) { animation: rise 320ms var(--ease); }
 @supports (interpolate-size: allow-keywords) {
   :root { interpolate-size: allow-keywords; }
-  .qa::details-content { height: 0; overflow: clip; transition: height 280ms var(--ease), content-visibility 280ms allow-discrete; }
-  .qa[open]::details-content { height: auto; }
+  :is(.qa, .disclosure)::details-content { height: 0; overflow: clip; transition: height 280ms var(--ease), content-visibility 280ms allow-discrete; }
+  :is(.qa, .disclosure)[open]::details-content { height: auto; }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .rise, [role="tabpanel"], .menu-panel, #mobile-menu, .select-list, .meter-fill, .form-error, .is-nudging { animation: none !important; }
+  .rise, [role="tabpanel"], .menu-panel, #mobile-menu, .select-list, .meter-fill, .form-error, .is-nudging, .disclosure > * { animation: none !important; }
   .js [data-reveal], .js [data-reveal] [data-reveal-item], .js [data-reveal] .bar { opacity: 1 !important; transform: none !important; }
   ::view-transition-old(root), ::view-transition-new(root) { animation: none !important; }
 }
