@@ -226,17 +226,65 @@
     check();
   });
 
-  // Busy state on analyze submit.
-  $$("[data-analyze-form]").forEach((form) =>
-    form.addEventListener("submit", () => {
+  // Analyze forms: validate before sending (native bubbles are off via
+  // novalidate), then show a busy state. The server validates again.
+  const fieldError = (field) => {
+    if (field.type === "file") {
+      const file = field.files && field.files[0];
+      if (!file) return field.dataset.errEmpty;
+      const exts = (field.dataset.ext || "").split(" ").filter(Boolean);
+      if (exts.length && !exts.some((ext) => file.name.toLowerCase().endsWith(ext))) return field.dataset.errType;
+      return null;
+    }
+    const value = field.value.trim();
+    if (!value) return field.dataset.errEmpty;
+    try { JSON.parse(value); } catch (e) { return field.dataset.errType; }
+    return null;
+  };
+  const markField = (field, bad) => {
+    const zone = field.closest("[data-dropzone]");
+    if (zone) zone.classList.toggle("is-invalid", bad);
+    else field.setAttribute("aria-invalid", String(bad));
+  };
+  $$("[data-analyze-form]").forEach((form) => {
+    const box = $("[data-form-error]", form);
+    const list = $("[data-form-error-list]", form);
+    const fields = $$("[data-err-empty]", form);
+    const clear = (field) => {
+      markField(field, false);
+      if (fields.every((f) => !fieldError(f))) box.hidden = true;
+    };
+    fields.forEach((f) => f.addEventListener(f.type === "file" ? "change" : "input", () => clear(f)));
+
+    form.addEventListener("submit", (e) => {
+      const errors = fields.map((f) => [f, fieldError(f)]).filter(([, msg]) => msg);
+      fields.forEach((f) => markField(f, false));
+      if (errors.length) {
+        e.preventDefault();
+        list.replaceChildren(...errors.map(([f, msg]) => {
+          markField(f, true);
+          return Object.assign(document.createElement("li"), { textContent: msg });
+        }));
+        const wasHidden = box.hidden;
+        box.hidden = false;
+        if (!wasHidden && !reduceMotion) {
+          box.classList.remove("is-nudging");
+          void box.offsetWidth;
+          box.classList.add("is-nudging");
+        }
+        box.focus({ preventScroll: true });
+        box.scrollIntoView({ block: "nearest", behavior: reduceMotion ? "auto" : "smooth" });
+        return;
+      }
+      box.hidden = true;
       const btn = $("[data-submit]", form);
       btn.dataset.label = $("[data-label]", btn).textContent;
       btn.dataset.icon = $("[data-icon]", btn).innerHTML;
       btn.disabled = true;
       $("[data-label]", btn).textContent = btn.dataset.busyLabel;
       $("[data-icon]", btn).innerHTML = '<span class="spinner"></span>';
-    })
-  );
+    });
+  });
   // Re-enable submit buttons when the page comes back from the back/forward cache.
   window.addEventListener("pageshow", (e) => {
     if (!e.persisted) return;

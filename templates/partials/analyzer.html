@@ -15,10 +15,10 @@
 
     {# ZIP #}
     <form id="panel-zip" role="tabpanel" aria-labelledby="tab-zip" data-panel="zip" {% if active != 'zip' %}hidden{% endif %}
-          action="{% url 'zip_upload' %}" method="post" enctype="multipart/form-data" class="pt-6" data-analyze-form>
+          action="{% url 'zip_upload' %}" method="post" enctype="multipart/form-data" class="pt-6" data-analyze-form novalidate>
         {% csrf_token %}
         <label class="drop sm:min-h-52" data-dropzone>
-            <input type="file" name="zip_file" accept=".zip,application/zip" required data-file-input>
+            <input type="file" name="zip_file" accept=".zip,application/zip" required data-file-input data-ext=".zip" data-err-empty="{{ ui_err_zip }}" data-err-type="{{ ui_err_zip_type }}">
             <span class="mb-auto text-ink-2">{% include "partials/icon.html" with name="upload" cls="size-5" %}</span>
             <span class="text-[15px] font-medium">{{ ui_choose_file }} <span class="font-normal text-ink-3">{{ ui_drop_hint }}</span></span>
             <span class="font-mono text-[12px] text-ink-3" data-drop-name>instagram-export.zip</span>
@@ -29,13 +29,13 @@
 
     {# JSON files #}
     <form id="panel-files" role="tabpanel" aria-labelledby="tab-files" data-panel="files" {% if active != 'files' %}hidden{% endif %}
-          action="{% url 'upload_file' %}" method="post" enctype="multipart/form-data" class="pt-6" data-analyze-form>
+          action="{% url 'upload_file' %}" method="post" enctype="multipart/form-data" class="pt-6" data-analyze-form novalidate>
         {% csrf_token %}
         <div class="grid gap-4 sm:grid-cols-2">
             <div>
                 <p class="label">{{ af.following_file_label }}</p>
                 <label class="drop" data-dropzone>
-                    <input type="file" name="following_file" accept=".json,.txt,application/json" required data-file-input>
+                    <input type="file" name="following_file" accept=".json,.txt,application/json" required data-file-input data-ext=".json .txt" data-err-empty="{{ ui_err_following }}" data-err-type="{{ ui_err_json_type }}">
                     <span class="mb-auto text-ink-2">{% include "partials/icon.html" with name="file" cls="size-5" %}</span>
                     <span class="text-[15px] font-medium">{{ ui_choose_file }}</span>
                     <span class="font-mono text-[12px] text-ink-3" data-drop-name>following.json</span>
@@ -44,7 +44,7 @@
             <div>
                 <p class="label">{{ af.followers_file_label }}</p>
                 <label class="drop" data-dropzone>
-                    <input type="file" name="followers_file" accept=".json,.txt,application/json" required data-file-input>
+                    <input type="file" name="followers_file" accept=".json,.txt,application/json" required data-file-input data-ext=".json .txt" data-err-empty="{{ ui_err_followers }}" data-err-type="{{ ui_err_json_type }}">
                     <span class="mb-auto text-ink-2">{% include "partials/icon.html" with name="file" cls="size-5" %}</span>
                     <span class="text-[15px] font-medium">{{ ui_choose_file }}</span>
                     <span class="font-mono text-[12px] text-ink-3" data-drop-name>followers_1.json</span>
@@ -56,12 +56,12 @@
 
     {# Paste #}
     <form id="panel-text" role="tabpanel" aria-labelledby="tab-text" data-panel="text" {% if active != 'text' %}hidden{% endif %}
-          action="{% url 'text_input' %}" method="post" class="pt-6" data-analyze-form>
+          action="{% url 'text_input' %}" method="post" class="pt-6" data-analyze-form novalidate>
         {% csrf_token %}
         <div class="grid gap-5">
             <div>
                 <label class="label" for="following_text">{{ at.following_label }}</label>
-                <textarea id="following_text" name="following_text" class="area" rows="6" required spellcheck="false" placeholder="{{ at.following_placeholder }}" data-json-input aria-describedby="following_text_status">{{ form.following_text.value|default_if_none:'' }}</textarea>
+                <textarea id="following_text" name="following_text" class="area" rows="6" required spellcheck="false" placeholder="{{ at.following_placeholder }}" data-json-input data-err-empty="{{ ui_err_paste_following }}" data-err-type="{{ ui_err_json_invalid }}" aria-describedby="following_text_status">{{ form.following_text.value|default_if_none:'' }}</textarea>
                 <p id="following_text_status" class="caption mt-2 flex items-center gap-2" data-json-status aria-live="polite"
                    data-waiting="{{ at.validation_waiting }}" data-valid="{{ at.validation_valid }}" data-invalid="{{ at.validation_invalid }}">
                     <span class="size-1.5 rounded-full bg-ink-3" data-dot></span><span data-text>{{ at.validation_waiting }}</span>
@@ -69,7 +69,7 @@
             </div>
             <div>
                 <label class="label" for="followers_text">{{ at.followers_label }}</label>
-                <textarea id="followers_text" name="followers_text" class="area" rows="6" required spellcheck="false" placeholder="{{ at.followers_placeholder }}" data-json-input aria-describedby="followers_text_status">{{ form.followers_text.value|default_if_none:'' }}</textarea>
+                <textarea id="followers_text" name="followers_text" class="area" rows="6" required spellcheck="false" placeholder="{{ at.followers_placeholder }}" data-json-input data-err-empty="{{ ui_err_paste_followers }}" data-err-type="{{ ui_err_json_invalid }}" aria-describedby="followers_text_status">{{ form.followers_text.value|default_if_none:'' }}</textarea>
                 <p id="followers_text_status" class="caption mt-2 flex items-center gap-2" data-json-status aria-live="polite"
                    data-waiting="{{ at.validation_waiting }}" data-valid="{{ at.validation_valid }}" data-invalid="{{ at.validation_invalid }}">
                     <span class="size-1.5 rounded-full bg-ink-3" data-dot></span><span data-text>{{ at.validation_waiting }}</span>

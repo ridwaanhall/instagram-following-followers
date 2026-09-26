@@ -257,6 +257,14 @@
   .qa[open] .plus-v { transform: scaleY(0); }
   .plus-v { transform-origin: center; @apply transition-transform duration-150; }
 
+  /* Form validation */
+  .form-error {
+    @apply flex items-start gap-3 rounded-lg border border-accent/35 border-l-2 border-l-accent bg-accent/[0.04] px-4 py-3 text-[14px] outline-none;
+  }
+  .drop.is-invalid { @apply border-solid border-accent; }
+  .drop.is-invalid [data-drop-name] { @apply text-accent; }
+  .area[aria-invalid="true"] { @apply border-accent; }
+
   /* Alert */
   .note { @apply flex items-start gap-3 border-l-2 border-accent py-1 pl-4 text-[14px] text-ink; }
 
@@ -287,6 +295,9 @@
 @keyframes rise { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
 @keyframes fade { from { opacity: 0; } to { opacity: 1; } }
 @keyframes pop { from { opacity: 0; transform: translateY(-4px) scale(0.98); } to { opacity: 1; transform: none; } }
+@keyframes nudge { 0%, 100% { transform: none; } 25% { transform: translateX(-4px); } 75% { transform: translateX(4px); } }
+.form-error:not([hidden]) { animation: rise 260ms var(--ease); }
+.is-nudging { animation: nudge 280ms var(--ease); }
 @keyframes grow { from { transform: scaleX(0); } to { transform: scaleX(1); } }
 
 /* Page-load: hero pieces rise in sequence. */
@@ -315,7 +326,7 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .rise, [role="tabpanel"], .menu-panel, #mobile-menu, .select-list, .meter-fill { animation: none !important; }
+  .rise, [role="tabpanel"], .menu-panel, #mobile-menu, .select-list, .meter-fill, .form-error, .is-nudging { animation: none !important; }
   .js [data-reveal], .js [data-reveal] [data-reveal-item] { opacity: 1 !important; transform: none !important; }
   ::view-transition-old(root), ::view-transition-new(root) { animation: none !important; }
 }
