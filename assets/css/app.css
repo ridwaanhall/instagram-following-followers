@@ -200,6 +200,28 @@
   .menu-item { @apply flex w-full items-center justify-between gap-3 px-3.5 py-2 text-left text-[14px] text-ink-2 transition-colors duration-150 hover:text-ink; }
   .menu-item[aria-current="true"] { @apply text-ink; }
   .menu[open] > summary .chev { transform: rotate(180deg); }
+
+  /* Custom select: JS replaces the native <select> with a button + listbox
+     (see enhanceSelect in app.js). The native element stays as the source of
+     truth and is the no-JS fallback. */
+  .select-trigger {
+    @apply flex h-9 w-full items-center justify-between gap-2 rounded-lg border border-rule-2 bg-field pl-3.5 pr-3 text-left text-[13.5px] text-ink transition-colors duration-150 hover:border-ink-3;
+  }
+  .select-trigger[aria-expanded="true"] { @apply border-ink; }
+  .select-trigger .chev { @apply size-4 shrink-0 text-ink-3; }
+  .select-trigger[aria-expanded="true"] .chev { transform: rotate(180deg); }
+  .select-list {
+    @apply absolute left-0 right-0 z-50 mt-1.5 min-w-full rounded-lg border border-rule bg-bg p-1 outline-none;
+    box-shadow: 0 12px 32px -12px rgb(0 0 0 / 0.18);
+  }
+  .select-list[data-up] { @apply bottom-full mb-1.5 mt-0; }
+  .select-option {
+    @apply flex cursor-pointer items-center justify-between gap-3 rounded-md px-2.5 py-2 text-[13.5px] text-ink-2 select-none;
+  }
+  .select-option[aria-selected="true"] { @apply text-ink; }
+  .select-option.is-active { @apply bg-field text-ink; }
+  .select-option .check { @apply size-3.5 opacity-0; }
+  .select-option[aria-selected="true"] .check { @apply opacity-100; }
   .chev { @apply transition-transform duration-150; }
 
   /* Tabs: text + underline on a hairline */
@@ -280,6 +302,7 @@
 [role="tabpanel"]:not([hidden]) { animation: fade 240ms var(--ease); }
 .menu[open] .menu-panel { animation: pop 180ms var(--ease); transform-origin: top right; }
 #mobile-menu:not([hidden]) { animation: pop 220ms var(--ease); transform-origin: top; }
+.select-list:not([hidden]) { animation: pop 160ms var(--ease); transform-origin: top; }
 .meter-fill { transform-origin: left; animation: grow 900ms var(--ease) 200ms both; }
 .drop [data-drop-name] { transition: color var(--dur) var(--ease); }
 .drop.has-file [data-drop-name] { color: var(--ink); }
@@ -292,7 +315,7 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .rise, [role="tabpanel"], .menu-panel, #mobile-menu, .meter-fill { animation: none !important; }
+  .rise, [role="tabpanel"], .menu-panel, #mobile-menu, .select-list, .meter-fill { animation: none !important; }
   .js [data-reveal], .js [data-reveal] [data-reveal-item] { opacity: 1 !important; transform: none !important; }
   ::view-transition-old(root), ::view-transition-new(root) { animation: none !important; }
 }

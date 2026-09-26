@@ -65,6 +65,9 @@ not run the Node build). Rebuild and commit it whenever templates or
   and everything must stop under `prefers-reduced-motion`. The theme toggle
   uses a View Transition plus `.theme-switching`; do not add colour
   transitions that bypass it.
+- Selects: wrap a native `<select>` in `<div class="select relative" data-select>`;
+  app.js renders the styled listbox and keeps the native value in sync (listen
+  for `change` on the `<select>`). Never ship a bare, OS-styled select.
 - Legal pages (`/privacy/`, `/terms/`) share `analytics/legal.html` and are
   English-only. Icons and the OG image come from `scripts/make-icons.py`.
 - Floats rendered into CSS need `|unlocalize` (some languages use a decimal comma).

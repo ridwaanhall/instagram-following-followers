@@ -88,14 +88,14 @@
                 <input type="search" class="field pl-10" placeholder="{{ ui_search }}" autocomplete="off" data-search>
             </label>
             <div class="flex gap-2">
-                <label class="relative flex-1 sm:flex-none">
-                    <select class="choice sm:w-44" data-sort aria-label="{{ ui_sort_newest }} / {{ ui_sort_az }}">
+                <div class="select relative flex-1 sm:w-44 sm:flex-none" data-select>
+                    <select class="choice w-full" data-sort aria-label="{{ ui_sort }}">
                         <option value="newest">{{ ui_sort_newest }}</option>
                         <option value="oldest">{{ ui_sort_oldest }}</option>
                         <option value="az">{{ ui_sort_az }}</option>
                     </select>
-                    <span class="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-ink-3">{% include "partials/icon.html" with name="chevron-down" %}</span>
-                </label>
+                    <span class="select-chev pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-ink-3">{% include "partials/icon.html" with name="chevron-down" %}</span>
+                </div>
                 <button type="button" class="btn-line px-3" data-copy data-copied-label="{{ ui_copied }}" title="{{ ui_copy }}" aria-label="{{ ui_copy }}">
                     <span data-copy-icon>{% include "partials/icon.html" with name="copy" %}</span><span class="hidden md:inline" data-copy-text>{{ ui_copy }}</span>
                 </button>

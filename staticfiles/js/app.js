@@ -51,6 +51,115 @@
     dropdowns.forEach((d) => { if (d.open) { d.open = false; $("summary", d).focus(); } });
   });
 
+  // Custom select: the native <select> stays in the DOM as the source of truth
+  // (and the no-JS fallback); a button + ARIA listbox replaces it visually.
+  const CHEV = '<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>';
+  const CHECK = '<svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>';
+  let selectId = 0;
+  $$("[data-select]").forEach((wrap) => {
+    const select = $("select", wrap);
+    const id = `select-${++selectId}`;
+    const options = Array.from(select.options);
+
+    const trigger = document.createElement("button");
+    trigger.type = "button";
+    trigger.className = "select-trigger";
+    trigger.setAttribute("aria-haspopup", "listbox");
+    trigger.setAttribute("aria-expanded", "false");
+    trigger.setAttribute("aria-controls", `${id}-list`);
+    trigger.setAttribute("aria-label", select.getAttribute("aria-label") || "");
+    trigger.innerHTML = `<span class="truncate" data-value></span>${CHEV}`;
+
+    const list = document.createElement("ul");
+    list.id = `${id}-list`;
+    list.className = "select-list";
+    list.setAttribute("role", "listbox");
+    list.setAttribute("tabindex", "-1");
+    list.setAttribute("aria-label", select.getAttribute("aria-label") || "");
+    list.hidden = true;
+    options.forEach((opt, i) => {
+      const li = document.createElement("li");
+      li.id = `${id}-opt-${i}`;
+      li.className = "select-option";
+      li.setAttribute("role", "option");
+      li.dataset.value = opt.value;
+      li.innerHTML = `<span></span>${CHECK}`;
+      li.firstChild.textContent = opt.textContent;
+      list.appendChild(li);
+    });
+    const items = $$('[role="option"]', list);
+
+    select.hidden = true;
+    select.tabIndex = -1;
+    $(".select-chev", wrap)?.remove();
+    wrap.append(trigger, list);
+
+    let active = 0;
+    const setActive = (i) => {
+      active = (i + items.length) % items.length;
+      items.forEach((li, j) => li.classList.toggle("is-active", j === active));
+      list.setAttribute("aria-activedescendant", items[active].id);
+      items[active].scrollIntoView({ block: "nearest" });
+    };
+    const sync = () => {
+      items.forEach((li) => li.setAttribute("aria-selected", String(li.dataset.value === select.value)));
+      $("[data-value]", trigger).textContent = select.options[select.selectedIndex].textContent;
+    };
+    const open = () => {
+      list.hidden = false;
+      const below = window.innerHeight - trigger.getBoundingClientRect().bottom;
+      list.toggleAttribute("data-up", below < list.offsetHeight + 16);
+      trigger.setAttribute("aria-expanded", "true");
+      setActive(select.selectedIndex);
+      list.focus({ preventScroll: true });
+    };
+    const close = (focus = true) => {
+      if (list.hidden) return;
+      list.hidden = true;
+      trigger.setAttribute("aria-expanded", "false");
+      if (focus) trigger.focus();
+    };
+    const choose = (i) => {
+      if (select.selectedIndex !== i) {
+        select.selectedIndex = i;
+        select.dispatchEvent(new Event("change", { bubbles: true }));
+      }
+      sync();
+      close();
+    };
+
+    trigger.addEventListener("click", () => (list.hidden ? open() : close()));
+    trigger.addEventListener("keydown", (e) => {
+      if (["ArrowDown", "ArrowUp", "Enter", " "].includes(e.key)) { e.preventDefault(); open(); }
+    });
+    list.addEventListener("keydown", (e) => {
+      const keys = {
+        ArrowDown: () => setActive(active + 1),
+        ArrowUp: () => setActive(active - 1),
+        Home: () => setActive(0),
+        End: () => setActive(items.length - 1),
+        Enter: () => choose(active),
+        " ": () => choose(active),
+        Escape: () => close(),
+      };
+      if (keys[e.key]) { e.preventDefault(); keys[e.key](); return; }
+      if (e.key === "Tab") { close(false); return; }
+      if (e.key.length === 1) {
+        const from = active + 1;
+        const k = e.key.toLowerCase();
+        const hit = items.map((_, j) => (from + j) % items.length).find((j) => items[j].textContent.trim().toLowerCase().startsWith(k));
+        if (hit !== undefined) setActive(hit);
+      }
+    });
+    items.forEach((li, i) => {
+      li.addEventListener("mousemove", () => { if (active !== i) setActive(i); });
+      li.addEventListener("click", () => choose(i));
+    });
+    document.addEventListener("pointerdown", (e) => { if (!wrap.contains(e.target)) close(false); });
+    select.addEventListener("change", sync);
+    sync();
+  });
+
   // Dismissible alerts.
   $$("[data-dismiss]").forEach((btn) => btn.addEventListener("click", () => btn.closest("[data-dismissible]").remove()));
 

@@ -93,6 +93,9 @@ falls back to system fonts with no negative tracking.
 - **Figures**: big serif number over a small label, separated by vertical hairlines.
 - **Accordion**: question rows on hairlines with a plus that turns into a minus.
 - **Dropdown**: the one floating surface: `bg`, `rule` border, soft shadow.
+  Language menu and the custom select (`data-select`) share it; the custom
+  select is a button + ARIA listbox over a hidden native `<select>`, with
+  arrow keys, Home/End, type-ahead, Escape, and flip-up near the viewport edge.
 - **Alert**: accent left rule and text, no fill.
 
 ## Page map
