@@ -4,12 +4,27 @@
   const $ = (sel, root = document) => root.querySelector(sel);
   const $$ = (sel, root = document) => Array.from(root.querySelectorAll(sel));
 
+  const reduceMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
+
   // Theme toggle (initial theme is set inline in <head> to avoid a flash).
+  // .theme-switching stops every per-element colour transition so the page
+  // flips as one; the View Transition then cross-fades old and new states.
+  const root = document.documentElement;
+  const setTheme = (next) => {
+    root.dataset.theme = next;
+    try { localStorage.setItem("theme", next); } catch (e) {}
+  };
   $$("[data-theme-toggle]").forEach((btn) =>
     btn.addEventListener("click", () => {
-      const next = document.documentElement.dataset.theme === "dark" ? "light" : "dark";
-      document.documentElement.dataset.theme = next;
-      try { localStorage.setItem("theme", next); } catch (e) {}
+      const next = root.dataset.theme === "dark" ? "light" : "dark";
+      root.classList.add("theme-switching");
+      const done = () => requestAnimationFrame(() => root.classList.remove("theme-switching"));
+      if (document.startViewTransition && !reduceMotion) {
+        document.startViewTransition(() => setTheme(next)).finished.finally(done);
+      } else {
+        setTheme(next);
+        requestAnimationFrame(done);
+      }
     })
   );
 
@@ -122,6 +137,41 @@
       $("[data-icon]", btn).innerHTML = btn.dataset.icon;
     });
   });
+
+  // Scroll reveal: sections fade up once as they enter the viewport.
+  const reveals = $$("[data-reveal]");
+  if (reveals.length) {
+    if (reduceMotion || !("IntersectionObserver" in window)) {
+      reveals.forEach((el) => el.classList.add("is-in"));
+    } else {
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) { e.target.classList.add("is-in"); io.unobserve(e.target); }
+        });
+      }, { rootMargin: "0px 0px -10% 0px" });
+      reveals.forEach((el) => io.observe(el));
+    }
+  }
+
+  // Results figures count up from zero.
+  if (!reduceMotion) {
+    $$("[data-count]").forEach((el) => {
+      const target = parseInt(el.textContent.replace(/\D/g, ""), 10);
+      if (!target) return;
+      const start = performance.now();
+      const duration = Math.min(1100, 500 + target * 4);
+      const tick = (now) => {
+        const t = Math.min(1, (now - start) / duration);
+        el.textContent = String(Math.round(target * (1 - Math.pow(1 - t, 3))));
+        if (t < 1) requestAnimationFrame(tick);
+      };
+      el.textContent = "0";
+      requestAnimationFrame(tick);
+    });
+  }
+
+  // Reload button on the 500 page (no inline handlers: the CSP forbids them).
+  $$("[data-reload]").forEach((btn) => btn.addEventListener("click", () => location.reload()));
 
   // Print.
   $$("[data-print]").forEach((btn) => btn.addEventListener("click", () => window.print()));

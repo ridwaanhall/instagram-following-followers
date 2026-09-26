@@ -8,13 +8,13 @@
 {% block twitter_description %}{{ meta_description }}{% endblock %}
 
 {% block structured_data %}
-<script type="application/ld+json">
+<script type="application/ld+json" nonce="{{ csp_nonce }}">
 {
     "@context": "https://schema.org",
     "@type": "WebPage",
     "name": "{{ meta_title|escapejs }}",
     "description": "{{ meta_description|escapejs }}",
-    "url": "https://igstats.rone.dev/privacy/",
+    "url": "https://igstats.rone.dev{{ request.path }}",
     "dateModified": "{{ updated_iso }}",
     "inLanguage": "en",
     "publisher": {"@type": "Organization", "name": "RoneAI", "legalName": "PT RoneAI Teknologi Internasional", "url": "https://rone.dev"}
@@ -26,8 +26,8 @@
 <div class="wrap" lang="en">
     <section class="pb-10 pt-12 sm:pt-16">
         <p class="kicker">Last updated <time datetime="{{ updated_iso }}">{{ updated }}</time></p>
-        <h1 class="display mt-6">{{ header_title }}</h1>
-        <p class="lede mt-5">{{ header_description }}</p>
+        <h1 class="display rise mt-6" style="--i:1">{{ header_title }}</h1>
+        <p class="lede rise mt-5" style="--i:2">{{ header_description }}</p>
     </section>
 
     <div class="grid gap-12 border-t border-rule pt-10 lg:grid-cols-12 lg:gap-8 [&>*]:min-w-0">

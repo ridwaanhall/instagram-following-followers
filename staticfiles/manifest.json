@@ -1,45 +1,19 @@
 {
-    "name": "igstats - Instagram Followers & Following Analyzer",
+    "name": "igstats: who doesn't follow you back",
     "short_name": "igstats",
-    "description": "Free Instagram analytics tool to analyze followers and following data. Find who doesn't follow back, mutual connections, and get insights about your Instagram network.",
+    "description": "Read your Instagram data export and see who doesn't follow you back, who you don't follow back, and your mutuals. Free, no login, nothing stored.",
+    "id": "/",
     "start_url": "/",
-    "display": "standalone",
-    "background_color": "#f6f4ef",
-    "theme_color": "#16140f",
-    "orientation": "portrait-primary",
     "scope": "/",
-    "lang": "en-US",
-    "categories": ["social", "utilities", "productivity"],
+    "display": "standalone",
+    "background_color": "#fafaf7",
+    "theme_color": "#111110",
+    "lang": "en",
+    "categories": ["social", "utilities"],
     "icons": [
-        {
-            "src": "/static/images/favicon-16x16.png",
-            "sizes": "16x16",
-            "type": "image/png",
-            "purpose": "any"
-        },
-        {
-            "src": "/static/images/favicon-32x32.png",
-            "sizes": "32x32",
-            "type": "image/png",
-            "purpose": "any"
-        },
-        {
-            "src": "/static/images/apple-touch-icon.png",
-            "sizes": "180x180",
-            "type": "image/png",
-            "purpose": "any"
-        },
-        {
-            "src": "/static/images/android-chrome-192x192.png",
-            "sizes": "192x192",
-            "type": "image/png",
-            "purpose": "maskable any"
-        },
-        {
-            "src": "/static/images/android-chrome-512x512.png",
-            "sizes": "512x512",
-            "type": "image/png",
-            "purpose": "maskable any"
-        }
+        { "src": "/static/favicon.svg", "sizes": "any", "type": "image/svg+xml" },
+        { "src": "/static/images/icon-192.png", "sizes": "192x192", "type": "image/png" },
+        { "src": "/static/images/icon-512.png", "sizes": "512x512", "type": "image/png" },
+        { "src": "/static/images/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
     ]
 }

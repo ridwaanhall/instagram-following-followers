@@ -5,7 +5,7 @@ import zipfile
 
 from django.conf import settings
 from django.contrib import messages
-from django.http import JsonResponse
+from django.http import HttpResponse, JsonResponse
 from django.shortcuts import redirect, render
 from django.urls import reverse_lazy
 from django.utils import translation
@@ -18,7 +18,7 @@ from .analysis import analyze
 from .forms import UploadFileForm, ZipUploadForm
 from .utils import (
     detect_language_from_request, get_analyzer_data, get_home_data, get_language_info, get_privacy_data,
-    get_results_data, get_text_input_data, get_tutorial_data, get_upload_data,
+    get_results_data, get_terms_data, get_text_input_data, get_tutorial_data, get_upload_data,
     get_zip_upload_data, is_supported_language,
 )
 
@@ -103,8 +103,27 @@ class TutorialView(ContentView):
 
 class PrivacyView(ContentView):
     """Privacy notice. English only - see analytics/data/PrivacyData.py."""
-    template_name = 'analytics/privacy.html'
+    template_name = 'analytics/legal.html'
     content = staticmethod(get_privacy_data)
+
+
+class TermsView(ContentView):
+    """Terms of use. English only - see analytics/data/TermsData.py."""
+    template_name = 'analytics/legal.html'
+    content = staticmethod(get_terms_data)
+
+
+SECURITY_TXT = """Contact: mailto:founder@rone.dev
+Expires: 2027-09-27T00:00:00.000Z
+Preferred-Languages: en, id
+Policy: https://rone.dev/security
+Canonical: https://igstats.rone.dev/.well-known/security.txt
+"""
+
+
+def security_txt(request):
+    """RFC 9116 security contact."""
+    return HttpResponse(SECURITY_TXT, content_type='text/plain; charset=utf-8')
 
 
 class BaseAnalyticsView(FormView):

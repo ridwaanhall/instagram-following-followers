@@ -5,7 +5,7 @@
 {% block meta_keywords %}{{ meta_keywords }}{% endblock %}
 
 {% block structured_data %}
-<script type="application/ld+json">
+<script type="application/ld+json" nonce="{{ csp_nonce }}">
 {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -21,43 +21,43 @@
     {# Hero: headline and the analyzer #}
     <section class="grid gap-12 pb-20 pt-12 sm:pt-16 lg:grid-cols-12 lg:gap-8 lg:pb-28 lg:pt-24 [&>*]:min-w-0">
         <div class="lg:col-span-6">
-            <p class="kicker">{{ hero_title }}</p>
-            <h1 class="display mt-6">{{ ui_hero_headline }}</h1>
-            <p class="lede mt-6">{{ ui_hero_lede }}</p>
-            <ul class="mt-10 flex flex-wrap gap-x-6 gap-y-2 text-[14px] text-ink-2">
+            <p class="kicker rise">{{ hero_title }}</p>
+            <h1 class="display rise mt-6" style="--i:1">{{ ui_hero_headline }}</h1>
+            <p class="lede rise mt-6" style="--i:2">{{ ui_hero_lede }}</p>
+            <ul class="rise mt-10 flex flex-wrap gap-x-6 gap-y-2 text-[14px] text-ink-2">
                 <li class="inline-flex items-center gap-2">{% include "partials/icon.html" with name="check" cls="size-4 text-ink" %}{{ feature_private }}</li>
                 <li class="inline-flex items-center gap-2">{% include "partials/icon.html" with name="check" cls="size-4 text-ink" %}{{ feature_no_login }}</li>
                 <li class="inline-flex items-center gap-2">{% include "partials/icon.html" with name="check" cls="size-4 text-ink" %}{{ feature_free }}</li>
             </ul>
         </div>
-        <div id="analyze" class="scroll-mt-24 lg:col-span-5 lg:col-start-8 lg:pt-2">
+        <div id="analyze" class="rise scroll-mt-24 lg:col-span-5 lg:col-start-8 lg:pt-2" style="--i:2">
             {% include "partials/analyzer.html" with active="zip" %}
         </div>
     </section>
 
     {# What you get #}
-    <section class="section grid gap-10 lg:grid-cols-12 lg:gap-8">
+    <section class="section grid gap-10 lg:grid-cols-12 lg:gap-8" data-reveal>
         <div class="lg:col-span-4">
             <p class="kicker">{{ features_title }}</p>
             <h2 class="h2 mt-5">{{ cta_description }}</h2>
         </div>
         <ol class="rows lg:col-span-7 lg:col-start-6">
-            <li class="grid grid-cols-[3rem_1fr] items-baseline gap-x-4 py-6 sm:grid-cols-[4rem_1fr_1fr] sm:gap-x-6">
+            <li class="grid grid-cols-[3rem_1fr] items-baseline gap-x-4 py-6 sm:grid-cols-[4rem_1fr_1fr] sm:gap-x-6" data-reveal-item style="--i:0">
                 <span class="figure font-serif text-[28px] text-accent">01</span>
                 <h3 class="h3">{{ rs.not_following_back_title }}</h3>
                 <p class="col-start-2 mt-1 text-[15px] text-ink-2 sm:col-start-3 sm:mt-0">{{ rs.not_following_back_subtitle }}</p>
             </li>
-            <li class="grid grid-cols-[3rem_1fr] items-baseline gap-x-4 py-6 sm:grid-cols-[4rem_1fr_1fr] sm:gap-x-6">
+            <li class="grid grid-cols-[3rem_1fr] items-baseline gap-x-4 py-6 sm:grid-cols-[4rem_1fr_1fr] sm:gap-x-6" data-reveal-item style="--i:1">
                 <span class="figure font-serif text-[28px] text-ink-3">02</span>
                 <h3 class="h3">{{ rs.not_following_back_users_title }}</h3>
                 <p class="col-start-2 mt-1 text-[15px] text-ink-2 sm:col-start-3 sm:mt-0">{{ rs.not_following_back_users_subtitle }}</p>
             </li>
-            <li class="grid grid-cols-[3rem_1fr] items-baseline gap-x-4 py-6 sm:grid-cols-[4rem_1fr_1fr] sm:gap-x-6">
+            <li class="grid grid-cols-[3rem_1fr] items-baseline gap-x-4 py-6 sm:grid-cols-[4rem_1fr_1fr] sm:gap-x-6" data-reveal-item style="--i:2">
                 <span class="figure font-serif text-[28px] text-ink-3">03</span>
                 <h3 class="h3">{{ rs.mutual_follow_title }}</h3>
                 <p class="col-start-2 mt-1 text-[15px] text-ink-2 sm:col-start-3 sm:mt-0">{{ rs.mutual_follow_subtitle }}</p>
             </li>
-            <li class="grid grid-cols-[3rem_1fr] items-baseline gap-x-4 py-6 sm:grid-cols-[4rem_1fr_1fr] sm:gap-x-6">
+            <li class="grid grid-cols-[3rem_1fr] items-baseline gap-x-4 py-6 sm:grid-cols-[4rem_1fr_1fr] sm:gap-x-6" data-reveal-item style="--i:3">
                 <span class="figure font-serif text-[28px] text-ink-3">04</span>
                 <h3 class="h3">{{ features.timeline_data.title }}</h3>
                 <p class="col-start-2 mt-1 text-[15px] text-ink-2 sm:col-start-3 sm:mt-0">{{ features.timeline_data.description }}</p>
@@ -66,11 +66,11 @@
     </section>
 
     {# How it works #}
-    <section class="section">
+    <section class="section" data-reveal>
         <p class="kicker">{{ how_it_works_title }}</p>
         <ol class="mt-10 grid gap-x-8 gap-y-10 sm:grid-cols-2 lg:grid-cols-4">
             {% for step in how_it_works_steps %}
-            <li class="border-t border-ink pt-5">
+            <li class="border-t border-ink pt-5" data-reveal-item style="--i:{{ forloop.counter0 }}">
                 <span class="figure font-serif text-[40px]">{{ forloop.counter }}</span>
                 <h3 class="h3 mt-6">{{ step.title }}</h3>
                 <p class="mt-2 text-[15px] leading-relaxed text-ink-2">{{ step.description }}</p>
@@ -80,7 +80,7 @@
     </section>
 
     {# FAQ #}
-    <section class="section grid gap-10 lg:grid-cols-12 lg:gap-8">
+    <section class="section grid gap-10 lg:grid-cols-12 lg:gap-8" data-reveal>
         <div class="lg:col-span-4">
             <h2 class="h2">{{ faq_title }}</h2>
             <p class="mt-5 text-[15px] text-ink-2"><a href="{% url 'privacy' %}" class="link">{{ footer_privacy }}</a></p>
@@ -99,7 +99,7 @@
     </section>
 
     {# Close #}
-    <section class="section flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
+    <section data-reveal class="section flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
         <h2 class="h2 max-w-[18ch]">{{ cta_title }}</h2>
         <div class="flex flex-wrap items-center gap-3">
             <a href="{% url 'zip_upload' %}" class="btn">{{ cta_button_start }}{% include "partials/icon.html" with name="arrow-right" %}</a>

@@ -83,7 +83,7 @@ falls back to system fonts with no negative tracking.
 - **Header**: wordmark "igstats" in Newsreader, text nav links, language menu,
   theme toggle. Hairline under the header, same background.
 - **Links in text**: ink with a 1 px underline in `rule-2`, accent on hover.
-- **Buttons**: `btn` (solid ink, 44 px tall, 8 px radius), `btn-accent`,
+- **Buttons**: `btn` (solid ink, 36 px tall, 8 px radius), `btn-accent`,
   `btn-line` (1 px border), `btn-text` (no border). Icons 16 px, 1.5 stroke.
 - **Tabs**: text tabs with a 2 px underline on the selected one; sit on a hairline.
 - **Drop area**: dashed `rule-2` border, `field` fill, 12 px radius; turns
@@ -103,9 +103,24 @@ falls back to system fonts with no negative tracking.
 | `/zip/`, `/upload/`, `/text/` | Title + lede, then analyzer (7 cols) and the method's notes as plain text (4 cols). Tabs navigate between the three URLs. |
 | results | Report title, actions on the right. Figure row (5 figures). Ratio sentence line and 30-day line. Ruled tabs, toolbar, ruled rows. |
 | `/tutorial/` | Numbered steps as a ruled ordered list (7 cols), notes/files/tips as plain text sections (4 cols), then links to the three methods as a ruled list. |
-| `/privacy/` | Contents column (3 cols) and the notice (8 cols), numbered H2s, table with hairlines. |
+| `/privacy/`, `/terms/` | Shared `legal.html`: contents column (3 cols) and the document (8 cols), numbered H2s, table with hairlines. |
 | 404 / 500 | Large serif code, one sentence, two buttons, left-aligned. |
 
 ## Motion
 
-Colour and underline transitions only, 120 ms. Respect `prefers-reduced-motion`.
+One easing (`cubic-bezier(0.2, 0.7, 0.2, 1)`), transform and opacity only.
+
+- Page load: title, lede and first block rise 14 px in sequence (70 ms steps).
+- Scroll: sections fade up once (`data-reveal`), their rows stagger 60 ms.
+- Tabs fade in 240 ms; menus pop from 98% scale; the accordion animates height
+  where `interpolate-size` is supported.
+- Results figures count up; ratio lines grow from the left.
+- Buttons: 1 px press, arrow icons nudge 2 px on hover.
+- Theme switch: one View Transition cross-fade with every element transition
+  suspended, so no part of the page lags behind.
+- Page to page: cross-document view transition fade.
+- Everything stops under `prefers-reduced-motion`.
+
+## Controls
+
+Every button, input and select is 36 px tall (`h-9`), 13.5 px text.

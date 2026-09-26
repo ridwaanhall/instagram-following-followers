@@ -10,6 +10,7 @@
     <meta name="keywords" content="{% block meta_keywords %}{{ meta_keywords }}{% endblock %}">
     <meta name="author" content="{{ meta_author }}">
     <meta name="robots" content="{% block meta_robots %}{{ meta_robots }}{% endblock %}">
+    <meta name="color-scheme" content="light dark">
     <meta name="theme-color" content="#fafaf7" media="(prefers-color-scheme: light)">
     <meta name="theme-color" content="#111110" media="(prefers-color-scheme: dark)">
 
@@ -20,33 +21,47 @@
     <meta property="og:url" content="https://igstats.rone.dev{{ request.path }}">
     <meta property="og:title" content="{% block og_title %}{{ site_title }}{% endblock %}">
     <meta property="og:description" content="{% block og_description %}{{ meta_description }}{% endblock %}">
-    <meta property="og:image" content="https://igstats.rone.dev{% static 'images/android-chrome-512x512.png' %}">
+    <meta property="og:image" content="https://igstats.rone.dev{% static 'images/og-image.png' %}">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
     <meta property="og:image:alt" content="{{ og_image_alt }}">
     <meta property="og:site_name" content="{{ site_name }}">
     <meta property="og:locale" content="{{ og_locale }}">
-    <meta name="twitter:card" content="summary">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://igstats.rone.dev{% static 'images/og-image.png' %}">
     <meta name="twitter:title" content="{% block twitter_title %}{{ site_title }}{% endblock %}">
     <meta name="twitter:description" content="{% block twitter_description %}{{ meta_description }}{% endblock %}">
     <meta name="twitter:creator" content="{{ twitter_creator }}">
 
-    <link rel="icon" href="{% static 'favicon.ico' %}" sizes="any">
-    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'images/favicon-32x32.png' %}">
+    <link rel="icon" href="{% static 'favicon.ico' %}" sizes="32x32">
+    <link rel="icon" href="{% static 'favicon.svg' %}" type="image/svg+xml">
     <link rel="apple-touch-icon" sizes="180x180" href="{% static 'images/apple-touch-icon.png' %}">
     <link rel="manifest" href="{% static 'manifest.json' %}">
 
-    <script>
+    <script nonce="{{ csp_nonce }}">
         (function () {
             var t;
             try { t = localStorage.getItem('theme'); } catch (e) {}
             if (t !== 'light' && t !== 'dark') t = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
             document.documentElement.setAttribute('data-theme', t);
+            document.documentElement.classList.add('js');
         })();
     </script>
     <link rel="preload" href="{% static 'font/schibsted-grotesk-latin-wght-normal.woff2' %}" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="{% static 'font/newsreader-latin-opsz-normal.woff2' %}" as="font" type="font/woff2" crossorigin>
     <link rel="stylesheet" href="{% static 'css/global.css' %}">
 
-    <script type="application/ld+json">
+    <script type="application/ld+json" nonce="{{ csp_nonce }}">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "{{ site_name }}",
+        "url": "https://igstats.rone.dev/",
+        "inLanguage": "{{ html_lang }}",
+        "publisher": {"@type": "Organization", "name": "RoneAI", "url": "https://rone.dev"}
+    }
+    </script>
+    <script type="application/ld+json" nonce="{{ csp_nonce }}">
     {
         "@context": "https://schema.org",
         "@type": "WebApplication",
@@ -58,7 +73,6 @@
         "isAccessibleForFree": true,
         "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"},
         "inLanguage": "{{ html_lang }}",
-        "creator": {"@type": "Person", "name": "{{ meta_author }}", "url": "https://bio.ridwaanhall.com"},
         "publisher": {"@type": "Organization", "name": "RoneAI", "legalName": "PT RoneAI Teknologi Internasional", "url": "https://rone.dev"}
     }
     </script>
@@ -79,7 +93,7 @@
 
             <div class="flex items-center gap-1">
                 <details class="menu hidden md:block" data-dropdown>
-                    <summary class="btn-text btn-sm gap-1.5" aria-label="{{ ui_language }}">
+                    <summary class="btn-text gap-1.5" aria-label="{{ ui_language }}">
                         {% for lang in language_choices %}{% if lang.active %}{{ lang.name }}{% endif %}{% endfor %}
                         {% include "partials/icon.html" with name="chevron-down" cls="chev size-3.5" %}
                     </summary>
@@ -129,6 +143,7 @@
             <div class="sm:col-span-5">
                 <a href="{% url 'home' %}" class="font-serif text-[28px] leading-none tracking-[-0.02em]">{{ footer_brand }}</a>
                 <p class="mt-4 max-w-[36ch] text-[14px] text-ink-2">{{ ui_stored_note }}</p>
+                <p class="mt-2 text-[14px] text-ink-2"><a href="https://rone.dev" class="link" target="_blank" rel="noopener">{{ ui_part_of }}</a></p>
             </div>
             <div class="sm:col-span-3 sm:col-start-7">
                 <p class="kicker">{{ ui_analyze }}</p>
@@ -143,13 +158,14 @@
                 <ul class="mt-4 space-y-2 text-[14px] text-ink-2">
                     <li><a class="hover:text-ink" href="{% url 'tutorial' %}">{{ nav_tutorial }}</a></li>
                     <li><a class="hover:text-ink" href="{% url 'privacy' %}">{{ footer_privacy }}</a></li>
+                    <li><a class="hover:text-ink" href="{% url 'terms' %}">{{ ui_terms }}</a></li>
                     <li><a class="inline-flex items-center gap-1 hover:text-ink" href="https://github.com/ridwaanhall/instagram-following-followers" target="_blank" rel="noopener">GitHub{% include "partials/icon.html" with name="arrow-up-right" cls="size-3.5" %}</a></li>
                 </ul>
             </div>
         </div>
         <div class="flex flex-col gap-2 border-t border-rule py-6 text-[13px] text-ink-3 sm:flex-row sm:justify-between">
-            <p>{{ footer_created_by }} <span class="sr-only">love</span><span class="inline-block align-[-2px] text-accent">{% include "partials/icon.html" with name="heart" cls="size-3.5" %}</span> {{ footer_by }} <a href="https://bio.ridwaanhall.com" class="link text-ink-2" target="_blank" rel="noopener">{{ footer_creator_name }}</a></p>
-            <p>&copy; {% now 'Y' %} RoneAI</p>
+            <p>{{ footer_created_by }} <span class="sr-only">love</span><span class="inline-block align-[-2px] text-accent">{% include "partials/icon.html" with name="heart" cls="size-3.5" %}</span> {{ footer_by }} <a href="https://rone.dev" class="link text-ink-2" target="_blank" rel="noopener">RoneAI</a></p>
+            <p>&copy; {% now 'Y' %} <a href="https://rone.dev" class="hover:text-ink" target="_blank" rel="noopener">RoneAI</a></p>
         </div>
     </footer>
 

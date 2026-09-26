@@ -13,7 +13,7 @@ BASE_DATA = {
         'og_image_alt': 'igstats - Instagram Analytics Tool',
         
         # Additional SEO fields
-        'meta_author': 'Ridwan Halim',
+        'meta_author': 'RoneAI',
         'meta_robots': 'index, follow',
         'meta_theme_color': '#16140f',
         'meta_language': 'English',
@@ -77,7 +77,7 @@ BASE_DATA = {
         'og_image_alt': 'igstats - Alat Analisis Instagram',
         
         # Additional SEO fields
-        'meta_author': 'Ridwan Halim',
+        'meta_author': 'RoneAI',
         'meta_robots': 'index, follow',
         'meta_theme_color': '#16140f',
         'meta_language': 'Indonesian',
@@ -135,7 +135,7 @@ BASE_DATA = {
         'og_image_alt': 'igstats - Instagram分析工具',
         
         # Additional SEO fields
-        'meta_author': 'Ridwan Halim',
+        'meta_author': 'RoneAI',
         'meta_robots': 'index, follow',
         'meta_theme_color': '#16140f',
         'meta_language': 'Chinese',
@@ -194,7 +194,7 @@ BASE_DATA = {
         'og_image_alt': 'igstats - Herramienta de Análisis de Instagram',
         
         # Additional SEO fields
-        'meta_author': 'Ridwan Halim',
+        'meta_author': 'RoneAI',
         'meta_robots': 'index, follow',
         'meta_theme_color': '#16140f',
         'meta_language': 'Spanish',
@@ -254,7 +254,7 @@ BASE_DATA = {
         'og_image_alt': 'igstats - Instagram分析ツール',
         
         # Additional SEO fields
-        'meta_author': 'Ridwan Halim',
+        'meta_author': 'RoneAI',
         'meta_robots': 'index, follow',
         'meta_theme_color': '#16140f',
         'meta_language': 'Japanese',
@@ -314,7 +314,7 @@ BASE_DATA = {
         'og_image_alt': 'igstats - Ferramenta de Análise do Instagram',
         
         # Additional SEO fields
-        'meta_author': 'Ridwan Halim',
+        'meta_author': 'RoneAI',
         'meta_robots': 'index, follow',
         'meta_theme_color': '#16140f',
         'meta_language': 'Portuguese',
@@ -374,7 +374,7 @@ BASE_DATA = {
         'og_image_alt': 'igstats - Outil d\'Analyse Instagram',
         
         # Additional SEO fields
-        'meta_author': 'Ridwan Halim',
+        'meta_author': 'RoneAI',
         'meta_robots': 'index, follow',
         'meta_theme_color': '#16140f',
         'meta_language': 'French',

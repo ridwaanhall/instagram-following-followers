@@ -67,9 +67,21 @@ def make_zip(files):
 
 class ViewTests(TestCase):
     def test_pages_render(self):
-        for url in ["/", "/zip/", "/upload/", "/text/", "/tutorial/", "/privacy/", "/sitemap.xml", "/robots.txt"]:
+        for url in ["/", "/zip/", "/upload/", "/text/", "/tutorial/", "/privacy/", "/terms/", "/sitemap.xml", "/robots.txt", "/.well-known/security.txt"]:
             with self.subTest(url=url):
                 self.assertEqual(self.client.get(url).status_code, 200)
+
+    def test_seo_and_security_basics(self):
+        response = self.client.get("/")
+        csp = response["Content-Security-Policy"]
+        self.assertIn("default-src 'self'", csp)
+        self.assertIn("'nonce-", csp)
+        self.assertContains(response, 'rel="canonical"')
+        self.assertContains(response, "og-image.png")
+        self.assertContains(response, "https://rone.dev")
+        sitemap = self.client.get("/sitemap.xml").content.decode()
+        self.assertIn("/terms/", sitemap)
+        self.assertIn("mailto:", self.client.get("/.well-known/security.txt").content.decode())
 
     def test_custom_404(self):
         response = self.client.get("/definitely-missing/")

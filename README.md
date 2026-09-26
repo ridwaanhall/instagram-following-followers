@@ -9,7 +9,8 @@ follow back, and mutuals, plus follow ratios and 30-day activity. Live at
 
 - **No login.** It never touches your Instagram account.
 - **Nothing stored.** Uploads are parsed in memory and discarded when the
-  response is sent. There are no database models. See [/privacy](https://igstats.rone.dev/privacy/).
+  response is sent. There are no database models. See [/privacy](https://igstats.rone.dev/privacy/)
+  and [/terms](https://igstats.rone.dev/terms/).
 - **Three ways in.** Upload the export ZIP, upload the two JSON files, or paste the JSON.
 - **Works with the list.** Search, sort, copy usernames, or export any list as CSV.
 - **Seven languages.** English, Bahasa Indonesia, 中文, Español, 日本語, Português, Français.
@@ -53,6 +54,12 @@ npm run build   # fonts + minified CSS
 npm run watch   # rebuild CSS on change
 ```
 
+### Icons
+
+```bash
+uv run --no-project --with pillow --with fonttools --with brotli python scripts/make-icons.py
+```
+
 ### Tests
 
 ```bash
@@ -70,7 +77,8 @@ SECRET_KEY=test uv run python manage.py test
 | `assets/css/app.css` | Design tokens and components (source for `global.css`) |
 | `staticfiles/js/app.js` | Theme, menu, tabs, dropzones, results tools |
 | `python_scripts/instagram_analytics.py` | Stand-alone CLI version, no Django |
-| `docs/DESIGN.md` | Design brief, palette, type, components |
+| `docs/DESIGN.md` | Design brief, palette, type, components, motion |
+| `scripts/make-icons.py` | Regenerates the favicon set and the OG image |
 
 ## Command-line script
 
@@ -86,6 +94,8 @@ python instagram_analytics.py
 
 Deployed on Vercel with `vercel.json`. Dependencies come from `pyproject.toml`
 and `uv.lock`. Set `SECRET_KEY` in the project environment; leave `DEBUG` unset.
+
+igstats is a [rone.dev](https://rone.dev) project by RoneAI.
 
 ## License
 

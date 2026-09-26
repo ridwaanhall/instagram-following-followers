@@ -57,6 +57,16 @@ not run the Node build). Rebuild and commit it whenever templates or
   Support light and dark, 360 px width, visible focus states.
 - Do not name a class after a Tailwind utility (e.g. `overline`, `container`);
   Tailwind will merge its own rule into it.
+- **CSP is on** (`SECURE_CSP` in settings). Inline `<script>` tags need
+  `nonce="{{ csp_nonce }}"`; no inline event handlers (`onclick=`), wire them
+  in `staticfiles/js/app.js`. Everything stays same-origin.
+- **Motion**: use the tokens in `assets/css/app.css` (`--ease`, `--dur`,
+  `.rise`, `data-reveal` / `data-reveal-item`). Transform and opacity only,
+  and everything must stop under `prefers-reduced-motion`. The theme toggle
+  uses a View Transition plus `.theme-switching`; do not add colour
+  transitions that bypass it.
+- Legal pages (`/privacy/`, `/terms/`) share `analytics/legal.html` and are
+  English-only. Icons and the OG image come from `scripts/make-icons.py`.
 - Floats rendered into CSS need `|unlocalize` (some languages use a decimal comma).
 - Keep `python_scripts/instagram_analytics.py` stand-alone (stdlib only).
 - Add or update tests in `analytics/tests.py` for behaviour changes.

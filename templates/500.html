@@ -5,12 +5,12 @@
 
 {% block content %}
 <div class="wrap py-20 sm:py-28">
-    <p class="figure font-serif text-[96px] text-ink-3 sm:text-[160px]">500</p>
-    <h1 class="h2 mt-8">Something broke on our side</h1>
-    <p class="lede mt-4">Nothing you uploaded was kept. Please try again in a moment.</p>
+    <p class="rise figure font-serif text-[96px] text-ink-3 sm:text-[160px]">500</p>
+    <h1 class="h2 rise mt-8" style="--i:1">Something broke on our side</h1>
+    <p class="lede rise mt-4" style="--i:2">Nothing you uploaded was kept. Please try again in a moment.</p>
     <div class="mt-10 flex flex-wrap gap-3">
         <a href="{% url 'home' %}" class="btn">{{ ui_back_home }}</a>
-        <button type="button" class="btn-text" onclick="window.location.reload()">{% include "partials/icon.html" with name="refresh" %}{{ ui_try_again }}</button>
+        <button type="button" class="btn-text" data-reload>{% include "partials/icon.html" with name="refresh" %}{{ ui_try_again }}</button>
     </div>
 </div>
 {% endblock %}

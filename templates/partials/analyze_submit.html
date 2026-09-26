@@ -1,6 +1,6 @@
 <div class="mt-6 flex flex-col-reverse gap-4 sm:flex-row sm:items-center sm:justify-between">
     <p class="caption inline-flex items-center gap-2">{% include "partials/icon.html" with name="lock" cls="size-3.5" %}{{ ui_stored_note }}</p>
-    <button type="submit" class="btn-accent w-full sm:w-auto" data-submit data-busy-label="{{ ui_analyzing }}">
+    <button type="submit" class="btn-accent self-start sm:self-auto" data-submit data-busy-label="{{ ui_analyzing }}">
         <span data-label>{{ label }}</span>
         <span data-icon>{% include "partials/icon.html" with name="arrow-right" %}</span>
     </button>

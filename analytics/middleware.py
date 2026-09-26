@@ -9,7 +9,7 @@ from django.utils.deprecation import MiddlewareMixin
 
 from .utils import detect_language_from_browser_header, is_supported_language
 
-SKIP_PREFIXES = ('/admin/', '/static/', '/media/', '/api/', '/favicon.ico', '/robots.txt', '/sitemap.xml')
+SKIP_PREFIXES = ('/.well-known/', '/admin/', '/static/', '/media/', '/api/', '/favicon.ico', '/robots.txt', '/sitemap.xml')
 
 
 class AutoLanguageDetectionMiddleware(MiddlewareMixin):

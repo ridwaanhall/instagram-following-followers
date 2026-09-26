@@ -1,33 +1,40 @@
+from datetime import date
+
 from django.contrib.sitemaps import Sitemap
 from django.urls import reverse
 
+from .data.PrivacyData import PRIVACY_UPDATED_ISO
+from .data.TermsData import TERMS_UPDATED_ISO
+
+SITE_UPDATED = date(2026, 9, 27)
+
+
 class StaticViewSitemap(Sitemap):
-    """Sitemap for static pages"""
-    changefreq = 'weekly'
-    priority = 0.8
+    """Every public page. Results are POST-only and never listed."""
+    changefreq = 'monthly'
+    protocol = 'https'
+
+    pages = {
+        'home': (1.0, SITE_UPDATED),
+        'zip_upload': (0.9, SITE_UPDATED),
+        'upload_file': (0.7, SITE_UPDATED),
+        'text_input': (0.7, SITE_UPDATED),
+        'tutorial': (0.8, SITE_UPDATED),
+        'privacy': (0.3, date.fromisoformat(PRIVACY_UPDATED_ISO)),
+        'terms': (0.3, date.fromisoformat(TERMS_UPDATED_ISO)),
+    }
 
     def items(self):
-        return [
-            'home',
-            'upload_file', 
-            'zip_upload',
-            'text_input',
-            'tutorial',
-            'privacy'
-        ]
+        return list(self.pages)
 
     def location(self, item):
         return reverse(item)
 
-    def lastmod(self, item):
-        from datetime import datetime
-        return datetime(2025, 7, 14, 22, 55)
-
     def priority(self, item):
-        if item == 'home':
-            return 1.0
-        return 0.4 if item == 'privacy' else 0.8
+        return self.pages[item][0]
 
-sitemaps = {
-    'static': StaticViewSitemap,
-}
+    def lastmod(self, item):
+        return self.pages[item][1]
+
+
+sitemaps = {'static': StaticViewSitemap}

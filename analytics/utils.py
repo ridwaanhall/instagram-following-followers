@@ -9,6 +9,7 @@ from .data.BaseData import BASE_DATA
 from .data.HomeData import HOME_DATA
 from .data.PrivacyData import PRIVACY_DATA
 from .data.ResultsData import RESULTS_DATA
+from .data.TermsData import TERMS_DATA
 from .data.TextInputData import TEXT_INPUT_DATA
 from .data.TutorialData import TUTORIAL_DATA
 from .data.UiData import UI_DATA
@@ -146,6 +147,11 @@ def get_privacy_data(language=None):
     this like every other content getter.
     """
     return PRIVACY_DATA
+
+
+def get_terms_data(language=None):
+    """Terms of use. English only, like the privacy notice."""
+    return TERMS_DATA
 
 
 def inject_i18n_context(request):

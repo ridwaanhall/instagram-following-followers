@@ -11,8 +11,8 @@
     <section class="flex flex-col gap-6 pb-10 pt-12 sm:pt-16 lg:flex-row lg:items-end lg:justify-between">
         <div>
             <p class="kicker">{% now "j F Y" %}</p>
-            <h1 class="display mt-6">{{ header_title }}</h1>
-            <p class="lede mt-5">{{ header_subtitle }}</p>
+            <h1 class="display rise mt-6" style="--i:1">{{ header_title }}</h1>
+            <p class="lede rise mt-5" style="--i:2">{{ header_subtitle }}</p>
         </div>
         <div class="no-print flex flex-wrap items-center gap-2">
             <a href="{% url 'zip_upload' %}" class="btn-line">{% include "partials/icon.html" with name="refresh" %}{{ analyze_new_data_button }}</a>
@@ -21,40 +21,40 @@
     </section>
 
     {# Figures #}
-    <section aria-label="{{ analysis_summary_title }}" class="grid grid-cols-2 border-t border-rule sm:grid-cols-3 lg:grid-cols-5">
+    <section aria-label="{{ analysis_summary_title }}" style="--i:3" class="rise grid grid-cols-2 border-t border-rule sm:grid-cols-3 lg:grid-cols-5">
         <div class="border-b border-rule py-6 pr-4 lg:border-b-0">
-            <p class="figure font-serif text-[44px] text-accent sm:text-[56px]">{{ count_non_follow_back }}</p>
+            <p data-count class="figure font-serif text-[44px] text-accent sm:text-[56px]">{{ count_non_follow_back }}</p>
             <p class="mt-3 text-[13px] font-medium">{{ not_following_back_title }}</p>
         </div>
         <div class="border-b border-l border-rule py-6 pl-4 sm:pl-6 lg:border-b-0">
-            <p class="figure font-serif text-[44px] sm:text-[56px]">{{ count_not_following_back }}</p>
+            <p data-count class="figure font-serif text-[44px] sm:text-[56px]">{{ count_not_following_back }}</p>
             <p class="mt-3 text-[13px] font-medium text-ink-2">{{ not_following_back_users_title }}</p>
         </div>
         <div class="border-b border-rule py-6 pr-4 sm:border-l sm:pl-6 lg:border-b-0">
-            <p class="figure font-serif text-[44px] sm:text-[56px]">{{ count_mutual_follow }}</p>
+            <p data-count class="figure font-serif text-[44px] sm:text-[56px]">{{ count_mutual_follow }}</p>
             <p class="mt-3 text-[13px] font-medium text-ink-2">{{ stats_mutual_label }}</p>
         </div>
         <div class="border-l border-rule py-6 pl-4 sm:border-l-0 sm:pl-0 lg:border-l lg:pl-6">
-            <p class="figure font-serif text-[44px] text-ink-2 sm:text-[56px]">{{ count_following_count }}</p>
+            <p data-count class="figure font-serif text-[44px] text-ink-2 sm:text-[56px]">{{ count_following_count }}</p>
             <p class="mt-3 text-[13px] font-medium text-ink-2">{{ stats_following_label }}</p>
         </div>
         <div class="col-span-2 border-t border-rule py-6 sm:col-span-1 sm:border-l sm:border-t-0 sm:pl-6">
-            <p class="figure font-serif text-[44px] text-ink-2 sm:text-[56px]">{{ count_followers_count }}</p>
+            <p data-count class="figure font-serif text-[44px] text-ink-2 sm:text-[56px]">{{ count_followers_count }}</p>
             <p class="mt-3 text-[13px] font-medium text-ink-2">{{ stats_followers_label }}</p>
         </div>
     </section>
 
     {# Ratios #}
-    <section class="grid grid-cols-2 gap-y-6 border-y border-rule py-6 sm:grid-cols-4">
+    <section style="--i:4" class="rise grid grid-cols-2 gap-y-6 border-y border-rule py-6 sm:grid-cols-4">
         <div>
             <p class="caption">{{ mutual_rate_label }}</p>
             <p class="mt-1 font-mono text-[17px]">{{ mutual_rate }}%</p>
-            <div class="mt-3 h-px w-full max-w-32 bg-rule"><div class="h-px bg-ink" style="width: {{ mutual_rate|unlocalize }}%"></div></div>
+            <div class="mt-3 h-px w-full max-w-32 bg-rule"><div class="meter-fill h-px bg-ink" style="width: {{ mutual_rate|unlocalize }}%"></div></div>
         </div>
         <div>
             <p class="caption">{{ follow_back_rate_label }}</p>
             <p class="mt-1 font-mono text-[17px]">{{ follow_back_rate }}%</p>
-            <div class="mt-3 h-px w-full max-w-32 bg-rule"><div class="h-px bg-ink" style="width: {{ follow_back_rate|unlocalize }}%"></div></div>
+            <div class="mt-3 h-px w-full max-w-32 bg-rule"><div class="meter-fill h-px bg-ink" style="width: {{ follow_back_rate|unlocalize }}%"></div></div>
         </div>
         <div>
             <p class="caption">{{ follow_ratio_label }}</p>
@@ -68,7 +68,7 @@
     </section>
 
     {# Lists #}
-    <section class="pt-16" data-tabs data-results>
+    <section class="pt-16" data-tabs data-results data-reveal>
         <div class="tabs overflow-x-auto [scrollbar-width:none]" role="tablist">
             <button type="button" class="tab" role="tab" id="tab-nfb" aria-controls="panel-nfb" aria-selected="true" data-tab="nfb">
                 <span class="size-1.5 rounded-full bg-accent"></span>{{ not_following_back_title }}<span class="tab-count">{{ count_non_follow_back }}</span>

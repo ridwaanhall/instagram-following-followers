@@ -151,23 +151,25 @@
   .figure { font-variant-numeric: lining-nums tabular-nums; @apply leading-none; }
 
   .link {
-    @apply text-ink underline decoration-rule-2 decoration-1 underline-offset-[5px] transition-colors duration-100 hover:decoration-accent;
+    @apply text-ink underline decoration-rule-2 decoration-1 underline-offset-[5px] transition-colors duration-150 hover:decoration-accent;
   }
 
   /* Buttons */
   .btn, .btn-accent, .btn-line, .btn-text {
-    @apply inline-flex min-h-11 items-center justify-center gap-2 rounded-lg px-4 text-[14px] font-medium whitespace-nowrap transition-colors duration-100 select-none disabled:pointer-events-none disabled:opacity-50;
+    @apply inline-flex h-9 items-center justify-center gap-1.5 rounded-lg px-3.5 text-[13.5px] font-medium whitespace-nowrap select-none disabled:pointer-events-none disabled:opacity-50;
+    transition: background-color var(--dur) var(--ease), border-color var(--dur) var(--ease), color var(--dur) var(--ease), transform var(--dur) var(--ease);
   }
-  :is(.btn, .btn-accent, .btn-line, .btn-text) svg { @apply size-4 shrink-0; }
+  :is(.btn, .btn-accent, .btn-line, .btn-text) svg { @apply size-[15px] shrink-0; transition: transform var(--dur) var(--ease); }
+  :is(.btn, .btn-accent, .btn-line, .btn-text):active { transform: translateY(1px); }
+  :is(.btn, .btn-accent, .btn-line, .btn-text, .nudge):hover .i-arrow { transform: translateX(2px); }
   .btn { @apply bg-ink text-on-ink hover:bg-ink/85; }
   .btn-accent { @apply bg-accent text-white hover:bg-accent/90; }
   .btn-line { @apply border border-rule-2 text-ink hover:border-ink; }
   .btn-text { @apply px-2 text-ink-2 hover:text-ink; }
-  .btn-sm { @apply min-h-9 px-3 text-[13px]; }
-  .icon-btn { @apply inline-grid size-9 place-items-center rounded-lg text-ink-2 transition-colors duration-100 hover:text-ink; }
+  .icon-btn { @apply inline-grid size-9 place-items-center rounded-lg text-ink-2 transition-colors duration-150 hover:text-ink; }
 
   /* Header nav */
-  .nav-link { @apply relative py-1 text-[14px] text-ink-2 transition-colors duration-100 hover:text-ink; }
+  .nav-link { @apply relative py-1 text-[14px] text-ink-2 transition-colors duration-150 hover:text-ink; }
   .nav-link[aria-current="page"] { @apply text-ink; }
   .nav-link[aria-current="page"]::after { content: ""; @apply absolute inset-x-0 -bottom-[22px] h-px bg-ink; }
 
@@ -177,15 +179,15 @@
     @apply absolute right-0 z-50 mt-3 w-52 rounded-lg border border-rule bg-bg py-1.5;
     box-shadow: 0 12px 32px -12px rgb(0 0 0 / 0.18);
   }
-  .menu-item { @apply flex w-full items-center justify-between gap-3 px-3.5 py-2 text-left text-[14px] text-ink-2 transition-colors duration-100 hover:text-ink; }
+  .menu-item { @apply flex w-full items-center justify-between gap-3 px-3.5 py-2 text-left text-[14px] text-ink-2 transition-colors duration-150 hover:text-ink; }
   .menu-item[aria-current="true"] { @apply text-ink; }
   .menu[open] > summary .chev { transform: rotate(180deg); }
-  .chev { @apply transition-transform duration-100; }
+  .chev { @apply transition-transform duration-150; }
 
   /* Tabs: text + underline on a hairline */
   .tabs { @apply flex gap-6 border-b border-rule; }
   .tab {
-    @apply relative -mb-px inline-flex items-center gap-2 border-b-2 border-transparent pb-3 text-[14px] font-medium whitespace-nowrap text-ink-3 transition-colors duration-100 hover:text-ink;
+    @apply relative -mb-px inline-flex items-center gap-2 border-b-2 border-transparent pb-3 text-[14px] font-medium whitespace-nowrap text-ink-3 transition-colors duration-150 hover:text-ink;
   }
   .tab[aria-selected="true"] { @apply border-ink text-ink; }
   .tab-count { @apply font-mono text-[12px] font-normal text-ink-3; }
@@ -193,13 +195,14 @@
   /* Form controls: the only boxes */
   .label { @apply mb-2 block text-[13px] font-medium text-ink; }
   .field, .area, .choice {
-    @apply block w-full rounded-lg border border-rule-2 bg-field px-3.5 py-2.5 text-[14px] text-ink placeholder:text-ink-3 transition-colors duration-100 hover:border-ink-3 focus:border-ink focus:outline-none;
+    @apply block w-full rounded-lg border border-rule-2 bg-field px-3.5 py-2.5 text-[14px] text-ink placeholder:text-ink-3 transition-colors duration-150 hover:border-ink-3 focus:border-ink focus:outline-none;
   }
+  .field, .choice { @apply h-9 py-0 text-[13.5px]; }
   .area { @apply min-h-40 resize-y font-mono text-[12.5px] leading-relaxed; }
   .choice { @apply appearance-none pr-9; }
 
   .drop {
-    @apply relative flex min-h-40 cursor-pointer flex-col items-start justify-end gap-1 rounded-xl border border-dashed border-rule-2 bg-field p-5 transition-colors duration-100 hover:border-ink;
+    @apply relative flex min-h-40 cursor-pointer flex-col items-start justify-end gap-1 rounded-xl border border-dashed border-rule-2 bg-field p-5 transition-colors duration-150 hover:border-ink;
   }
   .drop.is-dragging { @apply border-solid border-accent; }
   .drop.has-file { @apply border-solid border-ink; }
@@ -212,7 +215,7 @@
   /* Accordion */
   .qa > summary { @apply flex items-start justify-between gap-6 py-5 text-[17px] font-medium; }
   .qa[open] .plus-v { transform: scaleY(0); }
-  .plus-v { transform-origin: center; @apply transition-transform duration-100; }
+  .plus-v { transform-origin: center; @apply transition-transform duration-150; }
 
   /* Alert */
   .note { @apply flex items-start gap-3 border-l-2 border-accent py-1 pl-4 text-[14px] text-ink; }
@@ -224,10 +227,63 @@
   .spinner { @apply size-4 animate-spin rounded-full border-2 border-current border-r-transparent; }
 }
 
+/* ---------- Motion ----------
+ * One easing, three durations. Everything is transform/opacity, and all of it
+ * switches off under prefers-reduced-motion (see base layer).
+ */
+:root {
+  --ease: cubic-bezier(0.2, 0.7, 0.2, 1);
+  --dur: 150ms;
+}
+
+/* Theme switch: JS adds .theme-switching so no element runs its own colour
+   transition; the View Transition cross-fades the whole page at once. */
+.theme-switching *, .theme-switching *::before, .theme-switching *::after { transition: none !important; }
+::view-transition-old(root), ::view-transition-new(root) { animation-duration: 320ms; animation-timing-function: var(--ease); }
+
+/* Soft cross-fade between pages in browsers that support it. */
+@view-transition { navigation: auto; }
+
+@keyframes rise { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+@keyframes fade { from { opacity: 0; } to { opacity: 1; } }
+@keyframes pop { from { opacity: 0; transform: translateY(-4px) scale(0.98); } to { opacity: 1; transform: none; } }
+@keyframes grow { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+
+/* Page-load: hero pieces rise in sequence. */
+.rise { animation: rise 700ms var(--ease) both; animation-delay: calc(var(--i, 0) * 70ms); }
+
+/* Scroll reveal, only when JS is running (html.js), so no-JS never hides content. */
+.js [data-reveal] { opacity: 0; transform: translateY(16px); transition: opacity 700ms var(--ease), transform 700ms var(--ease); }
+.js [data-reveal].is-in { opacity: 1; transform: none; }
+.js [data-reveal] [data-reveal-item] { opacity: 0; transform: translateY(10px); transition: opacity 600ms var(--ease), transform 600ms var(--ease); transition-delay: calc(var(--i, 0) * 60ms + 120ms); }
+.js [data-reveal].is-in [data-reveal-item] { opacity: 1; transform: none; }
+
+/* Tabs, menus, drawers. */
+[role="tabpanel"]:not([hidden]) { animation: fade 240ms var(--ease); }
+.menu[open] .menu-panel { animation: pop 180ms var(--ease); transform-origin: top right; }
+#mobile-menu:not([hidden]) { animation: pop 220ms var(--ease); transform-origin: top; }
+.meter-fill { transform-origin: left; animation: grow 900ms var(--ease) 200ms both; }
+.drop [data-drop-name] { transition: color var(--dur) var(--ease); }
+.drop.has-file [data-drop-name] { color: var(--ink); }
+
+/* Accordion height animation where supported (Chrome 131+); instant elsewhere. */
+@supports (interpolate-size: allow-keywords) {
+  :root { interpolate-size: allow-keywords; }
+  .qa::details-content { height: 0; overflow: clip; transition: height 280ms var(--ease), content-visibility 280ms allow-discrete; }
+  .qa[open]::details-content { height: auto; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rise, [role="tabpanel"], .menu-panel, #mobile-menu, .meter-fill { animation: none !important; }
+  .js [data-reveal], .js [data-reveal] [data-reveal-item] { opacity: 1 !important; transform: none !important; }
+  ::view-transition-old(root), ::view-transition-new(root) { animation: none !important; }
+}
+
 /* ---------- Print ---------- */
 @media print {
   :root, :root[data-theme="dark"] { --bg: #fff; --ink: #000; --ink-2: #333; --ink-3: #666; --rule: #ccc; }
   .no-print, header, footer { display: none !important; }
   [data-panel] { display: block !important; margin-top: 2rem; }
   [data-list] { max-height: none !important; overflow: visible !important; }
+  [data-reveal], [data-reveal-item] { opacity: 1 !important; transform: none !important; }
 }

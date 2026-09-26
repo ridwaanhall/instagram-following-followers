@@ -45,7 +45,7 @@ PRIVACY_DATA = {
             "id": "who",
             "title": "Who operates this",
             "paragraphs": [
-                "igstats is operated by PT RoneAI Teknologi Internasional, an Indonesian company trading as RoneAI, domiciled in Boyolali Regency, Central Java.",
+                "igstats is operated by PT RoneAI Teknologi Internasional, an Indonesian company trading as RoneAI, based in Indonesia.",
                 "It is an independent project. It is not affiliated with, endorsed by, or operated by Meta or Instagram, and it does not connect to any Instagram account. It only reads a file that you request and download from Instagram yourself.",
                 "Indonesian Law No. 27 of 2022 on Personal Data Protection governs us, and this notice is written against it.",
             ],
@@ -142,8 +142,8 @@ PRIVACY_DATA = {
     ],
     "contact_title": "Contact",
     "contact_lines": [
-        "PT RoneAI Teknologi Internasional (RoneAI)",
-        "Boyolali Regency, Central Java, Indonesia",
+        "RoneAI",
+        "Indonesia",
         "General and data protection: hello@rone.dev",
         "Security reports: founder@rone.dev",
     ],

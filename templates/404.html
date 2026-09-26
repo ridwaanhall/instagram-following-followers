@@ -5,9 +5,9 @@
 
 {% block content %}
 <div class="wrap py-20 sm:py-28">
-    <p class="figure font-serif text-[96px] text-ink-3 sm:text-[160px]">404</p>
-    <h1 class="h2 mt-8">Page not found</h1>
-    <p class="lede mt-4">The page you are looking for does not exist or has moved.</p>
+    <p class="rise figure font-serif text-[96px] text-ink-3 sm:text-[160px]">404</p>
+    <h1 class="h2 rise mt-8" style="--i:1">Page not found</h1>
+    <p class="lede rise mt-4" style="--i:2">The page you are looking for does not exist or has moved.</p>
     <div class="mt-10 flex flex-wrap gap-3">
         <a href="{% url 'home' %}" class="btn">{{ ui_back_home }}</a>
         <a href="{% url 'tutorial' %}" class="btn-text">{{ nav_tutorial }}</a>
