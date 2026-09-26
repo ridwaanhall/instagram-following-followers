@@ -124,3 +124,5 @@ One easing (`cubic-bezier(0.2, 0.7, 0.2, 1)`), transform and opacity only.
 ## Controls
 
 Every button, input and select is 36 px tall (`h-9`), 13.5 px text.
+
+Scrollbars are thin (4 px thumb in a 10 px gutter, rounded, no arrow buttons), `rule-2` at rest and `ink-3` on hover, on a transparent track, in both themes.
