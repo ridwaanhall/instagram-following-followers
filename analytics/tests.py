@@ -84,7 +84,7 @@ class ViewTests(TestCase):
         response = self.client.post("/zip/", {"zip_file": upload})
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, "analytics/results.html")
-        self.assertContains(response, "@carol")
+        self.assertContains(response, "instagram.com/carol")
 
     def test_zip_missing_file(self):
         response = self.client.post("/zip/", {"zip_file": make_zip({"following.json": FOLLOWING})})
@@ -114,7 +114,7 @@ class ViewTests(TestCase):
             "followers_text": json.dumps(FOLLOWERS),
         })
         self.assertTemplateUsed(response, "analytics/results.html")
-        self.assertContains(response, "@dave")
+        self.assertContains(response, "instagram.com/dave")
 
 
 class LanguageSwitchTests(TestCase):

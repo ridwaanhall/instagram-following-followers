@@ -17,129 +17,94 @@
 {% endblock %}
 
 {% block content %}
-{# Hero #}
-<section class="relative overflow-hidden border-b border-line">
-    <div aria-hidden="true" class="pointer-events-none absolute inset-0 [background-image:radial-gradient(var(--line)_1px,transparent_1px)] [background-size:22px_22px] [mask-image:linear-gradient(to_bottom,black,transparent_85%)]"></div>
-    <div class="container-page relative grid items-center gap-10 py-12 sm:py-16 lg:grid-cols-[1fr_1.05fr] lg:gap-14 lg:py-20 [&>*]:min-w-0">
-        <div>
-            <p class="eyebrow"><span class="eyebrow-dot"></span>{{ hero_title }}</p>
-            <h1 class="mt-5 text-[40px] font-bold leading-[1.02] sm:text-[56px] lg:text-[64px]">{{ ui_hero_headline }}</h1>
-            <p class="mt-5 max-w-xl text-[17px] leading-relaxed text-muted sm:text-lg">{{ ui_hero_lede }}</p>
-            <ul class="mt-8 flex flex-wrap gap-x-6 gap-y-3 text-sm font-medium">
-                <li class="inline-flex items-center gap-2">{% include "partials/icon.html" with name="shield" cls="size-[18px] text-sea" %}{{ feature_private }}</li>
-                <li class="inline-flex items-center gap-2">{% include "partials/icon.html" with name="lock" cls="size-[18px] text-sea" %}{{ feature_no_login }}</li>
-                <li class="inline-flex items-center gap-2">{% include "partials/icon.html" with name="check" cls="size-[18px] text-sea" %}{{ feature_free }}</li>
+<div class="wrap">
+    {# Hero: headline and the analyzer #}
+    <section class="grid gap-12 pb-20 pt-12 sm:pt-16 lg:grid-cols-12 lg:gap-8 lg:pb-28 lg:pt-24 [&>*]:min-w-0">
+        <div class="lg:col-span-6">
+            <p class="kicker">{{ hero_title }}</p>
+            <h1 class="display mt-6">{{ ui_hero_headline }}</h1>
+            <p class="lede mt-6">{{ ui_hero_lede }}</p>
+            <ul class="mt-10 flex flex-wrap gap-x-6 gap-y-2 text-[14px] text-ink-2">
+                <li class="inline-flex items-center gap-2">{% include "partials/icon.html" with name="check" cls="size-4 text-ink" %}{{ feature_private }}</li>
+                <li class="inline-flex items-center gap-2">{% include "partials/icon.html" with name="check" cls="size-4 text-ink" %}{{ feature_no_login }}</li>
+                <li class="inline-flex items-center gap-2">{% include "partials/icon.html" with name="check" cls="size-4 text-ink" %}{{ feature_free }}</li>
             </ul>
         </div>
-        <div id="analyze" class="scroll-mt-24">
+        <div id="analyze" class="scroll-mt-24 lg:col-span-5 lg:col-start-8 lg:pt-2">
             {% include "partials/analyzer.html" with active="zip" %}
-            <p class="mt-3 text-center text-[13px] text-muted">
-                <a href="{% url 'tutorial' %}" class="link">{{ cta_button_tutorial }}</a>
-            </p>
         </div>
-    </div>
-</section>
+    </section>
 
-{# What you get #}
-<section class="container-page py-20 sm:py-24">
-    <div class="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
-        <figure class="card-flat order-2 p-5 sm:p-8 lg:order-1">
-            <div class="mb-3 flex justify-between px-[6%] font-mono text-[11px] font-semibold uppercase tracking-[0.12em] text-muted">
-                <span>{{ rs.stats_following_label }}</span><span>{{ rs.stats_followers_label }}</span>
-            </div>
-            <div class="relative">
-                <svg viewBox="0 0 400 240" class="w-full" aria-hidden="true">
-                    <circle cx="140" cy="120" r="110" fill="var(--signal-soft)" stroke="var(--signal)" stroke-width="1.75"/>
-                    <circle cx="260" cy="120" r="110" fill="var(--azure-soft)" stroke="var(--azure)" stroke-width="1.75"/>
-                    <path d="M200 27.8a110 110 0 0 1 0 184.4 110 110 0 0 1 0-184.4z" fill="var(--sea-soft)" stroke="var(--sea)" stroke-width="1.75"/>
-                </svg>
-                <div class="absolute inset-0 grid grid-cols-[1fr_0.75fr_1fr] items-center px-[6%] text-center text-[11px] font-semibold leading-tight sm:text-[13px]">
-                    <span class="px-1 text-signal-ink">{{ rs.not_following_back_title }}</span>
-                    <span class="text-sea">{{ rs.mutual_follow_title }}</span>
-                    <span class="px-1 text-azure">{{ rs.not_following_back_users_title }}</span>
-                </div>
-            </div>
-            <figcaption class="sr-only">{{ features_title }}</figcaption>
-        </figure>
-        <div class="order-1 lg:order-2">
-            <p class="eyebrow"><span class="eyebrow-dot"></span>{{ features_title }}</p>
-            <h2 class="mt-4 text-3xl font-bold sm:text-[40px]">{{ cta_description }}</h2>
-            <dl class="mt-10 grid gap-x-8 gap-y-7 sm:grid-cols-2">
-                <div>
-                    <dt class="flex items-center gap-2.5 font-semibold"><span class="grid size-8 place-items-center rounded-lg bg-signal-soft text-signal-ink">{% include "partials/icon.html" with name="user-x" %}</span>{{ features.non_followers.title }}</dt>
-                    <dd class="mt-2 text-sm text-muted">{{ features.non_followers.description }}</dd>
-                </div>
-                <div>
-                    <dt class="flex items-center gap-2.5 font-semibold"><span class="grid size-8 place-items-center rounded-lg bg-sea-soft text-sea">{% include "partials/icon.html" with name="venn" %}</span>{{ features.mutual_followers.title }}</dt>
-                    <dd class="mt-2 text-sm text-muted">{{ features.mutual_followers.description }}</dd>
-                </div>
-                <div>
-                    <dt class="flex items-center gap-2.5 font-semibold"><span class="grid size-8 place-items-center rounded-lg bg-azure-soft text-azure">{% include "partials/icon.html" with name="clock" %}</span>{{ features.timeline_data.title }}</dt>
-                    <dd class="mt-2 text-sm text-muted">{{ features.timeline_data.description }}</dd>
-                </div>
-                <div>
-                    <dt class="flex items-center gap-2.5 font-semibold"><span class="grid size-8 place-items-center rounded-lg bg-sunken text-ink">{% include "partials/icon.html" with name="zap" %}</span>{{ features.analytics.title }}</dt>
-                    <dd class="mt-2 text-sm text-muted">{{ features.analytics.description }}</dd>
-                </div>
-            </dl>
+    {# What you get #}
+    <section class="section grid gap-10 lg:grid-cols-12 lg:gap-8">
+        <div class="lg:col-span-4">
+            <p class="kicker">{{ features_title }}</p>
+            <h2 class="h2 mt-5">{{ cta_description }}</h2>
         </div>
-    </div>
-</section>
+        <ol class="rows lg:col-span-7 lg:col-start-6">
+            <li class="grid grid-cols-[3rem_1fr] items-baseline gap-x-4 py-6 sm:grid-cols-[4rem_1fr_1fr] sm:gap-x-6">
+                <span class="figure font-serif text-[28px] text-accent">01</span>
+                <h3 class="h3">{{ rs.not_following_back_title }}</h3>
+                <p class="col-start-2 mt-1 text-[15px] text-ink-2 sm:col-start-3 sm:mt-0">{{ rs.not_following_back_subtitle }}</p>
+            </li>
+            <li class="grid grid-cols-[3rem_1fr] items-baseline gap-x-4 py-6 sm:grid-cols-[4rem_1fr_1fr] sm:gap-x-6">
+                <span class="figure font-serif text-[28px] text-ink-3">02</span>
+                <h3 class="h3">{{ rs.not_following_back_users_title }}</h3>
+                <p class="col-start-2 mt-1 text-[15px] text-ink-2 sm:col-start-3 sm:mt-0">{{ rs.not_following_back_users_subtitle }}</p>
+            </li>
+            <li class="grid grid-cols-[3rem_1fr] items-baseline gap-x-4 py-6 sm:grid-cols-[4rem_1fr_1fr] sm:gap-x-6">
+                <span class="figure font-serif text-[28px] text-ink-3">03</span>
+                <h3 class="h3">{{ rs.mutual_follow_title }}</h3>
+                <p class="col-start-2 mt-1 text-[15px] text-ink-2 sm:col-start-3 sm:mt-0">{{ rs.mutual_follow_subtitle }}</p>
+            </li>
+            <li class="grid grid-cols-[3rem_1fr] items-baseline gap-x-4 py-6 sm:grid-cols-[4rem_1fr_1fr] sm:gap-x-6">
+                <span class="figure font-serif text-[28px] text-ink-3">04</span>
+                <h3 class="h3">{{ features.timeline_data.title }}</h3>
+                <p class="col-start-2 mt-1 text-[15px] text-ink-2 sm:col-start-3 sm:mt-0">{{ features.timeline_data.description }}</p>
+            </li>
+        </ol>
+    </section>
 
-{# How it works #}
-<section class="border-y border-line bg-surface">
-    <div class="container-page py-20 sm:py-24">
-        <p class="eyebrow"><span class="eyebrow-dot"></span>{{ how_it_works_title }}</p>
-        <ol class="mt-10 grid gap-px overflow-hidden rounded-[var(--radius-card)] border border-line bg-line sm:grid-cols-2 lg:grid-cols-4">
+    {# How it works #}
+    <section class="section">
+        <p class="kicker">{{ how_it_works_title }}</p>
+        <ol class="mt-10 grid gap-x-8 gap-y-10 sm:grid-cols-2 lg:grid-cols-4">
             {% for step in how_it_works_steps %}
-            <li class="flex flex-col bg-surface p-6 sm:p-7">
-                <span class="font-mono text-sm font-semibold text-signal">0{{ forloop.counter }}</span>
-                <h3 class="mt-6 text-xl font-semibold">{{ step.title }}</h3>
-                <p class="mt-2 text-sm leading-relaxed text-muted">{{ step.description }}</p>
+            <li class="border-t border-ink pt-5">
+                <span class="figure font-serif text-[40px]">{{ forloop.counter }}</span>
+                <h3 class="h3 mt-6">{{ step.title }}</h3>
+                <p class="mt-2 text-[15px] leading-relaxed text-ink-2">{{ step.description }}</p>
             </li>
             {% endfor %}
         </ol>
-    </div>
-</section>
+    </section>
 
-{# FAQ #}
-<section class="container-page py-20 sm:py-24">
-    <div class="grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:gap-16">
-        <div>
-            <p class="eyebrow"><span class="eyebrow-dot"></span>FAQ</p>
-            <h2 class="mt-4 text-3xl font-bold sm:text-[40px]">{{ faq_title }}</h2>
-            <a href="{% url 'privacy' %}" class="btn-secondary mt-8">
-                {% include "partials/icon.html" with name="shield" %}{{ footer_privacy }}
-            </a>
+    {# FAQ #}
+    <section class="section grid gap-10 lg:grid-cols-12 lg:gap-8">
+        <div class="lg:col-span-4">
+            <h2 class="h2">{{ faq_title }}</h2>
+            <p class="mt-5 text-[15px] text-ink-2"><a href="{% url 'privacy' %}" class="link">{{ footer_privacy }}</a></p>
         </div>
-        <div class="border-t border-line">
+        <div class="rows lg:col-span-7 lg:col-start-6">
             {% for item in faq %}
-            <details class="accordion group" {% if forloop.first %}open{% endif %}>
+            <details class="qa" {% if forloop.first %}open{% endif %}>
                 <summary>
                     <span>{{ item.question }}</span>
-                    <svg class="size-5 shrink-0 text-muted" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14"/><path class="plus-v" d="M12 5v14"/></svg>
+                    <svg class="mt-1 size-4 shrink-0 text-ink-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M4 12h16"/><path class="plus-v" d="M12 4v16"/></svg>
                 </summary>
-                <p class="-mt-1 pb-6 pr-8 text-[15px] leading-relaxed text-muted">{{ item.answer }}</p>
+                <p class="-mt-1 max-w-[60ch] pb-6 text-[15px] leading-relaxed text-ink-2">{{ item.answer }}</p>
             </details>
             {% endfor %}
         </div>
-    </div>
-</section>
+    </section>
 
-{# CTA #}
-<section class="container-page">
-    <div class="relative overflow-hidden rounded-[24px] bg-ink px-6 py-14 text-on-ink sm:px-12 sm:py-16">
-        <div aria-hidden="true" class="absolute -right-24 -top-24 opacity-25">
-            {% include "partials/logo.html" with logo_cls="h-[280px] w-[360px] text-on-ink/15" %}
+    {# Close #}
+    <section class="section flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
+        <h2 class="h2 max-w-[18ch]">{{ cta_title }}</h2>
+        <div class="flex flex-wrap items-center gap-3">
+            <a href="{% url 'zip_upload' %}" class="btn">{{ cta_button_start }}{% include "partials/icon.html" with name="arrow-right" %}</a>
+            <a href="{% url 'tutorial' %}" class="btn-text">{{ cta_button_tutorial }}</a>
         </div>
-        <div class="relative max-w-xl">
-            <h2 class="text-3xl font-bold text-on-ink sm:text-4xl">{{ cta_title }}</h2>
-            <p class="mt-4 text-on-ink/70">{{ cta_description }}</p>
-            <div class="mt-8 flex flex-col gap-3 sm:flex-row">
-                <a href="{% url 'zip_upload' %}" class="btn-signal">{{ cta_button_start }}{% include "partials/icon.html" with name="arrow-right" %}</a>
-                <a href="{% url 'tutorial' %}" class="btn border border-on-ink/25 text-on-ink hover:border-on-ink">{% include "partials/icon.html" with name="book" %}{{ cta_button_tutorial }}</a>
-            </div>
-        </div>
-    </div>
-</section>
+    </section>
+</div>
 {% endblock %}

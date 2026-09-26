@@ -1,77 +1,111 @@
-# igstats design brief
+# igstats design brief (v3)
 
-This is the brief the interface is built against. Read it before touching a
-template or `assets/css/app.css`.
+Read this before touching a template, `assets/css/app.css`, or `staticfiles/js/app.js`.
 
 ## The prompt
 
-> Redesign igstats, a free Django tool that reads a person's own Instagram data
-> export and tells them who doesn't follow them back, who they don't follow
-> back, and who is mutual. The visitor arrives with one job: get the list. The
-> interface should feel like a precise, trustworthy instrument: calm paper
-> surfaces, ink-black type, one warm signal colour, numbers set in a monospace.
-> No purple-to-pink gradients, no glassmorphism, no bouncing icons, no emoji,
-> no arrow characters: every glyph is an inline SVG. Put the analyzer in the
-> hero so a returning visitor can drop a ZIP without scrolling. Turn the results
-> page into a working tool: stat row, ratios, and one tabbed list with search,
-> sort, copy and CSV export. Every page works at 360 px, has visible focus
-> states, supports light and dark, and prints cleanly.
+> Design igstats as a quiet, typographic tool, the way a Swiss designer would
+> set a newspaper page: one background colour, a strict grid, whitespace as the
+> main separator, 1 px hairlines only where whitespace is not enough. No cards,
+> no shadows, no gradients, no glass, no rounded pill blobs, no icon-in-a-circle
+> feature grids, no emoji, no arrow characters. Every icon is a thin inline SVG.
+>
+> Type does the work. A literary serif (Newsreader) for headlines and big
+> numbers, a sturdy grotesk (Schibsted Grotesk) for everything else, a mono
+> (Geist Mono) only for usernames, file names and figures in tables. Colour is
+> ink on paper plus one accent, used only for the primary action and for the
+> one number people come for: who does not follow them back.
+>
+> The visitor has one job: drop an export, read three lists. The analyzer is
+> the hero. The results page reads like a printed report: a row of large
+> figures separated by hairlines, a sentence of ratios, then the lists as ruled
+> rows with search, sort, copy and CSV. Every page works at 360 px, in light and
+> dark, with visible focus rings, and prints cleanly.
 
-## Principles
+## Anti-slop checklist
 
-1. **The tool is the page.** The analyzer (ZIP / JSON files / paste) is one
-   component with three tabs. It sits in the home hero and on each method page;
-   each tab posts to its own endpoint, so the backend is unchanged.
-2. **Honest copy.** Uploads are processed on the server in memory and never
-   stored (see `/privacy/`). Never claim "processed in your browser".
-3. **One accent, three semantic colours.** Colour carries meaning in results
-   only: signal = don't follow back, sea = mutual, ink-blue = fans.
-4. **Quiet motion.** 150 ms colour/transform transitions; respects
-   `prefers-reduced-motion`.
+Reject a change if it adds any of these:
 
-## Tokens
+- A bordered or shadowed box around a section or a group of text (cards).
+- A background colour change to separate sections (the page is one colour).
+- Gradients, blurred blobs, glows, glassmorphism, dotted backgrounds.
+- Icons inside tinted circles or squares; three-column "feature" grids of them.
+- Emoji or arrow glyphs in copy or markup.
+- Centered paragraphs longer than one line. Text is left-aligned.
+- More than one accent colour on a page outside the results data.
+- Bounce, pulse or scale-on-hover animations.
+
+Allowed boxes: form controls (inputs, the drop area, buttons), the dropdown
+menu, and tables. These are controls, not decoration.
+
+## Grid and spacing
+
+- Container 72rem, gutter 20 px mobile / 32 px desktop.
+- 12-column grid on desktop; content usually spans 7, asides 4 with 1 gap.
+- Spacing scale (px): 4, 8, 12, 16, 24, 32, 48, 64, 96, 128.
+  Section rhythm: 96 desktop / 64 mobile, separated by a hairline rule.
+- Measure: body copy max 64ch, lede max 52ch.
+
+## Colour
 
 | Token | Light | Dark | Use |
 | --- | --- | --- | --- |
-| `paper` | `#F6F4EF` | `#12110F` | page background |
-| `surface` | `#FFFFFF` | `#1B1A17` | cards, inputs |
-| `sunken` | `#EFECE5` | `#0D0C0B` | wells, table heads |
-| `line` | `#E2DED4` | `#2C2A26` | borders |
-| `ink` | `#16140F` | `#F2EFE8` | primary text |
-| `muted` | `#6B665C` | `#A39E93` | secondary text |
-| `signal` | `#E0482B` | `#FF6A4D` | brand accent, "don't follow back" |
-| `sea` | `#127A5B` | `#3CC194` | mutual, success |
-| `azure` | `#2F54D6` | `#7C95FF` | fans, info |
+| `bg` | `#FAFAF7` | `#111110` | the only background |
+| `ink` | `#111110` | `#EDEDE8` | text, primary button |
+| `ink-2` | `#55544F` | `#A3A29B` | secondary text |
+| `ink-3` | `#8C8B84` | `#6E6D67` | captions, placeholders |
+| `rule` | `#E4E3DC` | `#2A2A27` | hairlines |
+| `rule-2` | `#CFCEC6` | `#3A3A36` | control borders |
+| `field` | `#F2F1EC` | `#1A1A18` | inside inputs and the drop area only |
+| `accent` | `#D23F1F` | `#F2643F` | primary action, "not following back" |
 
-Radius: 10 px controls, 16 px cards. Shadows: one soft level only.
+Results use ink for mutuals and followers; the accent is reserved for the
+"not following back" figure and its tab marker.
 
 ## Type
 
-- Display: **Bricolage Grotesque** (variable, self-hosted) for headings.
-- Text: **Hanken Grotesk** (variable, self-hosted) for body and UI.
-- Numbers and usernames: **JetBrains Mono** (variable, self-hosted).
-- CJK falls back to the system stack. No third-party font host (the privacy
-  notice promises none).
+| Role | Font | Size / leading |
+| --- | --- | --- |
+| Display | Newsreader 400, optical size on, -0.02em | 44/1.02 mobile, 72/1.0 desktop |
+| H2 | Newsreader 400 | 30/1.1 mobile, 40/1.05 desktop |
+| H3 | Schibsted Grotesk 600 | 17/1.35 |
+| Body | Schibsted Grotesk 400 | 16/1.6 |
+| Small / label | Schibsted Grotesk 500 | 13/1.4 |
+| Kicker | Schibsted Grotesk 600, uppercase, +0.08em | 11/1 |
+| Mono | Geist Mono 400-500 | 13-14 |
+| Figures | Newsreader 400, lining + tabular nums | 40-64 |
 
-Scale: 12 / 14 / 16 / 18 / 22 / 28 / 40 / 56. Headings use tight tracking
-(-0.02em), body 1.6 line-height.
+All fonts self-hosted (the privacy notice promises no third-party hosts). CJK
+falls back to system fonts with no negative tracking.
 
 ## Components
 
-Buttons (`btn-primary`, `btn-secondary`, `btn-ghost`), inputs and dropzones,
-tabs (`role=tablist`, arrow-key navigation), dropdown (language menu, built on
-`<details>`), accordion (FAQ, `<details>`), stat tiles, alert/toast for Django
-messages, list rows with avatar initial, empty states, stepper (guide), sticky
-table of contents (privacy). All are defined in `assets/css/app.css` under
-`@layer components`.
+- **Header**: wordmark "igstats" in Newsreader, text nav links, language menu,
+  theme toggle. Hairline under the header, same background.
+- **Links in text**: ink with a 1 px underline in `rule-2`, accent on hover.
+- **Buttons**: `btn` (solid ink, 44 px tall, 8 px radius), `btn-accent`,
+  `btn-line` (1 px border), `btn-text` (no border). Icons 16 px, 1.5 stroke.
+- **Tabs**: text tabs with a 2 px underline on the selected one; sit on a hairline.
+- **Drop area**: dashed `rule-2` border, `field` fill, 12 px radius; turns
+  solid ink when a file is chosen.
+- **Input / textarea / select**: `field` fill, `rule-2` border, ink border on focus.
+- **Rows**: hairline-separated list rows; no avatars.
+- **Figures**: big serif number over a small label, separated by vertical hairlines.
+- **Accordion**: question rows on hairlines with a plus that turns into a minus.
+- **Dropdown**: the one floating surface: `bg`, `rule` border, soft shadow.
+- **Alert**: accent left rule and text, no fill.
 
-## Pages
+## Page map
 
-| URL | Purpose |
+| URL | Layout |
 | --- | --- |
-| `/` | Hero + analyzer, how it works, what you get, FAQ |
-| `/zip/`, `/upload/`, `/text/` | Analyzer with that method's tab open + method-specific help |
-| results (POST) | Dashboard: stats, ratios, 30-day activity, tabbed lists |
-| `/tutorial/` | Export guide as a stepper with notes sidebar |
-| `/privacy/` | Long-form notice with sticky contents |
-| 404 / 500 | Short, useful, on-brand |
+| `/` | Display headline + lede (7 cols) beside the analyzer (5 cols). Then "What you get": three ruled rows with a serif number, title and sentence. Then "How it works": four numbered columns on a top rule. Then FAQ as a ruled accordion. Footer. |
+| `/zip/`, `/upload/`, `/text/` | Title + lede, then analyzer (7 cols) and the method's notes as plain text (4 cols). Tabs navigate between the three URLs. |
+| results | Report title, actions on the right. Figure row (5 figures). Ratio sentence line and 30-day line. Ruled tabs, toolbar, ruled rows. |
+| `/tutorial/` | Numbered steps as a ruled ordered list (7 cols), notes/files/tips as plain text sections (4 cols), then links to the three methods as a ruled list. |
+| `/privacy/` | Contents column (3 cols) and the notice (8 cols), numbered H2s, table with hairlines. |
+| 404 / 500 | Large serif code, one sentence, two buttons, left-aligned. |
+
+## Motion
+
+Colour and underline transitions only, 120 ms. Respect `prefers-reduced-motion`.

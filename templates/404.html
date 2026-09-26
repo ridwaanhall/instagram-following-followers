@@ -4,16 +4,13 @@
 {% block meta_robots %}noindex, follow{% endblock %}
 
 {% block content %}
-<div class="container-page grid min-h-[60vh] place-items-center py-16">
-    <div class="max-w-lg text-center">
-        <p class="font-mono text-[72px] font-semibold leading-none tracking-tight sm:text-[96px]">4<span class="text-signal">0</span>4</p>
-        <h1 class="mt-6 text-3xl font-bold">Page not found</h1>
-        <p class="mt-3 text-muted">The page you are looking for does not exist or has moved.</p>
-        <div class="mt-8 flex flex-col justify-center gap-2 sm:flex-row">
-            <a href="{% url 'home' %}" class="btn-primary">{% include "partials/icon.html" with name="arrow-left" %}{{ ui_back_home }}</a>
-            <a href="{% url 'zip_upload' %}" class="btn-secondary">{{ ui_analyze }}</a>
-            <a href="{% url 'tutorial' %}" class="btn-ghost">{{ nav_tutorial }}</a>
-        </div>
+<div class="wrap py-20 sm:py-28">
+    <p class="figure font-serif text-[96px] text-ink-3 sm:text-[160px]">404</p>
+    <h1 class="h2 mt-8">Page not found</h1>
+    <p class="lede mt-4">The page you are looking for does not exist or has moved.</p>
+    <div class="mt-10 flex flex-wrap gap-3">
+        <a href="{% url 'home' %}" class="btn">{{ ui_back_home }}</a>
+        <a href="{% url 'tutorial' %}" class="btn-text">{{ nav_tutorial }}</a>
     </div>
 </div>
 {% endblock %}

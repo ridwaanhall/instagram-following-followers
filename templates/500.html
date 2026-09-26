@@ -4,15 +4,13 @@
 {% block meta_robots %}noindex, follow{% endblock %}
 
 {% block content %}
-<div class="container-page grid min-h-[60vh] place-items-center py-16">
-    <div class="max-w-lg text-center">
-        <p class="font-mono text-[72px] font-semibold leading-none tracking-tight sm:text-[96px]">5<span class="text-signal">0</span>0</p>
-        <h1 class="mt-6 text-3xl font-bold">Something broke on our side</h1>
-        <p class="mt-3 text-muted">Nothing you uploaded was kept. Please try again in a moment.</p>
-        <div class="mt-8 flex flex-col justify-center gap-2 sm:flex-row">
-            <a href="{% url 'home' %}" class="btn-primary">{% include "partials/icon.html" with name="arrow-left" %}{{ ui_back_home }}</a>
-            <button type="button" class="btn-secondary" onclick="window.location.reload()">{% include "partials/icon.html" with name="refresh" %}{{ ui_try_again }}</button>
-        </div>
+<div class="wrap py-20 sm:py-28">
+    <p class="figure font-serif text-[96px] text-ink-3 sm:text-[160px]">500</p>
+    <h1 class="h2 mt-8">Something broke on our side</h1>
+    <p class="lede mt-4">Nothing you uploaded was kept. Please try again in a moment.</p>
+    <div class="mt-10 flex flex-wrap gap-3">
+        <a href="{% url 'home' %}" class="btn">{{ ui_back_home }}</a>
+        <button type="button" class="btn-text" onclick="window.location.reload()">{% include "partials/icon.html" with name="refresh" %}{{ ui_try_again }}</button>
     </div>
 </div>
 {% endblock %}

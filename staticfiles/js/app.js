@@ -95,7 +95,7 @@
       let state = "waiting";
       if (value) { try { JSON.parse(value); state = "valid"; } catch (e) { state = "invalid"; } }
       text.textContent = status.dataset[state];
-      dot.className = "size-1.5 rounded-full " + { waiting: "bg-faint", valid: "bg-sea", invalid: "bg-signal" }[state];
+      dot.className = "size-1.5 rounded-full " + { waiting: "bg-ink-3", valid: "bg-ink", invalid: "bg-accent" }[state];
       area.setAttribute("aria-invalid", String(state === "invalid"));
     };
     area.addEventListener("input", check);
@@ -180,7 +180,7 @@
       const icon = $("[data-copy-icon]", copyBtn);
       const originalIcon = icon.innerHTML;
       label.textContent = copyBtn.dataset.copiedLabel;
-      icon.innerHTML = '<svg class="size-4 text-sea" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>';
+      icon.innerHTML = '<svg class="size-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>';
       setTimeout(() => { label.textContent = original; icon.innerHTML = originalIcon; }, 1600);
     });
 
@@ -209,9 +209,9 @@
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (!entry.isIntersecting) return;
-        tocLinks.forEach((a) => a.classList.remove("!border-signal", "!text-ink", "font-semibold"));
+        tocLinks.forEach((a) => a.classList.remove("!text-ink"));
         const link = byId[entry.target.id];
-        if (link) link.classList.add("!border-signal", "!text-ink", "font-semibold");
+        if (link) link.classList.add("!text-ink");
       });
     }, { rootMargin: "-20% 0px -70% 0px" });
     $$("[data-toc-section]").forEach((s) => observer.observe(s));

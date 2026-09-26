@@ -36,77 +36,69 @@
 {% endblock %}
 
 {% block content %}
-<div class="container-page py-10 sm:py-14">
-    <nav aria-label="Breadcrumb" class="mb-6 flex items-center gap-1.5 text-[13px] text-muted">
-        <a href="{% url 'home' %}" class="hover:text-ink">{{ nav_home }}</a>
-        {% include "partials/icon.html" with name="chevron-right" cls="size-3.5 text-faint" %}
-        <span class="text-ink" aria-current="page">{{ nav_tutorial }}</span>
-    </nav>
-    <div class="max-w-2xl">
-        <p class="eyebrow"><span class="eyebrow-dot"></span>{{ nav_tutorial }}</p>
-        <h1 class="mt-4 text-4xl font-bold sm:text-5xl">{{ header_title }}</h1>
-        <p class="mt-4 text-[17px] text-muted">{{ header_description }}</p>
-    </div>
+<div class="wrap">
+    <section class="pb-10 pt-12 sm:pt-16">
+        <nav aria-label="Breadcrumb" class="caption flex items-center gap-1.5">
+            <a href="{% url 'home' %}" class="hover:text-ink">{{ nav_home }}</a>
+            {% include "partials/icon.html" with name="chevron-right" cls="size-3" %}
+            <span class="text-ink-2" aria-current="page">{{ nav_tutorial }}</span>
+        </nav>
+        <h1 class="display mt-6 max-w-[16ch]">{{ header_title }}</h1>
+        <p class="lede mt-5">{{ header_description }}</p>
+    </section>
 
-    <div class="mt-12 grid items-start gap-10 lg:grid-cols-[1.6fr_1fr] lg:gap-14 [&>*]:min-w-0">
-        <section aria-labelledby="steps-title">
-            <h2 id="steps-title" class="text-2xl font-semibold">{{ steps_title }}</h2>
-            <ol class="mt-8">
+    <section class="grid gap-14 border-t border-rule pt-10 lg:grid-cols-12 lg:gap-8 [&>*]:min-w-0">
+        <div class="lg:col-span-7">
+            <p class="kicker">{{ steps_title }}</p>
+            <ol class="rows mt-6">
                 {% for step in steps %}
-                <li id="step-{{ forloop.counter }}" class="relative flex scroll-mt-24 gap-4 pb-7 last:pb-0 sm:gap-5">
-                    {% if not forloop.last %}<span aria-hidden="true" class="absolute left-[17px] top-10 bottom-1 w-px bg-line"></span>{% endif %}
-                    {% if forloop.last %}
-                    <span class="relative z-10 grid size-9 shrink-0 place-items-center rounded-full bg-sea text-white">{% include "partials/icon.html" with name="check" stroke="2.25" %}</span>
-                    {% else %}
-                    <span class="relative z-10 grid size-9 shrink-0 place-items-center rounded-full border border-line-strong bg-surface font-mono text-[13px] font-semibold">{{ forloop.counter }}</span>
-                    {% endif %}
-                    <div class="pt-1.5">
-                        <p class="font-mono text-[11px] uppercase tracking-[0.14em] text-faint">{{ ui_step }} {{ forloop.counter }}</p>
-                        <p class="mt-1 text-[16px] {% if forloop.last %}font-semibold{% endif %}">{{ step }}</p>
-                        {% if forloop.last %}<p class="mt-2 text-sm text-sea">{{ completion_note }}</p>{% endif %}
+                <li id="step-{{ forloop.counter }}" class="grid scroll-mt-24 grid-cols-[2.5rem_1fr] gap-x-4 py-5">
+                    <span class="figure font-serif text-[24px] {% if forloop.last %}text-accent{% else %}text-ink-3{% endif %}">{{ forloop.counter }}</span>
+                    <div>
+                        <p class="text-[16px] {% if forloop.last %}font-medium{% endif %}">{{ step }}</p>
+                        {% if forloop.last %}<p class="caption mt-2">{{ completion_note }}</p>{% endif %}
                     </div>
                 </li>
                 {% endfor %}
             </ol>
-        </section>
+        </div>
 
-        <aside class="space-y-4 lg:sticky lg:top-24">
-            <div class="card-flat border-signal/40 p-5 sm:p-6">
-                <h2 class="flex items-center gap-2 text-lg font-semibold"><span class="text-signal">{% include "partials/icon.html" with name="alert" cls="size-5" %}</span>{{ important_notes_title }}</h2>
-                <ul class="mt-4 space-y-3 text-sm text-muted">
-                    {% for note in important_notes %}<li class="flex gap-2.5"><span class="mt-2 size-1 shrink-0 rounded-full bg-muted"></span>{{ note }}</li>{% endfor %}
+        <aside class="space-y-12 lg:col-span-4 lg:col-start-9">
+            <div>
+                <h2 class="h3">{{ important_notes_title }}</h2>
+                <ul class="mt-4 space-y-3 text-[15px] text-ink-2">
+                    {% for note in important_notes %}<li class="flex gap-3"><span class="mt-[11px] h-px w-3 shrink-0 bg-ink-3"></span>{{ note }}</li>{% endfor %}
                 </ul>
             </div>
-            <div class="card-flat p-5 sm:p-6">
-                <h2 class="flex items-center gap-2 text-lg font-semibold"><span class="text-azure">{% include "partials/icon.html" with name="zip" cls="size-5" %}</span>{{ files_section_title }}</h2>
-                <p class="mt-2 text-sm text-muted">{{ files_description }}</p>
-                <ul class="mt-4 space-y-2 text-sm">
-                    {% for file in files_list %}<li class="well flex gap-2.5 px-3 py-2.5 text-muted"><span class="mt-0.5 text-ink">{% include "partials/icon.html" with name="file" %}</span><span>{{ file }}</span></li>{% endfor %}
+            <div>
+                <h2 class="h3">{{ files_section_title }}</h2>
+                <p class="mt-3 text-[15px] text-ink-2">{{ files_description }}</p>
+                <ul class="rows mt-4 text-[14px] text-ink-2">
+                    {% for file in files_list %}<li class="py-3">{{ file }}</li>{% endfor %}
                 </ul>
             </div>
-            <div class="card-flat p-5 sm:p-6">
-                <h2 class="flex items-center gap-2 text-lg font-semibold"><span class="text-sea">{% include "partials/icon.html" with name="lightbulb" cls="size-5" %}</span>{{ tips_title }}</h2>
-                <ul class="mt-4 space-y-3 text-sm text-muted">
-                    {% for tip in tips %}<li class="flex gap-2.5"><span class="mt-0.5 shrink-0 text-sea">{% include "partials/icon.html" with name="check" %}</span>{{ tip }}</li>{% endfor %}
+            <div>
+                <h2 class="h3">{{ tips_title }}</h2>
+                <ul class="mt-4 space-y-3 text-[15px] text-ink-2">
+                    {% for tip in tips %}<li class="flex gap-3"><span class="mt-[11px] h-px w-3 shrink-0 bg-ink-3"></span>{{ tip }}</li>{% endfor %}
                 </ul>
             </div>
         </aside>
-    </div>
+    </section>
 
-    <section class="mt-20 border-t border-line pt-14" aria-labelledby="next-title">
-        <div class="max-w-2xl">
-            <h2 id="next-title" class="text-3xl font-bold">{{ ready_title }}</h2>
-            <p class="mt-3 text-muted">{{ ready_description }}</p>
+    <section class="section mt-24 grid gap-10 lg:grid-cols-12 lg:gap-8">
+        <div class="lg:col-span-4">
+            <h2 class="h2">{{ ready_title }}</h2>
+            <p class="mt-4 text-[15px] text-ink-2">{{ ready_description }}</p>
         </div>
-        <div class="mt-8 grid gap-3 md:grid-cols-3">
+        <div class="rows lg:col-span-7 lg:col-start-6">
             {% for option in next_steps_options %}
-            <a href="{% if forloop.counter == 1 %}{% url 'zip_upload' %}{% elif forloop.counter == 2 %}{% url 'upload_file' %}{% else %}{% url 'text_input' %}{% endif %}" class="card-flat group flex flex-col p-6 transition-colors hover:border-ink">
-                <span class="grid size-10 place-items-center rounded-lg bg-sunken text-ink">
-                    {% if forloop.counter == 1 %}{% include "partials/icon.html" with name="zip" cls="size-5" %}{% elif forloop.counter == 2 %}{% include "partials/icon.html" with name="files" cls="size-5" %}{% else %}{% include "partials/icon.html" with name="paste" cls="size-5" %}{% endif %}
+            <a href="{% if forloop.counter == 1 %}{% url 'zip_upload' %}{% elif forloop.counter == 2 %}{% url 'upload_file' %}{% else %}{% url 'text_input' %}{% endif %}" class="group flex items-center justify-between gap-6 py-6">
+                <span>
+                    <span class="flex items-center gap-3 text-[17px] font-medium">{{ option.title }}{% if forloop.first %}<span class="kicker text-accent">{{ ui_recommended }}</span>{% endif %}</span>
+                    <span class="mt-1 block text-[15px] text-ink-2">{{ option.description }}</span>
                 </span>
-                <span class="mt-5 flex items-center gap-2 font-semibold">{{ option.title }}{% if forloop.first %}<span class="badge-signal">{{ ui_recommended }}</span>{% endif %}</span>
-                <span class="mt-1 flex-1 text-sm text-muted">{{ option.description }}</span>
-                <span class="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold">{{ option.button }}<span class="transition-transform group-hover:translate-x-0.5">{% include "partials/icon.html" with name="arrow-right" %}</span></span>
+                <span class="text-ink-3 transition-colors group-hover:text-ink">{% include "partials/icon.html" with name="arrow-right" cls="size-5" %}</span>
             </a>
             {% endfor %}
         </div>

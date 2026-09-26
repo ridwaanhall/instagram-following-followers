@@ -3,18 +3,18 @@
 import { copyFileSync, mkdirSync, readdirSync, rmSync } from "node:fs";
 import { join } from "node:path";
 
-const families = ["bricolage-grotesque", "hanken-grotesk", "jetbrains-mono"];
+// family -> axis file to use ("opsz" files carry both the wght and opsz axes).
+const families = { newsreader: "opsz", "schibsted-grotesk": "wght", "geist-mono": "wght" };
 const out = "staticfiles/font";
 
 rmSync(out, { recursive: true, force: true });
 mkdirSync(out, { recursive: true });
 
-for (const family of families) {
+for (const [family, axis] of Object.entries(families)) {
   const dir = join("node_modules/@fontsource-variable", family, "files");
-  for (const file of readdirSync(dir)) {
-    if (/-latin(-ext)?-wght-normal\.woff2$/.test(file)) {
-      copyFileSync(join(dir, file), join(out, file));
-      console.log(`font: ${file}`);
-    }
+  const pattern = new RegExp(`-latin(-ext)?-${axis}-normal\.woff2$`);
+  for (const file of readdirSync(dir).filter((f) => pattern.test(f))) {
+    copyFileSync(join(dir, file), join(out, file));
+    console.log(`font: ${file}`);
   }
 }

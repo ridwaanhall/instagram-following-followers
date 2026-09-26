@@ -1,16 +1,14 @@
 {% extends 'analytics/method.html' %}
 
 {% block help %}
-<div class="card-flat p-5 sm:p-6">
-    <h2 class="text-lg font-semibold">{{ help_title }}</h2>
-    <p class="mt-2 text-sm text-muted">{{ help_description }}</p>
-    <dl class="mt-5 space-y-3 text-sm">
-        <div class="well flex items-center justify-between gap-3 px-3 py-2.5">
-            <dt class="text-muted">{{ following_file_label }}</dt><dd class="font-mono text-xs font-semibold">following.json</dd>
-        </div>
-        <div class="well flex items-center justify-between gap-3 px-3 py-2.5">
-            <dt class="text-muted">{{ followers_file_label }}</dt><dd class="font-mono text-xs font-semibold">followers_1.json</dd>
-        </div>
-    </dl>
-</div>
+<h2 class="h3">{{ help_title }}</h2>
+<p class="mt-3 text-[15px] text-ink-2">{{ help_description }}</p>
+<dl class="rows mt-6 text-[14px]">
+    <div class="flex items-center justify-between gap-4 py-3">
+        <dt class="text-ink-2">{{ following_file_label }}</dt><dd class="font-mono text-[13px]">following.json</dd>
+    </div>
+    <div class="flex items-center justify-between gap-4 py-3">
+        <dt class="text-ink-2">{{ followers_file_label }}</dt><dd class="font-mono text-[13px]">followers_1.json</dd>
+    </div>
+</dl>
 {% endblock %}

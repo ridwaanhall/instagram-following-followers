@@ -1,25 +1,20 @@
 {% extends 'analytics/method.html' %}
 
 {% block help %}
-<div class="card-flat p-5 sm:p-6">
-    <h2 class="text-lg font-semibold">{{ help_title }}</h2>
-    <ul class="mt-4 space-y-3">
-        {% for item in help_items %}
-        <li class="flex gap-3 text-sm">
-            <span class="mt-0.5 text-sea">{% include "partials/icon.html" with name="file" %}</span>
-            <span class="text-muted">{{ item }}</span>
-        </li>
-        {% endfor %}
-    </ul>
-</div>
-<div class="card-flat p-2">
-    <div class="grid gap-1">
-        {% for key, alt in alternative_methods.items %}
-        <a href="{% if key == 'upload_files' %}{% url 'upload_file' %}{% else %}{% url 'text_input' %}{% endif %}" class="flex items-center justify-between gap-3 rounded-lg px-3 py-2.5 text-sm transition-colors hover:bg-sunken">
-            <span><span class="block font-semibold">{{ alt.title }}</span><span class="text-muted">{{ alt.description }}</span></span>
-            {% include "partials/icon.html" with name="chevron-right" cls="size-4 shrink-0 text-faint" %}
-        </a>
-        {% endfor %}
-    </div>
+<h2 class="h3">{{ help_title }}</h2>
+<ul class="mt-4 space-y-3 text-[15px] text-ink-2">
+    {% for item in help_items %}<li class="flex gap-3"><span class="mt-[11px] h-px w-3 shrink-0 bg-ink-3"></span>{{ item }}</li>{% endfor %}
+</ul>
+
+<div class="rows mt-10">
+    {% for key, alt in alternative_methods.items %}
+    <a href="{% if key == 'upload_files' %}{% url 'upload_file' %}{% else %}{% url 'text_input' %}{% endif %}" class="group flex items-center justify-between gap-4 py-4">
+        <span>
+            <span class="block text-[15px] font-medium">{{ alt.title }}</span>
+            <span class="caption">{{ alt.description }}</span>
+        </span>
+        <span class="text-ink-3 transition-colors group-hover:text-ink">{% include "partials/icon.html" with name="arrow-right" %}</span>
+    </a>
+    {% endfor %}
 </div>
 {% endblock %}

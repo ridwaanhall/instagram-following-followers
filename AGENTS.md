@@ -49,10 +49,14 @@ not run the Node build). Rebuild and commit it whenever templates or
   `url_has_allowed_host_and_scheme` (see `safe_next_url`).
 - **Icons are inline SVG** via `{% include "partials/icon.html" with name="..." %}`.
   No emoji, no arrow characters in copy or templates.
-- **Design system**: use the tokens and component classes in
-  `assets/css/app.css` (`btn-primary`, `card`, `tab`, `input`, ...). Read
-  `docs/DESIGN.md` before UI work. Support light and dark, 360 px width,
-  visible focus states.
+- **Design system**: read `docs/DESIGN.md` first and run its anti-slop
+  checklist. One background, no cards or shadows, whitespace and 1 px
+  hairlines (`rows`, `section`, `border-rule`) to separate content. Use the
+  tokens and classes in `assets/css/app.css` (`display`, `h2`, `h3`, `lede`,
+  `kicker`, `btn`, `btn-accent`, `btn-line`, `tabs`/`tab`, `field`, `drop`).
+  Support light and dark, 360 px width, visible focus states.
+- Do not name a class after a Tailwind utility (e.g. `overline`, `container`);
+  Tailwind will merge its own rule into it.
 - Floats rendered into CSS need `|unlocalize` (some languages use a decimal comma).
 - Keep `python_scripts/instagram_analytics.py` stand-alone (stdlib only).
 - Add or update tests in `analytics/tests.py` for behaviour changes.
