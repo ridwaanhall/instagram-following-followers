@@ -1,408 +1,189 @@
 <!DOCTYPE html>
 {% load static %}
-<html lang="{% if current_language == 'id' %}id{% else %}en{% endif %}" class="scroll-smooth" prefix="og: https://ogp.me/ns#">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-        
-        <!-- Primary Meta Tags -->
-        <title>{% block title %}{{ site_title }}{% endblock %}</title>
-        <meta name="title" content="{% block meta_title %}{{ site_title }}{% endblock %}">
-        <meta name="description" content="{% block meta_description %}{{ meta_description }}{% endblock %}">
-        <meta name="keywords" content="{% block meta_keywords %}{{ meta_keywords }}{% endblock %}">
-        <meta name="author" content="{{ meta_author }}">
-        <meta name="robots" content="{% block meta_robots %}{{ meta_robots }}{% endblock %}">
-        <meta name="theme-color" content="{{ meta_theme_color }}">
-        <meta name="language" content="{{ meta_language }}">
-        <meta name="revisit-after" content="7 days">
-        <meta name="rating" content="General">
-        
-        <!-- Canonical URL -->
-        <link rel="canonical" href="{% block canonical_url %}https://igstats.rone.dev{% endblock %}">
-        
-        <!-- International SEO -->
-        {% block hreflang %}
-        <link rel="alternate" hreflang="en" href="https://igstats.rone.dev{% if request.path != '/' %}{{ request.path }}{% endif %}" />
-        <link rel="alternate" hreflang="id" href="https://igstats.rone.dev{% if request.path != '/' %}{{ request.path }}{% endif %}" />
-        <link rel="alternate" hreflang="x-default" href="https://igstats.rone.dev{% if request.path != '/' %}{{ request.path }}{% endif %}" />
-        {% endblock %}
-        
-        <!-- Open Graph / Facebook -->
-        <meta property="og:type" content="{% block og_type %}{{ og_type }}{% endblock %}">
-        <meta property="og:url" content="{% block og_url %}https://igstats.rone.dev{% endblock %}">
-        <meta property="og:title" content="{% block og_title %}{{ site_title }}{% endblock %}">
-        <meta property="og:description" content="{% block og_description %}{{ meta_description }}{% endblock %}">
-        <meta property="og:image" content="{% block og_image %}https://igstats.rone.dev{% static 'images/og-image.png' %}{% endblock %}">
-        <meta property="og:image:width" content="1200">
-        <meta property="og:image:height" content="630">
-        <meta property="og:image:alt" content="{{ og_image_alt }}">
-        <meta property="og:site_name" content="{{ site_name }}">
-        <meta property="og:locale" content="{{ og_locale }}">
-        
-        <!-- Twitter -->
-        <meta property="twitter:card" content="summary_large_image">
-        <meta property="twitter:url" content="{% block twitter_url %}https://igstats.rone.dev{% endblock %}">
-        <meta property="twitter:title" content="{% block twitter_title %}{{ site_title }}{% endblock %}">
-        <meta property="twitter:description" content="{% block twitter_description %}{{ meta_description }}{% endblock %}">
-        <meta property="twitter:image" content="{% block twitter_image %}https://igstats.rone.dev{% static 'images/twitter-card.png' %}{% endblock %}">
-        <meta property="twitter:creator" content="{{ twitter_creator }}">
-        <meta property="twitter:site" content="{{ twitter_site }}">
-        
-        <!-- Favicon and Icons -->
-        <link rel="icon" href="{% static 'favicon.ico' %}" type="image/x-icon">
-        <link rel="apple-touch-icon" sizes="180x180" href="{% static 'images/apple-touch-icon.png' %}">
-        <link rel="icon" type="image/png" sizes="32x32" href="{% static 'images/favicon-32x32.png' %}">
-        <link rel="icon" type="image/png" sizes="16x16" href="{% static 'images/favicon-16x16.png' %}">
-        <link rel="manifest" href="{% static 'manifest.json' %}">
-        <meta name="msapplication-TileColor" content="#7c3aed">
-        
-        <!-- Preconnect for performance -->
-        
-        <!-- CSS -->
-        <link rel="stylesheet" href="{% static 'css/global.css' %}">
-        <link rel="stylesheet" href="https://igstats.rone.dev/static/font/Plus_Jakarta_Sans/Plus_Jakarta_Sans.css">
-        
-        <!-- Structured Data -->
-        <script type="application/ld+json">
-            {
-                "@context": "https://schema.org",
-                "@type": "WebApplication",
-                "name": "{{ structured_data.name }}",
-                "description": "{{ structured_data.description }}",
-                "url": "https://igstats.rone.dev",
-                "applicationCategory": "SocialNetworkingApplication",
-                "operatingSystem": "Any",
-                "browserRequirements": "HTML5, JavaScript",
-                "softwareVersion": "1.0",
-                "releaseNotes": "Free Instagram analytics tool for analyzing followers and following data",
-                "screenshot": "https://igstats.rone.dev/static/images/app-screenshot.png",
-                "offers": {
-                    "@type": "Offer",
-                    "price": "0",
-                    "priceCurrency": "USD",
-                    "availability": "https://schema.org/InStock"
-                },
-                "creator": {
-                    "@type": "Person",
-                    "name": "{{ meta_author }}",
-                    "url": "https://bio.ridwaanhall.com",
-                    "sameAs": [
-                        "https://github.com/ridwaanhall",
-                        "https://linkedin.com/in/ridwaanhall"
-                    ]
-                },
-                "publisher": {
-                    "@type": "Organization",
-                    "name": "{{ site_name }}",
-                    "url": "https://igstats.rone.dev"
-                },
-                "featureList": [
-                    "Analyze Instagram followers and following",
-                    "Find who doesn't follow back",
-                    "Discover mutual connections",
-                    "Export analysis results",
-                    "No login required",
-                    "Privacy-focused data processing",
-                    "Support ZIP and JSON file uploads",
-                    "Real-time data processing"
-                ],
-                "keywords": "{{ meta_keywords }}",
-                "inLanguage": "{% if current_language == 'id' %}id{% else %}en{% endif %}",
-                "isAccessibleForFree": true,
-                "aggregateRating": {
-                    "@type": "AggregateRating",
-                    "ratingValue": "5",
-                    "reviewCount": "25",
-                    "bestRating": "5",
-                    "worstRating": "1"
-                },
-                "potentialAction": {
-                    "@type": "UseAction",
-                    "object": {
-                        "@type": "WebApplication",
-                        "name": "{{ structured_data.name }}"
-                    }
-                }
-            }
-        </script>
-        
-        <!-- Organization Structured Data -->
-        <script type="application/ld+json">
-            {
-                "@context": "https://schema.org",
-                "@type": "Organization",
-                "name": "{{ site_name }}",
-                "url": "https://igstats.rone.dev",
-                "logo": "https://igstats.rone.dev/static/images/logo.png",
-                "description": "{{ meta_description }}",
-                "founder": {
-                    "@type": "Person",
-                    "name": "{{ meta_author }}",
-                    "url": "https://bio.ridwaanhall.com"
-                },
-                "foundingDate": "2024",
-                "parentOrganization": {
-                    "@type": "Organization",
-                    "name": "RoneAI",
-                    "legalName": "PT RoneAI Teknologi Internasional",
-                    "url": "https://rone.dev"
-                },
-                "sameAs": [
-                    "https://github.com/ridwaanhall/instagram-following-followers"
-                ],
-                "contactPoint": {
-                    "@type": "ContactPoint",
-                    "contactType": "Customer Support",
-                    "url": "https://igstats.rone.dev/tutorial/"
-                }
-            }
-        </script>
-        
-        {% block structured_data %}{% endblock %}
-        {% block extra_head %}{% endblock %}
-    </head>
-    <body class="bg-gray-50 min-h-screen flex flex-col antialiased">
-        <!-- Navigation -->
-        <nav class="bg-white/95 backdrop-blur-sm shadow-lg border-b border-gray-200 sticky top-0 z-50">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="flex justify-between items-center h-16">
-                    <!-- Logo/Brand -->
-                    <div class="flex items-center">
-                        <a href="{% url 'home' %}" class="flex items-center space-x-3 group">
-                            <!-- Instagram-style icon with hover effect -->
-                            <div class="bg-gradient-to-br from-purple-600 via-pink-500 to-orange-400 p-2.5 rounded-xl transition-transform duration-200 group-hover:scale-105">
-                                <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
-                                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-                                </svg>
-                            </div>
-                            <span class="text-xl font-bold bg-gradient-to-r from-purple-600 to-pink-500 bg-clip-text text-transparent hidden sm:block">
-                                {{ nav_brand }}
-                            </span>
-                        </a>
-                    </div>
+{% with nav=request.resolver_match.url_name %}
+<html lang="{{ html_lang }}" data-theme="light" prefix="og: https://ogp.me/ns#">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>{% block title %}{{ site_title }}{% endblock %}</title>
+    <meta name="description" content="{% block meta_description %}{{ meta_description }}{% endblock %}">
+    <meta name="keywords" content="{% block meta_keywords %}{{ meta_keywords }}{% endblock %}">
+    <meta name="author" content="{{ meta_author }}">
+    <meta name="robots" content="{% block meta_robots %}{{ meta_robots }}{% endblock %}">
+    <meta name="theme-color" content="#f6f4ef" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#12110f" media="(prefers-color-scheme: dark)">
 
-                    <!-- Desktop Menu -->
-                    <div class="hidden md:flex items-center space-x-1">
-                        <a href="{% url 'home' %}" class="inline-flex items-center px-3 py-2 text-sm font-medium {% if request.resolver_match.url_name == 'home' %}text-purple-600 bg-purple-100 border border-purple-200{% else %}text-gray-700 hover:text-purple-600 hover:bg-purple-50{% endif %} rounded-lg transition-all duration-200 group">
-                            <svg class="w-4 h-4 mr-2 transition-transform duration-200 group-hover:scale-110" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
-                            </svg>
-                            {{ nav_home }}
-                        </a>
-                        <a href="{% url 'zip_upload' %}" class="inline-flex items-center px-3 py-2 text-sm font-medium {% if request.resolver_match.url_name == 'zip_upload' %}text-purple-600 bg-purple-100 border border-purple-200{% else %}text-gray-700 hover:text-purple-600 hover:bg-purple-50{% endif %} rounded-lg transition-all duration-200 group">
-                            <svg class="w-4 h-4 mr-2 transition-transform duration-200 group-hover:scale-110" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/>
-                            </svg>
-                            {{ nav_zip_upload }}
-                        </a>
-                        <a href="{% url 'upload_file' %}" class="inline-flex items-center px-3 py-2 text-sm font-medium {% if request.resolver_match.url_name == 'upload_file' %}text-purple-600 bg-purple-100 border border-purple-200{% else %}text-gray-700 hover:text-purple-600 hover:bg-purple-50{% endif %} rounded-lg transition-all duration-200 group">
-                            <svg class="w-4 h-4 mr-2 transition-transform duration-200 group-hover:scale-110" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"/>
-                            </svg>
-                            {{ nav_upload_files }}
-                        </a>
-                        <a href="{% url 'text_input' %}" class="inline-flex items-center px-3 py-2 text-sm font-medium {% if request.resolver_match.url_name == 'text_input' %}text-purple-600 bg-purple-100 border border-purple-200{% else %}text-gray-700 hover:text-purple-600 hover:bg-purple-50{% endif %} rounded-lg transition-all duration-200 group">
-                            <svg class="w-4 h-4 mr-2 transition-transform duration-200 group-hover:scale-110" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/>
-                            </svg>
-                            {{ nav_text_input }}
-                        </a>
-                        <a href="{% url 'tutorial' %}" class="inline-flex items-center px-3 py-2 text-sm font-medium {% if request.resolver_match.url_name == 'tutorial' %}text-purple-600 bg-purple-100 border border-purple-200{% else %}text-gray-700 hover:text-purple-600 hover:bg-purple-50{% endif %} rounded-lg transition-all duration-200 group">
-                            <svg class="w-4 h-4 mr-2 transition-transform duration-200 group-hover:scale-110" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
-                            </svg>
-                            {{ nav_tutorial }}
-                        </a>
-                        
-                        <!-- Language Switcher -->
-                        <div class="relative ml-4">
-                            <form action="{% url 'set_language' %}" method="post" class="inline">
-                                {% csrf_token %}
-                                <input name="next" type="hidden" value="{{ request.path }}" />
-                                <select name="language" onchange="this.form.submit()" class="appearance-none bg-white border border-gray-300 rounded-lg px-3 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition-all duration-200">
-                                    <option value="en" {% if current_language == 'en' %}selected{% endif %}>🇺🇸 EN</option>
-                                    <option value="id" {% if current_language == 'id' %}selected{% endif %}>🇮🇩 ID</option>
-                                    <option value="zh-hans" {% if current_language == 'zh' %}selected{% endif %}>🇨🇳 中文</option>
-                                    <option value="es" {% if current_language == 'es' %}selected{% endif %}>🇪🇸 ES</option>
-                                    <option value="ja" {% if current_language == 'ja' %}selected{% endif %}>🇯🇵 JP</option>
-                                    <option value="pt-br" {% if current_language == 'pt' %}selected{% endif %}>🇧🇷 PT</option>
-                                    <option value="fr" {% if current_language == 'fr' %}selected{% endif %}>🇫🇷 FR</option>
-                                </select>
-                            </form>
-                        </div>
-                    </div>
+    <link rel="canonical" href="https://igstats.rone.dev{{ request.path }}">
+    <link rel="alternate" hreflang="x-default" href="https://igstats.rone.dev{{ request.path }}">
 
-                    <!-- Mobile menu button -->
-                    <div class="md:hidden">
-                        <button id="mobile-menu-button" class="p-2 rounded-lg text-gray-700 hover:text-purple-600 hover:bg-purple-50 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2">
-                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
-                            </svg>
-                        </button>
-                    </div>
-                </div>
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://igstats.rone.dev{{ request.path }}">
+    <meta property="og:title" content="{% block og_title %}{{ site_title }}{% endblock %}">
+    <meta property="og:description" content="{% block og_description %}{{ meta_description }}{% endblock %}">
+    <meta property="og:image" content="https://igstats.rone.dev{% static 'images/android-chrome-512x512.png' %}">
+    <meta property="og:image:alt" content="{{ og_image_alt }}">
+    <meta property="og:site_name" content="{{ site_name }}">
+    <meta property="og:locale" content="{{ og_locale }}">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="{% block twitter_title %}{{ site_title }}{% endblock %}">
+    <meta name="twitter:description" content="{% block twitter_description %}{{ meta_description }}{% endblock %}">
+    <meta name="twitter:creator" content="{{ twitter_creator }}">
 
-                <!-- Mobile Menu -->
-                <div id="mobile-menu" class="md:hidden hidden pb-4 border-t border-gray-100 mt-4 pt-4">
-                    <div class="space-y-2">
-                        <a href="{% url 'home' %}" class="flex items-center px-3 py-2 text-sm font-medium {% if request.resolver_match.url_name == 'home' %}text-purple-600 bg-purple-100 border-l-4 border-purple-600{% else %}text-gray-700 hover:text-purple-600 hover:bg-purple-50{% endif %} rounded-lg transition-all duration-200">
-                            <svg class="w-4 h-4 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
-                            </svg>
-                            {{ nav_home }}
-                        </a>
-                        <a href="{% url 'upload_file' %}" class="flex items-center px-3 py-2 text-sm font-medium {% if request.resolver_match.url_name == 'upload_file' %}text-purple-600 bg-purple-100 border-l-4 border-purple-600{% else %}text-gray-700 hover:text-purple-600 hover:bg-purple-50{% endif %} rounded-lg transition-all duration-200">
-                            <svg class="w-4 h-4 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"/>
-                            </svg>
-                            {{ nav_upload_files }}
-                        </a>
-                        <a href="{% url 'zip_upload' %}" class="flex items-center px-3 py-2 text-sm font-medium {% if request.resolver_match.url_name == 'zip_upload' %}text-purple-600 bg-purple-100 border-l-4 border-purple-600{% else %}text-gray-700 hover:text-purple-600 hover:bg-purple-50{% endif %} rounded-lg transition-all duration-200">
-                            <svg class="w-4 h-4 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/>
-                            </svg>
-                            {{ nav_zip_upload }}
-                        </a>
-                        <a href="{% url 'text_input' %}" class="flex items-center px-3 py-2 text-sm font-medium {% if request.resolver_match.url_name == 'text_input' %}text-purple-600 bg-purple-100 border-l-4 border-purple-600{% else %}text-gray-700 hover:text-purple-600 hover:bg-purple-50{% endif %} rounded-lg transition-all duration-200">
-                            <svg class="w-4 h-4 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/>
-                            </svg>
-                            {{ nav_text_input }}
-                        </a>
-                        <a href="{% url 'tutorial' %}" class="flex items-center px-3 py-2 text-sm font-medium {% if request.resolver_match.url_name == 'tutorial' %}text-purple-600 bg-purple-100 border-l-4 border-purple-600{% else %}text-gray-700 hover:text-purple-600 hover:bg-purple-50{% endif %} rounded-lg transition-all duration-200">
-                            <svg class="w-4 h-4 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
-                            </svg>
-                            {{ nav_tutorial }}
-                        </a>
-                        
-                        <!-- Mobile Language Switcher -->
-                        <div class="px-3 py-2 border-t border-gray-200 mt-4 pt-4">
-                            <p class="text-xs font-medium text-gray-500 mb-2">{{ language_label }}</p>
-                            <form action="{% url 'set_language' %}" method="post" class="inline">
-                                {% csrf_token %}
-                                <input name="next" type="hidden" value="{{ request.path }}" />
-                                <select name="language" onchange="this.form.submit()" class="w-full appearance-none bg-white border border-gray-300 rounded-lg px-3 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition-all duration-200">
-                                    <option value="en" {% if current_language == 'en' %}selected{% endif %}>🇺🇸 {{ lang_english }}</option>
-                                    <option value="id" {% if current_language == 'id' %}selected{% endif %}>🇮🇩 {{ lang_indonesian }}</option>
-                                    <option value="zh-hans" {% if current_language == 'zh' %}selected{% endif %}>🇨🇳 {{ lang_chinese }}</option>
-                                    <option value="es" {% if current_language == 'es' %}selected{% endif %}>🇪🇸 {{ lang_spanish }}</option>
-                                    <option value="ja" {% if current_language == 'ja' %}selected{% endif %}>🇯🇵 {{ lang_japanese }}</option>
-                                    <option value="pt-br" {% if current_language == 'pt' %}selected{% endif %}>🇧🇷 {{ lang_portuguese }}</option>
-                                    <option value="fr" {% if current_language == 'fr' %}selected{% endif %}>🇫🇷 {{ lang_french }}</option>
-                                </select>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </nav>
+    <link rel="icon" href="{% static 'favicon.ico' %}" sizes="any">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'images/favicon-32x32.png' %}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'images/apple-touch-icon.png' %}">
+    <link rel="manifest" href="{% static 'manifest.json' %}">
 
-        <!-- Main Content -->
-        <main class="flex-1">
-            {% block content %}{% endblock %}
-        </main>
+    <script>
+        (function () {
+            var t;
+            try { t = localStorage.getItem('theme'); } catch (e) {}
+            if (t !== 'light' && t !== 'dark') t = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+            document.documentElement.setAttribute('data-theme', t);
+        })();
+    </script>
+    <link rel="preload" href="{% static 'font/hanken-grotesk-latin-wght-normal.woff2' %}" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="{% static 'font/bricolage-grotesque-latin-wght-normal.woff2' %}" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="{% static 'css/global.css' %}">
 
-        <!-- Footer -->
-        <footer class="bg-white border-t border-gray-200 mt-auto">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-                <div class="text-center">
-                    <div class="flex items-center justify-center mb-4">
-                        <div class="bg-gradient-to-br from-purple-600 via-pink-500 to-orange-400 p-2 rounded-lg mr-3">
-                            <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-                            </svg>
-                        </div>
-                        <span class="text-lg font-semibold bg-gradient-to-r from-purple-600 to-pink-500 bg-clip-text text-transparent">
-                            {{ footer_brand }}
-                        </span>
-                    </div>
-                    <p class="text-gray-600 mb-4">
-                        {{ footer_created_by }} <span class="text-red-500 animate-pulse">♥</span> {{ footer_by }} 
-                        <a href="https://bio.ridwaanhall.com" class="text-purple-600 hover:text-purple-800 transition-colors duration-200 font-medium">{{ footer_creator_name }}</a>
-                    </p>
-                    <p class="text-sm text-gray-500">
-                        {{ footer_built_with }} • {% now 'Y' %} • 
-                        <a href="{% url 'tutorial' %}" class="hover:text-purple-600 transition-colors duration-200">{{ footer_need_help }}</a>
-                        •
-                        <a href="{% url 'privacy' %}" class="hover:text-purple-600 transition-colors duration-200">{{ footer_privacy|default:"Privacy" }}</a>
-                    </p>
-                </div>
-            </div>
-        </footer>
-
-        <script>
-            document.addEventListener('DOMContentLoaded', () => {
-                // Mobile menu toggle
-                const mobileMenuButton = document.getElementById('mobile-menu-button');
-                const mobileMenu = document.getElementById('mobile-menu');
-
-                if (mobileMenuButton && mobileMenu) {
-                    mobileMenuButton.addEventListener('click', () => {
-                        mobileMenu.classList.toggle('hidden');
-                        
-                        // Animate button
-                        const icon = mobileMenuButton.querySelector('svg');
-                        icon.style.transform = mobileMenu.classList.contains('hidden') ? 'rotate(0deg)' : 'rotate(90deg)';
-                    });
-                }
-
-                // Notification close functionality
-                const notifications = document.querySelectorAll('.notification-close');
-                notifications.forEach(closeBtn => {
-                    closeBtn.addEventListener('click', () => {
-                        const notification = closeBtn.closest('.notification');
-                        if (notification) {
-                            notification.style.transition = 'all 0.3s ease-out';
-                            notification.style.transform = 'translateX(100%)';
-                            notification.style.opacity = '0';
-                            setTimeout(() => notification.remove(), 300);
-                        }
-                    });
-                });
-
-                // Smooth scroll for anchor links
-                document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                    anchor.addEventListener('click', function (e) {
-                        e.preventDefault();
-                        const target = document.querySelector(this.getAttribute('href'));
-                        if (target) {
-                            target.scrollIntoView({
-                                behavior: 'smooth',
-                                block: 'start'
-                            });
-                        }
-                    });
-                });
-            });
-        </script>
-        
-        <!-- Organization Schema -->
-        <script type="application/ld+json">
-        {
-            "@context": "https://schema.org",
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "{{ structured_data.name }}",
+        "description": "{{ structured_data.description }}",
+        "url": "https://igstats.rone.dev",
+        "applicationCategory": "UtilitiesApplication",
+        "operatingSystem": "Any",
+        "isAccessibleForFree": true,
+        "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"},
+        "inLanguage": "{{ html_lang }}",
+        "creator": {"@type": "Person", "name": "{{ meta_author }}", "url": "https://bio.ridwaanhall.com"},
+        "publisher": {
             "@type": "Organization",
-            "name": "InstaAnalytics",
-            "url": "https://igstats.rone.dev",
-            "logo": "https://igstats.rone.dev/static/images/logo.png",
-            "description": "Free Instagram analytics tool for analyzing followers and following data",
-            "founder": {
-                "@type": "Person",
-                "name": "Ridwan Halim",
-                "url": "https://bio.ridwaanhall.com"
-            },
-            "parentOrganization": {
-                "@type": "Organization",
-                "name": "RoneAI",
-                "legalName": "PT RoneAI Teknologi Internasional",
-                "url": "https://rone.dev"
-            },
-            "sameAs": [
-                "https://github.com/ridwaanhall/instagram-following-followers"
-            ]
+            "name": "RoneAI",
+            "legalName": "PT RoneAI Teknologi Internasional",
+            "url": "https://rone.dev"
         }
-        </script>
-        
-        {% block extra_foot %}{% endblock %}
-    </body>
+    }
+    </script>
+    {% block structured_data %}{% endblock %}
+    {% block extra_head %}{% endblock %}
+</head>
+<body class="flex min-h-dvh flex-col">
+    <a href="#main" class="sr-only z-[60] rounded-lg bg-ink px-4 py-2 text-sm font-semibold text-on-ink focus:not-sr-only focus:fixed focus:left-4 focus:top-4">{{ ui_skip }}</a>
+
+    <header class="sticky top-0 z-40 border-b border-line bg-paper/85 backdrop-blur-md supports-[backdrop-filter]:bg-paper/75">
+        <div class="container-page flex h-16 items-center justify-between gap-4">
+            <a href="{% url 'home' %}" class="group -ml-1 flex items-center gap-2.5 rounded-lg px-1 py-1" aria-label="{{ nav_brand }} home">
+                {% include "partials/logo.html" %}
+                <span class="font-display text-[19px] font-bold tracking-tight">{{ nav_brand }}</span>
+            </a>
+
+            <nav class="hidden items-center gap-1 md:flex" aria-label="Primary">
+                <a href="{% url 'zip_upload' %}" class="nav-link" {% if nav == 'zip_upload' or nav == 'upload_file' or nav == 'text_input' %}aria-current="page"{% endif %}>{{ ui_analyze }}</a>
+                <a href="{% url 'tutorial' %}" class="nav-link" {% if nav == 'tutorial' %}aria-current="page"{% endif %}>{{ nav_tutorial }}</a>
+                <a href="{% url 'privacy' %}" class="nav-link" {% if nav == 'privacy' %}aria-current="page"{% endif %}>{{ footer_privacy }}</a>
+            </nav>
+
+            <div class="flex items-center gap-1">
+                <details class="dropdown hidden md:block" data-dropdown>
+                    <summary class="btn-ghost btn-sm" aria-label="{{ ui_language }}">
+                        {% include "partials/icon.html" with name="globe" %}
+                        {% for lang in language_choices %}{% if lang.active %}<span>{{ lang.name }}</span>{% endif %}{% endfor %}
+                        {% include "partials/icon.html" with name="chevron-down" cls="chevron size-3.5" %}
+                    </summary>
+                    {% include "partials/language_menu.html" with panel_cls="dropdown-panel" %}
+                </details>
+
+                <button type="button" class="btn-icon" data-theme-toggle aria-label="{{ ui_theme }}" title="{{ ui_theme }}">
+                    <span class="dark:hidden">{% include "partials/icon.html" with name="moon" cls="size-[18px]" %}</span>
+                    <span class="hidden dark:inline">{% include "partials/icon.html" with name="sun" cls="size-[18px]" %}</span>
+                </button>
+
+                <a href="https://github.com/ridwaanhall/instagram-following-followers" class="btn-icon hidden sm:inline-flex" target="_blank" rel="noopener" aria-label="{{ ui_github }}" title="{{ ui_github }}">
+                    {% include "partials/icon.html" with name="github" cls="size-[18px]" %}
+                </a>
+
+                <a href="{% url 'zip_upload' %}" class="btn-primary btn-sm ml-1 hidden lg:inline-flex">
+                    {{ ui_analyze }}
+                    {% include "partials/icon.html" with name="arrow-right" %}
+                </a>
+
+                <button type="button" class="btn-icon md:hidden" data-menu-toggle aria-controls="mobile-menu" aria-expanded="false" aria-label="{{ ui_menu }}">
+                    <span data-menu-open>{% include "partials/icon.html" with name="menu" cls="size-5" %}</span>
+                    <span data-menu-close hidden>{% include "partials/icon.html" with name="x" cls="size-5" %}</span>
+                </button>
+            </div>
+        </div>
+
+        <div id="mobile-menu" class="border-t border-line bg-paper md:hidden" hidden>
+            <nav class="container-page flex flex-col gap-1 py-3" aria-label="Mobile">
+                <a href="{% url 'home' %}" class="flex min-h-12 items-center justify-between rounded-lg px-3 font-medium {% if nav == 'home' %}bg-sunken text-ink{% else %}text-muted{% endif %}">{{ nav_home }}{% include "partials/icon.html" with name="chevron-right" cls="size-4 text-faint" %}</a>
+                <a href="{% url 'zip_upload' %}" class="flex min-h-12 items-center justify-between rounded-lg px-3 font-medium {% if nav == 'zip_upload' or nav == 'upload_file' or nav == 'text_input' %}bg-sunken text-ink{% else %}text-muted{% endif %}">{{ ui_analyze }}{% include "partials/icon.html" with name="chevron-right" cls="size-4 text-faint" %}</a>
+                <a href="{% url 'tutorial' %}" class="flex min-h-12 items-center justify-between rounded-lg px-3 font-medium {% if nav == 'tutorial' %}bg-sunken text-ink{% else %}text-muted{% endif %}">{{ nav_tutorial }}{% include "partials/icon.html" with name="chevron-right" cls="size-4 text-faint" %}</a>
+                <a href="{% url 'privacy' %}" class="flex min-h-12 items-center justify-between rounded-lg px-3 font-medium {% if nav == 'privacy' %}bg-sunken text-ink{% else %}text-muted{% endif %}">{{ footer_privacy }}{% include "partials/icon.html" with name="chevron-right" cls="size-4 text-faint" %}</a>
+                <p class="eyebrow mt-4 px-3">{{ ui_language }}</p>
+                {% include "partials/language_menu.html" with panel_cls="grid grid-cols-2 gap-1 pt-1" %}
+            </nav>
+        </div>
+    </header>
+
+    <main id="main" class="flex-1">
+        {% if messages %}
+        <div class="container-page pt-6" role="status">
+            {% for message in messages %}
+            <div class="{% if message.tags == 'error' %}alert-error{% elif message.tags == 'success' %}alert-success{% else %}alert-info{% endif %} mb-2" data-dismissible>
+                <span class="mt-0.5 {% if message.tags == 'error' %}text-signal{% else %}text-azure{% endif %}">{% include "partials/icon.html" with name="alert" %}</span>
+                <p class="flex-1">{{ message }}</p>
+                <button type="button" class="-m-1 rounded-md p-1 text-muted hover:text-ink" data-dismiss aria-label="{{ ui_close }}">{% include "partials/icon.html" with name="x" %}</button>
+            </div>
+            {% endfor %}
+        </div>
+        {% endif %}
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer class="mt-24 border-t border-line">
+        <div class="container-page grid gap-10 py-12 sm:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr]">
+            <div class="max-w-sm">
+                <a href="{% url 'home' %}" class="flex items-center gap-2.5">
+                    {% include "partials/logo.html" %}
+                    <span class="font-display text-lg font-bold tracking-tight">{{ footer_brand }}</span>
+                </a>
+                <p class="mt-4 text-sm text-muted">{{ meta_description }}</p>
+            </div>
+            <div>
+                <p class="eyebrow">{{ ui_analyze }}</p>
+                <ul class="mt-4 space-y-2.5 text-sm">
+                    <li><a class="text-muted transition-colors hover:text-ink" href="{% url 'zip_upload' %}">{{ nav_zip_upload }}</a></li>
+                    <li><a class="text-muted transition-colors hover:text-ink" href="{% url 'upload_file' %}">{{ nav_upload_files }}</a></li>
+                    <li><a class="text-muted transition-colors hover:text-ink" href="{% url 'text_input' %}">{{ nav_text_input }}</a></li>
+                </ul>
+            </div>
+            <div>
+                <p class="eyebrow">{{ site_name }}</p>
+                <ul class="mt-4 space-y-2.5 text-sm">
+                    <li><a class="text-muted transition-colors hover:text-ink" href="{% url 'tutorial' %}">{{ nav_tutorial }}</a></li>
+                    <li><a class="text-muted transition-colors hover:text-ink" href="{% url 'privacy' %}">{{ footer_privacy }}</a></li>
+                    <li><a class="inline-flex items-center gap-1 text-muted transition-colors hover:text-ink" href="https://github.com/ridwaanhall/instagram-following-followers" target="_blank" rel="noopener">GitHub {% include "partials/icon.html" with name="arrow-up-right" cls="size-3.5" %}</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="border-t border-line">
+            <div class="container-page flex flex-col gap-2 py-6 text-[13px] text-muted sm:flex-row sm:items-center sm:justify-between">
+                <p class="inline-flex flex-wrap items-center gap-1">
+                    {{ footer_created_by }}
+                    <span class="text-signal">{% include "partials/icon.html" with name="heart" cls="size-3.5" %}</span>
+                    {{ footer_by }} <a href="https://bio.ridwaanhall.com" class="link" target="_blank" rel="noopener">{{ footer_creator_name }}</a>
+                </p>
+                <p>&copy; {% now 'Y' %} RoneAI. {{ footer_built_with }}.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="{% static 'js/app.js' %}" defer></script>
+    {% block extra_foot %}{% endblock %}
+</body>
 </html>
+{% endwith %}

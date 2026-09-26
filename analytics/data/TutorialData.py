@@ -117,7 +117,7 @@ TUTORIAL_DATA = {
         'tips_title': 'Pro Tips',
         'tips': [
             'Keep your data files secure and don\'t share them with unauthorized parties.',
-            'Our tool processes everything locally in your browser for maximum privacy.',
+            'Your file is processed in memory on our server and never stored.',
             'You can repeat this process anytime to get updated data.',
             'Large accounts may have bigger file sizes and longer processing times.'
         ],
@@ -144,7 +144,7 @@ TUTORIAL_DATA = {
         'quick_tips': [
             {
                 'title': 'Privacy First',
-                'description': 'Your data is processed locally and never stored on our servers.'
+                'description': 'Your file is processed in memory on our server and never stored.'
             },
             {
                 'title': 'Quick Process',
@@ -271,7 +271,7 @@ TUTORIAL_DATA = {
         'tips_title': 'Tips Pro',
         'tips': [
             'Jaga keamanan file data Anda dan jangan bagikan dengan pihak yang tidak berwenang.',
-            'Alat kami memproses semuanya secara lokal di browser Anda untuk privasi maksimum.',
+            'File Anda diproses di memori server kami dan tidak pernah disimpan.',
             'Anda dapat mengulangi proses ini kapan saja untuk mendapatkan data yang diperbarui.',
             'Akun besar mungkin memiliki ukuran file yang lebih besar dan waktu pemrosesan yang lebih lama.'
         ],
@@ -298,7 +298,7 @@ TUTORIAL_DATA = {
         'quick_tips': [
             {
                 'title': 'Privasi Utama',
-                'description': 'Data Anda diproses secara lokal dan tidak pernah disimpan di server kami.'
+                'description': 'File Anda diproses di memori server kami dan tidak pernah disimpan.'
             },
             {
                 'title': 'Proses Cepat',
@@ -425,7 +425,7 @@ TUTORIAL_DATA = {
         'tips_title': '专业技巧',
         'tips': [
             '保护您的数据文件安全，不要与未经授权的人员分享。',
-            '我们的工具在您的浏览器中本地处理所有内容，以确保最大隐私。',
+            '您的文件在我们服务器的内存中处理，绝不存储。',
             '您可以随时重复此过程以获取更新的数据。',
             '大型账户可能有更大的文件大小和更长的处理时间。'
         ],
@@ -452,7 +452,7 @@ TUTORIAL_DATA = {
         'quick_tips': [
             {
                 'title': '隐私优先',
-                'description': '您的数据在本地处理，从未存储在我们的服务器上。'
+                'description': '您的文件在我们服务器的内存中处理，绝不存储。'
             },
             {
                 'title': '快速处理',
@@ -579,7 +579,7 @@ TUTORIAL_DATA = {
         'tips_title': 'Consejos Pro',
         'tips': [
             'Mantén seguros tus archivos de datos y no los compartas con partes no autorizadas.',
-            'Nuestra herramienta procesa todo localmente en tu navegador para máxima privacidad.',
+            'Tu archivo se procesa en la memoria de nuestro servidor y nunca se guarda.',
             'Puedes repetir este proceso en cualquier momento para obtener datos actualizados.',
             'Las cuentas grandes pueden tener archivos más grandes y tiempos de procesamiento más largos.'
         ],
@@ -606,7 +606,7 @@ TUTORIAL_DATA = {
         'quick_tips': [
             {
                 'title': 'Privacidad Primero',
-                'description': 'Tus datos se procesan localmente y nunca se almacenan en nuestros servidores.'
+                'description': 'Tu archivo se procesa en la memoria de nuestro servidor y nunca se guarda.'
             },
             {
                 'title': 'Proceso Rápido',
@@ -733,7 +733,7 @@ TUTORIAL_DATA = {
         'tips_title': 'プロのヒント',
         'tips': [
             'データファイルを安全に保ち、権限のない第三者と共有しないでください。',
-            'ツールは最大限のプライバシーのため、ブラウザ内ですべてをローカル処理します。',
+            'ファイルはサーバーのメモリ上で処理され、保存されません。',
             '更新されたデータを取得するため、いつでもこのプロセスを繰り返せます。',
             '大きなアカウントは、ファイルサイズが大きく、処理時間が長くなる場合があります。'
         ],
@@ -760,7 +760,7 @@ TUTORIAL_DATA = {
         'quick_tips': [
             {
                 'title': 'プライバシー第一',
-                'description': 'データはローカルで処理され、サーバーに保存されることはありません。'
+                'description': 'ファイルはサーバーのメモリ上で処理され、保存されません。'
             },
             {
                 'title': '迅速な処理',
@@ -887,7 +887,7 @@ TUTORIAL_DATA = {
         'tips_title': 'Dicas Profissionais',
         'tips': [
             'Mantenha seus arquivos de dados seguros e não os compartilhe com partes não autorizadas.',
-            'Nossa ferramenta processa tudo localmente no seu navegador para máxima privacidade.',
+            'Seu arquivo é processado na memória do nosso servidor e nunca é armazenado.',
             'Você pode repetir este processo a qualquer momento para obter dados atualizados.',
             'Contas grandes podem ter arquivos maiores e tempos de processamento mais longos.'
         ],
@@ -914,7 +914,7 @@ TUTORIAL_DATA = {
         'quick_tips': [
             {
                 'title': 'Privacidade em Primeiro Lugar',
-                'description': 'Seus dados são processados localmente e nunca armazenados em nossos servidores.'
+                'description': 'Seu arquivo é processado na memória do nosso servidor e nunca é armazenado.'
             },
             {
                 'title': 'Processo Rápido',
@@ -1041,7 +1041,7 @@ TUTORIAL_DATA = {
         'tips_title': 'Conseils Pro',
         'tips': [
             'Gardez vos fichiers de données sécurisés et ne les partagez pas avec des parties non autorisées.',
-            'Notre outil traite tout localement dans votre navigateur pour une confidentialité maximale.',
+            "Votre fichier est traité en mémoire sur notre serveur et n'est jamais stocké.",
             'Vous pouvez répéter ce processus à tout moment pour obtenir des données mises à jour.',
             'Les grands comptes peuvent avoir des fichiers plus volumineux et des temps de traitement plus longs.'
         ],
@@ -1068,7 +1068,7 @@ TUTORIAL_DATA = {
         'quick_tips': [
             {
                 'title': 'Confidentialité d\'Abord',
-                'description': 'Vos données sont traitées localement et jamais stockées sur nos serveurs.'
+                'description': "Votre fichier est traité en mémoire sur notre serveur et n'est jamais stocké."
             },
             {
                 'title': 'Processus Rapide',

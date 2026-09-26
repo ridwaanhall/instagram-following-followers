@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{# Shared layout for /zip/, /upload/ and /text/: analyzer on the left, method help on the right. #}
+
+{% block title %}{{ title }}{% endblock %}
+{% block meta_description %}{{ meta_description|default:header_description }}{% endblock %}
+
+{% block content %}
+<div class="container-page py-10 sm:py-14">
+    <nav aria-label="Breadcrumb" class="mb-6 flex items-center gap-1.5 text-[13px] text-muted">
+        <a href="{% url 'home' %}" class="hover:text-ink">{{ nav_home }}</a>
+        {% include "partials/icon.html" with name="chevron-right" cls="size-3.5 text-faint" %}
+        <span class="text-ink" aria-current="page">{{ header_title }}</span>
+    </nav>
+    <div class="max-w-2xl">
+        <p class="eyebrow"><span class="eyebrow-dot"></span>{{ ui_analyze }}</p>
+        <h1 class="mt-4 text-4xl font-bold sm:text-5xl">{{ header_title }}</h1>
+        <p class="mt-4 text-[17px] text-muted">{{ header_description }}</p>
+    </div>
+
+    <div class="mt-10 grid items-start gap-6 lg:grid-cols-[1.55fr_1fr] lg:gap-8 [&>*]:min-w-0">
+        {% include "partials/analyzer.html" with active=method links=True %}
+        <aside class="space-y-4 lg:sticky lg:top-24">
+            {% block help %}{% endblock %}
+            <a href="{% url 'tutorial' %}" class="card-flat group flex items-center gap-4 p-5 transition-colors hover:border-ink">
+                <span class="grid size-10 shrink-0 place-items-center rounded-full bg-sunken text-ink">{% include "partials/icon.html" with name="book" cls="size-5" %}</span>
+                <span class="flex-1 text-sm">
+                    <span class="block font-semibold">{{ nav_tutorial }}</span>
+                    <span class="text-muted">{{ footer_need_help }}</span>
+                </span>
+                <span class="text-muted transition-transform group-hover:translate-x-0.5 group-hover:text-ink">{% include "partials/icon.html" with name="arrow-right" %}</span>
+            </a>
+        </aside>
+    </div>
+</div>
+{% endblock %}

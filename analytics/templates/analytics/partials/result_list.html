@@ -1,0 +1,36 @@
+{# One results tab panel. tone: signal | azure | sea #}
+<div id="panel-{{ key }}" role="tabpanel" aria-labelledby="tab-{{ key }}" data-panel="{{ key }}" data-name="{{ title }}" {% if not first %}hidden{% endif %}>
+    <div class="flex items-baseline justify-between gap-3 px-4 pb-2 pt-5 sm:px-5">
+        <div>
+            <h2 class="text-lg font-semibold">{{ title }}</h2>
+            <p class="text-[13px] text-muted">{{ subtitle }}</p>
+        </div>
+        <span class="font-mono text-xs text-muted tabular-nums" data-visible-count>{{ rows|length }}</span>
+    </div>
+    {% if rows %}
+    <ul class="max-h-[34rem] overflow-y-auto border-t border-line" data-list>
+        {% for user in rows %}
+        <li class="row" data-username="{{ user.username }}" data-href="{{ user.href }}" data-ts="{% if key == 'fans' %}{{ user.follower_timestamp|default:0 }}{% else %}{{ user.followed_timestamp|default:0 }}{% endif %}" data-date="{% if key == 'fans' %}{{ user.follower_date|default:'' }}{% else %}{{ user.followed_date|default:'' }}{% endif %}">
+            <span class="avatar {% if tone == 'signal' %}bg-signal-soft text-signal-ink{% elif tone == 'azure' %}bg-azure-soft text-azure{% else %}bg-sea-soft text-sea{% endif %}" aria-hidden="true">{{ user.username|slice:":1" }}</span>
+            <div class="min-w-0 flex-1">
+                <a href="{{ user.href }}" target="_blank" rel="noopener noreferrer" class="group inline-flex max-w-full items-center gap-1 font-mono text-[14px] font-medium text-ink hover:text-signal" title="{{ ui_open_profile }}">
+                    <span class="truncate">@{{ user.username }}</span>
+                    <span class="shrink-0 text-faint group-hover:text-signal">{% include "partials/icon.html" with name="arrow-up-right" cls="size-3.5" %}</span>
+                </a>
+                <p class="truncate text-xs text-muted">
+                    {% if key == 'fans' %}{% if user.follower_date %}{{ date_label }} {{ user.follower_date }}{% endif %}
+                    {% else %}{% if user.followed_date %}{{ date_label }} {{ user.followed_date }}{% endif %}{% if date_label_2 and user.follower_date %}<span class="mx-1.5 text-faint">/</span>{{ date_label_2 }} {{ user.follower_date }}{% endif %}{% endif %}
+                </p>
+            </div>
+            <span class="{% if tone == 'signal' %}badge-signal{% elif tone == 'azure' %}badge-azure{% else %}badge-sea{% endif %} hidden sm:inline-flex">{{ badge }}</span>
+        </li>
+        {% endfor %}
+    </ul>
+    {% else %}
+    <div class="border-t border-line px-5 py-14 text-center">
+        <span class="mx-auto grid size-12 place-items-center rounded-full bg-sea-soft text-sea">{% include "partials/icon.html" with name="check" cls="size-6" %}</span>
+        <p class="mt-4 font-semibold">{{ empty_title }}</p>
+        <p class="mt-1 text-sm text-muted">{{ empty_subtitle }}</p>
+    </div>
+    {% endif %}
+</div>

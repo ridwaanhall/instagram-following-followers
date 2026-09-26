@@ -62,11 +62,11 @@ HOME_DATA = {
         'how_it_works_steps': [
             {
                 'title': 'Export Data',
-                'description': 'Download your Instagram data from Settings → Privacy → Download Your Information'
+                'description': 'Download your Instagram data from Settings / Privacy / Download Your Information'
             },
             {
                 'title': 'Upload & Analyze',
-                'description': 'Choose your method and let our tool analyze your data locally in your browser'
+                'description': 'Pick ZIP, JSON files or paste. The file is read in memory on our server and never stored.'
             },
             {
                 'title': 'Get Insights',
@@ -83,7 +83,7 @@ HOME_DATA = {
         'faq': [
             {
                 'question': 'Is my data safe?',
-                'answer': 'Yes! Everything is processed locally in your browser. No data is sent to our servers.',
+                'answer': 'Your file is read in memory on our server, used to build your report, then discarded. Nothing is saved, and there is no login.',
                 'icon': 'M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z'
             },
             {
@@ -170,11 +170,11 @@ HOME_DATA = {
         'how_it_works_steps': [
             {
                 'title': 'Ekspor Data',
-                'description': 'Unduh data Instagram Anda dari Pengaturan → Privasi → Unduh Informasi Anda'
+                'description': 'Unduh data Instagram Anda dari Pengaturan / Privasi / Unduh Informasi Anda'
             },
             {
                 'title': 'Unggah & Analisis',
-                'description': 'Pilih metode Anda dan biarkan alat kami menganalisis data Anda secara lokal di browser'
+                'description': 'Pilih ZIP, file JSON, atau tempel. File dibaca di memori server kami dan tidak pernah disimpan.'
             },
             {
                 'title': 'Dapatkan Wawasan',
@@ -191,7 +191,7 @@ HOME_DATA = {
         'faq': [
             {
                 'question': 'Apakah data saya aman?',
-                'answer': 'Ya! Semuanya diproses secara lokal di browser Anda. Tidak ada data yang dikirim ke server kami.',
+                'answer': 'File Anda dibaca di memori server kami, dipakai untuk membuat laporan, lalu dibuang. Tidak ada yang disimpan dan tidak perlu login.',
                 'icon': 'M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z'
             },
             {
@@ -278,11 +278,11 @@ HOME_DATA = {
         'how_it_works_steps': [
             {
                 'title': '导出数据',
-                'description': '从设置 → 隐私 → 下载您的信息中下载您的Instagram数据'
+                'description': '从设置 / 隐私 / 下载您的信息中下载您的Instagram数据'
             },
             {
                 'title': '上传和分析',
-                'description': '选择您的方法，让我们的工具在您的浏览器中本地分析您的数据'
+                'description': '选择 ZIP、JSON 文件或粘贴。文件在我们服务器的内存中读取，绝不存储。'
             },
             {
                 'title': '获得洞察',
@@ -299,7 +299,7 @@ HOME_DATA = {
         'faq': [
             {
                 'question': '我的数据安全吗？',
-                'answer': '是的！一切都在您的浏览器中本地处理。没有数据发送到我们的服务器。',
+                'answer': '您的文件在我们服务器的内存中读取，用于生成报告后即被丢弃。不保存任何内容，也无需登录。',
                 'icon': 'M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z'
             },
             {
@@ -386,11 +386,11 @@ HOME_DATA = {
         'how_it_works_steps': [
             {
                 'title': 'Exportar Datos',
-                'description': 'Descarga tus datos de Instagram desde Configuración → Privacidad → Descargar Tu Información'
+                'description': 'Descarga tus datos de Instagram desde Configuración / Privacidad / Descargar Tu Información'
             },
             {
                 'title': 'Subir y Analizar',
-                'description': 'Elige tu método y deja que nuestra herramienta analice tus datos localmente en tu navegador'
+                'description': 'Elige ZIP, archivos JSON o pegar. El archivo se lee en la memoria de nuestro servidor y nunca se guarda.'
             },
             {
                 'title': 'Obtener Insights',
@@ -407,7 +407,7 @@ HOME_DATA = {
         'faq': [
             {
                 'question': '¿Están seguros mis datos?',
-                'answer': '¡Sí! Todo se procesa localmente en tu navegador. No se envían datos a nuestros servidores.',
+                'answer': 'Tu archivo se lee en la memoria de nuestro servidor, se usa para crear el informe y se descarta. No se guarda nada y no hay inicio de sesión.',
                 'icon': 'M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z'
             },
             {
@@ -494,11 +494,11 @@ HOME_DATA = {
         'how_it_works_steps': [
             {
                 'title': 'データをエクスポート',
-                'description': '設定 → プライバシー → あなたの情報をダウンロードからInstagramデータをダウンロード'
+                'description': '設定 / プライバシー / あなたの情報をダウンロードからInstagramデータをダウンロード'
             },
             {
                 'title': 'アップロード＆分析',
-                'description': '方法を選択し、ツールがブラウザ内でローカルにデータを分析'
+                'description': 'ZIP、JSONファイル、貼り付けから選択。ファイルはサーバーのメモリ上で読み込まれ、保存されません。'
             },
             {
                 'title': 'インサイトを取得',
@@ -515,7 +515,7 @@ HOME_DATA = {
         'faq': [
             {
                 'question': 'データは安全ですか？',
-                'answer': 'はい！すべてブラウザ内でローカル処理されます。データはサーバーに送信されません。',
+                'answer': 'ファイルはサーバーのメモリ上で読み込まれ、レポート作成後に破棄されます。何も保存されず、ログインも不要です。',
                 'icon': 'M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z'
             },
             {
@@ -602,11 +602,11 @@ HOME_DATA = {
         'how_it_works_steps': [
             {
                 'title': 'Exportar Dados',
-                'description': 'Baixe seus dados do Instagram em Configurações → Privacidade → Baixar Suas Informações'
+                'description': 'Baixe seus dados do Instagram em Configurações / Privacidade / Baixar Suas Informações'
             },
             {
                 'title': 'Upload e Análise',
-                'description': 'Escolha seu método e deixe nossa ferramenta analisar seus dados localmente no seu navegador'
+                'description': 'Escolha ZIP, arquivos JSON ou colar. O arquivo é lido na memória do nosso servidor e nunca é armazenado.'
             },
             {
                 'title': 'Obter Insights',
@@ -623,7 +623,7 @@ HOME_DATA = {
         'faq': [
             {
                 'question': 'Meus dados estão seguros?',
-                'answer': 'Sim! Tudo é processado localmente no seu navegador. Nenhum dado é enviado para nossos servidores.',
+                'answer': 'Seu arquivo é lido na memória do nosso servidor, usado para gerar o relatório e descartado. Nada é salvo e não há login.',
                 'icon': 'M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z'
             },
             {
@@ -710,11 +710,11 @@ HOME_DATA = {
         'how_it_works_steps': [
             {
                 'title': 'Exporter les Données',
-                'description': 'Téléchargez vos données Instagram depuis Paramètres → Confidentialité → Télécharger Vos Informations'
+                'description': 'Téléchargez vos données Instagram depuis Paramètres / Confidentialité / Télécharger Vos Informations'
             },
             {
                 'title': 'Upload et Analyser',
-                'description': 'Choisissez votre méthode et laissez notre outil analyser vos données localement dans votre navigateur'
+                'description': 'Choisissez ZIP, fichiers JSON ou coller. Le fichier est lu en mémoire sur notre serveur et jamais stocké.'
             },
             {
                 'title': 'Obtenir des Insights',
@@ -731,7 +731,7 @@ HOME_DATA = {
         'faq': [
             {
                 'question': 'Mes données sont-elles sécurisées ?',
-                'answer': 'Oui ! Tout est traité localement dans votre navigateur. Aucune donnée n\'est envoyée à nos serveurs.',
+                'answer': "Votre fichier est lu en mémoire sur notre serveur, sert à générer le rapport, puis est supprimé. Rien n'est enregistré et aucune connexion n'est requise.",
                 'icon': 'M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z'
             },
             {

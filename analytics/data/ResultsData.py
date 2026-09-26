@@ -25,7 +25,7 @@ RESULTS_DATA = {
             'not_following_back_badge': 'Not mutual',
             'not_following_back_followed_label': 'Followed on',
             'not_following_back_empty_title': 'Great! Everyone you follow follows you back.',
-            'not_following_back_empty_subtitle': 'You have excellent mutual connections! 🎉',
+            'not_following_back_empty_subtitle': 'You have excellent mutual connections!',
             
             'mutual_follow_title': 'Mutual Follow',
             'mutual_follow_subtitle': 'People who follow you and you follow back',
@@ -40,7 +40,7 @@ RESULTS_DATA = {
             'not_following_back_users_badge': 'Not followed',
             'not_following_back_users_follower_label': 'Follower since',
             'not_following_back_users_empty_title': 'Great! You follow back all your followers.',
-            'not_following_back_users_empty_subtitle': "You're maintaining excellent reciprocal relationships! 🤝",
+            'not_following_back_users_empty_subtitle': "You're maintaining excellent reciprocal relationships!",
             
             # Action buttons
             'analyze_new_data_button': 'Analyze New Data',
@@ -83,7 +83,7 @@ RESULTS_DATA = {
             'not_following_back_badge': 'Tidak saling',
             'not_following_back_followed_label': 'Diikuti pada',
             'not_following_back_empty_title': 'Hebat! Semua orang yang Anda ikuti mengikuti Anda balik.',
-            'not_following_back_empty_subtitle': 'Anda memiliki koneksi saling mengikuti yang sangat baik! 🎉',
+            'not_following_back_empty_subtitle': 'Anda memiliki koneksi saling mengikuti yang sangat baik!',
             
             'mutual_follow_title': 'Saling Mengikuti',
             'mutual_follow_subtitle': 'Orang yang mengikuti Anda dan Anda ikuti balik',
@@ -98,7 +98,7 @@ RESULTS_DATA = {
             'not_following_back_users_badge': 'Tidak diikuti',
             'not_following_back_users_follower_label': 'Pengikut sejak',
             'not_following_back_users_empty_title': 'Hebat! Anda mengikuti balik semua pengikut Anda.',
-            'not_following_back_users_empty_subtitle': 'Anda menjaga hubungan timbal balik yang sangat baik! 🤝',
+            'not_following_back_users_empty_subtitle': 'Anda menjaga hubungan timbal balik yang sangat baik!',
             
             # Action buttons
             'analyze_new_data_button': 'Analisis Data Baru',
@@ -141,7 +141,7 @@ RESULTS_DATA = {
             'not_following_back_badge': '非互相',
             'not_following_back_followed_label': '关注于',
             'not_following_back_empty_title': '太好了！您关注的每个人都关注您回来了。',
-            'not_following_back_empty_subtitle': '您有很好的互相关注连接！🎉',
+            'not_following_back_empty_subtitle': '您有很好的互相关注连接！',
             
             'mutual_follow_title': '互相关注',
             'mutual_follow_subtitle': '关注您且您也关注回来的人',
@@ -156,7 +156,7 @@ RESULTS_DATA = {
             'not_following_back_users_badge': '未关注',
             'not_following_back_users_follower_label': '粉丝时间',
             'not_following_back_users_empty_title': '太好了！您关注回了所有粉丝。',
-            'not_following_back_users_empty_subtitle': '您保持着优秀的相互关系！🤝',
+            'not_following_back_users_empty_subtitle': '您保持着优秀的相互关系！',
             
             # Action buttons
             'analyze_new_data_button': '分析新数据',
@@ -200,7 +200,7 @@ RESULTS_DATA = {
             'not_following_back_badge': 'No Mutuo',
             'not_following_back_followed_label': 'Seguido el',
             'not_following_back_empty_title': '¡Genial! Todos los que sigues te siguen de vuelta.',
-            'not_following_back_empty_subtitle': '¡Tienes excelentes conexiones de seguimiento mutuo! 🎉',
+            'not_following_back_empty_subtitle': '¡Tienes excelentes conexiones de seguimiento mutuo!',
             
             'mutual_follow_title': 'Seguimiento Mutuo',
             'mutual_follow_subtitle': 'Personas que te siguen y que tú también sigues de vuelta',
@@ -215,7 +215,7 @@ RESULTS_DATA = {
             'not_following_back_users_badge': 'No Siguiendo',
             'not_following_back_users_follower_label': 'Seguidor desde',
             'not_following_back_users_empty_title': '¡Genial! Sigues de vuelta a todos tus seguidores.',
-            'not_following_back_users_empty_subtitle': '¡Mantienes excelentes relaciones recíprocas! 🤝',
+            'not_following_back_users_empty_subtitle': '¡Mantienes excelentes relaciones recíprocas!',
             
             # Action buttons
             'analyze_new_data_button': 'Analizar Nuevos Datos',
@@ -259,7 +259,7 @@ RESULTS_DATA = {
             'not_following_back_badge': '非相互',
             'not_following_back_followed_label': 'フォロー開始',
             'not_following_back_empty_title': '素晴らしい！フォローしている全員があなたをフォローバックしています。',
-            'not_following_back_empty_subtitle': '優れた相互フォロー接続があります！🎉',
+            'not_following_back_empty_subtitle': '優れた相互フォロー接続があります！',
             
             'mutual_follow_title': '相互フォロー',
             'mutual_follow_subtitle': 'あなたをフォローし、あなたもフォローバックしている人',
@@ -274,7 +274,7 @@ RESULTS_DATA = {
             'not_following_back_users_badge': '非フォロー',
             'not_following_back_users_follower_label': 'フォロワー開始',
             'not_following_back_users_empty_title': '素晴らしい！すべてのフォロワーをフォローバックしています。',
-            'not_following_back_users_empty_subtitle': '優れた相互関係を維持しています！🤝',
+            'not_following_back_users_empty_subtitle': '優れた相互関係を維持しています！',
             
             # Action buttons
             'analyze_new_data_button': '新しいデータを分析',
@@ -318,7 +318,7 @@ RESULTS_DATA = {
             'not_following_back_badge': 'Não Mútuo',
             'not_following_back_followed_label': 'Seguido em',
             'not_following_back_empty_title': 'Ótimo! Todos que você segue te seguem de volta.',
-            'not_following_back_empty_subtitle': 'Você tem excelentes conexões de seguimento mútuo! 🎉',
+            'not_following_back_empty_subtitle': 'Você tem excelentes conexões de seguimento mútuo!',
             
             'mutual_follow_title': 'Seguimento Mútuo',
             'mutual_follow_subtitle': 'Pessoas que te seguem e você também segue de volta',
@@ -333,7 +333,7 @@ RESULTS_DATA = {
             'not_following_back_users_badge': 'Não Seguindo',
             'not_following_back_users_follower_label': 'Seguidor desde',
             'not_following_back_users_empty_title': 'Ótimo! Você segue de volta todos os seus seguidores.',
-            'not_following_back_users_empty_subtitle': 'Você mantém excelentes relacionamentos recíprocos! 🤝',
+            'not_following_back_users_empty_subtitle': 'Você mantém excelentes relacionamentos recíprocos!',
             
             # Action buttons
             'analyze_new_data_button': 'Analisar Novos Dados',
@@ -377,7 +377,7 @@ RESULTS_DATA = {
             'not_following_back_badge': 'Non Mutuel',
             'not_following_back_followed_label': 'Suivi le',
             'not_following_back_empty_title': 'Génial ! Tous ceux que vous suivez vous suivent en retour.',
-            'not_following_back_empty_subtitle': 'Vous avez d\'excellentes connexions mutuelles ! 🎉',
+            'not_following_back_empty_subtitle': 'Vous avez d\'excellentes connexions mutuelles !',
             
             'mutual_follow_title': 'Suivi Mutuel',
             'mutual_follow_subtitle': 'Personnes qui vous suivent et que vous suivez aussi en retour',
@@ -392,7 +392,7 @@ RESULTS_DATA = {
             'not_following_back_users_badge': 'Non Suivi',
             'not_following_back_users_follower_label': 'Abonné depuis',
             'not_following_back_users_empty_title': 'Génial ! Vous suivez en retour tous vos abonnés.',
-            'not_following_back_users_empty_subtitle': 'Vous maintenez d\'excellentes relations réciproques ! 🤝',
+            'not_following_back_users_empty_subtitle': 'Vous maintenez d\'excellentes relations réciproques !',
             
             # Action buttons
             'analyze_new_data_button': 'Analyser Nouvelles Données',

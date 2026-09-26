@@ -1,4 +1,7 @@
 import json
+from urllib.parse import urlparse
+
+INSTAGRAM_HOSTS = {'instagram.com', 'www.instagram.com', 'm.instagram.com'}
 
 class InstagramAnalytics:
     def __init__(self, following_file, followers_file):
@@ -8,7 +11,7 @@ class InstagramAnalytics:
         self.followers_set = self.extract_usernames(self.followers, "followers")
 
     def load_json(self, file_path):
-        with open(file_path, 'r') as file:
+        with open(file_path, 'r', encoding='utf-8') as file:
             return json.load(file)
 
     def extract_usernames(self, data, key):
@@ -44,17 +47,17 @@ class InstagramAnalytics:
         if 'title' in item and item['title']:
             return item['title']
         
-        # Fallback: try to extract username from href URL
+        # Fallback: take the username from the profile URL. The host is compared
+        # exactly, so a look-alike such as evil.com/instagram.com/x is rejected.
         if 'href' in user:
-            href = user['href']
-            # Handle both old format (instagram.com/username) and new format (instagram.com/_u/username)
-            if '_u/' in href:
-                # New format: https://www.instagram.com/_u/username - extract just the username
-                return href.split('_u/')[-1]
-            elif 'instagram.com/' in href:
-                # Old format: https://www.instagram.com/username
-                return href.split('instagram.com/')[-1]
-        
+            parsed = urlparse(user['href'])
+            if parsed.scheme in ('http', 'https') and (parsed.hostname or '').lower() in INSTAGRAM_HOSTS:
+                parts = [p for p in parsed.path.split('/') if p]
+                if parts and parts[0] == '_u':
+                    parts = parts[1:]
+                if parts:
+                    return parts[0]
+
         return None
 
     def count_following(self):

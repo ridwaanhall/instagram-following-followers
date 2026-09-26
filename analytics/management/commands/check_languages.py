@@ -77,7 +77,7 @@ class Command(BaseCommand):
             request.META['HTTP_ACCEPT_LANGUAGE'] = accept_lang
             
             detected = detect_language_from_browser_header(request)
-            status = "✓" if detected else "✗"
+            status = "OK " if detected else "-- "
             result = detected or "None (fallback to default)"
             
             self.stdout.write(f"{status} {accept_lang:<30} -> {result:<10} ({description})")
@@ -88,22 +88,20 @@ class Command(BaseCommand):
         self.stdout.write('-' * 40)
         self.stdout.write(f"Accept-Language: {accept_language}")
         
-        # Simulate request-like parsing
-        from analytics.middleware import AutoLanguageDetectionMiddleware
-        middleware = AutoLanguageDetectionMiddleware()
-        languages = middleware._parse_accept_language(accept_language)
-        
+        from analytics.utils import BROWSER_LANGUAGE_MAP, parse_accept_language
+
+        languages = parse_accept_language(accept_language)
         self.stdout.write("Parsed languages (by preference):")
-        for lang, quality in languages:
-            self.stdout.write(f"  {lang} (q={quality})")
-        
-        # Test mapping
-        for lang, quality in languages:
-            if lang.lower() in middleware.LANGUAGE_MAP:
-                mapped = middleware.LANGUAGE_MAP[lang.lower()]
-                supported = is_supported_language(mapped)
-                status = "✓ Supported" if supported else "✗ Not supported"
-                self.stdout.write(f"  {lang} → {mapped} ({status})")
+        for lang in languages:
+            self.stdout.write(f"  {lang}")
+
+        for lang in languages:
+            for candidate in (lang, lang.split('-')[0]):
+                mapped = BROWSER_LANGUAGE_MAP.get(candidate)
+                if mapped:
+                    status = "Supported" if is_supported_language(mapped) else "Not supported"
+                    self.stdout.write(f"  {lang} -> {mapped} ({status})")
+                    break
 
     def _check_data_completeness(self):
         """Check if all supported languages have complete data"""
@@ -123,15 +121,15 @@ class Command(BaseCommand):
                     # Convert Django language codes to our data keys
                     data_key = self._get_data_key(lang_code)
                     if data_key in data_dict:
-                        self.stdout.write(f"  ✓ {lang_code} ({data_key})")
+                        self.stdout.write(f"  OK {lang_code} ({data_key})")
                     else:
-                        self.stdout.write(self.style.ERROR(f"  ✗ {lang_code} ({data_key}) - Missing"))
+                        self.stdout.write(self.style.ERROR(f"  MISSING {lang_code} ({data_key}) - Missing"))
                 else:
                     data_key = self._get_data_key(lang_code)
                     if data_key in data_dict:
-                        self.stdout.write(f"  ✓ {lang_code} ({data_key})")
+                        self.stdout.write(f"  OK {lang_code} ({data_key})")
                     else:
-                        self.stdout.write(self.style.ERROR(f"  ✗ {lang_code} ({data_key}) - Missing"))
+                        self.stdout.write(self.style.ERROR(f"  MISSING {lang_code} ({data_key}) - Missing"))
 
     def _get_data_key(self, django_lang_code):
         """Convert Django language code to our data key format"""

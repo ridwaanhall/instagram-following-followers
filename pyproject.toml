@@ -1,0 +1,16 @@
+[project]
+name = "igstats"
+version = "2.0.0"
+description = "Free Instagram followers and following analyzer. Reads your own data export; stores nothing."
+readme = "README.md"
+license = "MIT"
+authors = [{ name = "Ridwan Halim", email = "hi@ridwaanhall.com" }]
+requires-python = ">=3.12"
+dependencies = [
+    "django>=6.1.1",
+    "python-decouple>=3.8",
+    "whitenoise>=6.12.0",
+]
+
+[tool.uv]
+package = false

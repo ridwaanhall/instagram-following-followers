@@ -54,8 +54,8 @@ Example:
         
         # Validation
         'validation_waiting': 'JSON validation: Waiting for input',
-        'validation_valid': 'JSON validation: Valid JSON format ✓',
-        'validation_invalid': 'JSON validation: Invalid JSON format ✗',
+        'validation_valid': 'JSON validation: Valid JSON format',
+        'validation_invalid': 'JSON validation: Invalid JSON format',
         
         # Submit button
         'submit_button': 'Analyze JSON Data',
@@ -126,8 +126,8 @@ Contoh:
         
         # Validation
         'validation_waiting': 'Validasi JSON: Menunggu input',
-        'validation_valid': 'Validasi JSON: Format JSON valid ✓',
-        'validation_invalid': 'Validasi JSON: Format JSON tidak valid ✗',
+        'validation_valid': 'Validasi JSON: Format JSON valid',
+        'validation_invalid': 'Validasi JSON: Format JSON tidak valid',
         
         # Submit button
         'submit_button': 'Analisis Data JSON',
@@ -198,8 +198,8 @@ followers_1.json: [{"string_list_data": [...]}]'''
         
         # Validation
         'validation_waiting': 'JSON验证：等待输入',
-        'validation_valid': 'JSON验证：有效的JSON格式 ✓',
-        'validation_invalid': 'JSON验证：无效的JSON格式 ✗',
+        'validation_valid': 'JSON验证：有效的JSON格式',
+        'validation_invalid': 'JSON验证：无效的JSON格式',
         
         # Submit button
         'submit_button': '分析JSON数据',
@@ -270,8 +270,8 @@ Ejemplo:
         
         # Validation
         'validation_waiting': 'Validación JSON: Esperando entrada',
-        'validation_valid': 'Validación JSON: Formato JSON válido ✓',
-        'validation_invalid': 'Validación JSON: Formato JSON inválido ✗',
+        'validation_valid': 'Validación JSON: Formato JSON válido',
+        'validation_invalid': 'Validación JSON: Formato JSON inválido',
         
         # Submit button
         'submit_button': 'Analizar Datos JSON',
@@ -342,8 +342,8 @@ followers_1.json: [{"string_list_data": [...]}]'''
         
         # Validation
         'validation_waiting': 'JSON検証: 入力待機中',
-        'validation_valid': 'JSON検証: 有効なJSON形式 ✓',
-        'validation_invalid': 'JSON検証: 無効なJSON形式 ✗',
+        'validation_valid': 'JSON検証: 有効なJSON形式',
+        'validation_invalid': 'JSON検証: 無効なJSON形式',
         
         # Submit button
         'submit_button': 'JSONデータを分析',
@@ -414,8 +414,8 @@ Exemplo:
         
         # Validation
         'validation_waiting': 'Validação JSON: Aguardando entrada',
-        'validation_valid': 'Validação JSON: Formato JSON válido ✓',
-        'validation_invalid': 'Validação JSON: Formato JSON inválido ✗',
+        'validation_valid': 'Validação JSON: Formato JSON válido',
+        'validation_invalid': 'Validação JSON: Formato JSON inválido',
         
         # Submit button
         'submit_button': 'Analisar Dados JSON',
@@ -486,8 +486,8 @@ Exemple:
         
         # Validation
         'validation_waiting': 'Validation JSON : En attente de saisie',
-        'validation_valid': 'Validation JSON : Format JSON valide ✓',
-        'validation_invalid': 'Validation JSON : Format JSON invalide ✗',
+        'validation_valid': 'Validation JSON : Format JSON valide',
+        'validation_invalid': 'Validation JSON : Format JSON invalide',
         
         # Submit button
         'submit_button': 'Analyser Données JSON',

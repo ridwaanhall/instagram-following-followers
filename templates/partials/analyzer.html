@@ -1,0 +1,90 @@
+{# Three-tab analyzer. Needs az/af/at (see utils.get_analyzer_data); `active` picks the open tab. #}
+{% with active=active|default:"zip" %}
+<div class="card p-2 sm:p-3" data-tabs {% if links %}data-tabs-links{% endif %}>
+    <div class="tablist" role="tablist" aria-label="{{ ui_analyze }}">
+        <a href="{% url 'zip_upload' %}" class="tab" role="tab" id="tab-zip" aria-controls="panel-zip" aria-selected="{% if active == 'zip' %}true{% else %}false{% endif %}" {% if active != 'zip' %}tabindex="-1"{% endif %} data-tab="zip">
+            <span class="hidden xs:inline">{% include "partials/icon.html" with name="zip" %}</span>{{ nav_zip_upload }}
+        </a>
+        <a href="{% url 'upload_file' %}" class="tab" role="tab" id="tab-files" aria-controls="panel-files" aria-selected="{% if active == 'files' %}true{% else %}false{% endif %}" {% if active != 'files' %}tabindex="-1"{% endif %} data-tab="files">
+            <span class="hidden xs:inline">{% include "partials/icon.html" with name="files" %}</span>{{ nav_upload_files }}
+        </a>
+        <a href="{% url 'text_input' %}" class="tab" role="tab" id="tab-text" aria-controls="panel-text" aria-selected="{% if active == 'text' %}true{% else %}false{% endif %}" {% if active != 'text' %}tabindex="-1"{% endif %} data-tab="text">
+            <span class="hidden xs:inline">{% include "partials/icon.html" with name="paste" %}</span>{{ nav_text_input }}
+        </a>
+    </div>
+
+    {% if form.errors %}
+    <div class="alert-error mx-2 mt-3" role="alert">
+        <span class="mt-0.5 text-signal">{% include "partials/icon.html" with name="alert" %}</span>
+        <ul class="flex-1 space-y-1">{% for field, errors in form.errors.items %}{% for error in errors %}<li>{{ error }}</li>{% endfor %}{% endfor %}</ul>
+    </div>
+    {% endif %}
+
+    {# ZIP #}
+    <form id="panel-zip" role="tabpanel" aria-labelledby="tab-zip" data-panel="zip" {% if active != 'zip' %}hidden{% endif %}
+          action="{% url 'zip_upload' %}" method="post" enctype="multipart/form-data" class="space-y-4 p-2 pt-4 sm:p-3 sm:pt-5" data-analyze-form>
+        {% csrf_token %}
+        <label class="dropzone" data-dropzone>
+            <input type="file" name="zip_file" accept=".zip,application/zip" required data-file-input>
+            <span class="grid size-11 place-items-center rounded-full border border-line bg-surface text-ink" data-drop-icon>{% include "partials/icon.html" with name="upload" cls="size-5" %}</span>
+            <span class="text-sm" data-drop-label><strong class="font-semibold text-ink">{{ ui_choose_file }}</strong> <span class="text-muted">{{ ui_drop_hint }}</span></span>
+            <span class="font-mono text-xs text-muted" data-drop-name>.zip</span>
+        </label>
+        <p class="hint">{{ az.zip_file_description }}</p>
+        {% include "partials/analyze_submit.html" with label=az.submit_button %}
+    </form>
+
+    {# JSON files #}
+    <form id="panel-files" role="tabpanel" aria-labelledby="tab-files" data-panel="files" {% if active != 'files' %}hidden{% endif %}
+          action="{% url 'upload_file' %}" method="post" enctype="multipart/form-data" class="space-y-4 p-2 pt-4 sm:p-3 sm:pt-5" data-analyze-form>
+        {% csrf_token %}
+        <div class="grid gap-3 sm:grid-cols-2">
+            <div>
+                <p class="label">{{ af.following_file_label }}</p>
+                <label class="dropzone min-h-32" data-dropzone>
+                    <input type="file" name="following_file" accept=".json,.txt,application/json" required data-file-input>
+                    <span class="text-ink" data-drop-icon>{% include "partials/icon.html" with name="file" cls="size-5" %}</span>
+                    <span class="text-sm" data-drop-label><strong class="font-semibold text-ink">{{ ui_choose_file }}</strong></span>
+                    <span class="font-mono text-xs text-muted" data-drop-name>following.json</span>
+                </label>
+            </div>
+            <div>
+                <p class="label">{{ af.followers_file_label }}</p>
+                <label class="dropzone min-h-32" data-dropzone>
+                    <input type="file" name="followers_file" accept=".json,.txt,application/json" required data-file-input>
+                    <span class="text-ink" data-drop-icon>{% include "partials/icon.html" with name="file" cls="size-5" %}</span>
+                    <span class="text-sm" data-drop-label><strong class="font-semibold text-ink">{{ ui_choose_file }}</strong></span>
+                    <span class="font-mono text-xs text-muted" data-drop-name>followers_1.json</span>
+                </label>
+            </div>
+        </div>
+        <p class="hint">{{ af.header_description }}</p>
+        {% include "partials/analyze_submit.html" with label=af.submit_button %}
+    </form>
+
+    {# Paste #}
+    <form id="panel-text" role="tabpanel" aria-labelledby="tab-text" data-panel="text" {% if active != 'text' %}hidden{% endif %}
+          action="{% url 'text_input' %}" method="post" class="space-y-4 p-2 pt-4 sm:p-3 sm:pt-5" data-analyze-form>
+        {% csrf_token %}
+        <div class="grid gap-4 {% if wide %}lg:grid-cols-2{% endif %}">
+            <div>
+                <label class="label" for="following_text">{{ at.following_label }}</label>
+                <textarea id="following_text" name="following_text" class="textarea" rows="6" required spellcheck="false" placeholder="{{ at.following_placeholder }}" data-json-input aria-describedby="following_text_status">{{ form.following_text.value|default_if_none:'' }}</textarea>
+                <p id="following_text_status" class="mt-1.5 flex items-center gap-1.5 text-xs text-muted" data-json-status aria-live="polite"
+                   data-waiting="{{ at.validation_waiting }}" data-valid="{{ at.validation_valid }}" data-invalid="{{ at.validation_invalid }}">
+                    <span class="size-1.5 rounded-full bg-faint" data-dot></span><span data-text>{{ at.validation_waiting }}</span>
+                </p>
+            </div>
+            <div>
+                <label class="label" for="followers_text">{{ at.followers_label }}</label>
+                <textarea id="followers_text" name="followers_text" class="textarea" rows="6" required spellcheck="false" placeholder="{{ at.followers_placeholder }}" data-json-input aria-describedby="followers_text_status">{{ form.followers_text.value|default_if_none:'' }}</textarea>
+                <p id="followers_text_status" class="mt-1.5 flex items-center gap-1.5 text-xs text-muted" data-json-status aria-live="polite"
+                   data-waiting="{{ at.validation_waiting }}" data-valid="{{ at.validation_valid }}" data-invalid="{{ at.validation_invalid }}">
+                    <span class="size-1.5 rounded-full bg-faint" data-dot></span><span data-text>{{ at.validation_waiting }}</span>
+                </p>
+            </div>
+        </div>
+        {% include "partials/analyze_submit.html" with label=at.submit_button %}
+    </form>
+</div>
+{% endwith %}

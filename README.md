@@ -1,101 +1,92 @@
-# Instagram Analytics
+# igstats
 
-This project provides a Python script to analyze Instagram followers and following data. The script calculates various analytics such as the count of followers, following, mutual followers, and lists of users who don't follow back or are not followed back.
+See who doesn't follow you back on Instagram, without giving anyone your password.
 
-## Features
+igstats reads the data export Instagram already lets you download and returns
+three lists: people you follow who don't follow you back, followers you don't
+follow back, and mutuals, plus follow ratios and 30-day activity. Live at
+[igstats.rone.dev](https://igstats.rone.dev).
 
-- Count of users you are following
-- Count of users following you
-- Count of mutual followers
-- Count of users you follow but who don't follow you back
-- Count of users who follow you but you don't follow back
-- List of users you follow but who don't follow you back
-- List of users who follow you but you don't follow back
-- List of mutual followers
+- **No login.** It never touches your Instagram account.
+- **Nothing stored.** Uploads are parsed in memory and discarded when the
+  response is sent. There are no database models. See [/privacy](https://igstats.rone.dev/privacy/).
+- **Three ways in.** Upload the export ZIP, upload the two JSON files, or paste the JSON.
+- **Works with the list.** Search, sort, copy usernames, or export any list as CSV.
+- **Seven languages.** English, Bahasa Indonesia, 中文, Español, 日本語, Português, Français.
+- **Light and dark**, responsive down to 360 px, prints cleanly.
 
-## Requirements
+## Get your data from Instagram
 
-- Python 3.x
+1. Instagram > profile > menu > **Accounts Center**.
+2. **Your information and permissions** > **Download your information**.
+3. **Download or transfer information** > pick your account > **Some of your information**.
+4. Under **Connections**, tick **Followers and following**.
+5. **Download to device**, date range **All time**, format **JSON**, then **Create files**.
+6. When Instagram emails you, download the ZIP and drop it into igstats.
 
-## Tutorial to Get JSON Data of Following and Followers
+The ZIP contains `connections/followers_and_following/following.json` and
+`followers_1.json`; igstats finds them wherever they sit in the archive.
 
-1. Go to your Instagram profile.
-2. Click the top-right icon with three horizontal lines.
-3. Click "Account Center".
-4. In account settings, select "Your Information and Permissions".
-5. Click "Download Your Information".
-6. Click "Download or Transfer Information".
-7. Select your account.
-8. Select "Some of your information".
-9. In the "Connections" section, select "Followers and Following".
-10. Download to your device.
-11. Set the date range to "All time" and format to "JSON".
-12. Click the "Create Files" button.
-13. After a few minutes, navigate to "Download Your Information".
-14. After downloading, extract the files and copy the `following.json` and `followers_1.json` files to the same folder as `instagram_analytics.py`. Ensure the JSON files match the format used in the script.
+## Run it locally
 
-## Installation
+Requires [uv](https://docs.astral.sh/uv/) and Python 3.12+. Node is only needed
+if you change styles.
 
-1. Clone the repository:
-
-    ```sh
-    git clone https://github.com/ridwaanhall/instagram-following-followers.git
-    cd instagram-following-followers
-    cd python_scripts
-    ```
-
-2. Ensure you have the required JSON files (`following.json` and `followers_1.json`) in the project directory.
-
-## Usage
-
-1. Run the script:
-
-    ```sh
-    python instagram_analytics.py
-    ```
-
-2. The script will print the analytics to the console.
-
-## Example JSON Files
-
-### following.json
-
-```json
-{
-  "relationships_following": [
-    {
-      "title": "",
-      "media_list_data": [],
-      "string_list_data": [
-        {
-          "href": "https://www.instagram.com/jhon.doe",
-          "value": "jhon.doe",
-          "timestamp": 17XXX
-        }
-      ]
-    }
-  ]
-}
+```bash
+git clone https://github.com/ridwaanhall/instagram-following-followers.git
+cd instagram-following-followers
+uv sync
+echo "SECRET_KEY=dev-only-change-me" > .env
+DEBUG=True uv run python manage.py runserver
 ```
 
-### followers_1.json
+Open http://localhost:8000.
 
-```json
-[
-  {
-    "title": "",
-    "media_list_data": [],
-    "string_list_data": [
-      {
-        "href": "https://www.instagram.com/jhon.doe",
-        "value": "jhon.doe",
-        "timestamp": 17XXX
-      }
-    ]
-  }
-]
+### Styles
+
+The UI is Tailwind CSS v4, compiled into the committed `staticfiles/css/global.css`.
+Fonts are self-hosted from `@fontsource-variable` packages.
+
+```bash
+npm install
+npm run build   # fonts + minified CSS
+npm run watch   # rebuild CSS on change
 ```
+
+### Tests
+
+```bash
+SECRET_KEY=test uv run python manage.py test
+```
+
+## Project layout
+
+| Path | What |
+| --- | --- |
+| `analytics/analysis.py` | Pure parsing and analysis of the export (no Django) |
+| `analytics/views.py` | Page views and the three input methods |
+| `analytics/data/*.py` | All interface copy, per language |
+| `analytics/templates/`, `templates/` | Django templates; shared partials in `templates/partials/` |
+| `assets/css/app.css` | Design tokens and components (source for `global.css`) |
+| `staticfiles/js/app.js` | Theme, menu, tabs, dropzones, results tools |
+| `python_scripts/instagram_analytics.py` | Stand-alone CLI version, no Django |
+| `docs/DESIGN.md` | Design brief, palette, type, components |
+
+## Command-line script
+
+`python_scripts/instagram_analytics.py` prints the same analysis in a terminal.
+Put `following.json` and `followers_1.json` next to it and run:
+
+```bash
+cd python_scripts
+python instagram_analytics.py
+```
+
+## Deploy
+
+Deployed on Vercel with `vercel.json`. Dependencies come from `pyproject.toml`
+and `uv.lock`. Set `SECRET_KEY` in the project environment; leave `DEBUG` unset.
 
 ## License
 
-This project is licensed under the [MIT License](LICENSE).
+[MIT](LICENSE)

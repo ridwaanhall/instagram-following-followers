@@ -10,6 +10,7 @@ from .TextInputData import TEXT_INPUT_DATA
 from .TutorialData import TUTORIAL_DATA
 from .ResultsData import RESULTS_DATA
 from .BaseData import BASE_DATA
+from .UiData import UI_DATA
 
 __all__ = [
     'HOME_DATA',
@@ -17,6 +18,7 @@ __all__ = [
     'ZIP_UPLOAD_DATA',
     'TEXT_INPUT_DATA',
     'TUTORIAL_DATA',
-    'get_results_data',
-    'BASE_DATA'
+    'RESULTS_DATA',
+    'BASE_DATA',
+    'UI_DATA',
 ]

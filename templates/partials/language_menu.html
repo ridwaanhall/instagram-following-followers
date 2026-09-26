@@ -1,0 +1,10 @@
+<form action="{% url 'set_language' %}" method="post" class="{{ panel_cls }}">
+    {% csrf_token %}
+    <input type="hidden" name="next" value="{{ request.get_full_path }}">
+    {% for lang in language_choices %}
+    <button type="submit" name="language" value="{{ lang.code }}" class="dropdown-item {% if lang.active %}font-semibold{% endif %}" lang="{{ lang.code }}" {% if lang.active %}aria-current="true"{% endif %}>
+        <span>{{ lang.name }}</span>
+        {% if lang.active %}<span class="text-signal">{% include "partials/icon.html" with name="check" %}</span>{% endif %}
+    </button>
+    {% endfor %}
+</form>

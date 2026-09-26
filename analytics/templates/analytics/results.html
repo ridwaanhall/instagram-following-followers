@@ -1,318 +1,134 @@
 {% extends 'base.html' %}
+{% load l10n %}
 
 {% block title %}{{ page_title }}{% endblock %}
-{% block description %}{{ page_description }}{% endblock %}
+{% block meta_description %}{{ page_description }}{% endblock %}
+{% block meta_robots %}noindex, nofollow{% endblock %}
 
 {% block content %}
-<div class="min-h-screen bg-gradient-to-br from-emerald-50 via-teal-50 to-blue-50">
-    <div class="container mx-auto px-4 py-8 sm:py-12">
-        <!-- Hero Section -->
-        <div class="text-center mb-8 sm:mb-12">
-            <div class="inline-flex items-center justify-center w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-green-600 to-emerald-500 rounded-full mb-4 sm:mb-6 shadow-xl animate-bounce">
-                <svg class="w-8 h-8 sm:w-10 sm:h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
-                </svg>
-            </div>
-            <h1 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-3 sm:mb-4 leading-tight px-2">
-                {{ header_title }}
-            </h1>
-            <p class="text-base sm:text-lg lg:text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed px-4">
-                {{ header_subtitle }}
-            </p>
+<div class="container-page py-10 sm:py-14">
+    {# Header #}
+    <div class="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
+        <div class="max-w-2xl">
+            <p class="eyebrow"><span class="eyebrow-dot"></span>{{ site_name }}</p>
+            <h1 class="mt-4 text-4xl font-bold sm:text-5xl">{{ header_title }}</h1>
+            <p class="mt-3 text-[17px] text-muted">{{ header_subtitle }}</p>
         </div>
-
-        <!-- Statistics Cards -->
-        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 lg:grid-cols-5 xl:grid-cols-5 gap-3 sm:gap-4 mb-8 sm:mb-12">
-            <!-- Following Count -->
-            <div class="bg-white/90 backdrop-blur-sm rounded-xl shadow-lg border border-gray-100 p-3 sm:p-4 text-center transform hover:scale-105 transition-all duration-300">
-                <div class="inline-flex items-center justify-center w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-br from-blue-100 to-blue-200 rounded-lg mb-2 shadow-md">
-                    <svg class="w-4 h-4 sm:w-5 sm:h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197m13.5-9a2.5 2.5 0 11-5 0 2.5 2.5 0 015 0z"/>
-                    </svg>
-                </div>
-                <p class="text-lg sm:text-xl font-bold text-gray-900 mb-1">{{ count_following_count }}</p>
-                <p class="text-xs font-semibold text-blue-600">{{ stats_following_label }}</p>
-            </div>
-
-            <!-- Followers Count -->
-            <div class="bg-white/90 backdrop-blur-sm rounded-xl shadow-lg border border-gray-100 p-3 sm:p-4 text-center transform hover:scale-105 transition-all duration-300">
-                <div class="inline-flex items-center justify-center w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-br from-green-100 to-green-200 rounded-lg mb-2 shadow-md">
-                    <svg class="w-4 h-4 sm:w-5 sm:h-5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
-                    </svg>
-                </div>
-                <p class="text-lg sm:text-xl font-bold text-gray-900 mb-1">{{ count_followers_count }}</p>
-                <p class="text-xs font-semibold text-green-600">{{ stats_followers_label }}</p>
-            </div>
-
-            <!-- Mutual Follow -->
-            <div class="bg-white/90 backdrop-blur-sm rounded-xl shadow-lg border border-gray-100 p-3 sm:p-4 text-center transform hover:scale-105 transition-all duration-300">
-                <div class="inline-flex items-center justify-center w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-br from-purple-100 to-purple-200 rounded-lg mb-2 shadow-md">
-                    <svg class="w-4 h-4 sm:w-5 sm:h-5 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
-                    </svg>
-                </div>
-                <p class="text-lg sm:text-xl font-bold text-gray-900 mb-1">{{ count_mutual_follow }}</p>
-                <p class="text-xs font-semibold text-purple-600">{{ stats_mutual_label }}</p>
-            </div>
-
-            <!-- Not Following Back -->
-            <div class="bg-white/90 backdrop-blur-sm rounded-xl shadow-lg border border-gray-100 p-3 sm:p-4 text-center transform hover:scale-105 transition-all duration-300">
-                <div class="inline-flex items-center justify-center w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-br from-red-100 to-red-200 rounded-lg mb-2 shadow-md">
-                    <svg class="w-4 h-4 sm:w-5 sm:h-5 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M13 7a4 4 0 11-8 0 4 4 0 018 0zM9 14a6 6 0 00-6 6v1h12v-1a6 6 0 00-6-6zM21 12h-6"/>
-                    </svg>
-                </div>
-                <p class="text-lg sm:text-xl font-bold text-gray-900 mb-1">{{ count_non_follow_back }}</p>
-                <p class="text-xs font-semibold text-red-600">{{ stats_not_mutual_label }}</p>
-            </div>
-
-            <!-- You Don't Follow Back -->
-            <div class="bg-white/90 backdrop-blur-sm rounded-xl shadow-lg border border-gray-100 p-3 sm:p-4 text-center transform hover:scale-105 transition-all duration-300">
-                <div class="inline-flex items-center justify-center w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-br from-orange-100 to-orange-200 rounded-lg mb-2 shadow-md">
-                    <svg class="w-4 h-4 sm:w-5 sm:h-5 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z"/>
-                    </svg>
-                </div>
-                <p class="text-lg sm:text-xl font-bold text-gray-900 mb-1">{{ count_not_following_back }}</p>
-                <p class="text-xs font-semibold text-orange-600">{{ stats_not_following_label }}</p>
-            </div>
-        </div>
-
-        <!-- Detailed Lists -->
-        <div class="space-y-6 lg:space-y-0 lg:grid lg:grid-cols-3 gap-3 sm:gap-4 lg:gap-6">
-            <!-- Not Following Back List -->
-            <div class="bg-white/90 backdrop-blur-sm rounded-2xl shadow-xl border border-gray-100 overflow-hidden">
-                <div class="bg-gradient-to-r from-red-600 to-red-500 px-4 sm:px-6 py-4 sm:py-5">
-                    <h2 class="text-lg sm:text-xl font-semibold text-white flex items-center">
-                        <svg class="w-5 h-5 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M13 7a4 4 0 11-8 0 4 4 0 018 0zM9 14a6 6 0 00-6 6v1h12v-1a6 6 0 00-6-6zM21 12h-6"/>
-                        </svg>
-                        <span class="truncate">{{ not_following_back_title }}</span>
-                    </h2>
-                    <p class="text-red-100 text-xs sm:text-sm mt-1">{{ not_following_back_subtitle }}</p>
-                </div>
-                <div class="p-4 sm:p-6">
-                    {% if list_non_follow_back %}
-                        <div class="max-h-80 sm:max-h-96 overflow-y-auto space-y-2 sm:space-y-3">
-                            {% for user in list_non_follow_back %}
-                                <div class="flex items-center justify-between p-3 sm:p-4 bg-red-50 rounded-xl border border-red-100 hover:bg-red-100 transition-colors duration-200">
-                                    <div class="flex items-center min-w-0 flex-1">
-                                        <div class="w-8 h-8 sm:w-10 sm:h-10 bg-red-200 rounded-full flex items-center justify-center mr-3 flex-shrink-0">
-                                            <svg class="w-4 h-4 sm:w-5 sm:h-5 text-red-600" fill="currentColor" viewBox="0 0 20 20">
-                                                <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"/>
-                                            </svg>
-                                        </div>
-                                        <div class="min-w-0 flex-1">
-                                            <a href="{{ user.href }}" target="_blank" class="text-gray-900 font-medium text-sm sm:text-base truncate hover:text-red-600 transition-colors">{{ user.username }}</a>
-                                            <p class="text-xs text-gray-500 mt-1">{{ not_following_back_followed_label }} {{ user.followed_date }}</p>
-                                        </div>
-                                    </div>
-                                    <span class="text-xs text-red-600 bg-red-100 px-2 py-1 rounded-full font-medium flex-shrink-0 ml-2">{{ not_following_back_badge }}</span>
-                                </div>
-                            {% endfor %}
-                        </div>
-                    {% else %}
-                        <div class="text-center py-8 sm:py-12">
-                            <svg class="mx-auto h-12 w-12 sm:h-16 sm:w-16 text-gray-400 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                            </svg>
-                            <p class="text-gray-600 font-medium text-sm sm:text-base">{{ not_following_back_empty_title }}</p>
-                            <p class="text-gray-500 text-xs sm:text-sm mt-2">{{ not_following_back_empty_subtitle }}</p>
-                        </div>
-                    {% endif %}
-                </div>
-            </div>
-
-            <!-- Mutual Follow List -->
-            <div class="bg-white/90 backdrop-blur-sm rounded-2xl shadow-xl border border-gray-100 overflow-hidden">
-                <div class="bg-gradient-to-r from-purple-600 to-purple-500 px-4 sm:px-6 py-4 sm:py-5">
-                    <h2 class="text-lg sm:text-xl font-semibold text-white flex items-center">
-                        <svg class="w-5 h-5 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
-                        </svg>
-                        <span class="truncate">{{ mutual_follow_title }}</span>
-                    </h2>
-                    <p class="text-purple-100 text-xs sm:text-sm mt-1">{{ mutual_follow_subtitle }}</p>
-                </div>
-                <div class="p-4 sm:p-6">
-                    {% if list_mutual_follow %}
-                        <div class="max-h-80 sm:max-h-96 overflow-y-auto space-y-2 sm:space-y-3">
-                            {% for user in list_mutual_follow %}
-                                <div class="flex items-center justify-between p-3 sm:p-4 bg-purple-50 rounded-xl border border-purple-100 hover:bg-purple-100 transition-colors duration-200">
-                                    <div class="flex items-center min-w-0 flex-1">
-                                        <div class="w-8 h-8 sm:w-10 sm:h-10 bg-purple-200 rounded-full flex items-center justify-center mr-3 flex-shrink-0">
-                                            <svg class="w-4 h-4 sm:w-5 sm:h-5 text-purple-600" fill="currentColor" viewBox="0 0 20 20">
-                                                <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"/>
-                                            </svg>
-                                        </div>
-                                        <div class="min-w-0 flex-1">
-                                            <a href="{{ user.href }}" target="_blank" class="text-gray-900 font-medium text-sm sm:text-base truncate hover:text-purple-600 transition-colors">{{ user.username }}</a>
-                                            <p class="text-xs text-gray-500 mt-1">
-                                                {% if user.followed_date != "Unknown" %}{{ mutual_follow_followed_label }} {{ user.followed_date }}{% endif %}
-                                                {% if user.followed_date != "Unknown" and user.follower_date != "Unknown" %} • {% endif %}
-                                                {% if user.follower_date != "Unknown" %}{{ mutual_follow_follower_label }} {{ user.follower_date }}{% endif %}
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <span class="text-xs text-purple-600 bg-purple-100 px-2 py-1 rounded-full font-medium flex-shrink-0 ml-2">{{ mutual_follow_badge }}</span>
-                                </div>
-                            {% endfor %}
-                        </div>
-                    {% else %}
-                        <div class="text-center py-8 sm:py-12">
-                            <svg class="mx-auto h-12 w-12 sm:h-16 sm:w-16 text-gray-400 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                            </svg>
-                            <p class="text-gray-600 font-medium text-sm sm:text-base">{{ mutual_follow_empty_title }}</p>
-                            <p class="text-gray-500 text-xs sm:text-sm mt-2">{{ mutual_follow_empty_subtitle }}</p>
-                        </div>
-                    {% endif %}
-                </div>
-            </div>
-
-            <!-- Your Followers You Don't Follow Back -->
-            <div class="bg-white/90 backdrop-blur-sm rounded-2xl shadow-xl border border-gray-100 overflow-hidden">
-                <div class="bg-gradient-to-r from-orange-600 to-orange-500 px-4 sm:px-6 py-4 sm:py-5">
-                    <h2 class="text-lg sm:text-xl font-semibold text-white flex items-center">
-                        <svg class="w-5 h-5 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z"/>
-                        </svg>
-                        <span class="truncate">{{ not_following_back_users_title }}</span>
-                    </h2>
-                    <p class="text-orange-100 text-xs sm:text-sm mt-1">{{ not_following_back_users_subtitle }}</p>
-                </div>
-                <div class="p-4 sm:p-6">
-                    {% if list_not_following_back %}
-                        <div class="max-h-80 sm:max-h-96 overflow-y-auto space-y-2 sm:space-y-3">
-                            {% for user in list_not_following_back %}
-                                <div class="flex items-center justify-between p-3 sm:p-4 bg-orange-50 rounded-xl border border-orange-100 hover:bg-orange-100 transition-colors duration-200">
-                                    <div class="flex items-center min-w-0 flex-1">
-                                        <div class="w-8 h-8 sm:w-10 sm:h-10 bg-orange-200 rounded-full flex items-center justify-center mr-3 flex-shrink-0">
-                                            <svg class="w-4 h-4 sm:w-5 sm:h-5 text-orange-600" fill="currentColor" viewBox="0 0 20 20">
-                                                <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"/>
-                                            </svg>
-                                        </div>
-                                        <div class="min-w-0 flex-1">
-                                            <a href="{{ user.href }}" target="_blank" class="text-gray-900 font-medium text-sm sm:text-base truncate hover:text-orange-600 transition-colors">{{ user.username }}</a>
-                                            <p class="text-xs text-gray-500 mt-1">{{ not_following_back_users_follower_label }} {{ user.follower_date }}</p>
-                                        </div>
-                                    </div>
-                                    <span class="text-xs text-orange-600 bg-orange-100 px-2 py-1 rounded-full font-medium flex-shrink-0 ml-2">{{ not_following_back_users_badge }}</span>
-                                </div>
-                            {% endfor %}
-                        </div>
-                    {% else %}
-                        <div class="text-center py-8 sm:py-12">
-                            <svg class="mx-auto h-12 w-12 sm:h-16 sm:w-16 text-gray-400 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                            </svg>
-                            <p class="text-gray-600 font-medium text-sm sm:text-base">{{ not_following_back_users_empty_title }}</p>
-                            <p class="text-gray-500 text-xs sm:text-sm mt-2">{{ not_following_back_users_empty_subtitle }}</p>
-                        </div>
-                    {% endif %}
-                </div>
-            </div>
-        </div>
-
-        <!-- Action Buttons -->
-        <div class="mt-8 sm:mt-12 flex flex-col sm:flex-row gap-4 sm:gap-6 max-w-lg mx-auto">
-            <a href="{% url 'upload_file' %}" class="flex-1 inline-flex items-center justify-center px-6 py-4 bg-gradient-to-r from-purple-600 to-pink-500 text-white font-semibold rounded-xl hover:from-purple-700 hover:to-pink-600 transition-all duration-200 shadow-lg hover:shadow-xl transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2">
-                <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/>
-                </svg>
-                {{ analyze_new_data_button }}
-            </a>
-            <button onclick="window.print()" class="flex-1 inline-flex items-center justify-center px-6 py-4 bg-white text-gray-700 font-semibold rounded-xl border-2 border-gray-300 hover:bg-gray-50 hover:border-gray-400 transition-all duration-200 shadow-lg hover:shadow-xl transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 no-print">
-                <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"/>
-                </svg>
-                {{ print_report_button }}
-            </button>
-        </div>
-
-        <!-- Recent Activity Insights -->
-        <div class="mt-8 sm:mt-12 bg-gradient-to-br from-blue-100 via-indigo-50 to-purple-100 rounded-2xl p-6 sm:p-8 border border-blue-200 shadow-xl">
-            <div class="text-center mb-6">
-                <div class="inline-flex items-center justify-center w-12 h-12 bg-gradient-to-br from-blue-600 to-indigo-600 rounded-full mb-4 shadow-lg">
-                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                    </svg>
-                </div>
-                <h3 class="text-lg sm:text-xl font-bold text-gray-900 mb-2">{{ recent_activity_title }}</h3>
-                <p class="text-gray-600 text-sm">{{ recent_activity_subtitle }}</p>
-            </div>
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div class="bg-white/60 backdrop-blur-sm rounded-xl p-4 border border-white/40">
-                    <div class="flex items-center justify-center">
-                        <svg class="w-6 h-6 text-blue-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197m13.5-9a2.5 2.5 0 11-5 0 2.5 2.5 0 015 0z"/>
-                        </svg>
-                        <div>
-                            <p class="text-2xl font-bold text-blue-600">{{ recent_follows_count }}</p>
-                            <p class="text-sm text-gray-600 font-medium">{{ recent_activity_new_follows }}</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="bg-white/60 backdrop-blur-sm rounded-xl p-4 border border-white/40">
-                    <div class="flex items-center justify-center">
-                        <svg class="w-6 h-6 text-green-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
-                        </svg>
-                        <div>
-                            <p class="text-2xl font-bold text-green-600">{{ recent_followers_count }}</p>
-                            <p class="text-sm text-gray-600 font-medium">{{ recent_activity_new_followers }}</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Summary Insights -->
-        <div class="mt-8 sm:mt-12 bg-gradient-to-br from-indigo-100 via-purple-50 to-pink-100 rounded-2xl p-6 sm:p-8 border border-indigo-200 shadow-xl">
-            <div class="text-center">
-                <div class="inline-flex items-center justify-center w-12 h-12 bg-gradient-to-br from-indigo-600 to-purple-600 rounded-full mb-4 shadow-lg">
-                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
-                    </svg>
-                </div>
-                <h3 class="text-lg sm:text-xl font-bold text-gray-900 mb-2">{{ analysis_summary_title }}</h3>
-                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 text-center">
-                    <div class="bg-white/60 backdrop-blur-sm rounded-xl p-4 border border-white/40">
-                        <p class="text-2xl font-bold text-indigo-600">{{ mutual_rate }}%</p>
-                        <p class="text-sm text-gray-600 font-medium">{{ mutual_rate_label }}</p>
-                        <p class="text-xs text-gray-500 mt-1">{{ mutual_rate_description }}</p>
-                    </div>
-                    <div class="bg-white/60 backdrop-blur-sm rounded-xl p-4 border border-white/40">
-                        <p class="text-2xl font-bold text-purple-600">{{ follow_back_rate }}%</p>
-                        <p class="text-sm text-gray-600 font-medium">{{ follow_back_rate_label }}</p>
-                        <p class="text-xs text-gray-500 mt-1">{{ follow_back_rate_description }}</p>
-                    </div>
-                    <div class="bg-white/60 backdrop-blur-sm rounded-xl p-4 border border-white/40">
-                        <p class="text-2xl font-bold text-pink-600">{{ follow_ratio }}</p>
-                        <p class="text-sm text-gray-600 font-medium">{{ follow_ratio_label }}</p>
-                        <p class="text-xs text-gray-500 mt-1">{{ follow_ratio_description }}</p>
-                    </div>
-                </div>
-            </div>
+        <div class="no-print flex flex-wrap gap-2">
+            <a href="{% url 'zip_upload' %}" class="btn-secondary">{% include "partials/icon.html" with name="refresh" %}{{ analyze_new_data_button }}</a>
+            <button type="button" class="btn-ghost" data-print>{% include "partials/icon.html" with name="printer" %}{{ print_report_button }}</button>
         </div>
     </div>
-</div>
-{% endblock %}
+    <p class="no-print mt-6 inline-flex items-start gap-2 rounded-lg bg-sunken px-3 py-2 text-[13px] text-muted">
+        <span class="mt-0.5">{% include "partials/icon.html" with name="info" cls="size-3.5" %}</span>{{ ui_report_note }}
+    </p>
 
-{% block extra_foot %}
-<style>
-    @media print {
-        .no-print { display: none !important; }
-        body { background: white !important; }
-        .bg-gradient-to-r, .bg-gradient-to-br { background: #6366f1 !important; }
-        .backdrop-blur-sm { backdrop-filter: none !important; }
-        .bg-white\/90 { background: white !important; }
-        .shadow-xl { box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1) !important; }
-    }
-    
-    @media (max-width: 640px) {
-        .container { padding-left: 1rem; padding-right: 1rem; }
-    }
-</style>
+    {# Stats #}
+    <section class="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-5" aria-label="{{ analysis_summary_title }}">
+        <div class="stat">
+            <p class="stat-label"><span class="stat-swatch bg-ink"></span>{{ stats_following_label }}</p>
+            <p class="stat-value">{{ count_following_count }}</p>
+        </div>
+        <div class="stat">
+            <p class="stat-label"><span class="stat-swatch bg-muted"></span>{{ stats_followers_label }}</p>
+            <p class="stat-value">{{ count_followers_count }}</p>
+        </div>
+        <div class="stat">
+            <p class="stat-label"><span class="stat-swatch bg-sea"></span>{{ stats_mutual_label }}</p>
+            <p class="stat-value">{{ count_mutual_follow }}</p>
+        </div>
+        <div class="stat border-signal/50">
+            <p class="stat-label"><span class="stat-swatch bg-signal"></span>{{ not_following_back_title }}</p>
+            <p class="stat-value text-signal-ink">{{ count_non_follow_back }}</p>
+        </div>
+        <div class="stat col-span-2 sm:col-span-1">
+            <p class="stat-label"><span class="stat-swatch bg-azure"></span>{{ not_following_back_users_title }}</p>
+            <p class="stat-value">{{ count_not_following_back }}</p>
+        </div>
+    </section>
+
+    {# Ratios + recent #}
+    <section class="mt-3 grid gap-3 lg:grid-cols-[2fr_1fr]">
+        <div class="card-flat grid gap-6 p-5 sm:grid-cols-3 sm:p-6">
+            <div>
+                <p class="text-[13px] font-medium text-muted">{{ mutual_rate_label }}</p>
+                <p class="mt-1 font-mono text-2xl font-semibold tabular-nums">{{ mutual_rate }}<span class="text-base text-muted">%</span></p>
+                <div class="meter mt-3"><span class="bg-sea" style="width: {{ mutual_rate|unlocalize }}%"></span></div>
+                <p class="mt-2 text-xs text-muted">{{ mutual_rate_description }}</p>
+            </div>
+            <div>
+                <p class="text-[13px] font-medium text-muted">{{ follow_back_rate_label }}</p>
+                <p class="mt-1 font-mono text-2xl font-semibold tabular-nums">{{ follow_back_rate }}<span class="text-base text-muted">%</span></p>
+                <div class="meter mt-3"><span class="bg-azure" style="width: {{ follow_back_rate|unlocalize }}%"></span></div>
+                <p class="mt-2 text-xs text-muted">{{ follow_back_rate_description }}</p>
+            </div>
+            <div>
+                <p class="text-[13px] font-medium text-muted">{{ follow_ratio_label }}</p>
+                <p class="mt-1 font-mono text-2xl font-semibold tabular-nums">{{ follow_ratio }}<span class="text-base text-muted">&times;</span></p>
+                <div class="meter mt-3"><span class="bg-ink" style="width: {% widthratio follow_ratio 2 100 %}%; max-width: 100%"></span></div>
+                <p class="mt-2 text-xs text-muted">{{ follow_ratio_description }}</p>
+            </div>
+        </div>
+        <div class="card-flat p-5 sm:p-6">
+            <p class="flex items-center gap-2 text-[13px] font-medium text-muted">{% include "partials/icon.html" with name="clock" cls="size-3.5" %}{{ recent_activity_title }}</p>
+            <dl class="mt-4 grid grid-cols-2 gap-4">
+                <div>
+                    <dt class="text-xs text-muted">{{ recent_activity_new_follows }}</dt>
+                    <dd class="mt-1 font-mono text-2xl font-semibold tabular-nums">+{{ recent_follows_count }}</dd>
+                </div>
+                <div>
+                    <dt class="text-xs text-muted">{{ recent_activity_new_followers }}</dt>
+                    <dd class="mt-1 font-mono text-2xl font-semibold tabular-nums">+{{ recent_followers_count }}</dd>
+                </div>
+            </dl>
+        </div>
+    </section>
+
+    {# Lists #}
+    <section class="card mt-8 overflow-hidden" data-tabs data-results>
+        <div class="border-b border-line p-2 sm:p-3">
+            <div class="tablist flex-col sm:flex-row" role="tablist">
+                <button type="button" class="tab justify-start px-3 sm:justify-center" role="tab" id="tab-nfb" aria-controls="panel-nfb" aria-selected="true" data-tab="nfb">
+                    <span class="stat-swatch bg-signal"></span>{{ not_following_back_title }}<span class="tab-count ml-auto sm:ml-0">{{ count_non_follow_back }}</span>
+                </button>
+                <button type="button" class="tab justify-start px-3 sm:justify-center" role="tab" id="tab-fans" aria-controls="panel-fans" aria-selected="false" tabindex="-1" data-tab="fans">
+                    <span class="stat-swatch bg-azure"></span>{{ not_following_back_users_title }}<span class="tab-count ml-auto sm:ml-0">{{ count_not_following_back }}</span>
+                </button>
+                <button type="button" class="tab justify-start px-3 sm:justify-center" role="tab" id="tab-mutual" aria-controls="panel-mutual" aria-selected="false" tabindex="-1" data-tab="mutual">
+                    <span class="stat-swatch bg-sea"></span>{{ mutual_follow_title }}<span class="tab-count ml-auto sm:ml-0">{{ count_mutual_follow }}</span>
+                </button>
+            </div>
+        </div>
+
+        <div class="no-print flex flex-col gap-2 border-b border-line bg-paper/40 p-3 sm:flex-row sm:items-center sm:px-5">
+            <label class="relative flex-1">
+                <span class="sr-only">{{ ui_search }}</span>
+                <span class="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-faint">{% include "partials/icon.html" with name="search" %}</span>
+                <input type="search" class="input pl-9" placeholder="{{ ui_search }}" autocomplete="off" data-search>
+            </label>
+            <div class="flex gap-2">
+                <label class="relative flex-1 sm:flex-none">
+                    <select class="select sm:w-44" data-sort aria-label="Sort">
+                        <option value="newest">{{ ui_sort_newest }}</option>
+                        <option value="oldest">{{ ui_sort_oldest }}</option>
+                        <option value="az">{{ ui_sort_az }}</option>
+                    </select>
+                    <span class="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-muted">{% include "partials/icon.html" with name="chevron-down" %}</span>
+                </label>
+                <button type="button" class="btn-secondary px-3" data-copy data-copied-label="{{ ui_copied }}" title="{{ ui_copy }}" aria-label="{{ ui_copy }}">
+                    <span data-copy-icon>{% include "partials/icon.html" with name="copy" %}</span><span class="hidden md:inline" data-copy-text>{{ ui_copy }}</span>
+                </button>
+                <button type="button" class="btn-secondary px-3" data-export title="{{ ui_export }}" aria-label="{{ ui_export }}">
+                    {% include "partials/icon.html" with name="download" %}<span class="hidden md:inline">{{ ui_export }}</span>
+                </button>
+            </div>
+        </div>
+
+        {% include "analytics/partials/result_list.html" with key="nfb" tone="signal" rows=list_non_follow_back title=not_following_back_title subtitle=not_following_back_subtitle badge=not_following_back_badge date_label=not_following_back_followed_label empty_title=not_following_back_empty_title empty_subtitle=not_following_back_empty_subtitle first=True %}
+        {% include "analytics/partials/result_list.html" with key="fans" tone="azure" rows=list_not_following_back title=not_following_back_users_title subtitle=not_following_back_users_subtitle badge=not_following_back_users_badge date_label=not_following_back_users_follower_label empty_title=not_following_back_users_empty_title empty_subtitle=not_following_back_users_empty_subtitle %}
+        {% include "analytics/partials/result_list.html" with key="mutual" tone="sea" rows=list_mutual_follow title=mutual_follow_title subtitle=mutual_follow_subtitle badge=mutual_follow_badge date_label=mutual_follow_followed_label date_label_2=mutual_follow_follower_label empty_title=mutual_follow_empty_title empty_subtitle=mutual_follow_empty_subtitle %}
+
+        <p class="hidden border-t border-line px-5 py-10 text-center text-sm text-muted" data-no-match>{{ ui_no_match }}</p>
+    </section>
+</div>
 {% endblock %}
